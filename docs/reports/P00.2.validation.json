@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "part": "P00.2",
-  "executed_at": "2026-11-03T14:04:16+04:00",
-  "passed": 13,
+  "executed_at": "2026-11-03T14:15:17+04:00",
+  "passed": 14,
   "failed": 0,
   "checks": [
     {
       "name": "required_files",
       "status": "PASS",
-      "detail": "21 required files exist"
+      "detail": "23 required files exist"
     },
     {
       "name": "source_integrity",
@@ -26,9 +26,14 @@
       "detail": "P00.2: authorization and approval gate consistent"
     },
     {
+      "name": "test_evidence",
+      "status": "PASS",
+      "detail": "Evidence paths exist inside repo and PASS claims match stored results; no freshness guarantee"
+    },
+    {
       "name": "current_scope",
       "status": "PASS",
-      "detail": "P00.2 contains no Unity project, Android installation or game modules"
+      "detail": "P00.2 gate closed; no game directories; scope flags are declarations, not an OS installation audit"
     },
     {
       "name": "agent_policy",

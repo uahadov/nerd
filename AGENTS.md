@@ -37,6 +37,8 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
   kritik sistem parametrləri, deployment və mağaza yayımı ayrıca açıq icazə tələb edir.
 - Başqa layihəyə toxunma. Git tarixini sıfırlama, force-push etmə,
   mövcud məlumatları silmə. Uzaq repo tarixçəsi varsa əvvəl oxu və uzlaşdır.
+- Mövcud GitHub origin-ə push qadağandır; onun private olması bu qadağanı avtomatik qaldırmır.
+  Gələcək uzaq nüsxə yalnız private repository və ayrıca açıq push icazəsi ilə mümkündür.
 - Token/parol/şəxsi cihaz ID-si saxlama və göstərmə. Yalnız bu repo üçün
   Git müəllifini qur; qlobal konfiqurasiyanı dəyişmə.
 
@@ -52,7 +54,7 @@ Plan → minimal icra → real test → düzəliş → təkrar yoxlama → hesab
   Yoxlayıcının sınaqları: `python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v`.
 - Status, progress, qərar, hesabat, test sübutu və CHANGELOG uyğun olsun.
   [Hesabat şablonundan](docs/reports/TEMPLATE.md) istifadə et.
-- Cari iş bitəndə status **AWAITING_HUMAN_APPROVAL** qalır, insan təsdiqi boş olur,
+- Cari iş bitəndə status **AWAITING_HUMAN_APPROVAL** qalır, `current_part_human_approved` false olur,
   `next_part_authorized` false olur. Avtomatik testin uğuru insan təsdiqi deyil.
 - Cari partın qəbulu növbəti partın başlanmasına icazə demək deyil.
   İnsan həm qəbulu, həm növbəti işə icazəni açıq bildirməlidir.
@@ -63,5 +65,7 @@ Plan → minimal icra → real test → düzəliş → təkrar yoxlama → hesab
 `git status --short --branch` və `git log -5 --oneline` oxu; yarımçıq işi silmə.
 STATE → PROGRESS → cari hesabat → mənbələr üzrə konteksti bərpa et.
 `open_items` və `resume_instruction` nə etmək lazım olduğunu göstərir.
-Gözləmə statusunda yalnız hesabatı təqdim et və insan rəyini gözlə.
+Gözləmə statusunda insan rəyini gözlə. İnsan eyni part üçün audit/düzəliş istəyərsə
+yalnız həmin işi icra et; bu, yeni part icazəsi deyil. Son göstəriş statusun
+AWAITING_HUMAN_APPROVAL qalmasını tələb edirsə audit zamanı da onu dəyişmə.
 İnsan düzəliş istəyibsə yalnız həmin cari partı düzəlt.

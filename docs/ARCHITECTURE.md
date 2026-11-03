@@ -38,6 +38,11 @@ Kompozisiya nöqtəsi adapterləri birləşdirəcək; modullar bir-birini qlobal
 | Economy/purchases/gifts | Bir kosmetik balans, ledger, inventar, receipt/refund və transfer | Server təsdiqi, idempotent tranzaksiya; mərc və pay-to-win yoxdur | P07.7–P07.8 |
 | Operations/observability | Minimal məxfi olmayan log, backup/restore, health və yük ölçmə | Lokal POC əvvəl; VPS, port və canlı sistem üçün ayrıca razılıq | P05.1, P05.6, P08 |
 
+Cədvəldəki sətirlər məntiqi məsuliyyətlərdir; hər sətir üçün ayrıca assembly,
+paket, layihə və ya xidmət yaratmaq tələbi deyil. Əvvəl konkret part üçün ən kiçik
+modul qurulur. Adapter/interface yalnız real sərhəddə lazım olduqda əlavə edilir;
+gələcək ehtiyac adı ilə ümumi framework və ya boş abstraksiya yazılmır.
+
 ## Müqavilələr və məlumatın sahibi
 
 - Qayda state-i ilə UI view-state ayrı saxlanacaq. Orientation yalnız görünüşü dəyişir.

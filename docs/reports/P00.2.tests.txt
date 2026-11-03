@@ -1,6 +1,11 @@
 Command: python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
+Executed at: 2026-11-03T14:15:05+04:00
 test_asset_without_rights_rejected (test_foundation.FoundationTests.test_asset_without_rights_rejected) ... ok
 test_changed_source_rejected (test_foundation.FoundationTests.test_changed_source_rejected) ... ok
+test_coordinated_next_part_change_rejected (test_foundation.FoundationTests.test_coordinated_next_part_change_rejected) ... ok
+test_empty_scope_rejected (test_foundation.FoundationTests.test_empty_scope_rejected) ... ok
+test_failed_test_log_with_pass_claim_rejected (test_foundation.FoundationTests.test_failed_test_log_with_pass_claim_rejected) ... ok
+test_false_evidence_reference_rejected (test_foundation.FoundationTests.test_false_evidence_reference_rejected) ... ok
 test_forced_tracked_secret_path_rejected (test_foundation.FoundationTests.test_forced_tracked_secret_path_rejected) ... ok
 test_future_human_approval_rejected (test_foundation.FoundationTests.test_future_human_approval_rejected) ... ok
 test_large_file_rejected (test_foundation.FoundationTests.test_large_file_rejected) ... ok
@@ -9,10 +14,13 @@ test_missing_rejection_rejected (test_foundation.FoundationTests.test_missing_re
 test_missing_secret_ignore_rejected (test_foundation.FoundationTests.test_missing_secret_ignore_rejected) ... ok
 test_missing_state_cli_returns_failure (test_foundation.FoundationTests.test_missing_state_cli_returns_failure) ... ok
 test_next_part_authorization_rejected (test_foundation.FoundationTests.test_next_part_authorization_rejected) ... ok
+test_numeric_scope_boolean_rejected (test_foundation.FoundationTests.test_numeric_scope_boolean_rejected) ... ok
 test_overbroad_ignore_rejected (test_foundation.FoundationTests.test_overbroad_ignore_rejected) ... ok
 test_path_escape_rejected (test_foundation.FoundationTests.test_path_escape_rejected) ... ok
+test_private_visibility_is_not_push_permission (test_foundation.FoundationTests.test_private_visibility_is_not_push_permission) ... ok
 test_progress_drift_rejected (test_foundation.FoundationTests.test_progress_drift_rejected) ... ok
 test_public_push_record_rejected (test_foundation.FoundationTests.test_public_push_record_rejected) ... ok
+test_push_authorization_bypass_rejected (test_foundation.FoundationTests.test_push_authorization_bypass_rejected) ... ok
 test_reworded_decision_rejected (test_foundation.FoundationTests.test_reworded_decision_rejected) ... ok
 test_secret_pattern_rejected (test_foundation.FoundationTests.test_secret_pattern_rejected) ... ok
 test_self_approval_rejected (test_foundation.FoundationTests.test_self_approval_rejected) ... ok
@@ -25,7 +33,7 @@ test_valid_foundation_passes_from_different_path (test_foundation.FoundationTest
 test_wrong_authorization_rejected (test_foundation.FoundationTests.test_wrong_authorization_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 24 tests in 6.600s
+Ran 31 tests in 10.532s
 
 OK
 

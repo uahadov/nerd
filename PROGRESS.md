@@ -12,6 +12,8 @@
 P00.1 istifadəçinin 2026-11-03 tarixli açıq mesajı ilə qəbul edilib.
 P00.2 üçün repo, agent müqaviləsi, inventarlar, modul sərhədləri və yoxlama sistemi hazırlanıb.
 Faktiki testlər, Git/remote vəziyyəti və açıq məsələlər [cari hesabatdadır](docs/reports/P00.2.md).
+P00.2 yekun auditi üçün açıq icazə var; cari hissənin qəbulu yoxdur.
+Mövcud origin-ə push qadağandır; gələcək remote yalnız private və ayrıca icazə ilədir.
 Unity layihəsi və oyun kodu yoxdur; Android alətləri quraşdırılmayıb.
 
 Agent dəyişdikdə AGENTS → STATE → bu fayl → cari hesabat → mənbələr sırası ilə oxu.

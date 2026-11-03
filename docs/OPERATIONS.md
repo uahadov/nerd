@@ -12,7 +12,10 @@ Cari status AWAITING_HUMAN_APPROVAL olduqda agent özünü təsdiqləyə bilməz
 Master Planın WAITING_FOR_HUMAN_REVIEW adı üçün yalnız bu alias istifadə olunur.
 
 `authorization` başlanmağa icazənin kimdən və hansı açıq sözlə gəldiyini saxlayır.
-`human_approvals` yalnız faktiki qəbul edilmiş partları göstərir; cari part daxil edilmir.
+`human_approvals` yalnız faktiki qəbul edilmiş partları göstərir; təsdiqlənməmiş cari part daxil edilmir.
+Cari partın qəbulu gəlsə onun qeydi və uyğun boolean/status yenilənir; bu, növbəti partı açmır.
+Hazırkı validator yalnız P00.2-nin təsdiq gözləyən snapshot-unu yoxlayır; gələcək insan
+qəbulu/status dəyişikliyi zamanı müvafiq yoxlama sərhədi də açıq icazəyə uyğun yenilənməlidir.
 `current_part_human_approved` və `next_part_authorized` ayrı bool sahələrdir.
 Qəbul və növbəti iş icazəsi hər ikisi insanın açıq sözünə söykənməlidir.
 Növbəti icazə gələndə əvvəl cari qəbulu tarix və dəqiq sitatla əlavə et,
@@ -32,8 +35,10 @@ Söhbət identifikatoru və ya xüsusi agent yaddaşı məcburi deyil.
 
 Mövcud repo varsa init/reset/force əməliyyatı ilə əvəz etmə. Lokal müəllif konfiqurasiyası istifadə olunur.
 Yeni uzaq ünvan istifadəçi tərəfindən verilməlidir. Fetch əvvəl, history yoxlaması sonra;
-remote-də tarixçə varsa əvvəl uzlaşdır, üzərinə yazma. Push yalnız görünüş private kimi
-yoxlanandan və məzmun secret/cache baxımından yoxlanandan sonra, force olmadan edilir.
+remote-də tarixçə varsa əvvəl uzlaşdır, üzərinə yazma. **Hazırkı origin-ə push qadağandır.**
+`repository.push_authorized` false qalır; private görünüş avtomatik icazə yaratmır.
+Gələcək push üçün ayrıca açıq insan icazəsi, private görünüş yoxlaması
+və məzmun baxışı lazımdır. İcazəli push yalnız görünüş private kimi yoxlanandan və məzmun secret/cache baxımından yoxlanandan sonra, force olmadan edilir.
 Push-un nəticəsini real commit SHA ilə yoxla. Push uğuru insan qəbulu deyil.
 Qəbul tag-ı insan təsdiqindən sonra; P00.2 hələ qəbul edilməyib.
 İlk commitdə müəllif e-poçtu Git metadata-sına daxil olur; token heç vaxt daxil olmur.

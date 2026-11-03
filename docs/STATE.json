@@ -61,7 +61,8 @@
     "remote_visibility": "PUBLIC",
     "sync_status": "DEFERRED_PUBLIC_REMOTE",
     "local_foundation_completed": true,
-    "private_remote_backup_completed": false
+    "private_remote_backup_completed": false,
+    "push_authorized": false
   },
   "open_items": [
     {
@@ -74,8 +75,15 @@
       "id": "GIT-PRIVATE",
       "status": "WAITING_FOR_HUMAN",
       "impact": "Uzaq repository public-dir; məzmun göndərilməyib. Lokal təməl yoxlanıla bilər, private uzaq nüsxə tamam deyil.",
-      "next_action": "İstifadəçi repository-ni private etdikdən sonra görünüşü yenidən yoxla və yalnız uyğun icazə çərçivəsində push et."
+      "next_action": "Mövcud origin-ə push etmə. Gələcək private repository və ayrıca açıq push icazəsi verilənədək yalnız lokal saxla."
     }
   ],
-  "resume_instruction": "P00.2 üçün insan rəyini gözlə. P00.3-ə başlama. İstifadəçi GitHub repository-ni sonra private edəcək; hazırkı public origin-ə push etmə."
+  "resume_instruction": "P00.2 yekun auditindən sonra insan rəyini gözlə; status AWAITING_HUMAN_APPROVAL qalsın. P00.3-ə başlama. Mövcud origin-ə push qadağandır; private olmaq avtomatik push icazəsi deyil.",
+  "audit_authorization": {
+    "part": "P00.2",
+    "date": "2026-11-03",
+    "by": "human",
+    "quote": "İndi yalnız P00.2-nin yekun auditini apar.",
+    "preserve_status": "AWAITING_HUMAN_APPROVAL"
+  }
 }

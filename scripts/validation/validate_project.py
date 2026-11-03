@@ -22,7 +22,8 @@ REQUIRED = [
     'docs/ARCHITECTURE.md', 'docs/OPERATIONS.md', 'docs/TEST_MATRIX.md',
     'docs/ASSET_MANIFEST.csv', 'docs/reports/TEMPLATE.md', 'docs/reports/P00.1.md',
     'docs/reports/P00.2.md', 'scripts/validation/validate_project.py',
-    'scripts/validation/test_foundation.py',
+    'scripts/validation/test_foundation.py', 'docs/reports/P00.2.validation.json',
+    'docs/reports/P00.2.tests.txt',
 ]
 ASSET_COLUMNS = ['asset_id', 'path', 'source', 'creator', 'license', 'license_evidence',
                  'modifications', 'approved_part', 'status']
@@ -84,7 +85,7 @@ def validate(root):
         try:
             detail = action() or 'OK'
             checks.append({'name': name, 'status': 'PASS', 'detail': detail})
-        except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError) as exc:
+        except (ValueError, KeyError, TypeError, IndexError, AttributeError, OSError, subprocess.SubprocessError) as exc:
             checks.append({'name': name, 'status': 'FAIL', 'detail': str(exc)})
 
     def required():
@@ -149,6 +150,8 @@ def validate(root):
                                'AWAITING_HUMAN_APPROVAL', 'REWORK_REQUIRED', 'HUMAN_APPROVED'], 'Unknown status')
         if s['status'] == 'AWAITING_HUMAN_APPROVAL':
             require(not s['current_part_human_approved'] and not s['next_part_authorized'], 'Approval gate bypass')
+        require(set(s['checks']) == {'validation', 'validator_tests', 'unity_build', 'visual_device',
+                                     'validation_evidence', 'tests_evidence'}, 'Incomplete check ledger')
         for name, value in s['checks'].items():
             if not name.endswith('_evidence'):
                 require(value in ['PASS', 'FAIL', 'BLOCKED', 'NOT_RUN'], f'Invalid check status: {name}')
@@ -159,14 +162,39 @@ def validate(root):
         return f'{active}: authorization and approval gate consistent'
     check('state_contract', state_contract)
 
+    def evidence():
+        s = state(root)
+        paths = {}
+        for key in ['validation_evidence', 'tests_evidence']:
+            target = (root / s['checks'][key]).resolve()
+            require(target.is_relative_to(root) and target.is_file(), f'Missing/unsafe evidence: {key}')
+            paths[key] = target
+        if s['checks']['validation'] == 'PASS':
+            report = json.loads(paths['validation_evidence'].read_text(encoding='utf-8'))
+            checks = report['checks']
+            require(report['part'] == s['active_part'] and bool(checks), 'Evidence part/check list mismatch')
+            require(report['failed'] == 0 and report['passed'] == len(checks)
+                    and all(c['status'] == 'PASS' for c in checks), 'Validation PASS lacks passing evidence')
+        if s['checks']['validator_tests'] == 'PASS':
+            log = paths['tests_evidence'].read_text(encoding='utf-8')
+            require(re.search(r'^Ran [1-9][0-9]* tests? in ', log, re.M) is not None
+                    and '\nOK\n' in log and log.rstrip().endswith('Exit code: 0'),
+                    'Test PASS lacks successful run evidence')
+        return 'Evidence paths exist inside repo and PASS claims match stored results; no freshness guarantee'
+    check('test_evidence', evidence)
+
     def scope():
         s = state(root)
-        if s['active_part'] == 'P00.2':
-            require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P00.2 must await human approval')
-            require(s['last_human_approved_part'] == 'P00.1', 'P00.1 acceptance missing')
-            require(not any(s['scope'].values()), 'P00.2 scope flags claim unauthorized work')
-            require(not any((root / p).exists() for p in ['unity', 'nakama', 'art']), 'Premature game directories')
-        return 'P00.2 contains no Unity project, Android installation or game modules'
+        # This reviewed foundation is authorized only for P00.2. Changing STATE
+        # and PROGRESS together must not silently authorize a later part.
+        require(s['active_part'] == 'P00.2', 'Only P00.2 is authorized for this foundation')
+        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P00.2 must await human approval')
+        require(s['last_human_approved_part'] == 'P00.1', 'P00.1 acceptance missing')
+        expected = {'unity_project_created', 'android_tools_installed', 'game_modules_implemented'}
+        require(set(s['scope']) == expected, 'Scope fields missing or unexpected')
+        require(all(value is False for value in s['scope'].values()), 'Scope flags must be explicit false booleans')
+        require(not any((root / p).exists() for p in ['unity', 'nakama', 'art']), 'Premature game directories')
+        return 'P00.2 gate closed; no game directories; scope flags are declarations, not an OS installation audit'
     check('current_scope', scope)
 
     def policy():
@@ -273,10 +301,9 @@ def validate(root):
         repo = state(root)['repository']
         r = git(root, 'remote', 'get-url', 'origin')
         require(r.returncode == 0 and r.stdout.strip() == repo['remote_url'], 'Remote ledger mismatch')
-        if repo['sync_status'] == 'PUSHED':
-            require(repo['remote_visibility'] == 'PRIVATE', 'Push recorded for non-private/unverified remote')
-        else:
-            require(repo['sync_status'] in ['NOT_PUSHED', 'DEFERRED_PUBLIC_REMOTE'], 'Unknown sync state')
+        require(repo['push_authorized'] is False, 'Current human instruction forbids push')
+        require(repo['sync_status'] in ['NOT_PUSHED', 'DEFERRED_PUBLIC_REMOTE'],
+                'Push recorded despite explicit no-push instruction')
         return f"Remote {repo['remote_visibility']}; sync {repo['sync_status']}"
     check('remote_safety', remote_safety)
 

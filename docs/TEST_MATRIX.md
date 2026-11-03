@@ -16,6 +16,7 @@ python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 | Məcburi fayllar və işlək lokal Markdown istinadları | Validator JSON; orijinal mənbələrdəki gələcək nümunə yolları tələb edilmir |
 | .gitignore secret/cache qorunması, source/asset fayllarının qorunması | Real git check-ignore probe; fayl yaratmadan |
 | Candidate/index fayllarında böyük fayl və tanınan secret nümunələri | Validator JSON; məhdud statik yoxlama |
+| Saxlanan test sübutları | STATE istinadları repo daxilində mövcuddur; PASS iddiaları JSON/log nəticələri ilə uyğunlaşır. Bu yoxlama sübutun dəyişdirilmədiyi və ya kodun cari versiyasına aid olduğu zəmanəti deyil. |
 | Asset manifesti | Sütunlar/ID/yol/hüquq sahələri; hazırda 0 asset |
 | Validatorun mənfi sınaqları | unittest: zədələnmiş mənbə, status, inventar, istinad, ignore və secret rədd olunur |
 | Git bütövlüyü, whitespace, təmiz commit vəziyyəti | git fsck, git diff --check, son status; part hesabatında qeyd |

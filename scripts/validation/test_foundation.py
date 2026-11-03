@@ -146,6 +146,38 @@ class FoundationTests(unittest.TestCase):
         self.change_state(lambda s: s['repository'].update(remote_visibility='PUBLIC', sync_status='PUSHED'))
         self.fails('remote_safety')
 
+    def test_coordinated_next_part_change_rejected(self):
+        self.change_state(lambda s: (s.update(active_part='P00.3', next_part='P01.1'),
+                                     s['authorization'].update(part='P00.3')))
+        p = self.root / 'PROGRESS.md'
+        p.write_text(p.read_text().replace('- Aktiv part: `P00.2`', '- Aktiv part: `P00.3`')
+                     .replace('- Növbəti part: `P00.3`', '- Növbəti part: `P01.1`'))
+        self.fails('current_scope')
+
+    def test_empty_scope_rejected(self):
+        self.change_state(lambda s: s.update(scope={}))
+        self.fails('current_scope')
+
+    def test_numeric_scope_boolean_rejected(self):
+        self.change_state(lambda s: s['scope'].update(unity_project_created=0))
+        self.fails('current_scope')
+
+    def test_false_evidence_reference_rejected(self):
+        self.change_state(lambda s: s['checks'].update(validation_evidence='README.md'))
+        self.fails('test_evidence')
+
+    def test_failed_test_log_with_pass_claim_rejected(self):
+        (self.root / self.state()['checks']['tests_evidence']).write_text('FAILED\nExit code: 1\n')
+        self.fails('test_evidence')
+
+    def test_private_visibility_is_not_push_permission(self):
+        self.change_state(lambda s: s['repository'].update(remote_visibility='PRIVATE', sync_status='PUSHED'))
+        self.fails('remote_safety')
+
+    def test_push_authorization_bypass_rejected(self):
+        self.change_state(lambda s: s['repository'].update(push_authorized=True))
+        self.fails('remote_safety')
+
     def test_missing_state_cli_returns_failure(self):
         (self.root / 'docs/STATE.json').write_text('{invalid')
         r = subprocess.run(['python3', str(MODULE_PATH), '--root', str(self.root)], capture_output=True, text=True)
