@@ -16,10 +16,11 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P01.3 icazəlidir: qısa nərdin pure C# qanuni gediş mühərriki,
-   2/5/3/5 düzülüşü, vurma/bar, maksimum zər/yüksək zər, çıxarma və adi/mars/koks testləri.
-   Uzun mühərrikin işləyən kodu və testlərini dəyişmə; onun regressiyasını da icra et.
-   Seriya və tam match state machine P01.4-dədir; UI, bot və server yazma.
+4. Hazırda yalnız P01.4 icazəlidir: pure C# matç vəziyyətləri (Created/Rolling/Moving/
+   TurnCommitted/Finished), adi/mars/koks nəticəsi, 1/Best of 3/5, RuleSetVersion müqaviləsi.
+   Reytinq eligibility-si yalnız qayda predikatıdır; reytinq hesablaması/server yazma.
+   Uzun/qısa mühərriklərin kodu və testlərini dəyişmə; regressiyalarını icra et.
+   UI, animasiya, bot, multiplayer, undo idarəsi, saxlama və P02 hissələrinə keçmə.
    Altı uzun PROVISIONAL_RULE ilkin standart olaraq qəbul edilib; müstəqil yerli yoxlama NOT_RUN qalır.
    Fiziki Android testi aparılmayıb; əvvəlki Editor/build qəbulu ilə qarışdırma.
    Gələcək part açıq icazə aldıqda bu cari-part cümləsini də yenilə.

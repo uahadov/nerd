@@ -132,3 +132,24 @@ Ortaq generik mühərrik refactor-u edilmir. Test/build runner-in mövcud p012.p
 LongRulesTests dəyişmədiyi üçün oradakı 41 tarixi skip qalır. Onların 30-u yeni ShortFixture adı ilə
 qısa assembly-də işlənir: 56 unikal fixture icra edilir, 4 undo və 7 seriya/reytinq öz partını gözləyir.
 A02 statusu IN_PROGRESS olur; A01 statusu və 87/20 qərar mətni qorunur. Tam oynanıla bilən qısa UI yoxdur.
+
+## D020 — 2026-11-03, P01.3 qəbulu və yalnız P01.4
+
+İstifadəçi P01.3-ü qəbul edib, yalnız P01.4-ə icazə verib. Mənbə: Master P01.4.
+Match state machine, nəticə növü/xalı, 1/BO3/BO5, RuleSetVersion və reytinq eligibility-si pure C# modulda qurulur.
+İki mühərrik və testləri bayt səviyyəsində qorunur. 7 seriya/reytinq fixture bu partda, 4 undo fixture P02.4-də qalır.
+UI/animasiya/bot/backend və P02 yoxdur. Fiziki Android və müstəqil yerli yoxlama NOT_RUN, push qadağandır.
+
+## D021 — P01.4 matç və seriya sərhədi
+
+MatchSession ayrıca Nard.Match assembly-sində iki mühərriki birləşdirir; qaydalar refactor edilmir.
+Created→Rolling başlanğıc yarışı; uzun yeni roll gözləyir, qısa ilkin iki qiymətlə Moving olur.
+Tam və qanuni TryCommitTurn uğurlu olarsa TurnCommitted, qalib varsa Finished olur.
+AdvanceTurn yalnız təsdiqli, bitməmiş növbəni Rolling/sonrakı oyunçuya keçirir. Zər input-dur, RNG yoxdur.
+Bu commit lokal domen təsdiqidir; şəbəkə/server qəbulunun sübutu deyil. Online authority gələcək partdadır.
+GameResult yalnız bitmiş mühərrik vəziyyətindən yaranır; WinKind və Points ayrıdır.
+MatchSeries 1/3/5 partiya limitidir, mars/koks bir qələbədir; GamePoints statistikası kosmetik balans deyil.
+Təkrar GameId və uyğun olmayan mode/version rədd edilir. RatingPolicy yalnız ranked random + trusted confirmation
+predikatıdır; backend autentifikasiyası və həqiqi reytinq yazılması həyata keçirilmir.
+A18 IN_PROGRESS oldu; nə oyun UI-si, nə avtomatik revanş/seriya ekranı DONE kimi göstərilir.
+Undo/preview idarəsi P02.4-dədir. 4 undo fixture NOT_RUN qalır; digər 63 fixture müvafiq modullarda icra olunur.

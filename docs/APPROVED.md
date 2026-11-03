@@ -2,7 +2,7 @@
 
 Mətnlər [GDD §13](../NARD_Final_GDD_v1.0.md) ilə sözbəsöz eynidir.
 Master Plan XV ilə də müqayisə edilir. Məhsul qəbulu implementasiya/part icazəsi deyil.
-A01 uzun və A02 qısa qayda mühərrikləri ilə IN_PROGRESS-dır; oynanıla bilən tam uzun nərd hələ hazır deyil.
+A01/A02 mühərrikləri və A18 seriya müqaviləsi IN_PROGRESS-dır; oynanıla bilən tam uzun nərd hələ hazır deyil.
 Digər maddələr NOT_STARTED-dır. İlkin part əlaqəsi işin ilk aidiyyəti yerini
 izləmək üçündür, tam əhatə və ya həmin partı indi icra etmək vədi deyil.
 Mənbə ardıcıllığı üstün qalır. A38 yalnız ilk reklamsız buraxılışdan sonrakı yeniləmə üçündür.
@@ -27,7 +27,7 @@ Qalan 7 buraxılış qərarı və GDD §15–16 ayrıca mənbədə qalır; A say
 | A15 | Uğurlar və mükafatlar | NOT_STARTED | P07.6 |
 | A16 | Matçı izləmə rejimi | NOT_STARTED | P05.5 |
 | A17 | İnteraktiv nərd dərsləri | NOT_STARTED | P04.7 |
-| A18 | Best of 3 və Best of 5 | NOT_STARTED | P01.4 |
+| A18 | Best of 3 və Best of 5 | IN_PROGRESS | P01.4 |
 | A19 | Qonaq kimi oynamaq | NOT_STARTED | P06.1 |
 | A20 | Mövsümi Azərbaycan tədbirləri | NOT_STARTED | P07.9 |
 | A21 | Canlı ifadələr və reaksiyalar | NOT_STARTED | P07.4 |

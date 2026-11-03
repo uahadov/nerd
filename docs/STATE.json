@@ -3,19 +3,19 @@
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
   "updated_on": "2026-11-03",
-  "active_part": "P01.3",
+  "active_part": "P01.4",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P01.2",
+  "last_human_approved_part": "P01.3",
   "current_part_human_approved": false,
-  "next_part": "P01.4",
+  "next_part": "P02.1",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P01.3",
+    "part": "P01.4",
     "by": "human",
     "date": "2026-11-03",
-    "quote": "P01.2 mərhələsini təsdiqləyirəm. İndi yalnız Master İcra Planındakı P01.3 mərhələsinə keç."
+    "quote": "P01.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm. İndi yalnız P01.4 mərhələsinə keç."
   },
   "human_approvals": [
     {
@@ -52,6 +52,13 @@
       "by": "human",
       "quote": "P01.2 mərhələsini təsdiqləyirəm.",
       "report": "docs/reports/P01.2.md"
+    },
+    {
+      "part": "P01.3",
+      "date": "2026-11-03",
+      "by": "human",
+      "quote": "P01.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm.",
+      "report": "docs/reports/P01.3.md"
     }
   ],
   "sources": {
@@ -73,14 +80,14 @@
     "android_tools_installed": true,
     "game_modules_implemented": true
   },
-  "test_report": "docs/reports/P01.3.md",
+  "test_report": "docs/reports/P01.4.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
     "unity_build": "PASS",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P01.3.validation.json",
-    "tests_evidence": "docs/reports/P01.3.tests.txt"
+    "validation_evidence": "docs/reports/P01.4.validation.json",
+    "tests_evidence": "docs/reports/P01.4.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -112,7 +119,7 @@
       "next_action": "Beta öncəsi bir neçə yerli təcrübəli oyunçu ilə nümunələri yoxla. İlkin standart qəbulu bu yoxlamanı tamamlamır."
     }
   ],
-  "resume_instruction": "Yalnız P01.3 qısa nərd pure C# mühərriki və regressiya testləri. Uzun mühərrik/testlərini qoru. UI/bot/server/seriya və P01.4 yoxdur. AWAITING_HUMAN_APPROVAL ilə dayan; fiziki Android və müstəqil yerli qayda yoxlaması NOT_RUN, push qadağandır.",
+  "resume_instruction": "Yalnız P01.4 pure C# match state machine, nəticə/seriya/RuleSetVersion və eligibility müqaviləsi. İki mühərrik və testləri dəyişməsin. UI/animasiya/bot/backend, undo və P02 yoxdur. AWAITING_HUMAN_APPROVAL ilə dayan; fiziki Android və yerli oyunçu NOT_RUN; push qadağandır.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -121,16 +128,16 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p013-local-001",
+    "id": "android-p014-local-001",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
-    "apk": "build/P01.3/NARD-P01.3.apk",
-    "apk_bytes": 25371598,
-    "apk_sha256": "75bde1b7d2fecdbfbb667ed277804b59ff789bf29d8dc375c2d33f0bc9199edb",
-    "execution_evidence": "docs/reports/P01.3.execution.json",
+    "apk": "build/P01.4/NARD-P01.4.apk",
+    "apk_bytes": 25380398,
+    "apk_sha256": "8cae2ec76bc144ed173bebdd5a7c86f02716c8dee0d4e3f5e469e4adf9627bb2",
+    "execution_evidence": "docs/reports/P01.4.execution.json",
     "editor_visual": "NOT_RUN",
     "physical_device": "NOT_RUN",
-    "produced_in_part": "P01.3"
+    "produced_in_part": "P01.4"
   },
   "human_editor_review": {
     "part": "P00.3",
@@ -146,10 +153,10 @@
     "ruleset_version": "long-az-gdd1-provisional.1"
   },
   "engine": {
-    "part": "P01.3",
-    "mode": "long_and_short",
+    "part": "P01.4",
+    "mode": "long_short_match",
     "status": "PASS",
-    "execution_evidence": "docs/reports/P01.3.execution.json",
+    "execution_evidence": "docs/reports/P01.4.execution.json",
     "ruleset_versions": [
       "long-az-gdd1-provisional.1",
       "short-gdd1-draft.1"
@@ -180,6 +187,18 @@
       "editor_visual": "NOT_RUN",
       "physical_device": "NOT_RUN",
       "produced_in_part": "P01.2"
+    },
+    {
+      "id": "android-p013-local-001",
+      "editor_version": "6000.6.7f1",
+      "platform": "Android ARM64 IL2CPP development",
+      "apk": "build/P01.3/NARD-P01.3.apk",
+      "apk_bytes": 25371598,
+      "apk_sha256": "75bde1b7d2fecdbfbb667ed277804b59ff789bf29d8dc375c2d33f0bc9199edb",
+      "execution_evidence": "docs/reports/P01.3.execution.json",
+      "editor_visual": "NOT_RUN",
+      "physical_device": "NOT_RUN",
+      "produced_in_part": "P01.3"
     }
   ],
   "historical_engines": [
@@ -189,6 +208,17 @@
       "status": "PASS",
       "execution_evidence": "docs/reports/P01.2.execution.json",
       "ruleset_version": "long-az-gdd1-provisional.1",
+      "independent_local_review": "NOT_RUN"
+    },
+    {
+      "part": "P01.3",
+      "mode": "long_and_short",
+      "status": "PASS",
+      "execution_evidence": "docs/reports/P01.3.execution.json",
+      "ruleset_versions": [
+        "long-az-gdd1-provisional.1",
+        "short-gdd1-draft.1"
+      ],
       "independent_local_review": "NOT_RUN"
     }
   ]

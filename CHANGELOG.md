@@ -50,3 +50,14 @@
 - EditMode 201 PASS/41 tarixi skip, PlayMode 1 PASS, Python 82 PASS; Android bootstrap build uğurlu.
 - 56 unikal fixture real mühərriklərdə keçdi; 11 undo/seriya/reytinq gələcək partlarda qaldı. A02 IN_PROGRESS.
 - Fiziki Android və müstəqil yerli qayda yoxlaması NOT_RUN, provisional qeydlər saxlanılır. GitHub push yoxdur; P01.4 icazəsizdir.
+
+## 2026-11-03 — P01.4, insan təsdiqi gözlənilir
+
+- P01.3 açıq insan qəbulu və yalnız P01.4 icazəsi saxlanıldı.
+- Pure C# Nard.Match: immutable matç fazaları, engine nəticələri, ayrı WinKind/Points,
+  1/Best of 3/5 seriyası, dəqiq RuleSetVersion və rating eligibility predikatı əlavə edildi.
+- Uzun/qısa runtime və testləri dəyişdirilmədən qorundu; 62 yeni C# və 9 Python testi əlavə edildi.
+- Real nəticə: 263 EditMode PASS, 1 PlayMode PASS, 91 Python PASS, Android build PASS.
+- 67 canonical nümunədən 63 PASS, 4 undo NOT_RUN (P02.4); 41 tarixi skip ayrıca saxlandı.
+- UI/bot/backend və P02 hazırlanmadı; fiziki cihaz/yerli oyunçu NOT_RUN, push edilmədi.
+- Sübutlar və manual baxış: [P01.4 hesabatı](docs/reports/P01.4.md).

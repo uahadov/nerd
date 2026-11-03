@@ -2,7 +2,8 @@
 
 Android və iOS üçün Unity 6 / C# əsasında tam 2D nərd oyunu.
 Online istiqamət: Nakama authoritative TypeScript və istehsal üçün CockroachDB.
-Hazırda P01.3 üzrə ayrıca qısa nərd mühərriki hazırlanır; qəbul edilmiş uzun mühərrik qorunur.
+P01.4 matç/nəticə/seriya müqaviləsi hazırlanıb, insan təsdiqi gözlənilir.
+Qəbul edilmiş uzun və qısa mühərriklərin kodu və testləri qorunur.
 P00.3 Unity təməli qəbul edilib; fiziki Android testi açıqdır. Oynanıla bilən nərd hələ yoxdur.
 
 ## Yeni agent üçün giriş
@@ -29,7 +30,8 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [P00.3 hesabatı](docs/reports/P00.3.md) | Qəbul edilmiş Unity/Android təməlinin tarixi sübutu |
 | [P01.1 hesabatı](docs/reports/P01.1.md) | Qəbul edilmiş qayda sənədləri və nümunələr |
 | [P01.2 hesabatı](docs/reports/P01.2.md) | Qəbul edilmiş uzun mühərrikin tarixi sübutu |
-| [P01.3 hesabatı](docs/reports/P01.3.md) | Qısa mühərrik və hər iki modulun cari regressiyası |
+| [P01.3 hesabatı](docs/reports/P01.3.md) | Qəbul edilmiş qısa mühərrikin tarixi sübutu |
+| [P01.4 hesabatı](docs/reports/P01.4.md) | Matç və seriya müqaviləsi, cari regressiya və 67 nümunənin statusu |
 | [Qayda müqaviləsi](docs/RULESET_VARIANTS.md) | Ortaq koordinatlar, qayda ID-ləri və provisional variantlar |
 | [Uzun qaydalar](docs/RULES_LONG.md), [qısa qaydalar](docs/RULES_SHORT.md) | Rejimlər üzrə sənəd tələbləri |
 | [Qayda matrisi](docs/RULE_MATRIX.md) | JSON nümunələrinin insan üçün oxunaqlı görünüşü |
@@ -72,19 +74,18 @@ Android build üçün uyğun rəsmi Android Build Support/SDK/NDK/OpenJDK lazım
 Raw loglar, NUnit XML və APK build/P00.3/ daxilində lokal saxlanır və Git-ə daxil edilmir.
 Eyni layihəni açıq Editor ilə batch prosesində paralel işlətməyin.
 
-## Cari qayda mühərriki testləri — P01.3
+## Cari qayda və matç testləri — P01.4
 
 ```bash
-python3 scripts/build/p012.py editmode --part P01.3
-python3 scripts/build/p012.py playmode --part P01.3
-python3 scripts/build/p012.py android --part P01.3
+python3 scripts/build/p012.py editmode --part P01.4
+python3 scripts/build/p012.py playmode --part P01.4
+python3 scripts/build/p012.py android --part P01.4
 ```
 
 Unity 6000.6.7f1 lazımdır; başqa yerdədirsə --editor parametrini verin.
-Runner build/P01.3/unity daxilində source-only lokal test surətini yaradır və onun
+Runner build/P01.4/unity daxilində source-only lokal test surətini yaradır və onun
 cache-indən istifadə edir. Açıq əsas Editor bağlanmır, əsas səhnə/UI dəyişdirilmir.
-NUnit XML/log və APK build/P01.3 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
-Fixture-lər docs/rules/fixtures.json-dan oxunur. Uzun test faylı dəyişdirilmədiyi üçün onda 41 tarixi skip görünür; onların 30-u qısa
-assembly-də ShortFixture adı ilə icra olunur. 67 unikal nümunənin 56-sı mühərriklərdə işlənir,
-4 undo və 7 seriya/reytinq nümunəsi öz partını gözləyir. Skip PASS sayılmır.
+NUnit XML/log və APK build/P01.4 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
+Fixture-lər docs/rules/fixtures.json-dan oxunur. Uzun test faylı dəyişdirilmədiyi üçün onda 41 tarixi skip görünür; onların 30-u ShortFixture, 7-si MatchFixture adı ilə ayrıca icra olunur.
+67 unikal nümunənin 63-ü PASS-dır; 4 undo nümunəsi P02.4-ü gözləyir. Skip PASS sayılmır.
 PROVISIONAL_RULE seçimi ilkin standart olaraq qəbul edilib, müstəqil yerli oyunçu yoxlaması açıqdır.

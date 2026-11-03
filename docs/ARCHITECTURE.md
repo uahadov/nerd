@@ -63,7 +63,7 @@ gələcək ehtiyac adı ilə ümumi framework və ya boş abstraksiya yazılmır
 ## Test sərhədləri
 
 Pure C# və TS eyni versiyalı fixture-lərlə yoxlanacaq: position + roll + move → expected state/rejection.
-İlkin koordinat xəritəsi və 67 fixture P01.1-də hazırlanıb. Uzun mühərrik 26, qısa mühərrik 30 nümunəni icra edir; 11 undo/seriya/reytinq nümunəsi öz partını gözləyir.
+İlkin koordinat xəritəsi və 67 fixture P01.1-də hazırlanıb. Uzun mühərrik 26, qısa mühərrik 30 nümunəni icra edir; P01.4 matç modulu 7 seriya/reytinq nümunəsini icra edir. Yalnız 4 undo nümunəsi P02.4-ü gözləyir.
 Differential testlər online POC-də parity göstərəcək. Botlar simulyasiya, presentation
 render/input, adapterlər integration, economy təkrar əməliyyat/receipt testləri keçirəcək.
 [Test matrisi](TEST_MATRIX.md) hansı yoxlamaların hazırda real olduğunu ayırır.
@@ -90,7 +90,7 @@ TryApplyTurn bütöv təklifi atomik yoxlayır. Lokal TryApplyLocalStep yalnız 
 UI və ya server onu təkbaşına tam növbə təsdiqi kimi istifadə etməməlidir.
 ResultPoints yalnız uzun nərd normal/mars sorğusudur; seriya, mükafat və reytinq yaratmır.
 İlk növbə flag-lərinin növbəsonu dəyişməsi və növbə sahibi seçimi gələcək application qatınındır.
-Qısa mühərrik eyni state-in mode flag-i kimi əlavə edilmir; ayrıca modul olacaq.
+Qısa mühərrik eyni state-in mode flag-i deyil; aşağıda göstərilən ayrıca moduldur.
 
 ## P01.3 konkret qısa mühərrik sərhədi
 
@@ -104,3 +104,27 @@ Bar boşalmadan başqa daş oynanmır; vurulan daş ayrıca rəqib bar sayına k
 ResultPoints yalnız hazır mövqenin 0/1/2/3 nəticə sorğusudur. Seriya, reytinq, event, server təsdiqi
 və tətbiqin növbə dəyişməsi P01.4/sonrakı hissələrə aiddir; qısa modul bunu qabaqcadan qurmur.
 P01.1 JSON-dakı first_turn/head_departures qısa qaydanın davranışını dəyişmir; uzun baş qaydası daşınmır.
+
+## P01.4 konkret matç sərhədi
+
+Rules/Match daxilində Nard.Match pure C# assembly-si yalnız iki qayda assembly-sinə bağlıdır.
+MatchSession bir partiyanın dəyişməyən snapshot-udur; hər qəbul edilən əməl yeni snapshot qaytarır.
+Axın: Created → Rolling → Moving → TurnCommitted → Rolling; qalib növbə Moving → Finished-dir.
+Begin ilkin atışı açır. Bərabər ilkin atış Rolling-də qalır. Uzunda qalib təzə iki zər alır;
+qısada ilkin iki qiymətlə Moving başlayır. Zərlər girişdir; modul RNG yaratmır.
+TryCommitTurn tam növbəni mövcud mühərriklə atomik yoxlayır; rədd giriş snapshot-unu dəyişmir.
+Bu lokal domain commit-dir, şəbəkə/server təsdiqi deyil. Uzunda ilk növbə flag-i yalnız qəbulda dəyişir.
+AdvanceTurn növbə sahibini dəyişir; Rolling zamanı engine position əvvəlki committed snapshot olaraq
+qalır. Cari növbə sahibi MatchSession.Player-dir; SupplyRoll yeni oyunçunun aktiv position-unu qurur.
+Yalnız aktiv rejimin position-u mövcuddur; digər rejimin sahəsi null-dır.
+
+GameResult bitmiş engine mövqeyindən qalib, WinKind və Points çıxarır; hazır xal qəbul edən açıq
+konstruktor yoxdur. Normal=1, mars=2, yalnız qısada koks=3; qoşa zər xalı artırmır.
+MatchSeries yalnız eyni rejim/RuleSetVersion üçün 1/3/5 best-of nəticələri saxlayır.
+Seriya qələbələri və partiya xalları ayrıdır: mars/koks bir partiya qələbəsidir.
+Təkrar GameId, başqa rejim/versiya və bitmiş seriyaya əlavə rədd edilir.
+RuleContract hər rejimin mövcud versiyasını dəqiq tələb edir; səssiz fallback yoxdur.
+RatingPolicy yalnız random + ranked + authoritative confirmation üçün eligibility qaytarır.
+Confirmation gələcək etibarlı səlahiyyət mənbəyindən gəlməlidir; klient flag-i online sübut deyil.
+Həqiqi reytinq, server autentifikasiyası, hadisə/saxlama, preview/undo, UI, bot və avtomatik
+növbəti partiyanın başlanması bu modulda yoxdur. P02 funksiyaları ayrıca insan icazəsini gözləyir.

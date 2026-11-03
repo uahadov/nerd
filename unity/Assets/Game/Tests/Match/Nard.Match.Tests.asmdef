@@ -1,0 +1,14 @@
+{
+  "name": "Nard.Match.Tests",
+  "references": [
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

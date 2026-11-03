@@ -13,17 +13,28 @@ from urllib.parse import unquote, urlsplit
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
-AUTHORIZED_PART = 'P01.3'
-LONG_BASELINE = {'unity/Assets/Game/Rules/LongNardeRules.cs': '48e29e9ac9231d198a04bea9026e434fb377763a7632ed3627bcfa5d08b96a07',
+AUTHORIZED_PART = 'P01.4'
+ENGINE_BASELINE = {'unity/Assets/Game/Rules/LongNardeRules.cs': '48e29e9ac9231d198a04bea9026e434fb377763a7632ed3627bcfa5d08b96a07',
  'unity/Assets/Game/Rules/LongNardeRules.cs.meta': 'c57e59400cd9b27753e425648c29590da7c29597ff06ef5a4d4721f128d47796',
  'unity/Assets/Game/Rules/LongPosition.cs': 'e5e084c9ec79481adbc1e36d6314fc5ddef19f08a37eb6924d10a24ee2587c5c',
  'unity/Assets/Game/Rules/LongPosition.cs.meta': 'eec70ed4adca23273a4f9074065777e7087dc08dcc49f2aa7a38a4e09b1fbf0a',
  'unity/Assets/Game/Rules/Nard.Rules.Long.asmdef': '5a679457f5465cde54ed4495b7a5b7c7d92249187b5b7b2ceff3aa61cfb66b0d',
  'unity/Assets/Game/Rules/Nard.Rules.Long.asmdef.meta': 'c75cbae2d8afecb19d0e42e6593bc7582b10eb77266e55f6db374682ccfcc589',
+ 'unity/Assets/Game/Rules/Short.meta': '71983c16886d3d1f678e8a73ba7dee6e012002b0d4785cdfae11625de65641a8',
+ 'unity/Assets/Game/Rules/Short/Nard.Rules.Short.asmdef': '56301d3301c4a749004be25e515afdfdc9c52bcb99bcfcdc761972d3af49819a',
+ 'unity/Assets/Game/Rules/Short/Nard.Rules.Short.asmdef.meta': 'a2c68bac09bce3ee0cf779a6552888e30e65a354e944594928ea08c83f621ad4',
+ 'unity/Assets/Game/Rules/Short/ShortNardeRules.cs': '8eea41858f56fc1d53c56077edf95c224e091a37c0c81fe3f5e1b64ec0b03904',
+ 'unity/Assets/Game/Rules/Short/ShortNardeRules.cs.meta': 'b4b1488bd3ac37b203962614ccc82d99331ee6295eb40e2760cf653bf2b0f84b',
+ 'unity/Assets/Game/Rules/Short/ShortPosition.cs': '8b59b463c250a73874dd1e2a32159e4d8d0b839172aeffb057b76a10a886dd9d',
+ 'unity/Assets/Game/Rules/Short/ShortPosition.cs.meta': '2f05a5cf1e0b651af0ea91cbeb5a49533e1a4708b1d998eefbd53db4f87ddbb2',
  'unity/Assets/Game/Tests/Rules/LongRulesTests.cs': '14c4dbdc39f4cc3c0fb965c934afc747e7c89b146ee6e01eba36cec4841da362',
  'unity/Assets/Game/Tests/Rules/LongRulesTests.cs.meta': '10bb0adfc3b5632f948cbe731f4fecbcc1a64f28cfba7755d6530f195ab504d8',
  'unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef': '4ce440ca99c8abfbbf8a227ce574081d9a1866d8c0887a83759edba2cdaa460b',
- 'unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef.meta': 'bc897bb9f6c148aa933d9bf1f3572d3d09c154ec4844e4813cf1b7a24b205076'}
+ 'unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef.meta': 'bc897bb9f6c148aa933d9bf1f3572d3d09c154ec4844e4813cf1b7a24b205076',
+ 'unity/Assets/Game/Tests/ShortRules/Nard.Rules.Short.Tests.asmdef': '670f77d2cf346383a470ee8f77fb8cbb3aade54898e32ccb4d9ee014e71ae837',
+ 'unity/Assets/Game/Tests/ShortRules/Nard.Rules.Short.Tests.asmdef.meta': 'd1d5912208f481e650861b66095c490f107ef6749918154a3cf6ef0d034d8ed0',
+ 'unity/Assets/Game/Tests/ShortRules/ShortRulesTests.cs': 'd8f26c34249fd0aa5b0c897a38bd3edd988639298058311ff4a6205becae50d1',
+ 'unity/Assets/Game/Tests/ShortRules/ShortRulesTests.cs.meta': '10897e52aee127d3906266fad97890189fbf49b4c1310d5d0049c6c656ad688f'}
 
 SOURCES = {
     'NARD_Final_GDD_v1.0.md': '2d2471282160bc10dc4eaec57ed90b8b2e6e7684cb4101c9bd5f2d76e90a8580',
@@ -61,6 +72,11 @@ REQUIRED = [
     'docs/reports/P01.3.md', 'docs/reports/P01.3.execution.json',
     'docs/reports/P01.3.validation.json', 'docs/reports/P01.3.tests.txt',
     'docs/reports/P01.3.editmode.xml', 'docs/reports/P01.3.playmode.xml',
+    'unity/Assets/Game/Rules/Match/MatchContracts.cs', 'unity/Assets/Game/Rules/Match/MatchSession.cs',
+    'unity/Assets/Game/Rules/Match/MatchSeries.cs', 'unity/Assets/Game/Rules/Match/Nard.Match.asmdef',
+    'unity/Assets/Game/Tests/Match/MatchTests.cs', 'unity/Assets/Game/Tests/Match/Nard.Match.Tests.asmdef',
+    'docs/reports/P01.4.md', 'docs/reports/P01.4.execution.json', 'docs/reports/P01.4.validation.json',
+    'docs/reports/P01.4.tests.txt', 'docs/reports/P01.4.editmode.xml', 'docs/reports/P01.4.playmode.xml',
 ]
 ASSET_COLUMNS = ['asset_id', 'path', 'source', 'creator', 'license', 'license_evidence',
                  'modifications', 'approved_part', 'status']
@@ -154,7 +170,7 @@ def validate(root):
                     if re.match(r'^\| ' + prefix + r'\d{2} \|', line)]
             require(len(rows) == count and all(len(row) == width for row in rows), f'{file} row count/shape')
             require([(r[0], r[1]) for r in rows] == expected, f'{file} differs from GDD wording/order')
-            require(all(r[2] == ('IN_PROGRESS' if prefix == 'A' and r[0] in ['A01', 'A02'] else status) for r in rows), f'{file} implementation status invalid')
+            require(all(r[2] == ('IN_PROGRESS' if prefix == 'A' and r[0] in ['A01', 'A02', 'A18'] else status) for r in rows), f'{file} implementation status invalid')
             if prefix == 'A':
                 require(all(r[3] in parts(root) for r in rows), 'Unknown planned part in APPROVED')
             master = re.findall(r'^\d+\. \*\*(' + prefix + r'\d{2})\*\* (.+)$',
@@ -235,28 +251,42 @@ def validate(root):
                         require(path.is_relative_to(root) and hashlib.sha256(path.read_bytes()).hexdigest() == digest,
                                 'Engine evidence source mismatch: ' + name)
                 if step != 'android':
-                    document = ET.parse(root / ('docs/reports/P01.3.' + step + '.xml')).getroot()
+                    document = ET.parse(root / ('docs/reports/P01.4.' + step + '.xml')).getroot()
                     require(document.attrib['failed'] == '0' and int(document.attrib['passed']) > 0, 'Failed NUnit XML')
                     require(document.attrib['passed'] == report['tests']['passed'] and document.attrib['skipped'] == report['tests']['skipped'], 'NUnit summary mismatch')
             require(execution['coverage']['executed_long_fixtures'] == 26 and execution['coverage']['executed_short_fixtures'] == 30
-                    and execution['coverage']['deferred_unique_fixtures'] == 11,
+                    and execution['coverage']['executed_match_fixtures'] == 7
+                    and execution['coverage']['deferred_unique_fixtures'] == 4,
                     'Fixture execution coverage mismatch')
+            corpus = json.loads(read(root, 'docs/rules/fixtures.json'))['cases']
+            ledger = execution['fixture_execution']
+            require([r['id'] for r in ledger] == [c['id'] for c in corpus], 'Fixture ledger IDs/order mismatch')
+            xml = ET.parse(root / 'docs/reports/P01.4.editmode.xml').getroot()
+            passed_names = {c.attrib['name'] for c in xml.iter('test-case') if c.attrib['result'] == 'Passed'}
+            for case, row in zip(corpus, ledger):
+                if case['action']['kind'] == 'undo':
+                    require(row['status'] == 'NOT_RUN' and row['deferred_to'] == 'P02.4', 'Undo falsely claimed complete')
+                else:
+                    prefix = 'MatchFixture_' if case['action']['kind'] in ['series', 'rating_policy'] else 'Fixture_' if case['mode'] == 'long' else 'ShortFixture_'
+                    name = prefix + case['id']
+                    require(row['status'] == 'PASS' and row['test_name'] == name and name in passed_names, 'Fixture PASS lacks matching NUnit case')
+
         return 'Stored PASS evidence and runtime source hashes match; independent device/local reviews remain NOT_RUN'
     check('test_evidence', evidence)
 
     def scope():
         s = state(root)
-        # Updated only after the human's explicit P01.3 authorization (D018).
-        require(s['active_part'] == AUTHORIZED_PART, 'Only P01.3 is authorized')
-        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P01.3 must await human approval')
-        require(s['last_human_approved_part'] == 'P01.2', 'P01.2 acceptance missing')
+        # Updated only after the human's explicit P01.4 authorization (D020).
+        require(s['active_part'] == AUTHORIZED_PART, 'Only P01.4 is authorized')
+        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P01.4 must await human approval')
+        require(s['last_human_approved_part'] == 'P01.3', 'P01.3 acceptance missing')
         expected = {'unity_project_created', 'android_tools_installed', 'game_modules_implemented'}
         require(set(s['scope']) == expected, 'Scope fields missing or unexpected')
         require(all(type(value) is bool for value in s['scope'].values()), 'Scope flags must be booleans')
         require(s['scope']['unity_project_created'] is True and s['scope']['game_modules_implemented'] is True,
-                'P01.3 permits short rules and long regression only')
+                'P01.4 permits only match/series contracts on frozen engines')
         require(not any((root / p).exists() for p in ['nakama', 'art']), 'Premature game/backend directories')
-        for module in ['Bots', 'Network', 'UI', 'Rules/Match']:
+        for module in ['Bots', 'Network', 'UI']:
             require(not (root / 'unity/Assets/Game' / module).exists(), 'Premature gameplay module: ' + module)
         version = read(root, 'unity/ProjectSettings/ProjectVersion.txt')
         require('m_EditorVersion: 6000.6.7f1\n' in version, 'Unity version not pinned')
@@ -276,19 +306,25 @@ def validate(root):
             require(not re.search(r'UnityEngine|UnityEditor|System\.Random|System\.IO|DateTime|Nakama', code), 'Rules dependency violation')
         short_assembly = json.loads(read(root, 'unity/Assets/Game/Rules/Short/Nard.Rules.Short.asmdef'))
         require(short_assembly.get('noEngineReferences') is True and not short_assembly.get('references'), 'Short assembly must be independent pure C#')
-        expected_sources = {'LongNardeRules.cs', 'LongPosition.cs', 'Short/ShortNardeRules.cs', 'Short/ShortPosition.cs'}
+        expected_sources = {'LongNardeRules.cs', 'LongPosition.cs', 'Short/ShortNardeRules.cs', 'Short/ShortPosition.cs', 'Match/MatchContracts.cs', 'Match/MatchSession.cs', 'Match/MatchSeries.cs'}
         actual_sources = {p.relative_to(root / 'unity/Assets/Game/Rules').as_posix() for p in (root / 'unity/Assets/Game/Rules').rglob('*.cs')}
         require(actual_sources == expected_sources, 'Unauthorized rules sources')
         for file in ['ShortNardeRules.cs', 'ShortPosition.cs']:
             code = read(root, 'unity/Assets/Game/Rules/Short/' + file)
             require(not re.search(r'UnityEngine|UnityEditor|System\.Random|System\.IO|DateTime|Nakama|Nard\.Rules\.Long', code), 'Short dependency violation')
-        for name, digest in LONG_BASELINE.items():
-            require(hashlib.sha256((root / name).read_bytes()).hexdigest() == digest, 'Accepted long code/test changed: ' + name)
+        for name, digest in ENGINE_BASELINE.items():
+            require(hashlib.sha256((root / name).read_bytes()).hexdigest() == digest, 'Accepted engine code/test changed: ' + name)
+        match_assembly = json.loads(read(root, 'unity/Assets/Game/Rules/Match/Nard.Match.asmdef'))
+        require(match_assembly.get('noEngineReferences') is True and
+                match_assembly.get('references') == ['Nard.Rules.Long', 'Nard.Rules.Short'], 'Match dependency boundary violated')
+        for file in ['MatchContracts.cs', 'MatchSession.cs', 'MatchSeries.cs']:
+            code = read(root, 'unity/Assets/Game/Rules/Match/' + file)
+            require(not re.search(r'UnityEngine|UnityEditor|System\.Random|System\.IO|DateTime|Nakama', code), 'Match dependency violation')
         review = s['rules_review']
         require(review['preliminary_standard'] == 'ACCEPTED_BY_HUMAN' and
                 review['independent_azerbaijani_players'] == 'NOT_RUN' and
                 review['provisional_rules_retained'] is True, 'Local review falsely completed')
-        return 'P01.3: independent short engine; accepted long code/tests frozen; local review NOT_RUN'
+        return 'P01.4: pure match/series; both accepted engines/tests frozen; local review NOT_RUN'
     check('current_scope', scope)
 
     def policy():
@@ -298,7 +334,7 @@ def validate(root):
         require(p['standard_terminal_git_allowed'] is True, 'Standard tools must remain allowed')
         a = read(root, 'AGENTS.md')
         for term in ['Heç bir Skill', 'Antigravity MCP', 'Codex Gravity MCP', 'AWAITING_HUMAN_APPROVAL',
-                     'P01.3', 'R01–R20']:
+                     'P01.4', 'R01–R20']:
             require(term in a, f'Agent rule missing: {term}')
         return 'Agent-neutral rules and tool bans present'
     check('agent_policy', policy)
@@ -408,7 +444,7 @@ def validate(root):
         from validate_rule_fixtures import validate as validate_rules
         result = validate_rules(root)
         require(state(root)['build']['physical_device'] == 'NOT_RUN', 'Physical device test must remain open')
-        return f"{result['fixture_count']} authored examples; engine results separately in P01.3.execution.json, independent local review NOT_RUN"
+        return f"{result['fixture_count']} authored examples; engine results separately in P01.4.execution.json, independent local review NOT_RUN"
     check('rule_specification', rule_specification)
 
     return {'schema_version': 1, 'part': state(root)['active_part'],

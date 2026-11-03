@@ -81,12 +81,12 @@ class FoundationTests(unittest.TestCase):
         self.fails('state_contract')
 
     def test_wrong_authorization_rejected(self):
-        self.change_state(lambda s: s['authorization'].update(part='P01.4'))
+        self.change_state(lambda s: s['authorization'].update(part='P02.1'))
         self.fails('state_contract')
 
     def test_future_human_approval_rejected(self):
         self.change_state(lambda s: s['human_approvals'].append(
-            {'part': 'P01.3', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
+            {'part': 'P01.4', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
         self.fails('state_contract')
 
     def test_progress_drift_rejected(self):
@@ -105,7 +105,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('local_links')
 
     def test_gameplay_directory_rejected(self):
-        (self.root / 'unity/Assets/Game/Rules/Match').mkdir()
+        (self.root / 'unity/Assets/Game/UI').mkdir()
         self.fails('current_scope')
 
     def test_skill_policy_bypass_rejected(self):
@@ -152,11 +152,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('remote_safety')
 
     def test_coordinated_next_part_change_rejected(self):
-        self.change_state(lambda s: (s.update(active_part='P01.4', next_part='P02.1'),
-                                     s['authorization'].update(part='P01.4')))
+        self.change_state(lambda s: (s.update(active_part='P02.1', next_part='P02.2'),
+                                     s['authorization'].update(part='P02.1')))
         p = self.root / 'PROGRESS.md'
-        p.write_text(p.read_text().replace('- Aktiv part: `P01.3`', '- Aktiv part: `P01.4`')
-                     .replace('- Növbəti part: `P01.4`', '- Növbəti part: `P02.1`'))
+        p.write_text(p.read_text().replace('- Aktiv part: `P01.4`', '- Aktiv part: `P02.1`')
+                     .replace('- Növbəti part: `P02.1`', '- Növbəti part: `P02.2`'))
         self.fails('current_scope')
 
     def test_empty_scope_rejected(self):
@@ -209,7 +209,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_failed_engine_xml_rejected(self):
-        p = self.root / 'docs/reports/P01.3.editmode.xml'
+        p = self.root / 'docs/reports/P01.4.editmode.xml'
         p.write_text(p.read_text().replace('failed="0"', 'failed="1"', 1))
         self.fails('test_evidence')
 
@@ -231,6 +231,35 @@ class FoundationTests(unittest.TestCase):
     def test_short_engine_evidence_drift_rejected(self):
         p = self.root / 'unity/Assets/Game/Rules/Short/ShortNardeRules.cs'
         p.write_text(p.read_text() + '\n// changed source\n')
+        self.fails('test_evidence')
+
+    def test_short_accepted_tests_are_frozen(self):
+        p = self.root / 'unity/Assets/Game/Tests/ShortRules/ShortRulesTests.cs'
+        p.write_text(p.read_text() + '\n// synthetic change\n')
+        self.fails('current_scope')
+
+    def test_match_unity_dependency_rejected(self):
+        p = self.root / 'unity/Assets/Game/Rules/Match/MatchSession.cs'
+        p.write_text(p.read_text() + '\nusing UnityEngine;\n')
+        self.fails('current_scope')
+
+    def test_match_evidence_source_drift_rejected(self):
+        p = self.root / 'unity/Assets/Game/Rules/Match/MatchSeries.cs'
+        p.write_text(p.read_text() + '\n// source drift\n')
+        self.fails('test_evidence')
+
+    def test_undo_fixture_cannot_be_claimed_passed(self):
+        p = self.root / 'docs/reports/P01.4.execution.json'
+        report = json.loads(p.read_text())
+        next(r for r in report['fixture_execution'] if r['id'] == 'L_UNDO_LOCAL')['status'] = 'PASS'
+        p.write_text(json.dumps(report))
+        self.fails('test_evidence')
+
+    def test_missing_common_fixture_in_ledger_rejected(self):
+        p = self.root / 'docs/reports/P01.4.execution.json'
+        report = json.loads(p.read_text())
+        report['fixture_execution'] = [r for r in report['fixture_execution'] if r['id'] != 'C_BO5_FINISHES']
+        p.write_text(json.dumps(report))
         self.fails('test_evidence')
 
 

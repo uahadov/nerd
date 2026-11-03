@@ -109,3 +109,31 @@ class RunnerTests(unittest.TestCase):
         self.include_short_cases()
         next(c for c in self.xml if c.get('name') == 'ShortFixture_S_START').set('result', 'Skipped')
         self.assertEqual(self.run_step(part='P01.3'), 1)
+
+    def include_match_cases(self):
+        for case in self.cases:
+            if case['action']['kind'] in ['series', 'rating_policy']:
+                ET.SubElement(self.xml, 'test-case', name='MatchFixture_' + case['id'], result='Passed')
+        self.xml.set('total', '104')
+        self.xml.set('passed', '63')
+
+    def test_match_part_requires_common_fixtures(self):
+        self.include_short_cases()
+        self.assertEqual(self.run_step(part='P01.4'), 1)
+
+    def test_match_part_complete_fixtures_pass(self):
+        self.include_short_cases()
+        self.include_match_cases()
+        self.assertEqual(self.run_step(part='P01.4'), 0)
+
+    def test_missing_series_fixture_rejected(self):
+        self.include_short_cases()
+        self.include_match_cases()
+        self.xml.remove(next(c for c in self.xml if c.get('name') == 'MatchFixture_C_BO3_FINISHES'))
+        self.assertEqual(self.run_step(part='P01.4'), 1)
+
+    def test_skipped_rating_fixture_cannot_be_counted_as_pass(self):
+        self.include_short_cases()
+        self.include_match_cases()
+        next(c for c in self.xml if c.get('name') == 'MatchFixture_C_RATING_PRIVATE_CASUAL').set('result', 'Skipped')
+        self.assertEqual(self.run_step(part='P01.4'), 1)

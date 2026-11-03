@@ -1,0 +1,8 @@
+{
+  "name": "Nard.Match",
+  "noEngineReferences": true,
+  "references": [
+    "Nard.Rules.Long",
+    "Nard.Rules.Short"
+  ]
+}

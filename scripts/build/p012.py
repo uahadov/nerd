@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test/build a disposable source copy (P01.2 default; --part P01.3 includes short rules)."""
+"""Test/build a disposable source copy (P01.2 default; --part P01.3/P01.4 includes short/match rules)."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -56,7 +56,7 @@ def run(step, editor, part='P01.2'):
         code = 124
     text = log.read_text(errors='replace') if log.exists() else ''
     source_hashes = {}
-    for name in ['Assets/Game/Rules', 'Assets/Game/Tests/Rules', 'Assets/Game/Tests/ShortRules', 'Packages', 'ProjectSettings']:
+    for name in ['Assets/Game/Rules', 'Assets/Game/Tests/Rules', 'Assets/Game/Tests/ShortRules', 'Assets/Game/Tests/Match', 'Packages', 'ProjectSettings']:
         for file in sorted((project / name).rglob('*')):
             if file.is_file():
                 source_hashes['unity/' + file.relative_to(project).as_posix()] = hashlib.sha256(file.read_bytes()).hexdigest()
@@ -84,13 +84,17 @@ def run(step, editor, part='P01.2'):
             expected_fixtures = {'Fixture_' + c['id'] for c in corpus if c['mode'] == 'long' and c['action']['kind'] != 'undo'} if step == 'editmode' else set()
             actual_fixtures = {c['name'] for c in report['cases'] if c['name'].startswith('Fixture_') and c['result'] == 'Passed'}
             report['executed_long_fixtures'] = len(actual_fixtures)
-            expected_short = {'ShortFixture_' + c['id'] for c in corpus if c['mode'] == 'short' and c['action']['kind'] in ['start', 'opening', 'move', 'turn', 'classify_result']} if step == 'editmode' and part == 'P01.3' else set()
+            expected_short = {'ShortFixture_' + c['id'] for c in corpus if c['mode'] == 'short' and c['action']['kind'] in ['start', 'opening', 'move', 'turn', 'classify_result']} if step == 'editmode' and part in ['P01.3', 'P01.4'] else set()
             actual_short = {c['name'] for c in report['cases'] if c['name'].startswith('ShortFixture_') and c['result'] == 'Passed'}
             report['executed_short_fixtures'] = len(actual_short)
+            expected_match = {'MatchFixture_' + c['id'] for c in corpus if c['action']['kind'] in ['series', 'rating_policy']} if step == 'editmode' and part == 'P01.4' else set()
+            actual_match = {c['name'] for c in report['cases'] if c['name'].startswith('MatchFixture_') and c['result'] == 'Passed'}
+            report['executed_match_fixtures'] = len(actual_match)
             if (int(root.attrib.get('failed', '0')) != 0 or int(root.attrib.get('inconclusive', '0')) != 0
                     or int(root.attrib.get('passed', '0')) == 0 or actual_skips != allowed_skips
                     or actual_fixtures != expected_fixtures
-                    or (part == 'P01.3' and actual_short != expected_short)
+                    or (part in ['P01.3', 'P01.4'] and actual_short != expected_short)
+                    or (part == 'P01.4' and actual_match != expected_match)
                     or any(c['result'] not in ['Passed', 'Skipped'] for c in report['cases'])):
                 report['status'] = 'FAIL'
     else:
@@ -110,7 +114,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('step', choices=['editmode', 'playmode', 'android'])
     parser.add_argument('--editor', type=Path, default=EDITOR)
-    parser.add_argument('--part', choices=['P01.2', 'P01.3'], default='P01.2')
+    parser.add_argument('--part', choices=['P01.2', 'P01.3', 'P01.4'], default='P01.2')
     args = parser.parse_args()
     ARTIFACTS = ROOT / 'build' / args.part
     raise SystemExit(run(args.step, args.editor, args.part))

@@ -4,8 +4,9 @@
 Bu cədvəl həmin məlumatın oxunaqlı indeksidir; müstəqil yeni qərar mənbəyi deyil.
 Validator ID/title/dice/move/result/assurance sətirlərinin JSON-la tam uyğunluğunu yoxlayır.
 ACCEPT/REJECT P01.1-də yazılmış **gözlənilən** cavabdır. P01.2 uzun mühərrikdə
-26 uzun, P01.3 qısa mühərrikdə 30 aid nümunə icra edilir. Seriya/reytinq/undo
-üzrə 11 unikal nümunə öz partını gözləyir; uzun faylındakı 41 tarixi skip ayrıca qeyd olunur.
+26 uzun, P01.3 qısa mühərrikdə 30 aid nümunə icra edilir. P01.4-də 7 seriya/reytinq nümunəsi də icra edilir.
+Cəmi 63 unikal nümunə PASS; 4 undo nümunəsi P02.4 üçün NOT_RUN-dır.
+Uzun faylındakı 41 tarixi skip ayrıca qeyd olunur; 37-si başqa assembly-də real icra edilir.
 `move` tək addımın yerli şərtini, `turn` tam təklifin maksimum zər şərtini göstərir;
 heç biri server commit-i deyil. `slot` zərin unikal istifadə tokenidir.
 Tam 24 xana, bar/off və əvvəl/sonra vəziyyətlər JSON-dadır; [koordinatlar və variantlar](RULESET_VARIANTS.md).
