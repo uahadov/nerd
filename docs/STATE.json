@@ -3,19 +3,19 @@
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
   "updated_on": "2026-11-03",
-  "active_part": "P00.2",
+  "active_part": "P00.3",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P00.1",
+  "last_human_approved_part": "P00.2",
   "current_part_human_approved": false,
-  "next_part": "P00.3",
+  "next_part": "P01.1",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P00.2",
+    "part": "P00.3",
     "by": "human",
     "date": "2026-11-03",
-    "quote": "Davam et, amma yalnız P00.2 mərhələsini icra et."
+    "quote": "İndi yalnız P00.3 mərhələsinə keç."
   },
   "human_approvals": [
     {
@@ -24,6 +24,13 @@
       "by": "human",
       "quote": "P00.1 mühit auditini təsdiqləyirəm.",
       "report": "docs/reports/P00.1.md"
+    },
+    {
+      "part": "P00.2",
+      "date": "2026-11-03",
+      "by": "human",
+      "quote": "P00.2 mərhələsini təsdiqləyirəm.",
+      "report": "docs/reports/P00.2.md"
     }
   ],
   "sources": {
@@ -41,18 +48,18 @@
     "standard_terminal_git_allowed": true
   },
   "scope": {
-    "unity_project_created": false,
-    "android_tools_installed": false,
+    "unity_project_created": true,
+    "android_tools_installed": true,
     "game_modules_implemented": false
   },
-  "test_report": "docs/reports/P00.2.md",
+  "test_report": "docs/reports/P00.3.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
-    "unity_build": "NOT_RUN",
+    "unity_build": "PASS",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P00.2.validation.json",
-    "tests_evidence": "docs/reports/P00.2.tests.txt"
+    "validation_evidence": "docs/reports/P00.3.validation.json",
+    "tests_evidence": "docs/reports/P00.3.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -66,24 +73,35 @@
   },
   "open_items": [
     {
-      "id": "ENV-ANDROID",
-      "status": "DEFERRED",
-      "impact": "Gələcək Android build alətləri çatışmır; P00.2-ni bloklamır.",
-      "next_action": "Yalnız P00.3 ayrıca icazə aldıqda uyğun quraşdırma yolunu yoxla."
-    },
-    {
       "id": "GIT-PRIVATE",
       "status": "WAITING_FOR_HUMAN",
       "impact": "Uzaq repository public-dir; məzmun göndərilməyib. Lokal təməl yoxlanıla bilər, private uzaq nüsxə tamam deyil.",
       "next_action": "Mövcud origin-ə push etmə. Gələcək private repository və ayrıca açıq push icazəsi verilənədək yalnız lokal saxla."
+    },
+    {
+      "id": "DEVICE-ANDROID",
+      "status": "WAITING_FOR_HUMAN",
+      "impact": "ADB işləyir, qoşulmuş fiziki telefon yoxdur. APK açılışı və toxunma cihazda təsdiqlənməyib.",
+      "next_action": "İnsan build hazır olduqda Android telefonda açılış/bağlanış və orientation sınağını aparsın; yalnız P00.3 daxilində qal."
     }
   ],
-  "resume_instruction": "P00.2 yekun auditindən sonra insan rəyini gözlə; status AWAITING_HUMAN_APPROVAL qalsın. P00.3-ə başlama. Mövcud origin-ə push qadağandır; private olmaq avtomatik push icazəsi deyil.",
-  "audit_authorization": {
+  "resume_instruction": "Yalnız P00.3: Unity 6000.6.7f1 minimal 2D layihəsi, Android alətləri, ilkin build/test. Sonra AWAITING_HUMAN_APPROVAL ilə dayan; P01.1 və başqa parta keçmə. GitHub push qadağandır.",
+  "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
     "by": "human",
     "quote": "İndi yalnız P00.2-nin yekun auditini apar.",
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
+  },
+  "build": {
+    "id": "android-p003-local-001",
+    "editor_version": "6000.6.7f1",
+    "platform": "Android ARM64 IL2CPP development",
+    "apk": "build/P00.3/NARD-P00.3.apk",
+    "apk_bytes": 25286858,
+    "apk_sha256": "557300cb6a0a0e3187bf69ee18554bacfefede0c67a741b5ee9a08c112ffd1c1",
+    "execution_evidence": "docs/reports/P00.3.execution.json",
+    "editor_visual": "PASS",
+    "physical_device": "NOT_RUN"
   }
 }

@@ -1,10 +1,10 @@
 # Test matrisi və sübut qaydası
 
-P00.2-də yalnız repository/sənəd/status yoxlanır. Bu, oyun testləri deyil.
+P00.3-də repository/sənəd/status və minimal Unity bootstrap yoxlanır. Nərd oyun testləri deyil.
 Əmrlər repo kökündən, Python 3.10+ standart kitabxanası və Git ilə işləyir.
 
 ```bash
-python3 scripts/validation/validate_project.py --output docs/reports/P00.2.validation.json
+python3 scripts/validation/validate_project.py --output docs/reports/P00.3.validation.json
 python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 ```
 
@@ -21,12 +21,13 @@ python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 | Validatorun mənfi sınaqları | unittest: zədələnmiş mənbə, status, inventar, istinad, ignore və secret rədd olunur |
 | Git bütövlüyü, whitespace, təmiz commit vəziyyəti | git fsck, git diff --check, son status; part hesabatında qeyd |
 | Uzaq nüsxə | Privacy, push və SHA yoxlaması; yalnız real nəticə qeyd edilir |
-| Unity compile/EditMode/PlayMode, APK/iOS, GUI/cihaz | NOT_RUN — P00.2 əhatəsində deyil, oyun layihəsi yoxdur |
+| Unity compile/EditMode/PlayMode, Android APK | P00.3 runner, real NUnit XML/log/build nəticələri; cari hesabatda |
+| iOS və fiziki cihaz | Yalnız real icra varsa PASS; yoxdursa NOT_RUN və səbəb |
 
 Validator çıxış kodu: 0 = yoxlamalar keçib; 1 = uyğunsuzluq və ya oxuma xətası.
 Hər yoxlama adı və statusu JSON-da qalır. `--root` başqa checkout-un yoxlanmasına imkan verir.
 Validatorun özü heç bir statusu təsdiqləmir və növbəti partı açmır.
-P00.2 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
+P00.3 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
 validatoru sadəcə yaşıl nəticə almaq üçün zəiflətmə.
 
 ## Gələcək partlar üçün məcburi yanaşma
@@ -36,4 +37,11 @@ UI — real render/input və Azərbaycan hərfləri, network — iki klient pari
 economy — duplicate/receipt, release — Android və iPhone real cihaz sübutu.
 Hər nəticə PASS / FAIL / BLOCKED / NOT_RUN kimi, əmri, exit code-u, əhatəsi və sübut yolu ilə qeyd edilir.
 Build uğuru cihaz testi deyil; screenshot olmadan vizual PASS yoxdur.
-P00.2 mənfi sınaqları yalnız müvəqqəti surətdə işləyir; iş qovluğundakı mənbələri dəyişmir.
+Repository mənfi sınaqları yalnız müvəqqəti surətdə işləyir; iş qovluğundakı mənbələri dəyişmir.
+
+## Unity ilkin testləri
+
+`python3 scripts/build/p003.py configure|editmode|playmode|android` — hər əmrdə bir addım.
+EditMode versiya, build səhnəsi, 2D serialization və safe-area sərhəd nümunələrini yoxlayır.
+PlayMode Bootstrap səhnəsini yükləyir və kadrların həqiqətən irəlilədiyini yoxlayır.
+Cihazda test edilmədikcə bu nəticələr Android toxunma/orientation testi sayılmır.

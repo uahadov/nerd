@@ -1,0 +1,11 @@
+{
+  "name": "Nard.Build.Editor",
+  "rootNamespace": "Nard.Build",
+  "references": [
+    "Nard.Bootstrap",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

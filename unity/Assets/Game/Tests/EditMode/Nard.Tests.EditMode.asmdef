@@ -1,0 +1,14 @@
+{
+  "name": "Nard.Tests.EditMode",
+  "references": [
+    "Nard.Bootstrap",
+    "Nard.Build.Editor",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

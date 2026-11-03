@@ -15,3 +15,13 @@
 - Validatorun növbəti parta keçid və boş scope boşluqları bağlandı; test sübutları yoxlaması əlavə edildi.
 - Arxitektura məsuliyyətlərinin ayrıca paket/framework tələbi olmadığı açıqlandı.
 - Məhsul qərarları və mənbələr dəyişdirilmədi; yekun nəticələr cari part hesabatındadır.
+
+## 2026-11-03 — P00.3, insan təsdiqi gözlənilir
+
+- P00.2 qəbulu saxlandı və əvvəlki audit commitinə lokal qəbul tag-ı qoyuldu.
+- Unity 6000.6.7f1 minimal 2D bootstrap, ayrıca Runtime/Editor/test assembly-ləri yaradıldı.
+- Rəsmi Android Build Support/SDK/NDK/OpenJDK quraşdırıldı və ARM64/IL2CPP development APK hazırlandı.
+- 7 EditMode və 1 PlayMode testi keçdi; real GUI screenshot və imza/ZIP yoxlaması alındı.
+- Preview startup/domain-reload problemləri düzəldildi; recovery nüsxələri lokal qorundu.
+- Raw build/cache Git-dən kənardadır; fiziki Android testi hələ aparılmayıb.
+- Real nəticələr [P00.3 hesabatında](docs/reports/P00.3.md) və icra qeydindədir.

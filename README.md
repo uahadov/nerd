@@ -2,7 +2,7 @@
 
 Android və iOS üçün Unity 6 / C# əsasında tam 2D nərd oyunu.
 Online istiqamət: Nakama authoritative TypeScript və istehsal üçün CockroachDB.
-Hazırda yalnız sənədləşmə və Git təməli qurulur; oynanıla bilən oyun yoxdur.
+Hazırda P00.3 üzrə minimal Unity başlanğıcı və build/test infrastrukturu yoxlanır; oynanıla bilən nərd yoxdur.
 
 ## Yeni agent üçün giriş
 
@@ -24,7 +24,8 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [OPERATIONS](docs/OPERATIONS.md) | Git, təsdiq, təhlükəsizlik, xərc və asset qaydaları |
 | [Asset manifesti](docs/ASSET_MANIFEST.csv) | Asset mənbə və hüquqları; hazırda boşdur |
 | [P00.1 hesabatı](docs/reports/P00.1.md) | Əvvəlki auditin məhdudiyyətləri ilə saxlanan xülasəsi |
-| [P00.2 hesabatı](docs/reports/P00.2.md) | Cari nəticə və insan yoxlaması |
+| [P00.2 hesabatı](docs/reports/P00.2.md) | Qəbul edilmiş təməlin tarixi nəticəsi |
+| [P00.3 hesabatı](docs/reports/P00.3.md) | Cari Unity/Android nəticələri və insan yoxlaması |
 | [Hesabat şablonu](docs/reports/TEMPLATE.md) | Növbəti icazəli partda istifadə edilən format |
 | [CHANGELOG](CHANGELOG.md) | Faktiki dəyişiklik tarixçəsi |
 
@@ -40,9 +41,25 @@ python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 
 Qovluq daşındıqda istinadlar nisbi qalır. Mənbə sənədləri surətlənmir və adları dəyişdirilmir.
 Master Plandakı GDD.md və docs/MASTER_PLAN.md adları bu repoda yuxarıdakı orijinallara uyğundur.
-Gələcək qayda, Art Bible və release sənədləri yalnız müvafiq partda yaradılacaq;
-P00.2-də boş Unity/Nakama/art layihələri yaradılmır.
+Gələcək qayda, Art Bible və release sənədləri yalnız müvafiq partda yaradılacaq.
+P00.3-də unity/ daxilində yalnız texniki başlanğıc mövcuddur; Nakama/art modulları yaradılmır.
 
 Repository-nin uzaq nüsxəsi və yoxlanmış vəziyyəti STATE-də `repository` sahəsindədir.
 Məhsul mənbə koduna açıq mənbə lisenziyası təyin edilməyib; pulsuz alət seçimi
 məhsulu avtomatik açıq mənbə etmir.
+
+## Unity / Android yoxlamasını təkrarlamaq
+
+Layihə unity/ qovluğundadır, Editor versiyası 6000.6.7f1-dir. Editor bağlı olanda:
+
+```bash
+python3 scripts/build/p003.py configure
+python3 scripts/build/p003.py editmode
+python3 scripts/build/p003.py playmode
+python3 scripts/build/p003.py android
+```
+
+Runner əlavə xidmət qurmur. Başqa kompüterdə --editor ilə Editor yolu verilir;
+Android build üçün uyğun rəsmi Android Build Support/SDK/NDK/OpenJDK lazımdır.
+Raw loglar, NUnit XML və APK build/P00.3/ daxilində lokal saxlanır və Git-ə daxil edilmir.
+Eyni layihəni açıq Editor ilə batch prosesində paralel işlətməyin.

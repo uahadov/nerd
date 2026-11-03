@@ -1,0 +1,57 @@
+{
+    "version": 1,
+    "name": "Bootstrap",
+    "maps": [
+        {
+            "name": "Pointer",
+            "id": "47886066-0b6a-4843-a0a0-2205e57ab9ee",
+            "actions": [
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "7070c574-e08a-461c-831e-6aa92b278cc8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "Press",
+                    "type": "Button",
+                    "id": "5f06cb06-7414-460d-b299-2fde3586585a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "61f3d120-64ef-4188-923d-bcd2b2fb5e17",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e2766fa-611d-4b52-ad33-7f48d9c1f9d5",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

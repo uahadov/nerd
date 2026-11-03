@@ -37,3 +37,43 @@ Status AWAITING_HUMAN_APPROVAL qalır; P00.2 qəbulu və P00.3 icazəsi verilmə
 İstifadəçi mövcud GitHub repository-sinə push etməyi qadağan edib; gələcəkdə yalnız
 private repository istifadə ediləcək. Əvvəlki “sonra private edərəm” qeydi avtomatik
 push icazəsi deyil. Yekun audit dəqiqləşdirmələri məhsul qərarlarını dəyişmir.
+
+## D010 — 2026-11-03, P00.2 qəbulu və yalnız P00.3 icazəsi
+
+İstifadəçi: “P00.2 mərhələsini təsdiqləyirəm. İndi yalnız P00.3 mərhələsinə keç.”
+Unity 6000.6.7f1 istifadə olunur; rəsmi pulsuz Android alətləri quraşdırılması
+və real minimal layihə/build/test icazəlidir. Oyun funksiyaları və UI/UX ekranları yoxdur.
+P00.2 qəbulu açıqdır; private uzaq nüsxə açıq məsələ olaraq qalır. D008-dəki qəbuldan
+əvvəl private backup gözləntisi son insan qərarı ilə təxirə salınıb; push icazəsi verilmir.
+Status sonda AWAITING_HUMAN_APPROVAL qalır. Master Planda P00.3-dən sonra P01.1 gəlir;
+P00.4 yoxdur və heç bir sonrakı part icazəli deyil. GitHub push qadağası qüvvədədir.
+
+## D011 — 2026-11-03, P00.3 texniki konfiqurasiya
+
+Unity 6000.6.7f1, Test Framework 1.8.0 və Input System 1.20.1 sabitlənir.
+Rəsmi Editor-un createProject yolu ilə lokal layihə yaradılır; Unity Cloud/GitHub əlaqəsi qurulmur.
+Minimal built-in 2D ortoqrafik kamera və krem fon texniki smoke səhnəsidir; art/UI məhsul qərarı deyil.
+Android development APK üçün ARM64/IL2CPP, min API26 (Editor default minimum), target API36 seçilir;
+bunlar ilkin sınaq konfiqurasiyasıdır, final cihaz matrisi deyil. Android alətləri rəsmi
+Unity CLI-nin bu Editor versiyası üçün seçdiyi modullardır; qlobal sistem JDK/SDK parametrləri dəyişdirilmir.
+
+## D012 — 2026-11-03, Editor vizual yoxlaması və lokal ehtiyatlar
+
+İlk GUI preview köməkçisi PlayMode domain reload zamanı callback-i itirirdi;
+SessionState vasitəsilə yalnız açıq preview sorğusunun davamı saxlanıldı.
+Təkrar açılış əvvəlki proses bağlanmadan başladığı üçün duplicate-project dialoqu yarandı.
+Yalnız agentin bu layihə üçün başlatdığı proseslər bağlandı, köhnə yaradılmış Temp lock
+build/P00.3 daxilinə qorunaraq köçürüldü. Heç bir mənbə və Git tarixçəsi silinmədi.
+Unity recovery dialoqu üçün istifadəçiyə Keep Backups tövsiyə edildi; _Recovery ehtiyatları
+lokal saxlanır və Git-ə daxil edilmir. GUI ilk açılışında Unity SearchDatabase daxilində
+ArgumentOutOfRangeException qeydə alındı; yekun retry nəticəsi part hesabatında ayrılır.
+
+## D013 — 2026-11-03, GUI retry nəticəsi
+
+Rəsmi UnityCsReference SearchDatabase.SetupDefaultIndexFirstUse mənbəsində PlayMode-a
+keçid vaxtı ilkin index qurulmasının buraxıldığı görüldü. Eyni anda UserSettings/Search.index
+yox idi və erkən avtomatik Play tələbi verilirdi. Preview başlanğıcı Editor ilkin
+yeniləmələri bitəndən sonraya gecikdirildi; normal Editor API ilə bağlanıb təmiz açıldı.
+Son açılışda 25 kadrdan sonra yeni screenshot alındı, C# error və exception sayı 0 oldu.
+Bu, müşahidə ilə yoxlanmış lokal həll yoludur; Garuda/Intel üçün ümumi rəsmi dəstək iddiası deyil.
+Mənbə: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Modules/QuickSearch/Editor/Indexing/SearchDatabase.cs

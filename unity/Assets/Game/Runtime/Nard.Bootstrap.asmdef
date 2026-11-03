@@ -1,0 +1,8 @@
+{
+  "name": "Nard.Bootstrap",
+  "rootNamespace": "Nard.Bootstrap",
+  "references": [
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true
+}

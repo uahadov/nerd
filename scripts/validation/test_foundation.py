@@ -18,8 +18,13 @@ class FoundationTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory(prefix='nard-foundation-')
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name) / 'repo'
-        shutil.copytree(foundation.ROOT, self.root,
-                        ignore=shutil.ignore_patterns('.git', '__pycache__', '*.pyc'))
+        self.root.mkdir()
+        listing = foundation.git(foundation.ROOT, 'ls-files', '--cached', '--others', '--exclude-standard', '-z')
+        for name in sorted(set(filter(None, listing.stdout.split('\0')))):
+            src = foundation.ROOT / name
+            target = self.root / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, target)
         self.git('init', '-b', 'main')
         self.git('remote', 'add', 'origin', self.state()['repository']['remote_url'])
 
@@ -76,7 +81,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('state_contract')
 
     def test_wrong_authorization_rejected(self):
-        self.change_state(lambda s: s['authorization'].update(part='P00.3'))
+        self.change_state(lambda s: s['authorization'].update(part='P01.1'))
         self.fails('state_contract')
 
     def test_future_human_approval_rejected(self):
@@ -99,8 +104,8 @@ class FoundationTests(unittest.TestCase):
         p.write_text(p.read_text() + '\n[Outside](../outside.md)\n')
         self.fails('local_links')
 
-    def test_unity_directory_rejected(self):
-        (self.root / 'unity').mkdir()
+    def test_gameplay_directory_rejected(self):
+        (self.root / 'unity/Assets/Game/Rules').mkdir()
         self.fails('current_scope')
 
     def test_skill_policy_bypass_rejected(self):
@@ -147,11 +152,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('remote_safety')
 
     def test_coordinated_next_part_change_rejected(self):
-        self.change_state(lambda s: (s.update(active_part='P00.3', next_part='P01.1'),
-                                     s['authorization'].update(part='P00.3')))
+        self.change_state(lambda s: (s.update(active_part='P01.1', next_part='P01.2'),
+                                     s['authorization'].update(part='P01.1')))
         p = self.root / 'PROGRESS.md'
-        p.write_text(p.read_text().replace('- Aktiv part: `P00.2`', '- Aktiv part: `P00.3`')
-                     .replace('- Növbəti part: `P00.3`', '- Növbəti part: `P01.1`'))
+        p.write_text(p.read_text().replace('- Aktiv part: `P00.3`', '- Aktiv part: `P01.1`')
+                     .replace('- Növbəti part: `P01.1`', '- Növbəti part: `P01.2`'))
         self.fails('current_scope')
 
     def test_empty_scope_rejected(self):
@@ -163,10 +168,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('current_scope')
 
     def test_false_evidence_reference_rejected(self):
-        self.change_state(lambda s: s['checks'].update(validation_evidence='README.md'))
+        self.change_state(lambda s: s['checks'].update(validation='PASS', validation_evidence='README.md'))
         self.fails('test_evidence')
 
     def test_failed_test_log_with_pass_claim_rejected(self):
+        self.change_state(lambda s: s['checks'].update(validator_tests='PASS'))
         (self.root / self.state()['checks']['tests_evidence']).write_text('FAILED\nExit code: 1\n')
         self.fails('test_evidence')
 

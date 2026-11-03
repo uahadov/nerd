@@ -1,0 +1,9 @@
+{
+  "name": "Nard.Tests.PlayMode",
+  "references": [
+    "Nard.Bootstrap"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

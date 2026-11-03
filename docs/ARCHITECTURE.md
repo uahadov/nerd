@@ -2,7 +2,8 @@
 
 Əsas: [GDD §4, §5, §10](../NARD_Final_GDD_v1.0.md) və
 [Master Planın ardıcıllığı](../NARD_Master_Icra_Plani_v2.md).
-Bu sənəd P00.2-də baxışa təqdim edilən texniki istiqamətdir; modullar hələ yazılmayıb.
+P00.2-də qəbul edilmiş modul sərhədləridir; P00.3 yalnız texniki bootstrap əlavə edir.
+Oyun qaydaları, bot, UI/UX ekranları və backend modulları hələ yazılmayıb.
 İnfrastruktur, UI framework, əlavə servis və DB cədvəlləri bu sənədlə quraşdırılmır.
 
 ## Asılılıq istiqaməti
@@ -66,9 +67,11 @@ Differential testlər online POC-də parity göstərəcək. Botlar simulyasiya, 
 render/input, adapterlər integration, economy təkrar əməliyyat/receipt testləri keçirəcək.
 [Test matrisi](TEST_MATRIX.md) hansı yoxlamaların hazırda real olduğunu ayırır.
 
-## Gələcək fayl yerləri (hazırda yaradılmayıb)
+## Cari bootstrap və gələcək fayl yerləri
 
-Unity mənbələri unity/Assets/Game altında Rules, Bots, UI, Scenes, Network,
+P00.3-də unity/Assets/Game altında Runtime, Editor, Input, Scenes və Tests mövcuddur.
+Runtime yalnız viewport/input texniki başlanğıcıdır, Editor build alətləridir; bunlar ayrı assembly-lərlə ayrılır.
+Gələcək Unity modulları unity/Assets/Game altında Rules, Bots, UI, Scenes, Network,
 Animation, Audio, Art və Tests istiqamətlərinə bölünə bilər.
 Backend nakama/server, ortaq fixtures nakama/fixtures, backend testləri nakama/tests;
 art mənbələri art/originals, export art/exported daxilində olacaq.

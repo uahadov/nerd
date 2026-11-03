@@ -12,3 +12,6 @@
 *.jpg binary
 *.wav binary
 *.mp3 binary
+*.cs text eol=lf
+*.asmdef text eol=lf
+*.inputactions text eol=lf

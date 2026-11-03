@@ -1,0 +1,132 @@
+{
+  "part": "P00.3",
+  "recorded_at": "2026-11-03T14:47:40+04:00",
+  "editor_version": "6000.6.7f1",
+  "steps": {
+    "configure": {
+      "step": "configure",
+      "editor_version": "6000.6.7f1",
+      "started_at": "2026-11-03T14:24:06+04:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_log": "build/P00.3/configure.raw.log",
+      "compiler_diagnostics": []
+    },
+    "editmode": {
+      "step": "editmode",
+      "editor_version": "6000.6.7f1",
+      "started_at": "2026-11-03T14:25:51+04:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_log": "build/P00.3/editmode.raw.log",
+      "compiler_diagnostics": [],
+      "tests": {
+        "result": "Passed",
+        "total": "7",
+        "passed": "7",
+        "failed": "0",
+        "skipped": "0"
+      }
+    },
+    "playmode": {
+      "step": "playmode",
+      "editor_version": "6000.6.7f1",
+      "started_at": "2026-11-03T14:27:20+04:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_log": "build/P00.3/playmode.raw.log",
+      "compiler_diagnostics": [],
+      "tests": {
+        "result": "Passed",
+        "total": "1",
+        "passed": "1",
+        "failed": "0",
+        "skipped": "0"
+      }
+    },
+    "android": {
+      "step": "android",
+      "editor_version": "6000.6.7f1",
+      "started_at": "2026-11-03T14:28:10+04:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_log": "build/P00.3/android.raw.log",
+      "compiler_diagnostics": [],
+      "apk_exists": true,
+      "apk_bytes": 25286858
+    }
+  },
+  "android_build_report": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0,
+    "bytes": 226663408,
+    "seconds": 210.078496
+  },
+  "apk_verification": {
+    "signature_exit_code": 0,
+    "aapt_exit_code": 0,
+    "metadata": [
+      "package: name='com.nard.prototype' versionCode='1' versionName='0.0.3' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "sdkVersion:'26'",
+      "targetSdkVersion:'36'",
+      "application-label:'NƏRD. — P00.3'",
+      "native-code: 'arm64-v8a'"
+    ],
+    "zip_integrity": "PASS",
+    "arm64_il2cpp_library": true,
+    "bytes": 25286858,
+    "sha256": "557300cb6a0a0e3187bf69ee18554bacfefede0c67a741b5ee9a08c112ffd1c1"
+  },
+  "toolchain": {
+    "java": {
+      "exit_code": 0,
+      "version": "openjdk version \"17.0.18\" 2026-01-20\nOpenJDK Runtime Environment Temurin-17.0.18+8 (build 17.0.18+8)\nOpenJDK 64-Bit Server VM Temurin-17.0.18+8 (build 17.0.18+8, mixed mode, sharing)"
+    },
+    "javac": {
+      "exit_code": 0,
+      "version": "javac 17.0.18"
+    },
+    "adb": {
+      "exit_code": 0,
+      "version": "Android Debug Bridge version 1.0.41\nVersion 37.0.1-15733141\nInstalled as /home/ua/Unity/Hub/Editor/6000.6.7f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb\nRunning on Linux 7.3.1-1-garuda (x86_64)"
+    },
+    "aapt2": {
+      "exit_code": 0,
+      "version": "Android Asset Packaging Tool (aapt) 2.20-13193326"
+    },
+    "device_check": {
+      "exit_code": 0,
+      "states": []
+    }
+  },
+  "android_ndk": "27.2.12479018 (r27c)",
+  "android_build_tools": "36.0.0",
+  "android_api": {
+    "minimum": 26,
+    "target": 36
+  },
+  "editor_gui": {
+    "project_opened": true,
+    "preview_frames": 25,
+    "capture_marker_present": true,
+    "compiler_error_count": 0,
+    "exception_count": 0,
+    "status": "PASS",
+    "screenshots": [
+      "docs/screenshots/P00.3-gameview.png",
+      "docs/screenshots/P00.3-editor.png"
+    ],
+    "raw_log_snapshot": "build/P00.3/editor-gui.review.raw.log"
+  },
+  "physical_android_device": {
+    "status": "NOT_RUN",
+    "reason": "No ADB device attached; device serials not recorded."
+  },
+  "evidence_hashes": {
+    "build/P00.3/editmode.xml": "5f6a2ae0c285ca7597aa1c4d4f4aa7825374163bf715b9c7e97c424e47b23bcc",
+    "build/P00.3/playmode.xml": "75e1e9c270cbce42f3f9438363aac7f998e6ca36dd18cecda1fce5dbf7398954",
+    "build/P00.3/android.raw.log": "e8e8e19e6beac45bf67d5ff09f41a58479d072a659d58d7736db056f34f4fb2b",
+    "build/P00.3/editor-gui.review.raw.log": "720c40da41b29859b6aa0602fdea74f6b165eff82df64e4760708e53ebbbf0db"
+  }
+}

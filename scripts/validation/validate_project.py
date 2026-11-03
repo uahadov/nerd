@@ -12,6 +12,7 @@ from urllib.parse import unquote, urlsplit
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
+AUTHORIZED_PART = 'P00.3'
 SOURCES = {
     'NARD_Final_GDD_v1.0.md': '2d2471282160bc10dc4eaec57ed90b8b2e6e7684cb4101c9bd5f2d76e90a8580',
     'NARD_Master_Icra_Plani_v2.md': '1e333827bf7c861c5fc2b279818c795c69ddeabbd1fa8c93e3b7daad2d6828bc',
@@ -23,7 +24,12 @@ REQUIRED = [
     'docs/ASSET_MANIFEST.csv', 'docs/reports/TEMPLATE.md', 'docs/reports/P00.1.md',
     'docs/reports/P00.2.md', 'scripts/validation/validate_project.py',
     'scripts/validation/test_foundation.py', 'docs/reports/P00.2.validation.json',
-    'docs/reports/P00.2.tests.txt',
+    'docs/reports/P00.2.tests.txt', 'docs/reports/P00.3.md',
+    'docs/reports/P00.3.validation.json', 'docs/reports/P00.3.tests.txt',
+    'unity/Packages/manifest.json', 'unity/Packages/packages-lock.json',
+    'unity/ProjectSettings/ProjectVersion.txt', 'scripts/build/p003.py',
+    'docs/reports/P00.3.execution.json', 'docs/screenshots/P00.3-editor.png',
+    'docs/screenshots/P00.3-gameview.png',
 ]
 ASSET_COLUMNS = ['asset_id', 'path', 'source', 'creator', 'license', 'license_evidence',
                  'modifications', 'approved_part', 'status']
@@ -40,6 +46,8 @@ IGNORE_PROBES = [
     '.env', '.env.production', 'nakama/.env', 'signing.p12', 'release.keystore',
     'signing.key', 'credentials.json', 'service-account-test.json',
     '.codex-gravity/private.json', 'scripts/__pycache__/file.pyc',
+    'unity/.utmp/Debug/object.o', 'unity/.gradle/cache.bin', 'unity/.cxx/cache.bin',
+    'unity/Assets/_Recovery/0.unity', 'unity/Assets/_Recovery.meta',
 ]
 KEEP_PROBES = [
     'AGENTS.md', 'docs/STATE.json', '.env.example', 'unity/Assets/Game/Rules/Long.cs',
@@ -185,16 +193,28 @@ def validate(root):
 
     def scope():
         s = state(root)
-        # This reviewed foundation is authorized only for P00.2. Changing STATE
-        # and PROGRESS together must not silently authorize a later part.
-        require(s['active_part'] == 'P00.2', 'Only P00.2 is authorized for this foundation')
-        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P00.2 must await human approval')
-        require(s['last_human_approved_part'] == 'P00.1', 'P00.1 acceptance missing')
+        # Updated only after the human's explicit P00.3 authorization (D010).
+        require(s['active_part'] == AUTHORIZED_PART, 'Only P00.3 is authorized')
+        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P00.3 must await human approval')
+        require(s['last_human_approved_part'] == 'P00.2', 'P00.2 acceptance missing')
         expected = {'unity_project_created', 'android_tools_installed', 'game_modules_implemented'}
         require(set(s['scope']) == expected, 'Scope fields missing or unexpected')
-        require(all(value is False for value in s['scope'].values()), 'Scope flags must be explicit false booleans')
-        require(not any((root / p).exists() for p in ['unity', 'nakama', 'art']), 'Premature game directories')
-        return 'P00.2 gate closed; no game directories; scope flags are declarations, not an OS installation audit'
+        require(all(type(value) is bool for value in s['scope'].values()), 'Scope flags must be booleans')
+        require(s['scope']['unity_project_created'] is True and s['scope']['game_modules_implemented'] is False,
+                'P00.3 permits a Unity foundation, not game modules')
+        require(not any((root / p).exists() for p in ['nakama', 'art']), 'Premature game/backend directories')
+        for module in ['Rules', 'Bots', 'Network', 'UI']:
+            require(not (root / 'unity/Assets/Game' / module).exists(), 'Premature gameplay module: ' + module)
+        version = read(root, 'unity/ProjectSettings/ProjectVersion.txt')
+        require('m_EditorVersion: 6000.6.7f1\n' in version, 'Unity version not pinned')
+        manifest = json.loads(read(root, 'unity/Packages/manifest.json'))['dependencies']
+        require(manifest['com.unity.test-framework'] == '1.8.0', 'Test Framework version mismatch')
+        require(manifest['com.unity.inputsystem'] == '1.20.1', 'Input system version mismatch')
+        locked = json.loads(read(root, 'unity/Packages/packages-lock.json'))['dependencies']
+        for name in ['com.unity.inputsystem', 'com.unity.test-framework']:
+            require(locked[name]['version'] == manifest[name], 'Manifest/lock mismatch: ' + name)
+        require((root / 'unity/Assets/Game/Scenes/Bootstrap.unity').is_file(), 'Bootstrap scene missing')
+        return 'P00.3 only: pinned Editor, bootstrap and test/input packages; no gameplay modules'
     check('current_scope', scope)
 
     def policy():
@@ -224,8 +244,11 @@ def validate(root):
 
     def links():
         count = 0
-        for file in root.rglob('*.md'):
-            if '.git' in file.parts or file.name in SOURCES:
+        names = git(root, 'ls-files', '--cached', '--others', '--exclude-standard', '-z')
+        require(names.returncode == 0, 'Cannot enumerate documentation')
+        for name in sorted(set(filter(None, names.stdout.split('\0')))):
+            file = root / name
+            if file.suffix != '.md' or file.name in SOURCES:
                 continue  # Immutable originals contain illustrative future paths.
             text = re.sub(r'```.*?```', '', file.read_text(encoding='utf-8'), flags=re.S)
             for target in re.findall(r'\[[^\]]*\]\(([^\s)]+)\)', text):
