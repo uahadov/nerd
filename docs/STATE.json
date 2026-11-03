@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "project": "NƏRD.",
+  "timezone": "Asia/Baku",
+  "updated_on": "2026-11-03",
+  "active_part": "P00.2",
+  "status": "AWAITING_HUMAN_APPROVAL",
+  "last_human_approved_part": "P00.1",
+  "current_part_human_approved": false,
+  "next_part": "P00.3",
+  "next_part_authorized": false,
+  "approved_feature_count": 87,
+  "rejected_feature_count": 20,
+  "authorization": {
+    "part": "P00.2",
+    "by": "human",
+    "date": "2026-11-03",
+    "quote": "Davam et, amma yalnız P00.2 mərhələsini icra et."
+  },
+  "human_approvals": [
+    {
+      "part": "P00.1",
+      "date": "2026-11-03",
+      "by": "human",
+      "quote": "P00.1 mühit auditini təsdiqləyirəm.",
+      "report": "docs/reports/P00.1.md"
+    }
+  ],
+  "sources": {
+    "NARD_Final_GDD_v1.0.md": {
+      "sha256": "2d2471282160bc10dc4eaec57ed90b8b2e6e7684cb4101c9bd5f2d76e90a8580"
+    },
+    "NARD_Master_Icra_Plani_v2.md": {
+      "sha256": "1e333827bf7c861c5fc2b279818c795c69ddeabbd1fa8c93e3b7daad2d6828bc"
+    }
+  },
+  "tool_policy": {
+    "skills_allowed": false,
+    "antigravity_related_mcp_allowed": false,
+    "codex_gravity_mcp_allowed": false,
+    "standard_terminal_git_allowed": true
+  },
+  "scope": {
+    "unity_project_created": false,
+    "android_tools_installed": false,
+    "game_modules_implemented": false
+  },
+  "test_report": "docs/reports/P00.2.md",
+  "checks": {
+    "validation": "PASS",
+    "validator_tests": "PASS",
+    "unity_build": "NOT_RUN",
+    "visual_device": "NOT_RUN",
+    "validation_evidence": "docs/reports/P00.2.validation.json",
+    "tests_evidence": "docs/reports/P00.2.tests.txt"
+  },
+  "repository": {
+    "kind": "local_git",
+    "branch": "main",
+    "remote_url": "https://github.com/uahadov/nerd.git",
+    "remote_visibility": "PUBLIC",
+    "sync_status": "DEFERRED_PUBLIC_REMOTE",
+    "local_foundation_completed": true,
+    "private_remote_backup_completed": false
+  },
+  "open_items": [
+    {
+      "id": "ENV-ANDROID",
+      "status": "DEFERRED",
+      "impact": "Gələcək Android build alətləri çatışmır; P00.2-ni bloklamır.",
+      "next_action": "Yalnız P00.3 ayrıca icazə aldıqda uyğun quraşdırma yolunu yoxla."
+    },
+    {
+      "id": "GIT-PRIVATE",
+      "status": "WAITING_FOR_HUMAN",
+      "impact": "Uzaq repository public-dir; məzmun göndərilməyib. Lokal təməl yoxlanıla bilər, private uzaq nüsxə tamam deyil.",
+      "next_action": "İstifadəçi repository-ni private etdikdən sonra görünüşü yenidən yoxla və yalnız uyğun icazə çərçivəsində push et."
+    }
+  ],
+  "resume_instruction": "P00.2 üçün insan rəyini gözlə. P00.3-ə başlama. İstifadəçi GitHub repository-ni sonra private edəcək; hazırkı public origin-ə push etmə."
+}

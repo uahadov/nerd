@@ -1,0 +1,32 @@
+Command: python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
+test_asset_without_rights_rejected (test_foundation.FoundationTests.test_asset_without_rights_rejected) ... ok
+test_changed_source_rejected (test_foundation.FoundationTests.test_changed_source_rejected) ... ok
+test_forced_tracked_secret_path_rejected (test_foundation.FoundationTests.test_forced_tracked_secret_path_rejected) ... ok
+test_future_human_approval_rejected (test_foundation.FoundationTests.test_future_human_approval_rejected) ... ok
+test_large_file_rejected (test_foundation.FoundationTests.test_large_file_rejected) ... ok
+test_missing_link_rejected (test_foundation.FoundationTests.test_missing_link_rejected) ... ok
+test_missing_rejection_rejected (test_foundation.FoundationTests.test_missing_rejection_rejected) ... ok
+test_missing_secret_ignore_rejected (test_foundation.FoundationTests.test_missing_secret_ignore_rejected) ... ok
+test_missing_state_cli_returns_failure (test_foundation.FoundationTests.test_missing_state_cli_returns_failure) ... ok
+test_next_part_authorization_rejected (test_foundation.FoundationTests.test_next_part_authorization_rejected) ... ok
+test_overbroad_ignore_rejected (test_foundation.FoundationTests.test_overbroad_ignore_rejected) ... ok
+test_path_escape_rejected (test_foundation.FoundationTests.test_path_escape_rejected) ... ok
+test_progress_drift_rejected (test_foundation.FoundationTests.test_progress_drift_rejected) ... ok
+test_public_push_record_rejected (test_foundation.FoundationTests.test_public_push_record_rejected) ... ok
+test_reworded_decision_rejected (test_foundation.FoundationTests.test_reworded_decision_rejected) ... ok
+test_secret_pattern_rejected (test_foundation.FoundationTests.test_secret_pattern_rejected) ... ok
+test_self_approval_rejected (test_foundation.FoundationTests.test_self_approval_rejected) ... ok
+test_skill_policy_bypass_rejected (test_foundation.FoundationTests.test_skill_policy_bypass_rejected) ... ok
+test_staged_secret_hidden_by_clean_worktree_rejected (test_foundation.FoundationTests.test_staged_secret_hidden_by_clean_worktree_rejected) ... ok
+test_string_boolean_rejected (test_foundation.FoundationTests.test_string_boolean_rejected) ... ok
+test_unity_directory_rejected (test_foundation.FoundationTests.test_unity_directory_rejected) ... ok
+test_unplanned_part_link_rejected (test_foundation.FoundationTests.test_unplanned_part_link_rejected) ... ok
+test_valid_foundation_passes_from_different_path (test_foundation.FoundationTests.test_valid_foundation_passes_from_different_path) ... ok
+test_wrong_authorization_rejected (test_foundation.FoundationTests.test_wrong_authorization_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 6.600s
+
+OK
+
+Exit code: 0

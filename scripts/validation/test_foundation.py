@@ -1,0 +1,157 @@
+"""Mutation tests run only in disposable repository copies, never the real project."""
+import importlib.util
+import json
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+import unittest
+
+MODULE_PATH = Path(__file__).with_name('validate_project.py')
+spec = importlib.util.spec_from_file_location('foundation', MODULE_PATH)
+foundation = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(foundation)
+
+
+class FoundationTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(prefix='nard-foundation-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name) / 'repo'
+        shutil.copytree(foundation.ROOT, self.root,
+                        ignore=shutil.ignore_patterns('.git', '__pycache__', '*.pyc'))
+        self.git('init', '-b', 'main')
+        self.git('remote', 'add', 'origin', self.state()['repository']['remote_url'])
+
+    def git(self, *args):
+        return subprocess.run(['git', '-C', str(self.root), *args], capture_output=True, check=True)
+
+    def state(self):
+        return json.loads((self.root / 'docs/STATE.json').read_text())
+
+    def change_state(self, mutate):
+        value = self.state()
+        mutate(value)
+        (self.root / 'docs/STATE.json').write_text(json.dumps(value, ensure_ascii=False))
+
+    def fails(self, check):
+        result = foundation.validate(self.root)
+        entry = next(c for c in result['checks'] if c['name'] == check)
+        self.assertEqual(entry['status'], 'FAIL', entry)
+
+    def test_valid_foundation_passes_from_different_path(self):
+        result = foundation.validate(self.root)
+        self.assertEqual(result['failed'], 0, result['checks'])
+
+    def test_changed_source_rejected(self):
+        path = self.root / 'NARD_Final_GDD_v1.0.md'
+        path.write_text(path.read_text() + '\nchanged\n')
+        self.fails('source_integrity')
+
+    def test_reworded_decision_rejected(self):
+        p = self.root / 'docs/APPROVED.md'
+        p.write_text(p.read_text().replace('| A01 | Uzun nərd |', '| A01 | changed |'))
+        self.fails('decision_inventory')
+
+    def test_missing_rejection_rejected(self):
+        p = self.root / 'docs/REJECTED.md'
+        p.write_text('\n'.join(l for l in p.read_text().splitlines() if not l.startswith('| R20 |')))
+        self.fails('decision_inventory')
+
+    def test_unplanned_part_link_rejected(self):
+        p = self.root / 'docs/APPROVED.md'
+        p.write_text(p.read_text().replace('| P01.2 |', '| P99.9 |'))
+        self.fails('decision_inventory')
+
+    def test_self_approval_rejected(self):
+        self.change_state(lambda s: s.update(current_part_human_approved=True))
+        self.fails('state_contract')
+
+    def test_next_part_authorization_rejected(self):
+        self.change_state(lambda s: s.update(next_part_authorized=True))
+        self.fails('state_contract')
+
+    def test_string_boolean_rejected(self):
+        self.change_state(lambda s: s.update(next_part_authorized='false'))
+        self.fails('state_contract')
+
+    def test_wrong_authorization_rejected(self):
+        self.change_state(lambda s: s['authorization'].update(part='P00.3'))
+        self.fails('state_contract')
+
+    def test_future_human_approval_rejected(self):
+        self.change_state(lambda s: s['human_approvals'].append(
+            {'part': 'P00.3', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
+        self.fails('state_contract')
+
+    def test_progress_drift_rejected(self):
+        p = self.root / 'PROGRESS.md'
+        p.write_text(p.read_text().replace('`AWAITING_HUMAN_APPROVAL`', '`HUMAN_APPROVED`'))
+        self.fails('progress_consistency')
+
+    def test_missing_link_rejected(self):
+        p = self.root / 'README.md'
+        p.write_text(p.read_text() + '\n[Broken](docs/missing.md)\n')
+        self.fails('local_links')
+
+    def test_path_escape_rejected(self):
+        p = self.root / 'README.md'
+        p.write_text(p.read_text() + '\n[Outside](../outside.md)\n')
+        self.fails('local_links')
+
+    def test_unity_directory_rejected(self):
+        (self.root / 'unity').mkdir()
+        self.fails('current_scope')
+
+    def test_skill_policy_bypass_rejected(self):
+        self.change_state(lambda s: s['tool_policy'].update(skills_allowed=True))
+        self.fails('agent_policy')
+
+    def test_missing_secret_ignore_rejected(self):
+        p = self.root / '.gitignore'
+        p.write_text(p.read_text().replace('\n.env\n', '\n'))
+        self.fails('gitignore_behavior')
+
+    def test_overbroad_ignore_rejected(self):
+        p = self.root / '.gitignore'
+        p.write_text(p.read_text() + '\n*.meta\n')
+        self.fails('gitignore_behavior')
+
+    def test_forced_tracked_secret_path_rejected(self):
+        (self.root / '.env').write_text('SYNTHETIC_ONLY=yes\n')
+        self.git('add', '-f', '.env')
+        self.fails('candidate_and_index_safety')
+
+    def test_secret_pattern_rejected(self):
+        (self.root / 'leak.txt').write_text('gh' + 'p_' + 'Z' * 36)
+        self.fails('candidate_and_index_safety')
+
+    def test_staged_secret_hidden_by_clean_worktree_rejected(self):
+        p = self.root / 'leak.txt'
+        p.write_text('gh' + 'p_' + 'Z' * 36)
+        self.git('add', 'leak.txt')
+        p.write_text('clean working copy\n')
+        self.fails('candidate_and_index_safety')
+
+    def test_large_file_rejected(self):
+        (self.root / 'large.txt').write_bytes(b'x' * (1024 * 1024 + 1))
+        self.fails('candidate_and_index_safety')
+
+    def test_asset_without_rights_rejected(self):
+        p = self.root / 'docs/ASSET_MANIFEST.csv'
+        p.write_text(p.read_text() + 'AR001,README.md,,someone,,,,,DRAFT\n')
+        self.fails('asset_manifest')
+
+    def test_public_push_record_rejected(self):
+        self.change_state(lambda s: s['repository'].update(remote_visibility='PUBLIC', sync_status='PUSHED'))
+        self.fails('remote_safety')
+
+    def test_missing_state_cli_returns_failure(self):
+        (self.root / 'docs/STATE.json').write_text('{invalid')
+        r = subprocess.run(['python3', str(MODULE_PATH), '--root', str(self.root)], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 1)
+        self.assertGreater(json.loads(r.stdout)['failed'], 0)
+
+
+if __name__ == '__main__':
+    unittest.main()

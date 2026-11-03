@@ -1,0 +1,31 @@
+# Qərarlar və fərziyyələr
+
+Məhsul qərarları üçün [GDD](../NARD_Final_GDD_v1.0.md), ardıcıllıq üçün
+[Master Plan](../NARD_Master_Icra_Plani_v2.md) əsasdır. Bunların məzmunu dəyişdirilməyib.
+Hər yeni qeyd: ID, tarix, növ, əsas, nəticə, təsir və təsdiq vəziyyəti daşımalıdır.
+
+| ID / tarix | Növ və əsas | Qərar / nəticə |
+|---|---|---|
+| D001 / 2026-11-03 | İstifadəçinin P00.2 göstərişi | Agentdən/modeldən asılı olmayan repo. GDD-də Antigravity sahiblik/prioritet qeydləri məcburi alət tələbi yaratmır. Məhsul qərarları dəyişmir. |
+| D002 / 2026-11-03 | İstifadəçinin açıq qadağası | Bütün Skill-lər, Antigravity MCP, Codex Gravity MCP və Antigravity ilə əlaqəli MCP-lər qadağandır. Adi Git/terminal/redaktə icazəlidir. |
+| D003 / 2026-11-03 | İstifadəçinin status tələbi | Master Plandakı WAITING_FOR_HUMAN_REVIEW bu repoda AWAITING_HUMAN_APPROVAL kimi saxlanır; mənası eyni gözləmə qapısıdır. SELF_TEST_PASSED insan təsdiqi deyil. |
+| D004 / 2026-11-03 | P00.2 daxilində sənəd quruluşu | Orijinal iki mənbənin adı və baytları qorunur. GDD.md / MASTER_PLAN.md surətləri yaradılmır; README dəqiq yol xəritəsidir. |
+| D005 / 2026-11-03 | İstifadəçinin bu çatdakı açıq mesajı | P00.1 insan tərəfindən qəbul edilib; yalnız P00.2 icazəlidir. P00.3-ə icazə yoxdur. |
+| D006 / 2026-11-03 | İstifadəçinin cavabı | Commit müəllifi Ulvi; təqdim edilmiş e-poçt yalnız lokal Git config-dədir. Uzaq ünvan https://github.com/uahadov/nerd.git. Görünüş və push nəticəsi STATE və hesabatda faktiki qeyd olunur. |
+| D007 / 2026-11-03 | Agentin P00.2 struktur seçimi; insan baxışına təqdim edilir | ARCHITECTURE modul sərhədlərini sənədləşdirir. Nə yeni xidmət, nə oyun kodu, nə əvvəlcədən Unity/SDK quraşdırması əlavə edilir. |
+
+## Təsdiqlənməmiş / gələcəkdə ölçüləcək
+
+- GDD-də 30/90 saniyə, beta/KPI və 60 FPS rəqəmləri hədəf/fərziyyədir.
+- Uzun nərdin yerli variantları P01.1 və beta qapısında doğrulanacaq; RuleSetVersion tələb olunur.
+- P00.1-də tapılan Unity versiyası bu partda layihə versiyası kimi sabitlənmir.
+- Android alətləri çatışmır; bu partda quraşdırılmır. iOS build/device sınağı aparılmayıb.
+- 1 GB VPS uyğunluğu ölçülməyib. İstehsal CockroachDB seçimi saxlanır;
+  lokal PostgreSQL yolu yalnız gələcək rəsmi uyğunluq yoxlaması ilə development üçündür.
+
+## D008 — 2026-11-03, uzaq repository
+
+Git ls-remote oxuması uğurludur və 0 ref göstərir. GitHub açıq metadata cavabı
+private=false, visibility=public göstərdi. İstifadəçi “davam et sonrada private edərəm”
+bildirdi. Bu, lokal P00.2-nin davamı kimi tətbiq edildi; public remote-ə push edilmədi.
+Private uzaq nüsxə açıq məsələdir və P00.2-nin tam qəbulundan əvvəl ayrıca həll edilməlidir.

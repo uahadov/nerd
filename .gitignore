@@ -1,0 +1,58 @@
+# Unity-generated directories (root or nested Unity projects)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/unity/[Bb]uild/
+/unity/[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+# Generated IDE / compiler / package state
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.pidb
+*.booproj
+*.opendb
+*.VC.db
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+coverage/
+# Builds and installers
+*.apk
+*.aab
+*.ipa
+*.appimage
+*.AppImage
+# Secrets and signing material; never add a real secret with git add -f
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+service-account*.json
+secrets/
+# Host-specific AI state; shared rules live only in AGENTS.md
+.codex/
+.gemini/
+.antigravity/
+.codex-gravity/
+# Operating system files
+.DS_Store
+Thumbs.db
+*~
