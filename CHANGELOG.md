@@ -61,3 +61,14 @@
 - 67 canonical nümunədən 63 PASS, 4 undo NOT_RUN (P02.4); 41 tarixi skip ayrıca saxlandı.
 - UI/bot/backend və P02 hazırlanmadı; fiziki cihaz/yerli oyunçu NOT_RUN, push edilmədi.
 - Sübutlar və manual baxış: [P01.4 hesabatı](docs/reports/P01.4.md).
+
+## 2026-11-03 — P02.1, insan təsdiqi gözlənilir
+
+- P01.4 qəbulu və yalnız P02.1 icazəsi qeyd edildi; əvvəlki mühərrik/matç/testlər qorundu.
+- Ayrı TechnicalBoard scene, read-only BoardSnapshot/BoardGeometry/BoardView və boş zər yerləri əlavə edildi.
+- 38 yeni EditMode və 1 PlayMode scene/render testi; 301 EditMode/2 PlayMode PASS, Android build PASS.
+- 98 Python testi və 15 struktur yoxlaması; 63 canonical PASS, 4 undo NOT_RUN saxlanır.
+- Real Editor camera və GUI Game View screenshot-ları saxlandı; font/rim kontrastı düzəldildi.
+- Əvvəldən açıq Editor-un native Analytics shutdown qəzası açıq qeyd edildi; dump lokal qorundu.
+- Gameplay input, zər atışı, bot, online və P02.2 yoxdur. Cihaz/yerli yoxlama NOT_RUN, push edilmədi.
+- Sübut və manual addımlar: [P02.1 hesabatı](docs/reports/P02.1.md).

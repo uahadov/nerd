@@ -3,6 +3,7 @@
 Mətnlər [GDD §13](../NARD_Final_GDD_v1.0.md) ilə sözbəsöz eynidir.
 Master Plan XV ilə də müqayisə edilir. Məhsul qəbulu implementasiya/part icazəsi deyil.
 A01/A02 mühərrikləri və A18 seriya müqaviləsi IN_PROGRESS-dır; oynanıla bilən tam uzun nərd hələ hazır deyil.
+A53 texniki görünüş olaraq IN_PROGRESS-dır; son art və mobil qəbul tamam deyil.
 Digər maddələr NOT_STARTED-dır. İlkin part əlaqəsi işin ilk aidiyyəti yerini
 izləmək üçündür, tam əhatə və ya həmin partı indi icra etmək vədi deyil.
 Mənbə ardıcıllığı üstün qalır. A38 yalnız ilk reklamsız buraxılışdan sonrakı yeniləmə üçündür.
@@ -62,7 +63,7 @@ Qalan 7 buraxılış qərarı və GDD §15–16 ayrıca mənbədə qalır; A say
 | A50 | Mümkün gedişlərin göstərilməsi | NOT_STARTED | P02.2 |
 | A51 | Gedişi geri almaq (növbə yekunlaşmazdan əvvəl) | NOT_STARTED | P02.4 |
 | A52 | Növbə vaxtı və vizual taymer | NOT_STARTED | P03.5 |
-| A53 | Taxtanın rahat görünüşü | NOT_STARTED | P02.1 |
+| A53 | Taxtanın rahat görünüşü | IN_PROGRESS | P02.1 |
 | A54 | Sürətli daş hərəkəti | NOT_STARTED | P02.4 |
 | A55 | Xüsusi matç nəticəsi | NOT_STARTED | P04.7 |
 | A56 | Unikal oyunçu ID-si | NOT_STARTED | P06.1 |

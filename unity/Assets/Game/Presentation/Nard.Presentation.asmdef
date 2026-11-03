@@ -1,0 +1,9 @@
+{
+  "name": "Nard.Presentation",
+  "rootNamespace": "Nard.Presentation",
+  "references": [
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short"
+  ]
+}

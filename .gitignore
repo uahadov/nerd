@@ -65,3 +65,6 @@ Thumbs.db
 .utmp/
 .gradle/
 .cxx/
+
+# Unity native crash diagnostics stay local; preserve under ignored build diagnostics.
+mono_crash.*

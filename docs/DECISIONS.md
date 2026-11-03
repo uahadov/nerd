@@ -153,3 +153,24 @@ Təkrar GameId və uyğun olmayan mode/version rədd edilir. RatingPolicy yalnı
 predikatıdır; backend autentifikasiyası və həqiqi reytinq yazılması həyata keçirilmir.
 A18 IN_PROGRESS oldu; nə oyun UI-si, nə avtomatik revanş/seriya ekranı DONE kimi göstərilir.
 Undo/preview idarəsi P02.4-dədir. 4 undo fixture NOT_RUN qalır; digər 63 fixture müvafiq modullarda icra olunur.
+
+## D022 — 2026-11-03, P01.4 qəbulu və yalnız P02.1
+
+İstifadəçi P01.4-ü hesabat əsasında qəbul edib, yalnız P02.1-ə açıq icazə verib.
+Master P02.1: sadə 24 xana, 15+15 daş, iki rəng, zər yerləri, state-ə bağlı görünüş.
+P02.2 toxunma/gediş, P02.3 atış/növbə, P02.4 undo və P02.5 iki responsive layout açılmır.
+Müvəqqəti qrafika xəbərdarlığı göstərilir; çayxana fonu/avatarlar əlavə edilmir.
+Mühərrik/matç kodu və köhnə C# testləri qorunur. Fiziki Android və yerli yoxlama NOT_RUN qalır.
+
+## D023 — P02.1 read-only presentation və texniki layout
+
+Presentation/BoardSnapshot yalnız qəbul edilmiş LongPosition/ShortPosition/MatchSession-dan
+counts köçürür. BoardGeometry board-global-v1 indekslərini ekrana yerləşdirir, qayda hesablamır.
+BoardView SpriteRenderer/TextMesh ilə öz yaradılmış sadə həndəsi qrafikanı göstərir; əlavə paket yoxdur.
+15 daş üst-üstə gizlədilmir, stack diametri mövcud sahəyə uyğun azaldılır; bar/off ayrıca zonadır.
+Zərlər hələ atılmır: iki boş yer göstərilir; UI-da bu məhdudiyyət yazılır.
+Bir sabit portret texniki kompozisiya aspektə görə letterbox olunur; P02.5 məhsul layout-u deyil.
+TechnicalBoard ayrıca səhnədir. Bootstrap və əvvəlki EditorBuildSettings qorunur; P02.1 Android
+build açıq scene siyahısı ilə TechnicalBoard-dan başlayır, Bootstrap da regressiya üçün daxil edilir.
+Legacy TextMesh-in linear rəng çevrilməsi real screenshot-da solğunluğu aradan qaldırmaq üçün düzəldildi.
+Rejim seçimi səhifəsi və gameplay idarəsi yoxdur; qısa/bar-off snapshot-ları test/preview vasitəsilə yoxlanır.

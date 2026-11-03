@@ -3,19 +3,19 @@
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
   "updated_on": "2026-11-03",
-  "active_part": "P01.4",
+  "active_part": "P02.1",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P01.3",
+  "last_human_approved_part": "P01.4",
   "current_part_human_approved": false,
-  "next_part": "P02.1",
+  "next_part": "P02.2",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P01.4",
+    "part": "P02.1",
     "by": "human",
     "date": "2026-11-03",
-    "quote": "P01.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm. İndi yalnız P01.4 mərhələsinə keç."
+    "quote": "P01.4 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm. İndi yalnız P02.1 mərhələsinə keç."
   },
   "human_approvals": [
     {
@@ -59,6 +59,13 @@
       "by": "human",
       "quote": "P01.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm.",
       "report": "docs/reports/P01.3.md"
+    },
+    {
+      "part": "P01.4",
+      "date": "2026-11-03",
+      "by": "human",
+      "quote": "P01.4 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm.",
+      "report": "docs/reports/P01.4.md"
     }
   ],
   "sources": {
@@ -80,14 +87,14 @@
     "android_tools_installed": true,
     "game_modules_implemented": true
   },
-  "test_report": "docs/reports/P01.4.md",
+  "test_report": "docs/reports/P02.1.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
     "unity_build": "PASS",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P01.4.validation.json",
-    "tests_evidence": "docs/reports/P01.4.tests.txt"
+    "validation_evidence": "docs/reports/P02.1.validation.json",
+    "tests_evidence": "docs/reports/P02.1.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -117,9 +124,15 @@
       "status": "WAITING_FOR_HUMAN",
       "impact": "P01.1 və altı qaydanın ilkin standart seçimi qəbul edilib. Azərbaycan üzrə müstəqil yerli oyunçu yoxlaması aparılmayıb; PROVISIONAL_RULE qalır.",
       "next_action": "Beta öncəsi bir neçə yerli təcrübəli oyunçu ilə nümunələri yoxla. İlkin standart qəbulu bu yoxlamanı tamamlamır."
+    },
+    {
+      "id": "UNITY-EDITOR-EXIT",
+      "status": "OPEN_NOT_REPRODUCED_IN_ISOLATED_PREVIEW",
+      "impact": "Əvvəldən açıq əsas Editor bağlanışında Unity Analytics/WebRequest native SIGSEGV qeyd olunub. Dəqiq səbəb təsdiqlənməyib; P02.1 ayrıca GUI preview exit=0, compile/test/build PASS-dır.",
+      "next_action": "Təkrarlanarsa local build/P02.1/diagnostics log/dump ilə araşdır; native qəzanı gameplay xətası və ya həll edilmiş problem kimi təqdim etmə. Heç bir qlobal servis/Editor telemetri parametri dəyişdirilməyib."
     }
   ],
-  "resume_instruction": "Yalnız P01.4 pure C# match state machine, nəticə/seriya/RuleSetVersion və eligibility müqaviləsi. İki mühərrik və testləri dəyişməsin. UI/animasiya/bot/backend, undo və P02 yoxdur. AWAITING_HUMAN_APPROVAL ilə dayan; fiziki Android və yerli oyunçu NOT_RUN; push qadağandır.",
+  "resume_instruction": "Yalnız P02.1 texniki 2D taxta və read-only state render. Uzun/qısa/matç kodu və köhnə testlər qorunsun. Seçim/gediş/zər atışı/undo/responsive iki layout/bot/backend yoxdur. AWAITING_HUMAN_APPROVAL ilə dayan; P02.2 icazəsizdir; fiziki Android və yerli yoxlama NOT_RUN; push qadağandır.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -128,16 +141,16 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p014-local-001",
+    "id": "android-p021-local-001",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
-    "apk": "build/P01.4/NARD-P01.4.apk",
-    "apk_bytes": 25380398,
-    "apk_sha256": "8cae2ec76bc144ed173bebdd5a7c86f02716c8dee0d4e3f5e469e4adf9627bb2",
-    "execution_evidence": "docs/reports/P01.4.execution.json",
-    "editor_visual": "NOT_RUN",
+    "apk": "build/P02.1/NARD-P02.1.apk",
+    "apk_bytes": 25421110,
+    "apk_sha256": "c471ff734dd5c03dd6cda74aae054b1525f5c7117a4019439022ecfa703e5329",
+    "execution_evidence": "docs/reports/P02.1.execution.json",
+    "editor_visual": "PASS",
     "physical_device": "NOT_RUN",
-    "produced_in_part": "P01.4"
+    "produced_in_part": "P02.1"
   },
   "human_editor_review": {
     "part": "P00.3",
@@ -153,10 +166,10 @@
     "ruleset_version": "long-az-gdd1-provisional.1"
   },
   "engine": {
-    "part": "P01.4",
-    "mode": "long_short_match",
+    "part": "P02.1",
+    "mode": "long_short_match_board",
     "status": "PASS",
-    "execution_evidence": "docs/reports/P01.4.execution.json",
+    "execution_evidence": "docs/reports/P02.1.execution.json",
     "ruleset_versions": [
       "long-az-gdd1-provisional.1",
       "short-gdd1-draft.1"
@@ -199,6 +212,18 @@
       "editor_visual": "NOT_RUN",
       "physical_device": "NOT_RUN",
       "produced_in_part": "P01.3"
+    },
+    {
+      "id": "android-p014-local-001",
+      "editor_version": "6000.6.7f1",
+      "platform": "Android ARM64 IL2CPP development",
+      "apk": "build/P01.4/NARD-P01.4.apk",
+      "apk_bytes": 25380398,
+      "apk_sha256": "8cae2ec76bc144ed173bebdd5a7c86f02716c8dee0d4e3f5e469e4adf9627bb2",
+      "execution_evidence": "docs/reports/P01.4.execution.json",
+      "editor_visual": "NOT_RUN",
+      "physical_device": "NOT_RUN",
+      "produced_in_part": "P01.4"
     }
   ],
   "historical_engines": [
@@ -215,6 +240,17 @@
       "mode": "long_and_short",
       "status": "PASS",
       "execution_evidence": "docs/reports/P01.3.execution.json",
+      "ruleset_versions": [
+        "long-az-gdd1-provisional.1",
+        "short-gdd1-draft.1"
+      ],
+      "independent_local_review": "NOT_RUN"
+    },
+    {
+      "part": "P01.4",
+      "mode": "long_short_match",
+      "status": "PASS",
+      "execution_evidence": "docs/reports/P01.4.execution.json",
       "ruleset_versions": [
         "long-az-gdd1-provisional.1",
         "short-gdd1-draft.1"

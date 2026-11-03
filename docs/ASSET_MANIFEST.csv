@@ -1,1 +1,2 @@
 asset_id,path,source,creator,license,license_evidence,modifications,approved_part,status
+AR-P021,unity/Assets/Game/Presentation/BoardView.cs,Original procedural geometry,Project AI-assisted development,Original project source; product license not assigned,docs/DECISIONS.md D023,None,P02.1,TEMPORARY_AWAITING_HUMAN_APPROVAL

@@ -4,7 +4,7 @@
 [Master Planın ardıcıllığı](../NARD_Master_Icra_Plani_v2.md).
 P00.2-də qəbul edilmiş modul sərhədləridir; P00.3 texniki bootstrap əlavə edib.
 P01.2 uzun modulu qəbul edilib; P01.3 ShortPosition/ShortNardeRules ayrıca pure C# assembly-dir.
-Bot, UI/UX və backend modulları yoxdur.
+Bot/backend yoxdur. P02.1-də aşağıda göstərilən read-only texniki presentation var.
 İnfrastruktur, UI framework, əlavə servis və DB cədvəlləri bu sənədlə quraşdırılmır.
 
 ## Asılılıq istiqaməti
@@ -128,3 +128,17 @@ RatingPolicy yalnız random + ranked + authoritative confirmation üçün eligib
 Confirmation gələcək etibarlı səlahiyyət mənbəyindən gəlməlidir; klient flag-i online sübut deyil.
 Həqiqi reytinq, server autentifikasiyası, hadisə/saxlama, preview/undo, UI, bot və avtomatik
 növbəti partiyanın başlanması bu modulda yoxdur. P02 funksiyaları ayrıca insan icazəsini gözləyir.
+
+## P02.1 texniki presentation sərhədi
+
+Nard.Presentation yalnız Nard.Match və iki pure qayda assembly-sinə bağlıdır; əks asılılıq yoxdur.
+BoardSnapshot mövcud engine/match state-indən points/bar/off-un read-only surətini alır.
+BoardGeometry yalnız board-global-v1 indeksini yerləşimə çevirir; gediş, məsafə və ev qaydası hesablamır.
+BoardView snapshot-u SpriteRenderer/TextMesh ilə göstərir; açıq Display çağırışı yeni snapshot-u çəkir.
+Köhnə görünüş əvvəl deaktiv edilir ki, eyni kadrda təkrar render gizli/təkrar daş yaratmasın.
+Bir stack-in bütün 15 daşı ayrıca görünür; bar və off ayrıca render edilir. Uzunda bar həmişə sıfır gəlir.
+Zər qiyməti, seçim, marker, atış düyməsi, növbə idarəsi və gameplay input-u bu qatda hələ yoxdur.
+Qrafika kodla yaranır; gələcək sprite/skin dəyişməsi qayda mühərriklərini dəyişdirməyi tələb etmir.
+TechnicalBoard ayrı scene-dir. Bir portret kompozisiya letterbox olunur; P02.5 responsive layout-u deyil.
+Əvvəlki Bootstrap və EditorBuildSettings qorunur. P021Build yalnız açıq build üçün TechnicalBoard,
+sonra Bootstrap scene siyahısını verir. P021Preview yalnız açıq CLI preview sorğusunda Game View çəkir.

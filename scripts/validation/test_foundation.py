@@ -81,12 +81,12 @@ class FoundationTests(unittest.TestCase):
         self.fails('state_contract')
 
     def test_wrong_authorization_rejected(self):
-        self.change_state(lambda s: s['authorization'].update(part='P02.1'))
+        self.change_state(lambda s: s['authorization'].update(part='P02.2'))
         self.fails('state_contract')
 
     def test_future_human_approval_rejected(self):
         self.change_state(lambda s: s['human_approvals'].append(
-            {'part': 'P01.4', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
+            {'part': 'P02.1', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
         self.fails('state_contract')
 
     def test_progress_drift_rejected(self):
@@ -152,11 +152,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('remote_safety')
 
     def test_coordinated_next_part_change_rejected(self):
-        self.change_state(lambda s: (s.update(active_part='P02.1', next_part='P02.2'),
-                                     s['authorization'].update(part='P02.1')))
+        self.change_state(lambda s: (s.update(active_part='P02.2', next_part='P02.3'),
+                                     s['authorization'].update(part='P02.2')))
         p = self.root / 'PROGRESS.md'
-        p.write_text(p.read_text().replace('- Aktiv part: `P01.4`', '- Aktiv part: `P02.1`')
-                     .replace('- Növbəti part: `P02.1`', '- Növbəti part: `P02.2`'))
+        p.write_text(p.read_text().replace('- Aktiv part: `P02.1`', '- Aktiv part: `P02.2`')
+                     .replace('- Növbəti part: `P02.2`', '- Növbəti part: `P02.3`'))
         self.fails('current_scope')
 
     def test_empty_scope_rejected(self):
@@ -209,7 +209,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_failed_engine_xml_rejected(self):
-        p = self.root / 'docs/reports/P01.4.editmode.xml'
+        p = self.root / 'docs/reports/P02.1.editmode.xml'
         p.write_text(p.read_text().replace('failed="0"', 'failed="1"', 1))
         self.fails('test_evidence')
 
@@ -249,17 +249,42 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_undo_fixture_cannot_be_claimed_passed(self):
-        p = self.root / 'docs/reports/P01.4.execution.json'
+        p = self.root / 'docs/reports/P02.1.execution.json'
         report = json.loads(p.read_text())
         next(r for r in report['fixture_execution'] if r['id'] == 'L_UNDO_LOCAL')['status'] = 'PASS'
         p.write_text(json.dumps(report))
         self.fails('test_evidence')
 
     def test_missing_common_fixture_in_ledger_rejected(self):
-        p = self.root / 'docs/reports/P01.4.execution.json'
+        p = self.root / 'docs/reports/P02.1.execution.json'
         report = json.loads(p.read_text())
         report['fixture_execution'] = [r for r in report['fixture_execution'] if r['id'] != 'C_BO5_FINISHES']
         p.write_text(json.dumps(report))
+        self.fails('test_evidence')
+
+    def test_accepted_match_tests_are_frozen(self):
+        p = self.root / 'unity/Assets/Game/Tests/Match/MatchTests.cs'
+        p.write_text(p.read_text() + '\n// synthetic accepted test change\n')
+        self.fails('current_scope')
+
+    def test_presentation_must_not_reimplement_moves(self):
+        p = self.root / 'unity/Assets/Game/Presentation/BoardSnapshot.cs'
+        p.write_text(p.read_text() + '\n// TryApplyTurn must stay in the rules engine\n')
+        self.fails('current_scope')
+
+    def test_temporary_visual_notice_is_required(self):
+        p = self.root / 'unity/Assets/Game/Presentation/BoardView.cs'
+        p.write_text(p.read_text().replace('Müvəqqəti qrafika', 'Synthetic placeholder'))
+        self.fails('current_scope')
+
+    def test_current_board_source_drift_invalidates_evidence(self):
+        p = self.root / 'unity/Assets/Game/Presentation/BoardView.cs'
+        p.write_text(p.read_text() + '\n// synthetic source drift\n')
+        self.fails('test_evidence')
+
+    def test_screenshot_cannot_disappear_under_pass_claim(self):
+        p = self.root / 'docs/screenshots/P02.1-long.png'
+        p.unlink()
         self.fails('test_evidence')
 
 

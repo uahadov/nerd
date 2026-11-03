@@ -137,3 +137,17 @@ class RunnerTests(unittest.TestCase):
         self.include_match_cases()
         next(c for c in self.xml if c.get('name') == 'MatchFixture_C_RATING_PRIVATE_CASUAL').set('result', 'Skipped')
         self.assertEqual(self.run_step(part='P01.4'), 1)
+
+    def test_board_part_cannot_pass_with_only_legacy_suites(self):
+        self.include_short_cases()
+        self.include_match_cases()
+        self.assertEqual(self.run_step(part='P02.1'), 1)
+
+    def test_board_part_requires_all_projection_cases(self):
+        self.include_short_cases()
+        self.include_match_cases()
+        for i in range(38):
+            ET.SubElement(self.xml, 'test-case', name=f'Projection{i}', fullname=f'Nard.Tests.Board.BoardProjectionTests.Projection{i}', result='Passed')
+        self.assertEqual(self.run_step(part='P02.1'), 0)
+        self.xml.remove(self.xml[-1])
+        self.assertEqual(self.run_step(part='P02.1'), 1)

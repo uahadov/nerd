@@ -1,0 +1,12 @@
+{
+  "name": "Nard.Tests.BoardPlayMode",
+  "references": [
+    "Nard.Presentation",
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

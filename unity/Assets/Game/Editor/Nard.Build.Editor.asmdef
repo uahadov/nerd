@@ -3,7 +3,11 @@
   "rootNamespace": "Nard.Build",
   "references": [
     "Nard.Bootstrap",
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "Nard.Presentation",
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short"
   ],
   "includePlatforms": [
     "Editor"

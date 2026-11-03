@@ -16,13 +16,12 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P01.4 icazəlidir: pure C# matç vəziyyətləri (Created/Rolling/Moving/
-   TurnCommitted/Finished), adi/mars/koks nəticəsi, 1/Best of 3/5, RuleSetVersion müqaviləsi.
-   Reytinq eligibility-si yalnız qayda predikatıdır; reytinq hesablaması/server yazma.
-   Uzun/qısa mühərriklərin kodu və testlərini dəyişmə; regressiyalarını icra et.
-   UI, animasiya, bot, multiplayer, undo idarəsi, saxlama və P02 hissələrinə keçmə.
-   Altı uzun PROVISIONAL_RULE ilkin standart olaraq qəbul edilib; müstəqil yerli yoxlama NOT_RUN qalır.
-   Fiziki Android testi aparılmayıb; əvvəlki Editor/build qəbulu ilə qarışdırma.
+4. Hazırda yalnız P02.1 icazəlidir: 24 indeksli texniki 2D taxta, state-ə bağlı 15+15 daş,
+   iki rəng, bar/off zonaları və boş zər yerləri. Qrafika müvəqqəti olduğu açıq yazılır.
+   Uzun/qısa/matç runtime və bütün əvvəlki C# testlərini dəyişmə; regressiyaları icra et.
+   Daş seçimi/gediş/zər atışı, undo, animasiya, iki responsive layout, bot/backend və P02.2 yoxdur.
+   Altı uzun PROVISIONAL_RULE qalır; müstəqil yerli yoxlama və fiziki Android NOT_RUN-dır.
+   Yeni vizual sübutu real Editor renderindən saxla; screenshot cihaz testi deyil.
    Gələcək part açıq icazə aldıqda bu cari-part cümləsini də yenilə.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.

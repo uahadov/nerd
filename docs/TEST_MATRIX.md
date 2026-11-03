@@ -1,16 +1,16 @@
 # Test matrisi və sübut qaydası
 
-P01.4-də matç müqaviləsi və dəyişdirilməmiş uzun/qısa mühərriklərin regressiyası yoxlanır.
+P02.1-də texniki state render və dəyişdirilməmiş uzun/qısa/matç sistemlərinin regressiyası yoxlanır.
 67 unikal fixture-in 26-sı uzun, 30-u qısa, 7-si matç modulunda PASS-dır; 4 undo P02.4 üçün NOT_RUN-dır.
 Uzun test faylındakı 41 tarixi skip-dən 30-u ShortFixture, 7-si MatchFixture kimi ayrıca keçir.
 Əmrlər repo kökündən, Python 3.10+ standart kitabxanası və Git ilə işləyir.
 
 ```bash
-python3 scripts/validation/validate_project.py --output docs/reports/P01.4.validation.json
+python3 scripts/validation/validate_project.py --output docs/reports/P02.1.validation.json
 python3 scripts/validation/validate_rule_fixtures.py
-python3 scripts/build/p012.py editmode --part P01.4
-python3 scripts/build/p012.py playmode --part P01.4
-python3 scripts/build/p012.py android --part P01.4
+python3 scripts/build/p012.py editmode --part P02.1
+python3 scripts/build/p012.py playmode --part P02.1
+python3 scripts/build/p012.py android --part P02.1
 python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 ```
 
@@ -29,13 +29,13 @@ python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 | Uzaq nüsxə | Privacy, push və SHA yoxlaması; yalnız real nəticə qeyd edilir |
 | Fixture strukturu və uyğunluğu | P01.1.rules.json: 24 xana, 15+15 daş, tokenlər, before/after arifmetikası, ID/variant/undo istinadları, matris uyğunluğu |
 | Qayda mətninin uyğunluğu | Qayda ID-lərinin mövcudluğu avtomatik; məna və yerli variant qərarı insan baxışında. Tam təbii dil sübutu iddia edilmir |
-| Unity compile/EditMode/PlayMode, Android APK | P01.4.execution.json və saxlanan NUnit XML; ayrı source copy-də real icra |
+| Unity compile/EditMode/PlayMode, Android APK | P02.1.execution.json və saxlanan NUnit XML; ayrı source copy-də real icra |
 | iOS və fiziki cihaz | Yalnız real icra varsa PASS; yoxdursa NOT_RUN və səbəb |
 
 Validator çıxış kodu: 0 = yoxlamalar keçib; 1 = uyğunsuzluq və ya oxuma xətası.
 Hər yoxlama adı və statusu JSON-da qalır. `--root` başqa checkout-un yoxlanmasına imkan verir.
 Validatorun özü heç bir statusu təsdiqləmir və növbəti partı açmır.
-P01.4 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
+P02.1 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
 validatoru sadəcə yaşıl nəticə almaq üçün zəiflətmə.
 
 ## Gələcək partlar üçün məcburi yanaşma
@@ -81,7 +81,7 @@ Runner yalnız əvvəlcədən müəyyən edilmiş 41 skip-i qəbul edir; yeni sk
 nisbi məsafə hesablamasına qarşı müqayisə edilir. RNG yalnız test məlumatıdır.
 Seed 1313 ilə çatılan mövqelərdə bar/vurma və 15+15 invariantı da yoxlanır.
 Uzun runtime/test SHA-256-ları qəbul edilmiş P01.2 ilə sabitlənib. Uzun faylları dəyişdirib
-regressiyanı gizlətmək rədd edilir. --part P01.4 runner-də bütün 30 ShortFixture keçməlidir;
+regressiyanı gizlətmək rədd edilir. --part P02.1 runner-də bütün 30 ShortFixture keçməlidir;
 uzun suite-in skip-i qısa nümunənin PASS-ı sayıla bilməz. Fiziki cihaz və yerli baxış NOT_RUN qalır.
 
 ## P01.4 matç və seriya yoxlaması
@@ -93,7 +93,20 @@ qismən təklif, snapshot dəyişməzliyi, nəticə və seriya tarixçəsi qorun
 Hər iki rejimdə 1/3/5 üçün 84 qalib ardıcıllığı; qoşaların xal artırmaması və koksun bir
 seriya qələbəsi olması sınanır. Seed 1401 uzun oyun 95, seed 1402 qısa oyun 140 növbədə bitir.
 Bunlar test-only qanuni seçimlərdir; runtime bot deyil. 67 ID-nin fərdi real statusu
-P01.4.execution.json daxilində fixture_execution siyahısındadır; validator onu NUnit ilə tutuşdurur.
+P02.1.execution.json daxilində fixture_execution siyahısındadır; validator onu NUnit ilə tutuşdurur.
 4 undo nümunəsini PASS göstərmək, ledger-dən nümunə silmək və əvvəlki mühərrik/testləri dəyişmək rədd edilir.
 1 PlayMode bootstrap testi və Android ARM64 IL2CPP build ayrıca keçir; yeni UI sınağı iddia edilmir.
 Fiziki Android/iOS və müstəqil yerli oyunçu yoxlaması NOT_RUN qalır.
+
+## P02.1 taxta yoxlaması
+
+38 yeni EditMode: board-global-v1-in 24 unikal indeksi, hər xanada bütün 15 daşın ayrıca görünməsi,
+üst-üstə düşməməsi, hər iki oyunçunun bar/off=15 sərhədi, dəyişməz snapshot, rejim dəyişərkən köhnə
+obyektlərin qalmaması, null/indeks/say/ordinal xətaları və Azərbaycan font glyph-ləri.
+Əvvəlki 263 EditMode dəyişmədən keçir. PlayMode-da əvvəlki bootstrap və yeni TechnicalBoard testi var.
+Yeni test uzun/qısa/bar-off snapshot-larını yükləyib 30 daş/24 xana və camera bounds yoxlayır;
+real graphics context-də 540×960 RenderTexture screenshot-ları və rəng pixel yoxlaması yaradır.
+Bunlar Editor PlayMode camera renderidir; fiziki cihaz/touch testi deyil. Əlavə açıq GUI preview
+Game View screenshot-u ayrıca saxlanır; klik/gediş/atış funksiyası bu partda sınaq predmeti deyil.
+Runner P02.1-də 38 projection və 1 scene testinin çatışmamasını FAIL edir.
+67 canonical qayda nümunəsinin 63-ü yenidən icra olunur; 4 undo P02.4 üçün NOT_RUN qalır.
