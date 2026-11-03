@@ -1,0 +1,17 @@
+{
+  "name": "Nard.Tests.TurnEditor",
+  "references": [
+    "Nard.Interaction",
+    "Nard.Presentation",
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short",
+    "Unity.InputSystem"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

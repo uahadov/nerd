@@ -2,11 +2,11 @@
 
 Əsas status: [STATE.json](docs/STATE.json). Bu fayl onun yoxlanan insan xülasəsidir.
 
-- Aktiv part: `P02.2`
+- Aktiv part: `P02.3`
 - Status: `AWAITING_HUMAN_APPROVAL`
-- Son insan təsdiqi: `P02.1`
+- Son insan təsdiqi: `P02.2`
 - Cari partın insan təsdiqi: `false`
-- Növbəti part: `P02.3`
+- Növbəti part: `P02.4`
 - Növbəti parta icazə: `false`
 
 P00.3 və Editor-un krem Game ekranı istifadəçi tərəfindən qəbul edilib.
@@ -15,9 +15,10 @@ P01.1 və altı provisional qaydanın ilkin standart seçimi qəbul edilib.
 P01.2 uzun və P01.3 qısa mühərrikləri qəbul edilib və qorunur.
 P01.4 nəticə/seriya/matç müqaviləsi qəbul edilib və qorunur.
 P02.1 texniki taxta qəbul edilib və əvvəlki testləri qorunur.
-P02.2 seçim/marker/tap gedişi hazırdır: 356 EditMode, 7 PlayMode, 105 Python testi və Android build PASS; [cari hesabat](docs/reports/P02.2.md).
-Sabit zər nümunəsidir; atış və yeni növbə dövrü hələ yoxdur.
-Əvvəldən açıq Editor-un native Analytics bağlanış qəzası açıq qeyddir; P02.2 ayrıca GUI input/preview exit=0, səbəb və həll təsdiqlənməyib.
+P02.2 seçim/marker/tap qəbul edilib; mühərrik və köhnə testlər qorunur.
+P02.3 hazırdır: 524 EditMode, 12 PlayMode, 111 Python testi və Android build PASS; [cari hesabat](docs/reports/P02.3.md).
+Final art/bot/online və undo hələ yoxdur.
+Əvvəldən açıq Editor-un native Analytics bağlanış qəzası açıq qeyddir; P02.3 ayrıca GUI zər/gediş/növbə input/preview exit=0, səbəb və həll təsdiqlənməyib.
 Azərbaycan üzrə müstəqil yerli oyunçu yoxlaması NOT_RUN; PROVISIONAL_RULE qeydləri saxlanır.
 Mövcud origin-ə push qadağandır; private görünüş avtomatik icazə deyil.
 

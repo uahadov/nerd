@@ -173,3 +173,29 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(self.run_step(part='P02.2'), 0)
         self.xml.remove(next(c for c in self.xml if c.get('name') == 'TapFixture_S_HIGH_REJECT'))
         self.assertEqual(self.run_step(part='P02.2'), 1)
+
+    def test_turn_part_rejects_incomplete_previous_suites(self):
+        self.include_short_cases(); self.include_match_cases(); self.include_board_cases()
+        self.assertEqual(self.run_step(part='P02.3'), 1)
+
+    def test_turn_part_requires_every_roll_and_turn_case(self):
+        self.include_short_cases(); self.include_match_cases(); self.include_board_cases()
+        tap_count = 0
+        for case in self.cases:
+            if case['mode'] in ['long', 'short'] and case['before']['phase'] == 'moving' and case['action']['kind'] in ['move', 'turn']:
+                name = 'TapFixture_' + case['id']
+                ET.SubElement(self.xml, 'test-case', name=name, fullname='Nard.Tests.Tap.TapSelectionTests.' + name, result='Passed')
+                tap_count += 1
+        for i in range(55-tap_count):
+            ET.SubElement(self.xml, 'test-case', name=f'ExtraTap{i}', fullname=f'Nard.Tests.Tap.TapSelectionTests.ExtraTap{i}', result='Passed')
+        for mode in ['Long', 'Short']:
+            for actor in range(2):
+                for a in range(1, 7):
+                    for b in range(1, 7):
+                        name = f'TurnRoll_{mode}_P{actor}_{a}_{b}'
+                        ET.SubElement(self.xml, 'test-case', name=name, fullname='Nard.Tests.Turn.LocalTurnTests.' + name, result='Passed')
+        for i in range(24):
+            ET.SubElement(self.xml, 'test-case', name=f'TurnExtra{i}', fullname=f'Nard.Tests.Turn.LocalTurnTests.TurnExtra{i}', result='Passed')
+        self.assertEqual(self.run_step(part='P02.3'), 0)
+        self.xml.remove(next(c for c in self.xml if c.get('name') == 'TurnRoll_Short_P1_6_6'))
+        self.assertEqual(self.run_step(part='P02.3'), 1)

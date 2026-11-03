@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Nard.Match;
+using Nard.Interaction;
+using System.Linq;
 using UnityEngine;
 
 namespace Nard.Presentation
@@ -92,6 +94,17 @@ namespace Nard.Presentation
         // Render-only interaction hints. Targets and selection are provided by the application layer.
         public void SetTapOverlay(int selected,IReadOnlyList<int> targets,string feedback,int player,string inputNotice="Texniki nümunə · Zər atışı və yeni növbə yoxdur")
         {
+            DrawTapHints(selected,targets,player);
+            SetLabel("Temporary","Müvəqqəti qrafika · P02.2");
+            SetLabel("Legend",inputNotice);
+            SetLabel("Unavailable",feedback);
+            var reset=Shape("ExampleReset",square,new Vector2(0,-9.35f),new Vector2(4.2f,.53f),Walnut,2);
+            reset.transform.SetParent(tapOverlay.transform,false);
+            Label("ExampleResetLabel","Texniki nümunəni sıfırla",new Vector2(0,-9.35f),.25f,Cream);
+            content.transform.Find("ExampleResetLabel").SetParent(tapOverlay.transform,false);
+        }
+        private void DrawTapHints(int selected,IReadOnlyList<int> targets,int player)
+        {
             if(tapOverlay!=null){tapOverlay.SetActive(false);Release(tapOverlay);}
             tapOverlay=new GameObject("TapOverlay");tapOverlay.transform.SetParent(content.transform,false);
             var honey=new Color32(232,184,93,255);
@@ -109,13 +122,53 @@ namespace Nard.Presentation
                 Overlay("Target_"+target,at,.36f,circle,Walnut,30);
                 Overlay("TargetFace_"+target,at,.27f,circle,honey,31);
             }
-            SetLabel("Temporary","Müvəqqəti qrafika · P02.2");
-            SetLabel("Legend",inputNotice);
+        }
+        public void SetTurnOverlay(LocalTurnLoop loop,string feedback)
+        {
+            DrawTapHints(loop.Selected,loop.Targets,loop.Session.Player);
+            SetLabel("Temporary","Müvəqqəti qrafika · P02.3");
+            SetLabel("Legend",loop.Session.Player<0?"Lokal iki oyunçu · ilkin atış":"Növbə "+loop.Session.TurnNumber+" · P"+loop.Session.Player+(loop.Session.Player==0?" (açıq)":" (qoz)"));
             SetLabel("Unavailable",feedback);
-            var reset=Shape("ExampleReset",square,new Vector2(0,-9.35f),new Vector2(4.2f,.53f),Walnut,2);
-            reset.transform.SetParent(tapOverlay.transform,false);
-            Label("ExampleResetLabel","Texniki nümunəni sıfırla",new Vector2(0,-9.35f),.25f,Cream);
-            content.transform.Find("ExampleResetLabel").SetParent(tapOverlay.transform,false);
+            var values=loop.CopyDisplayedRoll();var tokens=loop.Tokens;
+            SetLabel("DiceLabel",loop.IsOpeningDisplay?"İlkin atış · P0 / P1":tokens.Count==4?"Qoşa · 4 hüquq":"İki zər");
+            for(int die=0;die<2;die++)
+            {
+                SetLabel("DiceEmpty_"+die,values.Length==0?"—":"");
+                if(values.Length==0)continue;
+                bool faded=tokens.Count==2?tokens[die].State!=TokenState.Available:tokens.Count>0&&tokens.All(t=>t.State!=TokenState.Available);
+                DrawPips(die,values[die],faded?new Color32(154,137,116,255):Walnut);
+            }
+            for(int slot=0;slot<tokens.Count;slot++)
+            {
+                var token=tokens[slot];var at=new Vector2(-3.8f+slot*.8f,0);
+                var edge=Shape("Token_"+slot,square,at,new Vector2(.59f,.59f),Walnut,4);edge.transform.SetParent(tapOverlay.transform,false);
+                var face=Shape("TokenFace_"+slot,square,at,new Vector2(.52f,.52f),token.State==TokenState.Available?Cream:new Color32(197,184,159,255),5);face.transform.SetParent(tapOverlay.transform,false);
+                Label("TokenValue_"+slot,token.Value.ToString(),at,.32f,Walnut);content.transform.Find("TokenValue_"+slot).SetParent(tapOverlay.transform,false);
+                if(token.State!=TokenState.Available)
+                {
+                    var line=Shape("TokenStrike_"+slot,square,at,new Vector2(.62f,.035f),Walnut,25);line.transform.SetParent(tapOverlay.transform,false);line.transform.localRotation=Quaternion.Euler(0,0,45);
+                    if(token.State==TokenState.Unavailable)
+                    {var cross=Shape("TokenUnavailable_"+slot,square,at,new Vector2(.62f,.035f),Walnut,25);cross.transform.SetParent(tapOverlay.transform,false);cross.transform.localRotation=Quaternion.Euler(0,0,-45);}
+                }
+            }
+            if(tokens.Count>0)
+            {
+                string counts="İşləndi "+tokens.Count(t=>t.State==TokenState.Used)+" · qalıq "+tokens.Count(t=>t.State==TokenState.Available);
+                Label("TokenSummary",counts,new Vector2(-2.6f,-.68f),.22f,Walnut);content.transform.Find("TokenSummary").SetParent(tapOverlay.transform,false);
+            }
+            var button=Shape("RollButton",square,new Vector2(0,-9.35f),new Vector2(4.2f,.53f),loop.CanRoll?Walnut:new Color32(172,155,131,255),2);button.transform.SetParent(tapOverlay.transform,false);
+            string buttonText=loop.CanRoll?(loop.Session.Player<0?"İlk atışı et":"Zər at · P"+loop.Session.Player):loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Gedişi tamamlayın";
+            Label("RollButtonLabel",buttonText,new Vector2(0,-9.35f),.25f,Cream);content.transform.Find("RollButtonLabel").SetParent(tapOverlay.transform,false);
+        }
+        private void DrawPips(int die,int value,Color color)
+        {
+            var center=new Vector2(1.35f+die*.95f,0);
+            var spots=new List<Vector2>();
+            if(value%2==1)spots.Add(Vector2.zero);
+            if(value>=2){spots.Add(new Vector2(-.18f,.18f));spots.Add(new Vector2(.18f,-.18f));}
+            if(value>=4){spots.Add(new Vector2(.18f,.18f));spots.Add(new Vector2(-.18f,-.18f));}
+            if(value==6){spots.Add(new Vector2(-.18f,0));spots.Add(new Vector2(.18f,0));}
+            for(int i=0;i<spots.Count;i++)Overlay("Pip_"+die+"_"+i,center+spots[i],.095f,circle,color,21);
         }
         private void SetLabel(string name,string value)
         {

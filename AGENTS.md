@@ -16,13 +16,13 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P02.2 icazəlidir: daş seçimi, engine-dən qanuni hədəf markerləri,
-   tap ilə bir addım gedişi və yanlış seçimə qısa feedback. Sabit verilmiş zər test nümunəsidir.
-   Rules/Match və bütün əvvəlki C# testləri dəyişmə; regressiyaları icra et.
-   P02.3 zər atışı/növbə dəyişməsi, drag/undo, bot/online, final art və yeni layout yoxdur.
-   Altı PROVISIONAL_RULE, yerli oyunçu və fiziki Android NOT_RUN saxlanır.
-   Native Editor qəzasının həllini sübutsuz iddia etmə. Real vizual/input test sübutu saxla.
-   İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.3-ə icazə yoxdur.
+4. Hazırda yalnız P02.3 icazəlidir: iki zər, ilkin/adi atış, tam növbə, token istehlakı,
+   qoşa və avtomatik növbə dəyişməsi. Lokal iki insan nümunəsidir; online RNG deyil.
+   Rules/Match/TapSelection və əvvəlki C# testləri dəyişmə. RNG qaydalardan və renderdən ayrı qalsın.
+   P02.4 drag/undo/sürətli gediş, bot, online, final art və iki responsive layout yoxdur.
+   Altı PROVISIONAL_RULE, fiziki Android və yerli oyunçu NOT_RUN qalır.
+   Native Editor qəzası həll sübutu olmadan açıq riskdir. Real input/render/test sübutu saxla.
+   İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.4-ə icazə yoxdur.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.
 6. Gələcək final taxtanın əsas insan-seçilmiş [vizual referansını](docs/DECISIONS.md) D024-də oxu.

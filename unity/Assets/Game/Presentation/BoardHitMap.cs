@@ -20,6 +20,7 @@ namespace Nard.Presentation
             if(ownZone&&Mathf.Abs(local.x-4.53f)<=.31f)return 24;
             return Outside;
         }
+        public static bool IsRollButton(Vector2 local)=>Mathf.Abs(local.x)<2.1f&&Mathf.Abs(local.y+9.35f)<.28f;
         public static bool IsExampleReset(Vector2 local)=>Mathf.Abs(local.x)<2.1f&&Mathf.Abs(local.y+9.35f)<.28f;
     }
 }

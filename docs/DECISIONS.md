@@ -237,3 +237,35 @@ InputSettings klonu ilə focus routing qurulur, sonra əvvəlki konfiqurasiya kl
 Paketin InputManager.settings setter-i HideAndDontSave default-u əvəzləyərkən sildiyi üçün
 bərpa obyekti ayrıca kopyalanır. Layihə/sistem ayarları və istifadəçinin giriş konfiqurasiyası dəyişmir.
 A50 yalnız texniki marker implementasiyası olaraq IN_PROGRESS olur; məhsul qərarları dəyişmir.
+
+## D027 — 2026-11-03, P02.2 qəbulu və yalnız P02.3
+
+İstifadəçi P02.2-ni hesabat əsasında qəbul edib və yalnız P02.3-ə icazə verib.
+Master P02.3: iki zər/state uyğunluğu, növbə başlanğıcı/sonu, token istehlakı, qoşa və avtomatik növbə.
+Rules/Match/TapSelection və əvvəlki C# testləri qorunur. D024 premium referansı dəyişmir;
+final art və P02.4 drag/undo/sürətli gediş, bot, online və əlavə layout yoxdur.
+Fiziki Android/yerli oyunçu NOT_RUN və native Editor qəzası açıq risk olaraq qalır.
+
+## D028 — P02.3 lokal zər mənbəyi və tam növbə tətbiqi
+
+LocalTurnLoop mövcud MatchSession və TapSelection-ı birləşdirir. Created→Begin ilkin atışı gözləyir;
+bərabər atışda müqayisə təkrar edilir. Uzunda böyük atan təzə iki zər atır; qısada müqayisə zərləri oynanır.
+Yalnız növbə sahibi Rolling-də atış edə bilər. Zərlər injection ilə IDiceSource-dan gəlir;
+LocalDiceSource rəsmi .NET RandomNumberGenerator.GetInt32(1,7) istifadə edir. Qayda/Match/render qatında RNG yoxdur.
+Bu yalnız lokal iki insanın eyni cihazda sınağıdır; ranked/online zər və təsdiq səlahiyyəti deyil.
+Online mənbə gələcək server partında ayrıca qurulacaq; burada server və ya bot yoxdur.
+
+Son qanuni prefiks addımından sonra kök MatchSession.TryCommitTurn bütün təklifi yenidən yoxlayır.
+Bitməmiş partiyada AdvanceTurn bir dəfə çağırılır, növbəti oyunçu atış gözləyir. Qanuni yol boşdursa
+boş təklif təsdiqlənir və daş dəyişmədən növbə keçir. Bitmiş partiyada yeni atış/növbə açılmır.
+Son lokal commit geri çevrilmir; P02.4 undo bu partda hazırlanmayıb. Series/revanş/nəticə səhifəsi yoxdur.
+
+Hər token Available/Used/Unavailable olaraq ayrılır. Normal atışda 2, qoşada 4 token var.
+Oynanıla bilməyən qalıq token Used kimi göstərilmir; işlənmiş token xətt, mümkün olmayan token X ilə işarələnir.
+İki zərin pipləri yalnız qəbul edilmiş qiymətlərdən çəkilir; render yeni qiymət almır. İlkin bərabər qoşa
+oyun üçün 4 hüquq yaratmır. Mənbə səhvi/etibarsız qiymət yarım atış və match dəyişikliyi yaratmır;
+xəta zamanı mənbənin daxili oxuma mövqeyinin geri qaytarılması vəd edilmir.
+
+TurnBoard ayrıca texniki scene-dir. Roll düyməsi və piplər sadə 2D-dir; effektli animasiya yoxdur.
+İki tərəf əl ilə oynanır. Editor üçün uzun/qısa açılma menyuları test rahatlığıdır, məhsul rejim seçimi ekranı deyil.
+P02.2 sabit nümunəsi ayrıca saxlanır; canlı dövrdə onun texniki reset düyməsi yoxdur.

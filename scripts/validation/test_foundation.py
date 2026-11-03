@@ -81,12 +81,12 @@ class FoundationTests(unittest.TestCase):
         self.fails('state_contract')
 
     def test_wrong_authorization_rejected(self):
-        self.change_state(lambda s: s['authorization'].update(part='P02.3'))
+        self.change_state(lambda s: s['authorization'].update(part='P02.4'))
         self.fails('state_contract')
 
     def test_future_human_approval_rejected(self):
         self.change_state(lambda s: s['human_approvals'].append(
-            {'part': 'P02.2', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
+            {'part': 'P02.3', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
         self.fails('state_contract')
 
     def test_progress_drift_rejected(self):
@@ -152,11 +152,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('remote_safety')
 
     def test_coordinated_next_part_change_rejected(self):
-        self.change_state(lambda s: (s.update(active_part='P02.3', next_part='P02.4'),
-                                     s['authorization'].update(part='P02.3')))
+        self.change_state(lambda s: (s.update(active_part='P02.4', next_part='P02.5'),
+                                     s['authorization'].update(part='P02.4')))
         p = self.root / 'PROGRESS.md'
-        p.write_text(p.read_text().replace('- Aktiv part: `P02.2`', '- Aktiv part: `P02.3`')
-                     .replace('- Növbəti part: `P02.3`', '- Növbəti part: `P02.4`'))
+        p.write_text(p.read_text().replace('- Aktiv part: `P02.3`', '- Aktiv part: `P02.4`')
+                     .replace('- Növbəti part: `P02.4`', '- Növbəti part: `P02.5`'))
         self.fails('current_scope')
 
     def test_empty_scope_rejected(self):
@@ -209,7 +209,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_failed_engine_xml_rejected(self):
-        p = self.root / 'docs/reports/P02.2.editmode.xml'
+        p = self.root / 'docs/reports/P02.3.editmode.xml'
         p.write_text(p.read_text().replace('failed="0"', 'failed="1"', 1))
         self.fails('test_evidence')
 
@@ -249,14 +249,14 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_undo_fixture_cannot_be_claimed_passed(self):
-        p = self.root / 'docs/reports/P02.2.execution.json'
+        p = self.root / 'docs/reports/P02.3.execution.json'
         report = json.loads(p.read_text())
         next(r for r in report['fixture_execution'] if r['id'] == 'L_UNDO_LOCAL')['status'] = 'PASS'
         p.write_text(json.dumps(report))
         self.fails('test_evidence')
 
     def test_missing_common_fixture_in_ledger_rejected(self):
-        p = self.root / 'docs/reports/P02.2.execution.json'
+        p = self.root / 'docs/reports/P02.3.execution.json'
         report = json.loads(p.read_text())
         report['fixture_execution'] = [r for r in report['fixture_execution'] if r['id'] != 'C_BO5_FINISHES']
         p.write_text(json.dumps(report))
@@ -283,7 +283,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_screenshot_cannot_disappear_under_pass_claim(self):
-        p = self.root / 'docs/screenshots/P02.2-tap-selected.png'
+        p = self.root / 'docs/screenshots/P02.3-turn-double.png'
         p.unlink()
         self.fails('test_evidence')
 
@@ -311,6 +311,26 @@ class FoundationTests(unittest.TestCase):
         p = self.root / 'unity/Assets/Game/Interaction/TapSelection.cs'
         p.write_text(p.read_text() + '\n// AdvanceTurn exceeds P02.2\n')
         self.fails('current_scope')
+
+    def test_turn_loop_cannot_depend_on_unity(self):
+        p = self.root / 'unity/Assets/Game/Interaction/LocalTurnLoop.cs'
+        p.write_text(p.read_text() + '\nusing UnityEngine;\n')
+        self.fails('current_scope')
+
+    def test_renderer_cannot_generate_dice(self):
+        p = self.root / 'unity/Assets/Game/Presentation/BoardView.cs'
+        p.write_text(p.read_text() + '\n// NextDie() must stay outside rendering\n')
+        self.fails('current_scope')
+
+    def test_accepted_tap_tests_cannot_change(self):
+        p = self.root / 'unity/Assets/Game/Tests/TapEditor/TapSelectionTests.cs'
+        p.write_text(p.read_text() + '\n// synthetic old test change\n')
+        self.fails('current_scope')
+
+    def test_turn_source_evidence_drift_is_rejected(self):
+        p = self.root / 'unity/Assets/Game/Interaction/LocalTurnLoop.cs'
+        p.write_text(p.read_text() + '\n// synthetic drift\n')
+        self.fails('test_evidence')
 
 
 if __name__ == '__main__':

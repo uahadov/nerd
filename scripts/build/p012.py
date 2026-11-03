@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test/build a disposable source copy (P01.2 default; --part P01.3/P01.4/P02.1/P02.2 includes short/match/board tests)."""
+"""Test/build a disposable source copy (P01.2 default; --part P01.3/P01.4/P02.1/P02.2/P02.3 includes short/match/board tests)."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -41,12 +41,12 @@ def run(step, editor, part='P01.2'):
     xml = ARTIFACTS / (step + '.xml')
     xml.unlink(missing_ok=True)
     command = [str(editor), '-batchmode', '-nographics', '-projectPath', str(project), '-logFile', str(log)]
-    if part in ['P02.1', 'P02.2'] and step == 'playmode':
+    if part in ['P02.1', 'P02.2', 'P02.3'] and step == 'playmode':
         command.remove('-nographics')  # Real Editor camera render, not a fabricated screenshot.
     if step in ['editmode', 'playmode']:
         command += ['-runTests', '-testPlatform', 'EditMode' if step == 'editmode' else 'PlayMode', '-testResults', str(xml)]
     else:
-        command += ['-buildTarget', 'Android', '-executeMethod', 'Nard.Build.P022Build.BuildAndroid' if part == 'P02.2' else 'Nard.Build.P021Build.BuildAndroid' if part == 'P02.1' else 'Nard.Build.P003Build.BuildAndroid', '-quit']
+        command += ['-buildTarget', 'Android', '-executeMethod', 'Nard.Build.P023Build.BuildAndroid' if part == 'P02.3' else 'Nard.Build.P022Build.BuildAndroid' if part == 'P02.2' else 'Nard.Build.P021Build.BuildAndroid' if part == 'P02.1' else 'Nard.Build.P003Build.BuildAndroid', '-quit']
     started = datetime.now(timezone.utc).isoformat(timespec='seconds')
     env = dict(os.environ, NARD_RULE_FIXTURES=str(ROOT / 'docs/rules/fixtures.json'),
                NARD_BUILD_OUTPUT=str(ARTIFACTS / ('NARD-' + part + '.apk')),
@@ -87,19 +87,19 @@ def run(step, editor, part='P01.2'):
             expected_fixtures = {'Fixture_' + c['id'] for c in corpus if c['mode'] == 'long' and c['action']['kind'] != 'undo'} if step == 'editmode' else set()
             actual_fixtures = {c['name'] for c in report['cases'] if c['name'].startswith('Fixture_') and c['result'] == 'Passed'}
             report['executed_long_fixtures'] = len(actual_fixtures)
-            expected_short = {'ShortFixture_' + c['id'] for c in corpus if c['mode'] == 'short' and c['action']['kind'] in ['start', 'opening', 'move', 'turn', 'classify_result']} if step == 'editmode' and part in ['P01.3', 'P01.4', 'P02.1', 'P02.2'] else set()
+            expected_short = {'ShortFixture_' + c['id'] for c in corpus if c['mode'] == 'short' and c['action']['kind'] in ['start', 'opening', 'move', 'turn', 'classify_result']} if step == 'editmode' and part in ['P01.3', 'P01.4', 'P02.1', 'P02.2', 'P02.3'] else set()
             actual_short = {c['name'] for c in report['cases'] if c['name'].startswith('ShortFixture_') and c['result'] == 'Passed'}
             report['executed_short_fixtures'] = len(actual_short)
-            expected_match = {'MatchFixture_' + c['id'] for c in corpus if c['action']['kind'] in ['series', 'rating_policy']} if step == 'editmode' and part in ['P01.4', 'P02.1', 'P02.2'] else set()
+            expected_match = {'MatchFixture_' + c['id'] for c in corpus if c['action']['kind'] in ['series', 'rating_policy']} if step == 'editmode' and part in ['P01.4', 'P02.1', 'P02.2', 'P02.3'] else set()
             actual_match = {c['name'] for c in report['cases'] if c['name'].startswith('MatchFixture_') and c['result'] == 'Passed'}
             report['executed_match_fixtures'] = len(actual_match)
-            if part in ['P02.1', 'P02.2']:
+            if part in ['P02.1', 'P02.2', 'P02.3']:
                 prefix = '.BoardProjectionTests.' if step == 'editmode' else '.BoardSceneTests.'
                 board_cases = [c for c in report['cases'] if prefix in c.get('fullname', '') and c['result'] == 'Passed']
                 report['executed_board_cases'] = len(board_cases)
                 if len(board_cases) != (38 if step == 'editmode' else 1):
                     report.update(status='FAIL', reason='Required board test suite missing or incomplete')
-            if part == 'P02.2':
+            if part in ['P02.2', 'P02.3']:
                 prefix = '.TapSelectionTests.' if step == 'editmode' else '.TapSceneTests.'
                 tap_cases = [c for c in report['cases'] if prefix in c.get('fullname', '') and c['result'] == 'Passed']
                 report['executed_tap_cases'] = len(tap_cases)
@@ -108,11 +108,20 @@ def run(step, editor, part='P01.2'):
                 report['executed_tap_fixtures'] = len(actual_tap)
                 if len(tap_cases) != (55 if step == 'editmode' else 5) or actual_tap != expected_tap:
                     report.update(status='FAIL', reason='Required tap suites missing or incomplete')
+            if part == 'P02.3':
+                prefix = '.LocalTurnTests.' if step == 'editmode' else '.TurnSceneTests.'
+                turn_cases = [c for c in report['cases'] if prefix in c.get('fullname', '') and c['result'] == 'Passed']
+                report['executed_turn_cases'] = len(turn_cases)
+                expected_rolls = {f'TurnRoll_{mode}_P{actor}_{a}_{b}' for mode in ['Long', 'Short'] for actor in range(2) for a in range(1, 7) for b in range(1, 7)} if step == 'editmode' else set()
+                actual_rolls = {c['name'] for c in report['cases'] if c['name'].startswith('TurnRoll_') and c['result'] == 'Passed'}
+                report['executed_turn_roll_cases'] = len(actual_rolls)
+                if len(turn_cases) != (168 if step == 'editmode' else 5) or actual_rolls != expected_rolls:
+                    report.update(status='FAIL', reason='Required turn suites missing or incomplete')
             if (int(root.attrib.get('failed', '0')) != 0 or int(root.attrib.get('inconclusive', '0')) != 0
                     or int(root.attrib.get('passed', '0')) == 0 or actual_skips != allowed_skips
                     or actual_fixtures != expected_fixtures
-                    or (part in ['P01.3', 'P01.4', 'P02.1', 'P02.2'] and actual_short != expected_short)
-                    or (part in ['P01.4', 'P02.1', 'P02.2'] and actual_match != expected_match)
+                    or (part in ['P01.3', 'P01.4', 'P02.1', 'P02.2', 'P02.3'] and actual_short != expected_short)
+                    or (part in ['P01.4', 'P02.1', 'P02.2', 'P02.3'] and actual_match != expected_match)
                     or any(c['result'] not in ['Passed', 'Skipped'] for c in report['cases'])):
                 report['status'] = 'FAIL'
     else:
@@ -132,7 +141,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('step', choices=['editmode', 'playmode', 'android'])
     parser.add_argument('--editor', type=Path, default=EDITOR)
-    parser.add_argument('--part', choices=['P01.2', 'P01.3', 'P01.4', 'P02.1', 'P02.2'], default='P01.2')
+    parser.add_argument('--part', choices=['P01.2', 'P01.3', 'P01.4', 'P02.1', 'P02.2', 'P02.3'], default='P01.2')
     args = parser.parse_args()
     ARTIFACTS = ROOT / 'build' / args.part
     raise SystemExit(run(args.step, args.editor, args.part))

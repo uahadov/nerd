@@ -91,3 +91,15 @@
 - Köhnə native Analytics bağlanış qəzası açıq riskdir; P02.2-də təkrarlanmadı, həll iddia edilmir.
 - D024 final vizual referansı dəyişmədi və kodlaşdırılmadı. P02.3 açılmadı, GitHub push edilmədi.
 - Sübut və manual addımlar: [P02.2 hesabatı](docs/reports/P02.2.md).
+
+## 2026-11-03 — P02.3, insan təsdiqi gözlənilir
+
+- P02.2 qəbulu və yalnız P02.3 icazəsi qeyd edildi.
+- LocalTurnLoop + ayrıca IDiceSource/LocalDiceSource; ilkin/adi atış, token Used/Unavailable ayrılığı,
+  bütöv lokal commit və avtomatik növbə keçidi mövcud mühərriklər üzərində quruldu.
+- İki zərin pipləri və 2/4 hüquq state-dən çəkilir; render RNG çağırmır. Lokal iki insan sınağıdır.
+- 524 EditMode, 12 PlayMode, 111 Python testi PASS; Android build və APK imzası PASS.
+- 8 test oyunu tamamlandı; əvvəlki 356/7 Unity testi və Rules/Match/TapSelection dəyişmədən qorundu.
+- 63 canonical PASS/4 undo NOT_RUN; fiziki cihaz və yerli oyunçu NOT_RUN; native qəza açıq riskdir.
+- Final premium referans dəyişmədi və tətbiq edilmədi. Drag/undo/bot/online və P02.4 yoxdur; push edilmədi.
+- Sübut və manual addımlar: [P02.3 hesabatı](docs/reports/P02.3.md).

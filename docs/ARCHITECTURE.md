@@ -155,3 +155,17 @@ Input adapteri Mouse və primary Touchscreen press-i oxuyur; press ID-si ikinci 
 İki barmaq və drag hərəkəti gediş deyil. Rədd feedback-i bloklamayan sadə Azərbaycan mətnidir.
 TapBoard ayrıca test scene-dir; sabit roll setup + aydın reset nümunəsi var. Atış/növbə dövrü,
 undo, bot və online adapterləri qabaqcadan yazılmır. Final vizual referans D024 toxunulmazdır.
+
+## P02.3 lokal tam növbə
+
+LocalTurnLoop (pure C#) → dəyişməyən MatchSession + TapSelection → Long/Short rules.
+IDiceSource ayrıca sərhəddir; LocalDiceSource lokal OS-backed .NET RNG-dən 1..6 qiymət verir.
+Renderer RNG çağırmır. Atış yalnız uyğun Rolling/owner üçün qəbul edilir; iki qiymət birlikdə validasiya olunur.
+Hərəkət zamanı loop immutable kök Session-u saxlayır, TapSelection preview verir. Tamamlananda root Session
+bütöv Prefix-i yenidən qəbul edir; yalnız bundan sonra bir AdvanceTurn olur. Blokda boş qanuni turn qəbul edilir.
+LastCommitted yalnız son lokal commit snapshot-udur; tarixçə/replay və ya server təsdiqi deyil.
+Current position preview-dan, cari növbə sahibi Session.Player-dan gəlir; Rolling-də engine mövqeyi əvvəlki
+commit snapshot-u qala bilər. Köhnə zərlər növbəti atışadək işlənmiş/əlçatmaz göstərilir.
+DiceToken üç vəziyyəti ayırır: Available, Used, Unavailable. Sonuncu mümkün olmayan qalıqdır, istifadə deyil.
+BoardTurnInput yalnız pointer/feedback/roll niyyətini ötürür; BoardView pipləri və tokenləri state-dən çəkir.
+TurnBoard ayrıca scene-dir. Bot/online/undo/save/series və final art kodu əlavə olunmur.
