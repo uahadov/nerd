@@ -17,7 +17,9 @@ P01.4 nəticə/seriya/matç müqaviləsi qəbul edilib və qorunur.
 P02.1 texniki taxta qəbul edilib və əvvəlki testləri qorunur.
 P02.2 seçim/marker/tap qəbul edilib; mühərrik və köhnə testlər qorunur.
 P02.3 insan tərəfindən qəbul edilib və testləri qorunur.
-P02.4 hazırdır: 749 EditMode, 17 PlayMode, 67/67 canonical nümunə və Android build/imza PASS.
+P02.4 funksional nəticələri: 749 EditMode, 17 PlayMode, 67/67 canonical nümunə və Android build/imza PASS.
+**Səhnə/HUD görünüşü insan tərəfindən rədd edilib (D032); P02.4 qəbul edilməyib.**
+D032 yerləşim brifi saxlanıb; cari səhnənin düzəlişi ilə P02.5 başlanğıcı arasında əhatə cavabı gözlənir.
 115 Python testi və 15/15 struktur yoxlaması PASS; [P02.4 hesabatı](docs/reports/P02.4.md).
 D031 son insan göstərişi ilə qoz/krem/naxışlı taxta və işləməli daş görünüşü Unity-yə tətbiq edilib.
 Başqa final art/bot/online və P02.5 responsive yerləşim yoxdur.

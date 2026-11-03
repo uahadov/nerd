@@ -293,3 +293,29 @@ Bu, P02.5 və ya P04-ün bütövlükdə başlanması/tamamlanması deyil. Digər
 Orijinal referans D024-də qorunur. Ondan AI vasitəsilə boş taxta və ayrıca şəffaf daş atlası hazırlanır;
 daş/zər vəziyyəti şəkilə yapışdırılmır. Qayda, zər və input niyyəti həmin mühərriklərdən gəlir.
 Yeni art daxili sınaq üçündür; orijinal referansın kommersiya hüququ müstəqil təsdiqlənməyib.
+
+## D032 — 2026-11-04, səhnə/HUD görünüşü qəbul edilmədi
+
+İstifadəçi: “Hazırkı görünüşü qəbul etmirəm. Oyun hissi vermir və boş tətbiq səhifəsinə yapışdırılmış şəkil kimi görünür.”
+Problem taxtanın material üslubu deyil, səhnə quruluşudur. D024 premium referansı saxlanır, bütöv final layout sayılmır.
+P02.4 insan tərəfindən qəbul edilməyib; funksional avtomatik testlərin keçməsi vizual qəbul deyil.
+
+İnsanın növbəti yerləşim işi üçün verdiyi konkret brif:
+
+1. Taxta ekranın əsas və daha böyük hissəsini tutsun; artıq krem boşluqlar azalsın.
+2. Zər, status və idarələr vahid oyun HUD-u kimi taxta ilə inteqrə olsun.
+3. Debug xarakterli P0/P1, texniki növbə/hüquq izahları əsas görünüşdə minimuma ensin.
+4. Undo və gediş idarələri qoz/fil sümüyü material ailəsində, oxunaqlı və oyunvari olsun.
+5. Sağ qalın zolaq ayrıca dekorativ panel kimi qalmasın. Bu çıxarılan daşların sahəsidir:
+   ehtiyac olduqda aydın kiçik yuva/say göstəricisi kimi həll edilsin, qayda funksiyası itirilməsin.
+6. Azərbaycan ruhu, palitra və materiallar qalsın; board şəkli bütöv səhnə/HUD qərarını diktə etməsin.
+7. Əvvəl kompozisiya və oyun hissi yoxlansın; final polish, əlavə məkan, animasiya və səs indi yoxdur.
+
+Qayda sərhədi: P02.4-də son hüquqdan sonra avtomatik commit qalır. “Gedişi tamamla” yazısı
+ayrıca işlək təsdiq düyməsi təsiri yaratmamalıdır; yerləşim dəyişikliyi adı ilə yeni end-turn qaydası əlavə edilmir.
+
+Master P02.5 iki matç yerləşimini və ekran ölçülərinə uyğunluğu əhatə edir; P04.1/P04.2 final vizual keyfiyyət üçündür.
+Son mesaj həm “növbəti uyğun mərhələ”, həm “cari mərhələnin icazə verdiyi çərçivə” deyir.
+Buna görə cari P02.4 səhnəsinin dar düzəlişi ilə P02.5-ə açıq keçid arasında əhatə dəqiqləşdirilməsi istənilib.
+Heç bir variant agent tərəfindən özbaşına seçilmir. Hazırda Unity kodu/asset/build dəyişmir;
+P02.4 və AWAITING_HUMAN_APPROVAL saxlanır, P02.5 icazəsi false qalır. Skill/MCP/push yoxdur.

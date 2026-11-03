@@ -114,3 +114,9 @@
 - 749 EditMode / 17 PlayMode, Android build/imza və real Editor Game View/input sübutları saxlanıldı.
 - 115 Python testi və 15/15 struktur PASS; açıq risklər [P02.4 hesabatında](docs/reports/P02.4.md).
 - Fiziki Android/yerli oyunçu NOT_RUN, PROVISIONAL_RULE və köhnə native qəza riski saxlanır. P02.5/push icazəsi yoxdur.
+
+### P02.4 insan rəyi — 2026-11-04
+
+- Səhnə/HUD görünüşünün rədd edilməsi və konkret yerləşim brifi D032-də saxlanıldı.
+- P02.4 qəbul edilmiş sayılmır; aktiv part/status və növbəti part qapısı dəyişmir.
+- Cari səhnə düzəlişi ilə P02.5 başlanğıcı arasında əhatə cavabı istənilib. Unity kodu/asset/APK dəyişmir.

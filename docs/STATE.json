@@ -151,9 +151,15 @@
       "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.4",
       "impact": "Köhnə Analytics/WebRequest native SIGSEGV həll edilməyib. Cari üç batch və ayrıca GUI exit=0 ilə bitib; bu icralarda təkrarlanmayıb. Səbəb/həll təsdiqlənmir.",
       "next_action": "Təkrarlanarsa local build/P02.1/diagnostics log/dump ilə araşdır; native qəzanı gameplay xətası və ya həll edilmiş problem kimi təqdim etmə. Heç bir qlobal servis/Editor telemetri parametri dəyişdirilməyib."
+    },
+    {
+      "id": "MATCH-HUD-REWORK",
+      "status": "WAITING_FOR_SCOPE_CLARIFICATION",
+      "impact": "Hazırkı səhnə/HUD insan tərəfindən qəbul edilməyib; avtomatik render PASS vizual qəbul deyil.",
+      "next_action": "D032 brifini saxla. Cari P02.4 səhnəsinin dar düzəlişi və ya P02.5 başlanğıcı üçün göndərilmiş əhatə sualının cavabını gözlə; özbaşına keçid etmə."
     }
   ],
-  "resume_instruction": "P02.4 drag/sürətli tap/undo və son insan göstərişi D031 üzrə referans üslublu taxta/daş görünüşü hazırlanıb. AWAITING_HUMAN_APPROVAL: insan rəyini gözlə; yalnız bu part üçün istənən düzəlişi et. P02.5/başqa part və GitHub push icazəsi yoxdur. Fiziki Android və yerli qayda review NOT_RUN; native qəza açıq riskdir.",
+  "resume_instruction": "P02.4 funksional sınaqları keçib, amma səhnə/HUD görünüşü insan tərəfindən rədd edilib (D032). Premium referans saxlanır. Cari P02.4 səhnəsinin dar düzəlişi yoxsa P02.5 layout başlanğıcı olduğunu dəqiqləşdirən insan cavabı gözlənir; P02.5 icazəsi yoxdur. AWAITING_HUMAN_APPROVAL, push qadağası, fiziki Android/yerli review NOT_RUN və native qəza riski saxlanır.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -362,5 +368,14 @@
     ],
     "license_status": "UNVERIFIED_REFERENCE_ONLY",
     "implementation_authorization": "D031"
+  },
+  "human_layout_review": {
+    "part": "P02.4",
+    "date": "2026-11-04",
+    "by": "human",
+    "status": "REJECTED",
+    "decision": "D032",
+    "reason": "Taxtanın materialı deyil, səhnə/HUD kompozisiyası oyun hissi vermir.",
+    "scope_clarification": "PENDING_HUMAN_REPLY"
   }
 }
