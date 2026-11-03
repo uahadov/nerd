@@ -1,0 +1,9 @@
+{
+  "name": "Nard.Interaction",
+  "references": [
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short"
+  ],
+  "noEngineReferences": true
+}

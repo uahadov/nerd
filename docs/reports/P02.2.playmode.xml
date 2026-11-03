@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Passed" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:22Z" duration="2.2074428">
+  <test-suite type="TestSuite" id="1024" name="NƏRD. — P00.3" fullname="NƏRD. — P00.3" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:22Z" duration="2.207443" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1003" name="Nard.Tests.BoardPlayMode.dll" fullname="/home/ua/Desktop/NERD/build/P02.2/unity/Library/ScriptAssemblies/Nard.Tests.BoardPlayMode.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.418598" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="375168" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1004" name="Nard" fullname="Nard" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.417459" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1005" name="Tests" fullname="Nard.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.416981" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1006" name="Board" fullname="Nard.Tests.Board" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.416609" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="BoardSceneTests" fullname="Nard.Tests.Board.BoardSceneTests" classname="Nard.Tests.Board.BoardSceneTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.414360" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1002" name="TechnicalSceneProjectsBothModesAndCapturesRealCameraFrames" fullname="Nard.Tests.Board.BoardSceneTests.TechnicalSceneProjectsBothModesAndCapturesRealCameraFrames" methodname="TechnicalSceneProjectsBothModesAndCapturesRealCameraFrames" classname="Nard.Tests.Board.BoardSceneTests" runstate="Runnable" seed="1160060253" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.399781" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[NARD_P003_BOOTSTRAP_READY
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1009" name="Nard.Tests.PlayMode.dll" fullname="/home/ua/Desktop/NERD/build/P02.2/unity/Library/ScriptAssemblies/Nard.Tests.PlayMode.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.168857" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="375168" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1010" name="Nard" fullname="Nard" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.167390" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1011" name="Tests" fullname="Nard.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.151007" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1007" name="BootstrapSmokeTests" fullname="Nard.Tests.BootstrapSmokeTests" classname="Nard.Tests.BootstrapSmokeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.133844" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1008" name="BootstrapLoadsAndContinuesAdvancingFrames" fullname="Nard.Tests.BootstrapSmokeTests.BootstrapLoadsAndContinuesAdvancingFrames" methodname="BootstrapLoadsAndContinuesAdvancingFrames" classname="Nard.Tests.BootstrapSmokeTests" runstate="Runnable" seed="427645517" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:20Z" duration="0.116691" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[NARD_P003_BOOTSTRAP_READY
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1018" name="Nard.Tests.TapPlayMode.dll" fullname="/home/ua/Desktop/NERD/build/P02.2/unity/Library/ScriptAssemblies/Nard.Tests.TapPlayMode.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:22Z" duration="1.605102" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="375168" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1019" name="Nard" fullname="Nard" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:22Z" duration="1.589326" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1020" name="Tests" fullname="Nard.Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:22Z" duration="1.572592" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1021" name="Tap" fullname="Nard.Tests.Tap" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:22Z" duration="1.555956" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1012" name="TapSceneTests" fullname="Nard.Tests.Tap.TapSceneTests" classname="Nard.Tests.Tap.TapSceneTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:22Z" duration="1.539244" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1015" name="DuplicateAndOutOfOrderPressCannotMoveTwice" fullname="Nard.Tests.Tap.TapSceneTests.DuplicateAndOutOfOrderPressCannotMoveTwice" methodname="DuplicateAndOutOfOrderPressCannotMoveTwice" classname="Nard.Tests.Tap.TapSceneTests" runstate="Runnable" seed="1619203524" result="Passed" start-time="2026-11-03 16:53:20Z" end-time="2026-11-03 16:53:21Z" duration="0.141798" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[NARD_P003_BOOTSTRAP_READY
+]]></output>
+              </test-case>
+              <test-case id="1014" name="FiveManualStyleMovesAcrossExplicitExampleReset" fullname="Nard.Tests.Tap.TapSceneTests.FiveManualStyleMovesAcrossExplicitExampleReset" methodname="FiveManualStyleMovesAcrossExplicitExampleReset" classname="Nard.Tests.Tap.TapSceneTests" runstate="Runnable" seed="2131413000" result="Passed" start-time="2026-11-03 16:53:21Z" end-time="2026-11-03 16:53:21Z" duration="0.591591" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[NARD_P003_BOOTSTRAP_READY
+]]></output>
+              </test-case>
+              <test-case id="1013" name="MousePressMovesOnceAndCapturesFeedback" fullname="Nard.Tests.Tap.TapSceneTests.MousePressMovesOnceAndCapturesFeedback" methodname="MousePressMovesOnceAndCapturesFeedback" classname="Nard.Tests.Tap.TapSceneTests" runstate="Runnable" seed="325877115" result="Passed" start-time="2026-11-03 16:53:21Z" end-time="2026-11-03 16:53:21Z" duration="0.301526" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[NARD_P003_BOOTSTRAP_READY
+]]></output>
+              </test-case>
+              <test-case id="1017" name="ShortBarHitOffAndWrongOwnerStayInSync" fullname="Nard.Tests.Tap.TapSceneTests.ShortBarHitOffAndWrongOwnerStayInSync" methodname="ShortBarHitOffAndWrongOwnerStayInSync" classname="Nard.Tests.Tap.TapSceneTests" runstate="Runnable" seed="589096477" result="Passed" start-time="2026-11-03 16:53:21Z" end-time="2026-11-03 16:53:22Z" duration="0.236505" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[NARD_P003_BOOTSTRAP_READY
+]]></output>
+              </test-case>
+              <test-case id="1016" name="TouchPressMovesButDragAndSecondFingerDoNot" fullname="Nard.Tests.Tap.TapSceneTests.TouchPressMovesButDragAndSecondFingerDoNot" methodname="TouchPressMovesButDragAndSecondFingerDoNot" classname="Nard.Tests.Tap.TapSceneTests" runstate="Runnable" seed="545412481" result="Passed" start-time="2026-11-03 16:53:22Z" end-time="2026-11-03 16:53:22Z" duration="0.250230" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[NARD_P003_BOOTSTRAP_READY
+Saving results to: /home/ua/Desktop/NERD/build/P02.2/playmode.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -16,13 +16,13 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P02.1 icazəlidir: 24 indeksli texniki 2D taxta, state-ə bağlı 15+15 daş,
-   iki rəng, bar/off zonaları və boş zər yerləri. Qrafika müvəqqəti olduğu açıq yazılır.
-   Uzun/qısa/matç runtime və bütün əvvəlki C# testlərini dəyişmə; regressiyaları icra et.
-   Daş seçimi/gediş/zər atışı, undo, animasiya, iki responsive layout, bot/backend və P02.2 yoxdur.
-   Altı uzun PROVISIONAL_RULE qalır; müstəqil yerli yoxlama və fiziki Android NOT_RUN-dır.
-   Yeni vizual sübutu real Editor renderindən saxla; screenshot cihaz testi deyil.
-   Gələcək part açıq icazə aldıqda bu cari-part cümləsini də yenilə.
+4. Hazırda yalnız P02.2 icazəlidir: daş seçimi, engine-dən qanuni hədəf markerləri,
+   tap ilə bir addım gedişi və yanlış seçimə qısa feedback. Sabit verilmiş zər test nümunəsidir.
+   Rules/Match və bütün əvvəlki C# testləri dəyişmə; regressiyaları icra et.
+   P02.3 zər atışı/növbə dəyişməsi, drag/undo, bot/online, final art və yeni layout yoxdur.
+   Altı PROVISIONAL_RULE, yerli oyunçu və fiziki Android NOT_RUN saxlanır.
+   Native Editor qəzasının həllini sübutsuz iddia etmə. Real vizual/input test sübutu saxla.
+   İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.3-ə icazə yoxdur.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.
 6. Gələcək final taxtanın əsas insan-seçilmiş [vizual referansını](docs/DECISIONS.md) D024-də oxu.

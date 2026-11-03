@@ -79,3 +79,15 @@
 - Üfüqi final taxta, isti/premium Azərbaycan üslubu və şaquli matç dəstəyi qeyd edildi.
 - Art kodlaşdırılmadı, Unity və mərhələ dəyişmədi; ayrıca art partına icazə verilmədi.
 - Yalnız dəqiq referans yol/hash üçün ölçü istisnası və iki mənfi validator testi əlavə edildi.
+
+## 2026-11-03 — P02.2, insan təsdiqi gözlənilir
+
+- P02.1 qəbulu qeyd edildi; yalnız P02.2 seçim/marker/tap və rədd feedback-i hazırlandı.
+- Pure TapSelection yalnız mövcud engine LegalTurns prefikslərini qəbul edir; qaydalar təkrar yazılmadı.
+- Sabit 3–3 TapBoard nümunəsi və explicit texniki reset əlavə edildi; RNG/növbə dövrü/drag/undo yoxdur.
+- 356 EditMode, 7 PlayMode, 105 Python testi PASS; Android build və imza PASS.
+- Əvvəlki 301/2 Unity testi və bütün mühərrik/matç kodu qorundu; 63 canonical PASS/4 undo NOT_RUN.
+- Real Input System hadisələri, camera render və GUI şəkilləri saxlandı; fiziki touch/device NOT_RUN.
+- Köhnə native Analytics bağlanış qəzası açıq riskdir; P02.2-də təkrarlanmadı, həll iddia edilmir.
+- D024 final vizual referansı dəyişmədi və kodlaşdırılmadı. P02.3 açılmadı, GitHub push edilmədi.
+- Sübut və manual addımlar: [P02.2 hesabatı](docs/reports/P02.2.md).

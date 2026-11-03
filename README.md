@@ -2,7 +2,7 @@
 
 Android və iOS üçün Unity 6 / C# əsasında tam 2D nərd oyunu.
 Online istiqamət: Nakama authoritative TypeScript və istehsal üçün CockroachDB.
-P01.4 qəbul edilib. P02.1 texniki 2D taxta hazırdır; insan təsdiqi gözlənilir.
+P02.1 qəbul edilib. P02.2 seçim/marker/tap gedişi hazırdır; insan təsdiqi gözlənilir.
 Qəbul edilmiş uzun/qısa mühərriklər, matç sistemi və testləri qorunur.
 P00.3 Unity təməli qəbul edilib; fiziki Android testi açıqdır. Oynanıla bilən nərd hələ yoxdur.
 
@@ -33,6 +33,7 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [P01.3 hesabatı](docs/reports/P01.3.md) | Qəbul edilmiş qısa mühərrikin tarixi sübutu |
 | [P01.4 hesabatı](docs/reports/P01.4.md) | Qəbul edilmiş matç/seriya müqaviləsinin tarixi sübutu |
 | [P02.1 hesabatı](docs/reports/P02.1.md) | Texniki 2D taxta, cari testlər, screenshot və manual baxış |
+| [P02.2 hesabatı](docs/reports/P02.2.md) | Cari seçim, marker, tap gedişi və real input/render yoxlamaları |
 | [Qayda müqaviləsi](docs/RULESET_VARIANTS.md) | Ortaq koordinatlar, qayda ID-ləri və provisional variantlar |
 | [Uzun qaydalar](docs/RULES_LONG.md), [qısa qaydalar](docs/RULES_SHORT.md) | Rejimlər üzrə sənəd tələbləri |
 | [Qayda matrisi](docs/RULE_MATRIX.md) | JSON nümunələrinin insan üçün oxunaqlı görünüşü |
@@ -75,18 +76,18 @@ Android build üçün uyğun rəsmi Android Build Support/SDK/NDK/OpenJDK lazım
 Raw loglar, NUnit XML və APK build/P00.3/ daxilində lokal saxlanır və Git-ə daxil edilmir.
 Eyni layihəni açıq Editor ilə batch prosesində paralel işlətməyin.
 
-## Cari qayda, matç və taxta testləri — P02.1
+## Cari qayda, matç, taxta və tap testləri — P02.2
 
 ```bash
-python3 scripts/build/p012.py editmode --part P02.1
-python3 scripts/build/p012.py playmode --part P02.1
-python3 scripts/build/p012.py android --part P02.1
+python3 scripts/build/p012.py editmode --part P02.2
+python3 scripts/build/p012.py playmode --part P02.2
+python3 scripts/build/p012.py android --part P02.2
 ```
 
 Unity 6000.6.7f1 lazımdır; başqa yerdədirsə --editor parametrini verin.
-Runner build/P02.1/unity daxilində source-only lokal test surətini yaradır və onun
+Runner build/P02.2/unity daxilində source-only lokal test surətini yaradır və onun
 cache-indən istifadə edir. Açıq əsas Editor bağlanmır, əsas səhnə/UI dəyişdirilmir.
-NUnit XML/log və APK build/P02.1 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
+NUnit XML/log və APK build/P02.2 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
 Fixture-lər docs/rules/fixtures.json-dan oxunur. Uzun test faylı dəyişdirilmədiyi üçün onda 41 tarixi skip görünür; onların 30-u ShortFixture, 7-si MatchFixture adı ilə ayrıca icra olunur.
 67 unikal nümunənin 63-ü PASS-dır; 4 undo nümunəsi P02.4-ü gözləyir. Skip PASS sayılmır.
 PROVISIONAL_RULE seçimi ilkin standart olaraq qəbul edilib, müstəqil yerli oyunçu yoxlaması açıqdır.
@@ -101,3 +102,10 @@ Android P02.1 APK bu taxtadan başlayır; köhnə Bootstrap scene və build sett
 
 Gələcək final taxtanın insan-seçilmiş əsas [vizual referansı və tətbiq sərhədi](docs/DECISIONS.md) D024-dədir.
 Bu, cari mərhələni və növbəti part icazəsini dəyişmir.
+
+## Cari tap nümunəsi — P02.2
+
+Unity-də `NARD → P02.2 → Open tap example`, sonra Play seçin. Ağır final art əlavə edilməyib.
+Öz daşınıza, sonra bal rəngli hədəfə toxunun. Sabit 3–3 test atışı verilib; zər atışı və yeni növbə yoxdur.
+Texniki sıfırlama yalnız həmin eyni nümunəni yenidən göstərir. Bu, undo/revanş deyil.
+Əvvəlki P02.1 read-only scene və onun açılma menyusu ayrıca qorunur.

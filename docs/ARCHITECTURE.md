@@ -142,3 +142,16 @@ Qrafika kodla yaranır; gələcək sprite/skin dəyişməsi qayda mühərriklər
 TechnicalBoard ayrı scene-dir. Bir portret kompozisiya letterbox olunur; P02.5 responsive layout-u deyil.
 Əvvəlki Bootstrap və EditorBuildSettings qorunur. P021Build yalnız açıq build üçün TechnicalBoard,
 sonra Bootstrap scene siyahısını verir. P021Preview yalnız açıq CLI preview sorğusunda Game View çəkir.
+
+## P02.2 seçim application qatı
+
+Nard.Interaction pure C# qatıdır; Rules/Match-dan asılıdır, Unity-dən asılı deyil.
+TapSelection ilkin state-in bütün LegalTurns yollarını alır, seçilmiş mənbənin yalnız növbəti
+qanuni hədəflərini verir. Qəbuldan sonra uyğun qalan yolların prefiksini saxlayır; greedy lokal
+addımla maksimum/yüksək zər qaydasını pozmağa yol vermir. Qayda hesablaması engine-də qalır.
+Bütün qəbul edilmiş addımlar uncommitted preview-dur; UI bunu server qəbuluna və ya matç nəticəsinə çevirmir.
+BoardTapInput → TapSelection → mövcud Long/Short engine. BoardView/BoardHitMap → yalnız geometry/render.
+Input adapteri Mouse və primary Touchscreen press-i oxuyur; press ID-si ikinci dəfə işlənmir.
+İki barmaq və drag hərəkəti gediş deyil. Rədd feedback-i bloklamayan sadə Azərbaycan mətnidir.
+TapBoard ayrıca test scene-dir; sabit roll setup + aydın reset nümunəsi var. Atış/növbə dövrü,
+undo, bot və online adapterləri qabaqcadan yazılmır. Final vizual referans D024 toxunulmazdır.

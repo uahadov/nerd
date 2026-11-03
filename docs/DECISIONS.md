@@ -203,3 +203,37 @@ sonradan agentin generasiya etdiyi digər şəkil əsas referansı əvəz etmir.
   Məhsula birbaşa daxil etmə hüququ təsdiqlənmiş sayılmır.
 - Repo ölçü qaydasında yalnız bu dəqiq fayl/yol/SHA üçün baxılmış istisna var (4 MiB həddi);
   başqa böyük fayllara və dəyişmiş baytlara ümumi icazə vermir. Master Plan/GDD dəyişmir.
+
+## D025 — 2026-11-03, P02.1 qəbulu və yalnız P02.2
+
+İstifadəçi: “P02.1 mərhələsini təsdiqləyirəm. İndi yalnız P02.2-yə keç.”
+Əhatə Master P02.2-dir: daş seçimi, mümkün gediş markerləri, tap gedişi və yanlış seçimə qısa feedback.
+Rules/Match və bütün əvvəlki C# testləri qorunur. D024 əsas final vizual referans olaraq qalır;
+final art indi kodlaşdırılmır. P02.3 atış/tam növbə, drag/undo, animasiya və online yoxdur.
+Native Editor qəzası həll sübutu olmadan açıq riskdir. Fiziki Android/yerli yoxlama NOT_RUN saxlanır.
+
+## D026 — P02.2 tap preview sərhədi və təkrar sınaq nümunəsi
+
+Interaction/TapSelection pure C# application qatıdır, qayda mühərriki deyil. Mövcud LegalTurns-un
+maksimum/yüksək zərdən keçmiş tam yollarının yalnız prefiksləri seçilə bilər. Hədəfə toxunanda
+həmin yoldakı növbəti addım mövcud TryApplyLocalStep ilə tətbiq edilir; məsafə/baş/bar/blok/xal
+qaydaları UI-da təkrar yazılmır. Eyni hədəfə iki zər çıxarırsa, engine-in sabit qanuni tokeni seçilir.
+Nəticə lokal, commit edilməmiş preview-dur; MatchSession commit/AdvanceTurn çağırılmır.
+
+BoardHitMap koordinatı, BoardTapInput isə input/feedback-i idarə edir; BoardView yalnız çəkir.
+Seçilmiş mənbəyə təkrar tap seçimi söndürür. İşarəli hədəfə tap bir daş aparır. İşarəli hədəf
+olmayan başqa qanuni öz mənbəsinə tap seçimi dəyişir; qanunsuz seçim əvvəlki vəziyyəti saxlayır.
+Bir native frame/press ID təkrar işlənmir; drag və əlavə barmaq gediş yaratmır.
+
+TapBoard ayrı texniki scene-dir. Əvvəlcədən verilmiş uzun 3–3 nümunəsi açılır; RNG/atış düyməsi,
+yeni növbə və rəqib oyunu yoxdur. Dörd hüquq bitəndə aydın bildirilir. “Texniki nümunəni sıfırla”
+yalnız test state-ini təzədən qurur ki, insan 5+ tap sınağını edə bilsin; undo/revanş və növbə sistemi deyil.
+Bar/vurma/off və digər zərlər qısa/uzun test state-ləri ilə yoxlanır; rejim seçimi ekranı qurulmur.
+Növbəsonu flag/owner/commit və zər istehlakının məhsul UI-si P02.3-də qalır.
+
+Avtomatik PlayMode/GUI giriş sınaqları real Unity Input System-ə sintetik Mouse/TouchState hadisələri
+verir; bu fiziki barmaq/telefon testi deyil. Yalnız həmin test/preview prosesində müvəqqəti
+InputSettings klonu ilə focus routing qurulur, sonra əvvəlki konfiqurasiya klondan bərpa edilir.
+Paketin InputManager.settings setter-i HideAndDontSave default-u əvəzləyərkən sildiyi üçün
+bərpa obyekti ayrıca kopyalanır. Layihə/sistem ayarları və istifadəçinin giriş konfiqurasiyası dəyişmir.
+A50 yalnız texniki marker implementasiyası olaraq IN_PROGRESS olur; məhsul qərarları dəyişmir.

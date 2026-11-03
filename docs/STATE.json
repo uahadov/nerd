@@ -3,19 +3,19 @@
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
   "updated_on": "2026-11-03",
-  "active_part": "P02.1",
+  "active_part": "P02.2",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P01.4",
+  "last_human_approved_part": "P02.1",
   "current_part_human_approved": false,
-  "next_part": "P02.2",
+  "next_part": "P02.3",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P02.1",
+    "part": "P02.2",
     "by": "human",
     "date": "2026-11-03",
-    "quote": "P01.4 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm. İndi yalnız P02.1 mərhələsinə keç."
+    "quote": "P02.1 mərhələsini təsdiqləyirəm. İndi yalnız P02.2-yə keç."
   },
   "human_approvals": [
     {
@@ -66,6 +66,13 @@
       "by": "human",
       "quote": "P01.4 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm.",
       "report": "docs/reports/P01.4.md"
+    },
+    {
+      "part": "P02.1",
+      "date": "2026-11-03",
+      "by": "human",
+      "quote": "P02.1 mərhələsini təsdiqləyirəm.",
+      "report": "docs/reports/P02.1.md"
     }
   ],
   "sources": {
@@ -87,14 +94,14 @@
     "android_tools_installed": true,
     "game_modules_implemented": true
   },
-  "test_report": "docs/reports/P02.1.md",
+  "test_report": "docs/reports/P02.2.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
     "unity_build": "PASS",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P02.1.validation.json",
-    "tests_evidence": "docs/reports/P02.1.tests.txt"
+    "validation_evidence": "docs/reports/P02.2.validation.json",
+    "tests_evidence": "docs/reports/P02.2.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -127,12 +134,12 @@
     },
     {
       "id": "UNITY-EDITOR-EXIT",
-      "status": "OPEN_NOT_REPRODUCED_IN_ISOLATED_PREVIEW",
-      "impact": "Əvvəldən açıq əsas Editor bağlanışında Unity Analytics/WebRequest native SIGSEGV qeyd olunub. Dəqiq səbəb təsdiqlənməyib; P02.1 ayrıca GUI preview exit=0, compile/test/build PASS-dır.",
+      "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.2",
+      "impact": "Köhnə Unity Analytics/WebRequest native bağlanış SIGSEGV-i həll edilməyib; səbəb təsdiqlənməyib. P02.2 batch test/build və ayrıca GUI input/capture exit=0 ilə tamamlanıb, bu icralarda təkrarlanmayıb.",
       "next_action": "Təkrarlanarsa local build/P02.1/diagnostics log/dump ilə araşdır; native qəzanı gameplay xətası və ya həll edilmiş problem kimi təqdim etmə. Heç bir qlobal servis/Editor telemetri parametri dəyişdirilməyib."
     }
   ],
-  "resume_instruction": "Yalnız P02.1 texniki 2D taxta və read-only state render. Uzun/qısa/matç kodu və köhnə testlər qorunsun. Seçim/gediş/zər atışı/undo/responsive iki layout/bot/backend yoxdur. AWAITING_HUMAN_APPROVAL ilə dayan; P02.2 icazəsizdir; fiziki Android və yerli yoxlama NOT_RUN; push qadağandır.",
+  "resume_instruction": "Yalnız P02.2 seçim/marker/tap gedişi və rədd feedback-i; sabit zər nümunəsi. Rules/Match və bütün köhnə C# testlər qorunsun. P02.3 atış/turn advance, drag/undo/bot/online/final art yoxdur. Native Editor qəzası həll sübutu olmadan riskdir. AWAITING_HUMAN_APPROVAL; növbəti part icazəsi false; push yoxdur.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -141,16 +148,16 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p021-local-001",
+    "id": "android-p022-local-001",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
-    "apk": "build/P02.1/NARD-P02.1.apk",
-    "apk_bytes": 25421110,
-    "apk_sha256": "c471ff734dd5c03dd6cda74aae054b1525f5c7117a4019439022ecfa703e5329",
-    "execution_evidence": "docs/reports/P02.1.execution.json",
+    "apk": "build/P02.2/NARD-P02.2.apk",
+    "apk_bytes": 25465018,
+    "apk_sha256": "03b7a82cf13564292b8032c13753d4f55320a2aa074a96ced2511c8c58469f0f",
+    "execution_evidence": "docs/reports/P02.2.execution.json",
     "editor_visual": "PASS",
     "physical_device": "NOT_RUN",
-    "produced_in_part": "P02.1"
+    "produced_in_part": "P02.2"
   },
   "human_editor_review": {
     "part": "P00.3",
@@ -166,10 +173,10 @@
     "ruleset_version": "long-az-gdd1-provisional.1"
   },
   "engine": {
-    "part": "P02.1",
-    "mode": "long_short_match_board",
+    "part": "P02.2",
+    "mode": "long_short_match_tap",
     "status": "PASS",
-    "execution_evidence": "docs/reports/P02.1.execution.json",
+    "execution_evidence": "docs/reports/P02.2.execution.json",
     "ruleset_versions": [
       "long-az-gdd1-provisional.1",
       "short-gdd1-draft.1"
@@ -224,6 +231,18 @@
       "editor_visual": "NOT_RUN",
       "physical_device": "NOT_RUN",
       "produced_in_part": "P01.4"
+    },
+    {
+      "id": "android-p021-local-001",
+      "editor_version": "6000.6.7f1",
+      "platform": "Android ARM64 IL2CPP development",
+      "apk": "build/P02.1/NARD-P02.1.apk",
+      "apk_bytes": 25421110,
+      "apk_sha256": "c471ff734dd5c03dd6cda74aae054b1525f5c7117a4019439022ecfa703e5329",
+      "execution_evidence": "docs/reports/P02.1.execution.json",
+      "editor_visual": "PASS",
+      "physical_device": "NOT_RUN",
+      "produced_in_part": "P02.1"
     }
   ],
   "historical_engines": [
@@ -251,6 +270,17 @@
       "mode": "long_short_match",
       "status": "PASS",
       "execution_evidence": "docs/reports/P01.4.execution.json",
+      "ruleset_versions": [
+        "long-az-gdd1-provisional.1",
+        "short-gdd1-draft.1"
+      ],
+      "independent_local_review": "NOT_RUN"
+    },
+    {
+      "part": "P02.1",
+      "mode": "long_short_match_board",
+      "status": "PASS",
+      "execution_evidence": "docs/reports/P02.1.execution.json",
       "ruleset_versions": [
         "long-az-gdd1-provisional.1",
         "short-gdd1-draft.1"

@@ -1,0 +1,19 @@
+{
+  "name": "Nard.Tests.TapEditor",
+  "references": [
+    "Nard.Interaction",
+    "Nard.Presentation",
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short",
+    "Unity.InputSystem",
+    "Nard.Rules.Long.Tests",
+    "Nard.Rules.Short.Tests"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

@@ -10,6 +10,7 @@ namespace Nard.Presentation
     {
         [SerializeField] private GameMode initialMode = GameMode.Long;
         private GameObject content;
+        private GameObject tapOverlay;
         private Sprite square, circle, triangle;
         private readonly List<UnityEngine.Object> generated = new List<UnityEngine.Object>();
         private readonly List<CheckerVisual> checkers = new List<CheckerVisual>();
@@ -87,6 +88,44 @@ namespace Nard.Presentation
                 Label("DiceEmpty_"+i,"—",new Vector2(1.35f+i*.95f,0),.32f,Walnut);
             }
             Label("DiceLabel","Zər yerləri",new Vector2(1.83f,-.68f),.24f,Walnut);
+        }
+        // Render-only interaction hints. Targets and selection are provided by the application layer.
+        public void SetTapOverlay(int selected,IReadOnlyList<int> targets,string feedback,int player,string inputNotice="Texniki nümunə · Zər atışı və yeni növbə yoxdur")
+        {
+            if(tapOverlay!=null){tapOverlay.SetActive(false);Release(tapOverlay);}
+            tapOverlay=new GameObject("TapOverlay");tapOverlay.transform.SetParent(content.transform,false);
+            var honey=new Color32(232,184,93,255);
+            for(int i=checkers.Count-1;i>=0;i--)
+            {
+                var c=checkers[i];
+                if(c.Point!=selected||c.Player!=player)continue;
+                Overlay("Selection_"+selected,c.Renderer.transform.localPosition,c.Renderer.bounds.size.x*1.38f,circle,honey,9);
+                break;
+            }
+            foreach(int target in targets)
+            {
+                Vector2 at=target==24?new Vector2(4.53f,player==0?-1.42f:1.42f):
+                    new Vector2(BoardGeometry.PointBase(target).x,target<12?-1.65f:1.65f);
+                Overlay("Target_"+target,at,.36f,circle,Walnut,30);
+                Overlay("TargetFace_"+target,at,.27f,circle,honey,31);
+            }
+            SetLabel("Temporary","Müvəqqəti qrafika · P02.2");
+            SetLabel("Legend",inputNotice);
+            SetLabel("Unavailable",feedback);
+            var reset=Shape("ExampleReset",square,new Vector2(0,-9.35f),new Vector2(4.2f,.53f),Walnut,2);
+            reset.transform.SetParent(tapOverlay.transform,false);
+            Label("ExampleResetLabel","Texniki nümunəni sıfırla",new Vector2(0,-9.35f),.25f,Cream);
+            content.transform.Find("ExampleResetLabel").SetParent(tapOverlay.transform,false);
+        }
+        private void SetLabel(string name,string value)
+        {
+            var child=content.transform.Find(name);if(child!=null)child.GetComponent<TextMesh>().text=value;
+        }
+        private void Overlay(string name,Vector2 at,float size,Sprite sprite,Color color,int order)
+        {
+            var go=new GameObject(name,typeof(SpriteRenderer));go.transform.SetParent(tapOverlay.transform,false);
+            go.transform.localPosition=at;go.transform.localScale=new Vector3(size,size,1);
+            var renderer=go.GetComponent<SpriteRenderer>();renderer.sprite=sprite;renderer.color=color;renderer.sortingOrder=order;
         }
         private void Stack(int player,int point,Vector2 edge,bool top,int count)
         {

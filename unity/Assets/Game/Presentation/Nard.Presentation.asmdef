@@ -4,6 +4,8 @@
   "references": [
     "Nard.Match",
     "Nard.Rules.Long",
-    "Nard.Rules.Short"
+    "Nard.Rules.Short",
+    "Nard.Interaction",
+    "Unity.InputSystem"
   ]
 }

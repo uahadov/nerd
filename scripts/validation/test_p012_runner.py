@@ -151,3 +151,25 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(self.run_step(part='P02.1'), 0)
         self.xml.remove(self.xml[-1])
         self.assertEqual(self.run_step(part='P02.1'), 1)
+
+    def include_board_cases(self):
+        for i in range(38):
+            ET.SubElement(self.xml, 'test-case', name=f'Projection{i}', fullname=f'Nard.Tests.Board.BoardProjectionTests.Projection{i}', result='Passed')
+
+    def test_tap_part_cannot_pass_with_only_previous_suites(self):
+        self.include_short_cases(); self.include_match_cases(); self.include_board_cases()
+        self.assertEqual(self.run_step(part='P02.2'), 1)
+
+    def test_tap_part_requires_every_tap_fixture_and_case(self):
+        self.include_short_cases(); self.include_match_cases(); self.include_board_cases()
+        count = 0
+        for case in self.cases:
+            if case['mode'] in ['long', 'short'] and case['before']['phase'] == 'moving' and case['action']['kind'] in ['move', 'turn']:
+                name = 'TapFixture_' + case['id']
+                ET.SubElement(self.xml, 'test-case', name=name, fullname='Nard.Tests.Tap.TapSelectionTests.' + name, result='Passed')
+                count += 1
+        for i in range(55-count):
+            ET.SubElement(self.xml, 'test-case', name=f'ExtraTap{i}', fullname=f'Nard.Tests.Tap.TapSelectionTests.ExtraTap{i}', result='Passed')
+        self.assertEqual(self.run_step(part='P02.2'), 0)
+        self.xml.remove(next(c for c in self.xml if c.get('name') == 'TapFixture_S_HIGH_REJECT'))
+        self.assertEqual(self.run_step(part='P02.2'), 1)
