@@ -2,7 +2,7 @@
 
 Əsas [GDD §4.1, §4.3–4.4, §15–16](../NARD_Final_GDD_v1.0.md),
 [ortaq koordinatlar](RULESET_VARIANTS.md). Versiya: **short-gdd1-draft.1**.
-Sənəd və nümunələrdir; P01.3 qayda motoru yazılmayıb.
+P01.1 sənəd müqaviləsidir. P01.3-də ayrıca qısa mühərrik və həmin nümunələrin real testləri əlavə edilir.
 
 ## Başlanğıc və istiqamət — S-START, C-DIRECTION
 
@@ -61,3 +61,7 @@ Server təsdiqindən sonra undo yoxdur; bar-a vurulan daş da lokal undo snapsho
 
 İnsan yoxlaması: [tam nümunə matrisi](RULE_MATRIX.md). Bu, JSON gözləntilərinin insan baxışıdır;
 automatik checker-dən PASS almaq real motorun gedişləri düzgün oynatdığı demək deyil.
+
+
+P01.3-də 30 aid JSON nümunəsi və əlavə kritik/müqayisəli testlər icra olunur;
+[real nəticələr və sərhədlər](reports/P01.3.md) ayrıca saxlanır. Undo, seriya və reytinq implementasiya edilmir.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""P01.2: test/build a disposable source copy without locking the user's open Editor."""
+"""Test/build a disposable source copy (P01.2 default; --part P01.3 includes short rules)."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -29,13 +29,13 @@ def prepare():
     return project
 
 
-def run(step, editor):
+def run(step, editor, part='P01.2'):
     ARTIFACTS.mkdir(parents=True, exist_ok=True)
     if step == 'android':
-        previous = ARTIFACTS / 'NARD-P01.2.apk'
+        previous = ARTIFACTS / ('NARD-' + part + '.apk')
         if previous.exists():
             stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%f')
-            previous.rename(ARTIFACTS / ('NARD-P01.2.' + stamp + '.previous.apk'))
+            previous.rename(ARTIFACTS / ('NARD-' + part + '.' + stamp + '.previous.apk'))
     project = prepare()
     log = ARTIFACTS / (step + '.raw.log')
     xml = ARTIFACTS / (step + '.xml')
@@ -47,7 +47,7 @@ def run(step, editor):
         command += ['-buildTarget', 'Android', '-executeMethod', 'Nard.Build.P003Build.BuildAndroid', '-quit']
     started = datetime.now(timezone.utc).isoformat(timespec='seconds')
     env = dict(os.environ, NARD_RULE_FIXTURES=str(ROOT / 'docs/rules/fixtures.json'),
-               NARD_BUILD_OUTPUT=str(ARTIFACTS / 'NARD-P01.2.apk'))
+               NARD_BUILD_OUTPUT=str(ARTIFACTS / ('NARD-' + part + '.apk')))
     try:
         process = subprocess.run(command, env=env, cwd=ROOT, capture_output=True, text=True, timeout=1800)
         code = process.returncode
@@ -56,13 +56,13 @@ def run(step, editor):
         code = 124
     text = log.read_text(errors='replace') if log.exists() else ''
     source_hashes = {}
-    for name in ['Assets/Game/Rules', 'Assets/Game/Tests/Rules', 'Packages', 'ProjectSettings']:
+    for name in ['Assets/Game/Rules', 'Assets/Game/Tests/Rules', 'Assets/Game/Tests/ShortRules', 'Packages', 'ProjectSettings']:
         for file in sorted((project / name).rglob('*')):
             if file.is_file():
                 source_hashes['unity/' + file.relative_to(project).as_posix()] = hashlib.sha256(file.read_bytes()).hexdigest()
     source_hashes['docs/rules/fixtures.json'] = hashlib.sha256((ROOT / 'docs/rules/fixtures.json').read_bytes()).hexdigest()
-    report = {'part': 'P01.2', 'step': step, 'started_at': started, 'exit_code': code,
-              'editor': '6000.6.7f1', 'project': 'build/P01.2/unity (source copy)',
+    report = {'part': part, 'step': step, 'started_at': started, 'exit_code': code,
+              'editor': '6000.6.7f1', 'project': f'build/{part}/unity (source copy)',
               'source_sha256': source_hashes,
               'status': 'PASS' if code == 0 else 'FAIL',
               'compiler_errors': sorted(set(re.findall(r'^.*error CS[^\n]*', text, re.M)))}
@@ -84,13 +84,17 @@ def run(step, editor):
             expected_fixtures = {'Fixture_' + c['id'] for c in corpus if c['mode'] == 'long' and c['action']['kind'] != 'undo'} if step == 'editmode' else set()
             actual_fixtures = {c['name'] for c in report['cases'] if c['name'].startswith('Fixture_') and c['result'] == 'Passed'}
             report['executed_long_fixtures'] = len(actual_fixtures)
+            expected_short = {'ShortFixture_' + c['id'] for c in corpus if c['mode'] == 'short' and c['action']['kind'] in ['start', 'opening', 'move', 'turn', 'classify_result']} if step == 'editmode' and part == 'P01.3' else set()
+            actual_short = {c['name'] for c in report['cases'] if c['name'].startswith('ShortFixture_') and c['result'] == 'Passed'}
+            report['executed_short_fixtures'] = len(actual_short)
             if (int(root.attrib.get('failed', '0')) != 0 or int(root.attrib.get('inconclusive', '0')) != 0
                     or int(root.attrib.get('passed', '0')) == 0 or actual_skips != allowed_skips
                     or actual_fixtures != expected_fixtures
+                    or (part == 'P01.3' and actual_short != expected_short)
                     or any(c['result'] not in ['Passed', 'Skipped'] for c in report['cases'])):
                 report['status'] = 'FAIL'
     else:
-        apk = ARTIFACTS / 'NARD-P01.2.apk'
+        apk = ARTIFACTS / ('NARD-' + part + '.apk')
         report['apk_exists'] = apk.exists()
         if apk.exists():
             report['apk_bytes'] = apk.stat().st_size
@@ -106,5 +110,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('step', choices=['editmode', 'playmode', 'android'])
     parser.add_argument('--editor', type=Path, default=EDITOR)
+    parser.add_argument('--part', choices=['P01.2', 'P01.3'], default='P01.2')
     args = parser.parse_args()
-    raise SystemExit(run(args.step, args.editor))
+    ARTIFACTS = ROOT / 'build' / args.part
+    raise SystemExit(run(args.step, args.editor, args.part))

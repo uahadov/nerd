@@ -41,3 +41,12 @@
 - EditMode 90 PASS/41 aid-part skip, PlayMode 1 PASS, Android bootstrap build uğurlu; fiziki Android NOT_RUN.
 - Lokal runner və saxta/missing evidence mənfi testləri; A01 statusu IN_PROGRESS, tam oyun deyil.
 - Sübutlar docs/reports/P01.2.* daxilindədir. UI/bot/server/qısa mühərrik əlavə edilmədi; push yoxdur.
+
+## P01.3 — 2026-11-03 — AWAITING_HUMAN_APPROVAL
+
+- P01.2 qəbulu qeydə alındı; yalnız ayrıca pure C# qısa mühərrik əlavə edildi. Uzun runtime/testləri bayt səviyyəsində qorundu.
+- Vurma/bar, maksimum/yüksək zər, qoşa, evdən çıxarma və adi/mars/koks; UI/bot/backend/seriya yoxdur.
+- 30 mövcud qısa fixture və 81 əlavə hal: 72 başlanğıc kombinasiya, 1000 sintetik mövqe, 102 növbə/38 vurma sınağı.
+- EditMode 201 PASS/41 tarixi skip, PlayMode 1 PASS, Python 82 PASS; Android bootstrap build uğurlu.
+- 56 unikal fixture real mühərriklərdə keçdi; 11 undo/seriya/reytinq gələcək partlarda qaldı. A02 IN_PROGRESS.
+- Fiziki Android və müstəqil yerli qayda yoxlaması NOT_RUN, provisional qeydlər saxlanılır. GitHub push yoxdur; P01.4 icazəsizdir.

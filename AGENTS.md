@@ -16,12 +16,12 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P01.2 icazəlidir: uzun nərdin pure C# qanuni gediş mühərriki,
-   ilkin mövqe/zər girişi, baş/altılıq, maksimum zər, evə toplama/çıxarma və avtomatik testlər.
-   Qısa mühərrik P01.3, seriya/match state machine P01.4 işidir; UI, bot və server yazma.
-   İstifadəçinin istədiyi uzun nərd mars/son daş yoxlaması bu modulda kiçik nəticə sorğusudur.
-   Altı PROVISIONAL_RULE ilkin standart olaraq qəbul edilib; müstəqil yerli yoxlama NOT_RUN qalır.
-   Fiziki Android testi aparılmayıb; P00.3 Editor qəbulu ilə qarışdırma.
+4. Hazırda yalnız P01.3 icazəlidir: qısa nərdin pure C# qanuni gediş mühərriki,
+   2/5/3/5 düzülüşü, vurma/bar, maksimum zər/yüksək zər, çıxarma və adi/mars/koks testləri.
+   Uzun mühərrikin işləyən kodu və testlərini dəyişmə; onun regressiyasını da icra et.
+   Seriya və tam match state machine P01.4-dədir; UI, bot və server yazma.
+   Altı uzun PROVISIONAL_RULE ilkin standart olaraq qəbul edilib; müstəqil yerli yoxlama NOT_RUN qalır.
+   Fiziki Android testi aparılmayıb; əvvəlki Editor/build qəbulu ilə qarışdırma.
    Gələcək part açıq icazə aldıqda bu cari-part cümləsini də yenilə.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.

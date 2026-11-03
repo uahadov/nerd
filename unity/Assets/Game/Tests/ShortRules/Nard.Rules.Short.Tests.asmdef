@@ -1,0 +1,12 @@
+{
+  "name": "Nard.Rules.Short.Tests",
+  "references": [
+    "Nard.Rules.Short"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

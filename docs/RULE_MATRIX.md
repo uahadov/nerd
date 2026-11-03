@@ -4,7 +4,8 @@
 Bu cədvəl həmin məlumatın oxunaqlı indeksidir; müstəqil yeni qərar mənbəyi deyil.
 Validator ID/title/dice/move/result/assurance sətirlərinin JSON-la tam uyğunluğunu yoxlayır.
 ACCEPT/REJECT P01.1-də yazılmış **gözlənilən** cavabdır. P01.2 uzun mühərrikdə
-26 aid nümunə icra edilir; qısa/seriya/reytinq/undo üçün motor testi hələ yoxdur.
+26 uzun, P01.3 qısa mühərrikdə 30 aid nümunə icra edilir. Seriya/reytinq/undo
+üzrə 11 unikal nümunə öz partını gözləyir; uzun faylındakı 41 tarixi skip ayrıca qeyd olunur.
 `move` tək addımın yerli şərtini, `turn` tam təklifin maksimum zər şərtini göstərir;
 heç biri server commit-i deyil. `slot` zərin unikal istifadə tokenidir.
 Tam 24 xana, bar/off və əvvəl/sonra vəziyyətlər JSON-dadır; [koordinatlar və variantlar](RULESET_VARIANTS.md).

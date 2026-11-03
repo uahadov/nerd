@@ -81,12 +81,12 @@ class FoundationTests(unittest.TestCase):
         self.fails('state_contract')
 
     def test_wrong_authorization_rejected(self):
-        self.change_state(lambda s: s['authorization'].update(part='P01.3'))
+        self.change_state(lambda s: s['authorization'].update(part='P01.4'))
         self.fails('state_contract')
 
     def test_future_human_approval_rejected(self):
         self.change_state(lambda s: s['human_approvals'].append(
-            {'part': 'P01.2', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
+            {'part': 'P01.3', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
         self.fails('state_contract')
 
     def test_progress_drift_rejected(self):
@@ -105,7 +105,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('local_links')
 
     def test_gameplay_directory_rejected(self):
-        (self.root / 'unity/Assets/Game/Rules/Short').mkdir()
+        (self.root / 'unity/Assets/Game/Rules/Match').mkdir()
         self.fails('current_scope')
 
     def test_skill_policy_bypass_rejected(self):
@@ -152,11 +152,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('remote_safety')
 
     def test_coordinated_next_part_change_rejected(self):
-        self.change_state(lambda s: (s.update(active_part='P01.3', next_part='P01.4'),
-                                     s['authorization'].update(part='P01.3')))
+        self.change_state(lambda s: (s.update(active_part='P01.4', next_part='P02.1'),
+                                     s['authorization'].update(part='P01.4')))
         p = self.root / 'PROGRESS.md'
-        p.write_text(p.read_text().replace('- Aktiv part: `P01.2`', '- Aktiv part: `P01.3`')
-                     .replace('- Növbəti part: `P01.3`', '- Növbəti part: `P01.4`'))
+        p.write_text(p.read_text().replace('- Aktiv part: `P01.3`', '- Aktiv part: `P01.4`')
+                     .replace('- Növbəti part: `P01.4`', '- Növbəti part: `P02.1`'))
         self.fails('current_scope')
 
     def test_empty_scope_rejected(self):
@@ -209,7 +209,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_failed_engine_xml_rejected(self):
-        p = self.root / 'docs/reports/P01.2.editmode.xml'
+        p = self.root / 'docs/reports/P01.3.editmode.xml'
         p.write_text(p.read_text().replace('failed="0"', 'failed="1"', 1))
         self.fails('test_evidence')
 
@@ -217,6 +217,21 @@ class FoundationTests(unittest.TestCase):
         p = self.root / 'docs/APPROVED.md'
         p.write_text(p.read_text().replace('| A01 | Uzun nərd | IN_PROGRESS |', '| A01 | Uzun nərd | DONE |'))
         self.fails('decision_inventory')
+
+    def test_short_engine_unity_dependency_rejected(self):
+        p = self.root / 'unity/Assets/Game/Rules/Short/ShortNardeRules.cs'
+        p.write_text(p.read_text() + '\nusing UnityEngine;\n')
+        self.fails('current_scope')
+
+    def test_accepted_long_tests_cannot_be_silently_changed(self):
+        p = self.root / 'unity/Assets/Game/Tests/Rules/LongRulesTests.cs'
+        p.write_text(p.read_text() + '\n// changed accepted test\n')
+        self.fails('current_scope')
+
+    def test_short_engine_evidence_drift_rejected(self):
+        p = self.root / 'unity/Assets/Game/Rules/Short/ShortNardeRules.cs'
+        p.write_text(p.read_text() + '\n// changed source\n')
+        self.fails('test_evidence')
 
 
 if __name__ == '__main__':

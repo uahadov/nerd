@@ -115,3 +115,20 @@ Açıq Editor prosesinə toxunmadan ignored build/P01.2/unity mənbə surətind�
 
 P01.2-də A01-in yalnız qayda mühərriki yazıldığı üçün inventarda status IN_PROGRESS oldu.
 A01 məhsul qərarının mətni və ilkin partı dəyişmədi; tam uzun oyun DONE kimi göstərilmir.
+
+## D018 — 2026-11-03, P01.2 qəbulu və yalnız P01.3
+
+İstifadəçi P01.2-ni qəbul etdi və yalnız Master Plan P01.3-ə icazə verdi.
+Qısa nərd ayrı immutable mövqe və pure C# assembly-də hazırlanır; uzun kod/testləri qorunur.
+Vurma/bar, zər və çıxarma, adi/mars/koks bu partdadır; seriya/match state machine P01.4-də qalır.
+Altı uzun provisional variant və müstəqil yerli yoxlama açıq qalır. Fiziki Android NOT_RUN.
+Heç bir Skill, qadağan olunmuş MCP, yeni UI/bot/backend yoxdur; GitHub push qadağandır.
+
+## D019 — P01.3 texniki müqavilə və sübut uçotu
+
+Qısa modul ayrı ShortPosition/ShortNardeRules və assembly-dir; uzun kod/testləri SHA-256 ilə qorunur.
+Ortaq generik mühərrik refactor-u edilmir. Test/build runner-in mövcud p012.py girişinə --part P01.3
+əlavə edilir; eyni skript surətlənmir və əvvəlki CLI default-u saxlanır.
+LongRulesTests dəyişmədiyi üçün oradakı 41 tarixi skip qalır. Onların 30-u yeni ShortFixture adı ilə
+qısa assembly-də işlənir: 56 unikal fixture icra edilir, 4 undo və 7 seriya/reytinq öz partını gözləyir.
+A02 statusu IN_PROGRESS olur; A01 statusu və 87/20 qərar mətni qorunur. Tam oynanıla bilən qısa UI yoxdur.

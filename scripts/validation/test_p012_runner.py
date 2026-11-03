@@ -45,11 +45,11 @@ class RunnerTests(unittest.TestCase):
         Path(command[command.index('-logFile') + 1]).write_text(self.error_log)
         return SimpleNamespace(returncode=self.code, stdout='', stderr='')
 
-    def run_step(self, step='editmode'):
+    def run_step(self, step='editmode', part='P01.2'):
         with patch.object(runner, 'ROOT', self.root), patch.object(runner, 'ARTIFACTS', self.artifacts), \
                 patch.object(runner, 'prepare', return_value=self.project), \
                 patch.object(runner.subprocess, 'run', side_effect=self.fake_process), contextlib.redirect_stdout(io.StringIO()):
-            return runner.run(step, Path('/synthetic/editor'))
+            return runner.run(step, Path('/synthetic/editor'), part)
 
     def test_only_documented_skips_accepted(self):
         self.assertEqual(self.run_step(), 0)
@@ -85,3 +85,27 @@ class RunnerTests(unittest.TestCase):
         (self.artifacts / 'NARD-P01.2.apk').write_bytes(b'synthetic old build')
         self.assertEqual(self.run_step('android'), 1)
         self.assertEqual(len(list(self.artifacts.glob('*.previous.apk'))), 1)
+
+    def include_short_cases(self):
+        for case in self.cases:
+            if case['mode'] == 'short' and case['action']['kind'] in ['start', 'opening', 'move', 'turn', 'classify_result']:
+                ET.SubElement(self.xml, 'test-case', name='ShortFixture_' + case['id'], result='Passed')
+        self.xml.set('total', '97')
+        self.xml.set('passed', '56')
+
+    def test_short_part_requires_short_fixtures(self):
+        self.assertEqual(self.run_step(part='P01.3'), 1)
+
+    def test_short_part_with_complete_fixtures_passes(self):
+        self.include_short_cases()
+        self.assertEqual(self.run_step(part='P01.3'), 0)
+
+    def test_missing_short_fixture_rejected(self):
+        self.include_short_cases()
+        self.xml.remove(next(c for c in self.xml if c.get('name') == 'ShortFixture_S_START'))
+        self.assertEqual(self.run_step(part='P01.3'), 1)
+
+    def test_skipped_short_fixture_is_not_a_pass(self):
+        self.include_short_cases()
+        next(c for c in self.xml if c.get('name') == 'ShortFixture_S_START').set('result', 'Skipped')
+        self.assertEqual(self.run_step(part='P01.3'), 1)

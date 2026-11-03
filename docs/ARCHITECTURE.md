@@ -3,7 +3,8 @@
 Əsas: [GDD §4, §5, §10](../NARD_Final_GDD_v1.0.md) və
 [Master Planın ardıcıllığı](../NARD_Master_Icra_Plani_v2.md).
 P00.2-də qəbul edilmiş modul sərhədləridir; P00.3 texniki bootstrap əlavə edib.
-P01.2-də yalnız LongPosition/LongNardeRules pure C# modulu var. Qısa qayda, bot, UI/UX və backend yoxdur.
+P01.2 uzun modulu qəbul edilib; P01.3 ShortPosition/ShortNardeRules ayrıca pure C# assembly-dir.
+Bot, UI/UX və backend modulları yoxdur.
 İnfrastruktur, UI framework, əlavə servis və DB cədvəlləri bu sənədlə quraşdırılmır.
 
 ## Asılılıq istiqaməti
@@ -62,7 +63,7 @@ gələcək ehtiyac adı ilə ümumi framework və ya boş abstraksiya yazılmır
 ## Test sərhədləri
 
 Pure C# və TS eyni versiyalı fixture-lərlə yoxlanacaq: position + roll + move → expected state/rejection.
-İlkin koordinat xəritəsi və 67 fixture P01.1-də hazırlanıb. P01.2 uzun mühərriki uyğun 26 nümunəni icra edir; digər 41 nümunə öz partını gözləyir.
+İlkin koordinat xəritəsi və 67 fixture P01.1-də hazırlanıb. Uzun mühərrik 26, qısa mühərrik 30 nümunəni icra edir; 11 undo/seriya/reytinq nümunəsi öz partını gözləyir.
 Differential testlər online POC-də parity göstərəcək. Botlar simulyasiya, presentation
 render/input, adapterlər integration, economy təkrar əməliyyat/receipt testləri keçirəcək.
 [Test matrisi](TEST_MATRIX.md) hansı yoxlamaların hazırda real olduğunu ayırır.
@@ -90,3 +91,16 @@ UI və ya server onu təkbaşına tam növbə təsdiqi kimi istifadə etməməli
 ResultPoints yalnız uzun nərd normal/mars sorğusudur; seriya, mükafat və reytinq yaratmır.
 İlk növbə flag-lərinin növbəsonu dəyişməsi və növbə sahibi seçimi gələcək application qatınındır.
 Qısa mühərrik eyni state-in mode flag-i kimi əlavə edilmir; ayrıca modul olacaq.
+
+## P01.3 konkret qısa mühərrik sərhədi
+
+Rules/Short daxilində ayrıca Nard.Rules.Short assembly-si noEngineReferences=true ilə qurulur.
+Long assembly-yə reference yoxdur; qəbul edilmiş uzun runtime/test faylları dəyişməyib.
+ShortPosition yalnız points/bar/off/roll, owner/phase/usedMask saxlayır və massivləri kopyalayır.
+ShortMove.Bar=-1, Off=24 sentinel-dir; bar/off 24 xananın içində deyil. P0 azalan, P1 artan indekslə gedir.
+ResolveOpening ilkin iki qiyməti saxlayır; qısa mühərrik təzə ilk roll yaratmır.
+TryApplyLocalStep yalnız lokal şərt analizi; LegalTurns/TryApplyTurn tam maksimum/yüksək zər müqaviləsidir.
+Bar boşalmadan başqa daş oynanmır; vurulan daş ayrıca rəqib bar sayına keçir.
+ResultPoints yalnız hazır mövqenin 0/1/2/3 nəticə sorğusudur. Seriya, reytinq, event, server təsdiqi
+və tətbiqin növbə dəyişməsi P01.4/sonrakı hissələrə aiddir; qısa modul bunu qabaqcadan qurmur.
+P01.1 JSON-dakı first_turn/head_departures qısa qaydanın davranışını dəyişmir; uzun baş qaydası daşınmır.
