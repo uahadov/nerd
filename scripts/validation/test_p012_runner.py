@@ -178,7 +178,7 @@ class RunnerTests(unittest.TestCase):
         self.include_short_cases(); self.include_match_cases(); self.include_board_cases()
         self.assertEqual(self.run_step(part='P02.3'), 1)
 
-    def test_turn_part_requires_every_roll_and_turn_case(self):
+    def include_turn_cases(self):
         self.include_short_cases(); self.include_match_cases(); self.include_board_cases()
         tap_count = 0
         for case in self.cases:
@@ -196,6 +196,45 @@ class RunnerTests(unittest.TestCase):
                         ET.SubElement(self.xml, 'test-case', name=name, fullname='Nard.Tests.Turn.LocalTurnTests.' + name, result='Passed')
         for i in range(24):
             ET.SubElement(self.xml, 'test-case', name=f'TurnExtra{i}', fullname=f'Nard.Tests.Turn.LocalTurnTests.TurnExtra{i}', result='Passed')
+    def test_turn_part_requires_every_roll_and_turn_case(self):
+        self.include_turn_cases()
         self.assertEqual(self.run_step(part='P02.3'), 0)
         self.xml.remove(next(c for c in self.xml if c.get('name') == 'TurnRoll_Short_P1_6_6'))
         self.assertEqual(self.run_step(part='P02.3'), 1)
+
+    def test_undo_part_requires_previous_and_undo_suites(self):
+        self.include_turn_cases()
+        self.assertEqual(self.run_step(part='P02.4'), 1)
+        for case in self.cases:
+            if case['action']['kind'] == 'undo':
+                ET.SubElement(self.xml, 'test-case', name='UndoFixture_' + case['id'], result='Passed')
+        for i in range(194):
+            ET.SubElement(self.xml, 'test-case', name=f'Undo{i}', fullname=f'Nard.Tests.Undo.UndoRegressionTests.Undo{i}', result='Passed')
+        for i in range(27):
+            ET.SubElement(self.xml, 'test-case', name=f'Skin{i}', fullname=f'Nard.Tests.Undo.ReferenceSkinTests.Skin{i}', result='Passed')
+        self.assertEqual(self.run_step(part='P02.4'), 0)
+        case = next(c for c in self.xml if c.get('name') == 'UndoFixture_S_UNDO_COMMITTED')
+        self.xml.remove(case)
+        self.assertEqual(self.run_step(part='P02.4'), 1)
+
+    def test_undo_part_cannot_accept_only_canonical_four_without_regressions(self):
+        self.include_turn_cases()
+        for case in self.cases:
+            if case['action']['kind'] == 'undo':
+                ET.SubElement(self.xml, 'test-case', name='UndoFixture_' + case['id'], result='Passed')
+        self.assertEqual(self.run_step(part='P02.4'), 1)
+
+    def test_concurrent_run_is_rejected_before_source_copy(self):
+        with patch.object(runner, 'ARTIFACTS', self.artifacts), patch.object(runner, 'run') as work:
+            self.artifacts.mkdir(parents=True, exist_ok=True)
+            with (self.artifacts / '.runner.lock').open('a') as lock:
+                runner.fcntl.flock(lock, runner.fcntl.LOCK_EX | runner.fcntl.LOCK_NB)
+                with contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(runner.run_exclusive('editmode', Path('/synthetic/editor'), 'P02.4'), 1)
+            work.assert_not_called()
+
+    def test_exclusive_lock_is_released_after_run(self):
+        with patch.object(runner, 'ARTIFACTS', self.artifacts), patch.object(runner, 'run', return_value=0) as work:
+            for _ in range(2):
+                self.assertEqual(runner.run_exclusive('editmode', Path('/synthetic/editor'), 'P02.4'), 0)
+            self.assertEqual(work.call_count, 2)

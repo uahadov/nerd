@@ -81,12 +81,12 @@ class FoundationTests(unittest.TestCase):
         self.fails('state_contract')
 
     def test_wrong_authorization_rejected(self):
-        self.change_state(lambda s: s['authorization'].update(part='P02.4'))
+        self.change_state(lambda s: s['authorization'].update(part='P02.5'))
         self.fails('state_contract')
 
     def test_future_human_approval_rejected(self):
         self.change_state(lambda s: s['human_approvals'].append(
-            {'part': 'P02.3', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
+            {'part': 'P02.4', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
         self.fails('state_contract')
 
     def test_progress_drift_rejected(self):
@@ -152,11 +152,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('remote_safety')
 
     def test_coordinated_next_part_change_rejected(self):
-        self.change_state(lambda s: (s.update(active_part='P02.4', next_part='P02.5'),
-                                     s['authorization'].update(part='P02.4')))
+        self.change_state(lambda s: (s.update(active_part='P02.5', next_part='P02.6'),
+                                     s['authorization'].update(part='P02.5')))
         p = self.root / 'PROGRESS.md'
-        p.write_text(p.read_text().replace('- Aktiv part: `P02.3`', '- Aktiv part: `P02.4`')
-                     .replace('- Növbəti part: `P02.4`', '- Növbəti part: `P02.5`'))
+        p.write_text(p.read_text().replace('- Aktiv part: `P02.4`', '- Aktiv part: `P02.5`')
+                     .replace('- Növbəti part: `P02.5`', '- Növbəti part: `P02.6`'))
         self.fails('current_scope')
 
     def test_empty_scope_rejected(self):
@@ -209,7 +209,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_failed_engine_xml_rejected(self):
-        p = self.root / 'docs/reports/P02.3.editmode.xml'
+        p = self.root / 'docs/reports/P02.4.editmode.xml'
         p.write_text(p.read_text().replace('failed="0"', 'failed="1"', 1))
         self.fails('test_evidence')
 
@@ -248,15 +248,15 @@ class FoundationTests(unittest.TestCase):
         p.write_text(p.read_text() + '\n// source drift\n')
         self.fails('test_evidence')
 
-    def test_undo_fixture_cannot_be_claimed_passed(self):
-        p = self.root / 'docs/reports/P02.3.execution.json'
+    def test_undo_fixture_requires_matching_nunit_case(self):
+        p = self.root / 'docs/reports/P02.4.execution.json'
         report = json.loads(p.read_text())
-        next(r for r in report['fixture_execution'] if r['id'] == 'L_UNDO_LOCAL')['status'] = 'PASS'
+        next(r for r in report['fixture_execution'] if r['id'] == 'L_UNDO_LOCAL')['test_name'] = 'MISSING_UNDO_CASE'
         p.write_text(json.dumps(report))
         self.fails('test_evidence')
 
     def test_missing_common_fixture_in_ledger_rejected(self):
-        p = self.root / 'docs/reports/P02.3.execution.json'
+        p = self.root / 'docs/reports/P02.4.execution.json'
         report = json.loads(p.read_text())
         report['fixture_execution'] = [r for r in report['fixture_execution'] if r['id'] != 'C_BO5_FINISHES']
         p.write_text(json.dumps(report))
@@ -283,7 +283,7 @@ class FoundationTests(unittest.TestCase):
         self.fails('test_evidence')
 
     def test_screenshot_cannot_disappear_under_pass_claim(self):
-        p = self.root / 'docs/screenshots/P02.3-turn-double.png'
+        p = self.root / 'docs/screenshots/P02.4-undo-restored.png'
         p.unlink()
         self.fails('test_evidence')
 

@@ -16,17 +16,18 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P02.3 icazəlidir: iki zər, ilkin/adi atış, tam növbə, token istehlakı,
-   qoşa və avtomatik növbə dəyişməsi. Lokal iki insan nümunəsidir; online RNG deyil.
-   Rules/Match/TapSelection və əvvəlki C# testləri dəyişmə. RNG qaydalardan və renderdən ayrı qalsın.
-   P02.4 drag/undo/sürətli gediş, bot, online, final art və iki responsive layout yoxdur.
+4. Hazırda yalnız P02.4 icazəlidir: drag-and-drop, uyğun sürətli toxunma və təsdiqdən əvvəl undo.
+   Rules/Match/TapSelection, zər mənbəyi və əvvəlki C# testlərini qoru. Undo yalnız öz açıq növbəsindədir;
+   son hüququn istifadəsi avtomatik commit edir, həmin növbə daha geri alınmır.
+   D031-də son insan göstərişi ilə yalnız referans üslublu taxta/daş görünüşü indi icazəlidir.
+   Bot, online, başqa final art və P02.5 responsive layout yoxdur.
    Altı PROVISIONAL_RULE, fiziki Android və yerli oyunçu NOT_RUN qalır.
    Native Editor qəzası həll sübutu olmadan açıq riskdir. Real input/render/test sübutu saxla.
-   İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.4-ə icazə yoxdur.
+   İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.5-ə icazə yoxdur.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.
 6. Gələcək final taxtanın əsas insan-seçilmiş [vizual referansını](docs/DECISIONS.md) D024-də oxu.
-   Üfüqi taxta və şaquli matç dəstəyi birlikdə saxlanır. Bu qeyd indi art/kod icrasına icazə deyil.
+   Üfüqi taxta və şaquli matç dəstəyi birlikdə saxlanır. İlkin D024 qeydi gələcək iş idi; D031 son insan icazəsi ilə konkret taxta/daş görünüşünü indi açır.
 
 ## Alət və xərc qaydaları
 

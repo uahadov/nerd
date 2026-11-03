@@ -63,7 +63,7 @@ gələcək ehtiyac adı ilə ümumi framework və ya boş abstraksiya yazılmır
 ## Test sərhədləri
 
 Pure C# və TS eyni versiyalı fixture-lərlə yoxlanacaq: position + roll + move → expected state/rejection.
-İlkin koordinat xəritəsi və 67 fixture P01.1-də hazırlanıb. Uzun mühərrik 26, qısa mühərrik 30 nümunəni icra edir; P01.4 matç modulu 7 seriya/reytinq nümunəsini icra edir. Yalnız 4 undo nümunəsi P02.4-ü gözləyir.
+İlkin koordinat xəritəsi və 67 fixture P01.1-də hazırlanıb. Uzun mühərrik 26, qısa mühərrik 30 nümunəni icra edir; P01.4 matç modulu 7 seriya/reytinq nümunəsini icra edir. P02.4-də 4 undo nümunəsi ayrıca application assembly-də icra olunur; 67 unikal nümunənin hamısı yoxlanır.
 Differential testlər online POC-də parity göstərəcək. Botlar simulyasiya, presentation
 render/input, adapterlər integration, economy təkrar əməliyyat/receipt testləri keçirəcək.
 [Test matrisi](TEST_MATRIX.md) hansı yoxlamaların hazırda real olduğunu ayırır.
@@ -169,3 +169,30 @@ commit snapshot-u qala bilər. Köhnə zərlər növbəti atışadək işlənmi�
 DiceToken üç vəziyyəti ayırır: Available, Used, Unavailable. Sonuncu mümkün olmayan qalıqdır, istifadə deyil.
 BoardTurnInput yalnız pointer/feedback/roll niyyətini ötürür; BoardView pipləri və tokenləri state-dən çəkir.
 TurnBoard ayrıca scene-dir. Bot/online/undo/save/series və final art kodu əlavə olunmur.
+
+## P02.4 lokal Undo və pointer gesture sərhədi
+
+LocalTurnLoop → UndoPreview → TapSelection → dəyişməyən Long/Short mühərriki.
+UndoPreview yalnız bu açıq növbədə edilmiş qanuni prefikslərin tarixçəsidir (ən çox dörd addım).
+Geri alanda dəyişməyən kök mövqedən qalan prefiks mühərriklə yenidən qurulur; qaydalar təkrarlanmır.
+Növbə tamamlandıqda LocalTurnLoop tarixçəni atır; köhnə owner, növbə və nəticə geri çevrilmir.
+RNG və immutable MatchSession dəyişmir. Undo zər yaratmır, yalnız istifadə maskasını bərpa edir.
+
+BoardTurnInput screen koordinatını BoardHitMap ilə niyyətə çevirir. Drag zamanı müvəqqəti
+sprite pointer-i izləyir, əsas mövqe dəyişmir; əsas sprite gizlədilir və buraxmada bərpa edilir.
+Yalnız mövcud engine hədəfi buraxmada oynanır; düymə üzərinə buraxma düymə əməliyyatı deyil.
+12 px həddindən az hərəkət qısa tapdır; seçilmiş daşın bir unikal hədəfi varsa ikinci tap onu oynayır.
+Bir neçə hədəfdə avtomatik seçim edilmir. Touch cancel, əlavə barmaq, fokus itkisi və disable dragı ləğv edir.
+UndoBoard scene-də advancedGestures açıqdır; əvvəlki TurnBoard/TapBoard sınaq səhnələri qorunur.
+İlkin əhatədə iki responsive yerləşim və final art açılmırdı; son D031 göstərişi yalnız konkret taxta/daş görünüşünü aşağıdakı kimi indi icazəli edir. P02.5 və başqa art işləri açılmır.
+
+## D031 — referans üslublu taxtanın cari tətbiqi
+
+İnsanın P02.4 zamanı yeni açıq göstərişi ilə ReferenceBoardSkin yalnız render adapteri kimi əlavə edilib.
+Orijinal foto/referans oyun vəziyyəti deyil; ayrıca boş taxta və iki daş atlası yaradılıb.
+24 xətt/xana mühərrik indekslərini dəyişmir: ekrana xəritələmə və tərs hit-map çevrilməsi ayrıca yoxlanır.
+UndoBoard-da referenceStyle açıqdır, əvvəlki texniki səhnələr öz görünüşünü və testlərini saxlayır.
+Daşların diametri sabitdir; uzun stack-lər görünən üst-üstə düşmə və say göstəricisi ilə yığılır.
+Zər pipləri state-dəndir. Atlasda yazı, zər qiyməti və ya sabit daş düzülüşü yoxdur.
+Bu bir statik üfüqi taxtadır; iki responsive yerləşim, orientation dövlətinin saxlanması və digər ekranlar P02.5/gələcək işdir.
+Asset hüquqları daxili preview kimi qeyd edilib; kommersiya hüququ təsdiqi iddia edilmir.

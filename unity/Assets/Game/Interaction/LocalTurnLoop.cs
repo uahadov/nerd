@@ -15,11 +15,16 @@ namespace Nard.Interaction
     }
 
     /// <summary>Local two-human turn application; composes the accepted match and tap engines.
-    /// Dice are injected. No UI, animation, undo, bot, series, save or online authority.</summary>
+    /// Dice are injected. Undo only affects an open local preview. No UI, animation, bot, series, save or online authority.</summary>
     public sealed class LocalTurnLoop
     {
         private readonly IDiceSource dice;
-        private TapSelection selection;
+        private UndoPreview preview;
+        private TapSelection selection=>preview?.Selection;
+        public bool CanUndo=>Session.Phase==MatchPhase.Moving&&preview!=null&&preview.CanUndo;
+        public bool TryUndo(int actor)
+        {if(!CanUndo||actor!=Session.Player){Reason="UNDO_NOT_ALLOWED";return false;}
+         bool ok=preview.TryUndo(actor);Reason=ok?"UNDO_COMPLETE":"UNDO_NOT_ALLOWED";return ok;}
         private int[] displayedRoll=Array.Empty<int>();
         public MatchSession Session { get; private set; }
         public MatchSession LastCommitted { get; private set; }
@@ -73,7 +78,7 @@ namespace Nard.Interaction
         }
         private void BeginMoving()
         {
-            selection=Session.Mode==GameMode.Long?new TapSelection(Session.LongPosition,Session.Player):new TapSelection(Session.ShortPosition,Session.Player);
+            preview=Session.Mode==GameMode.Long?new UndoPreview(Session.LongPosition,Session.Player):new UndoPreview(Session.ShortPosition,Session.Player);
             Reason="SELECT_CHECKER";
             if(selection.IsExhausted)Settle(true);
         }
@@ -81,7 +86,7 @@ namespace Nard.Interaction
         {
             if(Session.Phase!=MatchPhase.Moving||selection==null){Reason=Session.Phase==MatchPhase.Finished?"GAME_FINISHED":"ROLL_FIRST";return TapOutcome.Rejected;}
             if(actor!=Session.Player){Reason="WRONG_PLAYER";return TapOutcome.Rejected;}
-            var outcome=selection.Tap(point);Reason=selection.Reason;
+            var outcome=preview.Tap(point);Reason=selection.Reason;
             if(outcome==TapOutcome.Moved&&selection.IsExhausted)Settle(false);
             return outcome;
         }
@@ -89,7 +94,7 @@ namespace Nard.Interaction
         {
             if(!Session.TryCommitTurn(Session.Player,Session.RuleSetVersion,selection.Prefix,out var committed,out var reason))
                 throw new InvalidOperationException("Engine-approved preview could not commit: "+reason);
-            LastCommitted=committed;selection=null;
+            LastCommitted=committed;preview=null;
             Session=committed.Phase==MatchPhase.Finished?committed:committed.AdvanceTurn();
             Reason=Session.Phase==MatchPhase.Finished?"GAME_FINISHED":blocked?"NO_LEGAL_MOVES_TURN_PASSED":"TURN_COMPLETE";
         }

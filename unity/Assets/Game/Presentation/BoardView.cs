@@ -10,10 +10,15 @@ namespace Nard.Presentation
     [DisallowMultipleComponent]
     public sealed class BoardView : MonoBehaviour
     {
+        [SerializeField] private bool referenceStyle;
+        private ReferenceBoardSkin skin;
+        public bool IsReferenceStyle=>referenceStyle;
+        public Vector2 BoardToLocal(Vector2 p)=>referenceStyle?ReferenceBoardSkin.ToLocal(p):p;
+        public Vector2 LocalToBoard(Vector2 p)=>referenceStyle?ReferenceBoardSkin.ToBoard(p):p;
         [SerializeField] private GameMode initialMode = GameMode.Long;
         private GameObject content;
         private GameObject tapOverlay;
-        private Sprite square, circle, triangle;
+        private Sprite square, circle, triangle, rounded;
         private readonly List<UnityEngine.Object> generated = new List<UnityEngine.Object>();
         private readonly List<CheckerVisual> checkers = new List<CheckerVisual>();
         private readonly List<SpriteRenderer> points = new List<SpriteRenderer>();
@@ -40,7 +45,7 @@ namespace Nard.Presentation
         {
             var camera = Camera.main;
             if (camera != null && camera.orthographic)
-                camera.orthographicSize = Mathf.Max(9.8f, 5.3f / camera.aspect);
+                camera.orthographicSize = referenceStyle?Mathf.Max(8.4f,9.2f/camera.aspect):Mathf.Max(9.8f, 5.3f / camera.aspect);
         }
         public void Display(BoardSnapshot snapshot)
         {
@@ -85,8 +90,8 @@ namespace Nard.Presentation
             Label("Unavailable","Daş seçimi və zər atışı hələ hazır deyil",new Vector2(0,-8.75f),.27f,Walnut);
             for(int i=0;i<2;i++)
             {
-                Shape("DicePlace_"+i,square,new Vector2(1.35f+i*.95f,0),new Vector2(.73f,.73f),Walnut,4);
-                Shape("DiceInset_"+i,square,new Vector2(1.35f+i*.95f,0),new Vector2(.66f,.66f),Cream,5);
+                Shape("DicePlace_"+i,referenceStyle?rounded:square,new Vector2(1.35f+i*.95f,0),new Vector2(.73f,.73f),Walnut,4);
+                Shape("DiceInset_"+i,referenceStyle?rounded:square,new Vector2(1.35f+i*.95f,0),new Vector2(.66f,.66f),Cream,5);
                 Label("DiceEmpty_"+i,"—",new Vector2(1.35f+i*.95f,0),.32f,Walnut);
             }
             Label("DiceLabel","Zər yerləri",new Vector2(1.83f,-.68f),.24f,Walnut);
@@ -126,7 +131,7 @@ namespace Nard.Presentation
         public void SetTurnOverlay(LocalTurnLoop loop,string feedback)
         {
             DrawTapHints(loop.Selected,loop.Targets,loop.Session.Player);
-            SetLabel("Temporary","Müvəqqəti qrafika · P02.3");
+            SetLabel("Temporary","Müvəqqəti qrafika · P02.4");
             SetLabel("Legend",loop.Session.Player<0?"Lokal iki oyunçu · ilkin atış":"Növbə "+loop.Session.TurnNumber+" · P"+loop.Session.Player+(loop.Session.Player==0?" (açıq)":" (qoz)"));
             SetLabel("Unavailable",feedback);
             var values=loop.CopyDisplayedRoll();var tokens=loop.Tokens;
@@ -156,9 +161,12 @@ namespace Nard.Presentation
                 string counts="İşləndi "+tokens.Count(t=>t.State==TokenState.Used)+" · qalıq "+tokens.Count(t=>t.State==TokenState.Available);
                 Label("TokenSummary",counts,new Vector2(-2.6f,-.68f),.22f,Walnut);content.transform.Find("TokenSummary").SetParent(tapOverlay.transform,false);
             }
+            var undo=Shape("UndoButton",square,new Vector2(0,9.45f),new Vector2(4.2f,.45f),loop.CanUndo?Walnut:new Color32(172,155,131,255),2);undo.transform.SetParent(tapOverlay.transform,false);
+            Label("UndoLabel","Geri al",new Vector2(0,9.45f),.24f,Cream);content.transform.Find("UndoLabel").SetParent(tapOverlay.transform,false);
             var button=Shape("RollButton",square,new Vector2(0,-9.35f),new Vector2(4.2f,.53f),loop.CanRoll?Walnut:new Color32(172,155,131,255),2);button.transform.SetParent(tapOverlay.transform,false);
             string buttonText=loop.CanRoll?(loop.Session.Player<0?"İlk atışı et":"Zər at · P"+loop.Session.Player):loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Gedişi tamamlayın";
             Label("RollButtonLabel",buttonText,new Vector2(0,-9.35f),.25f,Cream);content.transform.Find("RollButtonLabel").SetParent(tapOverlay.transform,false);
+            if(referenceStyle){if(skin==null)skin=new ReferenceBoardSkin();skin.Apply(this,content,loop.Selected,loop.Session.Player,loop.Targets);}
         }
         private void DrawPips(int die,int value,Color color)
         {
@@ -211,6 +219,7 @@ namespace Nard.Presentation
         private void CreateSprites()
         {
             square=MakeSprite(8,8,(x,y)=>true);
+            if(referenceStyle)rounded=MakeSprite(128,128,(x,y)=>{float a=Mathf.Max(Mathf.Abs(x-.5f)-.36f,0);float b=Mathf.Max(Mathf.Abs(y-.5f)-.36f,0);return a*a+b*b<=.14f*.14f;});
             circle=MakeSprite(96,96,(x,y)=>(x-.5f)*(x-.5f)+(y-.5f)*(y-.5f)<=.25f);
             triangle=MakeSprite(96,384,(x,y)=>Mathf.Abs(x-.5f)<=(1-y)*.5f);
         }
@@ -225,6 +234,6 @@ namespace Nard.Presentation
         }
         private static void Release(UnityEngine.Object value)
         { if(Application.isPlaying)Destroy(value);else DestroyImmediate(value); }
-        private void OnDestroy() { foreach(var value in generated)if(value!=null)Release(value); }
+        private void OnDestroy() { skin?.Dispose(); foreach(var value in generated)if(value!=null)Release(value); }
     }
 }

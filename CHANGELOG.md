@@ -103,3 +103,14 @@
 - 63 canonical PASS/4 undo NOT_RUN; fiziki cihaz və yerli oyunçu NOT_RUN; native qəza açıq riskdir.
 - Final premium referans dəyişmədi və tətbiq edilmədi. Drag/undo/bot/online və P02.4 yoxdur; push edilmədi.
 - Sübut və manual addımlar: [P02.3 hesabatı](docs/reports/P02.3.md).
+
+## 2026-11-04 — P02.4, insan təsdiqi gözlənilir
+
+- P02.3 insan qəbulu və yalnız P02.4 icazəsi D029-da saxlanıldı; p02.3-approved lokal tag-ı yaradıldı.
+- Pure C# UndoPreview açıq növbənin qanuni prefiksini bərpa edir; LocalTurnLoop commit-dən sonra tarixçəni bağlayır.
+- Drag, birhədəfli seçilmiş daş üçün sürətli tap, yanlış drop/cancel/multitouch qoruması və Undo düyməsi əlavə edildi.
+- Son insan göstərişi D031 ilə göndərilmiş referans üslubunda boş taxta/daş assetləri hazırlandı və UndoBoard-a tətbiq edildi.
+- Qayda, zər, matç mühərrikləri və əvvəlki C# testləri qorunur. 67 canonical nümunənin hamısı ayrıca icra edilir.
+- 749 EditMode / 17 PlayMode, Android build/imza və real Editor Game View/input sübutları saxlanıldı.
+- 115 Python testi və 15/15 struktur PASS; açıq risklər [P02.4 hesabatında](docs/reports/P02.4.md).
+- Fiziki Android/yerli oyunçu NOT_RUN, PROVISIONAL_RULE və köhnə native qəza riski saxlanır. P02.5/push icazəsi yoxdur.

@@ -1,0 +1,19 @@
+{
+  "name": "Nard.Tests.Undo",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "references": [
+    "Nard.Interaction",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short",
+    "Nard.Rules.Long.Tests",
+    "Nard.Rules.Short.Tests",
+    "Nard.Match",
+    "Nard.Tests.TurnEditor",
+    "Nard.Presentation"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

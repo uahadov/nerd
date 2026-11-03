@@ -269,3 +269,27 @@ xəta zamanı mənbənin daxili oxuma mövqeyinin geri qaytarılması vəd edilm
 TurnBoard ayrıca texniki scene-dir. Roll düyməsi və piplər sadə 2D-dir; effektli animasiya yoxdur.
 İki tərəf əl ilə oynanır. Editor üçün uzun/qısa açılma menyuları test rahatlığıdır, məhsul rejim seçimi ekranı deyil.
 P02.2 sabit nümunəsi ayrıca saxlanır; canlı dövrdə onun texniki reset düyməsi yoxdur.
+
+## D029 — 2026-11-04, P02.3 qəbulu, yalnız P02.4 icazəsi
+
+İstifadəçinin açıq mesajı P02.3-ü qəbul edir və yalnız P02.4-ə icazə verir.
+Drag, uyğun sürətli toxunma, səhv dragın qaytarılması və commit-dən əvvəl undo icazəlidir.
+AWAITING_HUMAN_APPROVAL saxlanır. P02.5, push və final art icazəli deyil.
+
+## D030 — 2026-11-04, lokal undo sərhədi
+
+P02.3 avtomatik commit davranışı qorunur: son qanuni hüquq istifadə edilən kimi növbə bitir.
+Undo yalnız cari oyunçunun hələ açıq növbəsində son yerli addımı geri alır; təkrar undo addım-addımdır.
+İlkin immutable mövqedən qanuni prefiks təkrar qurulur; bar/off, baş hüququ və zər maskası da bərpa olur.
+UI qaydanı hesablamır. Sürətli gediş yalnız seçilmiş daşın bir unikal qanuni hədəfi olduqda təkrar qısa toxunuşdur.
+Bir neçə hədəf varsa oyunçu hədəfi özü seçir. Bu, yeni məhsul qaydası deyil, P02.4 minimal tətbiqidir.
+
+## D031 — 2026-11-04, insanın cari görünüş dəyişikliyinə açıq icazəsi
+
+İstifadəçi yeni şəkillə “İndi yenidən deyirəm nərdin görünüşünü attığım görünüş et” bildirdi.
+Əvvəlki “sonra tətbiq et / final art-a keçmə” məhdudiyyətini bu konkret taxta görünüşü üçün yeniləyir.
+P02.4 aktiv qalır: onun işi və testləri tamamlanır, taxta/daşların referans üslubu indi tətbiq olunur.
+Bu, P02.5 və ya P04-ün bütövlükdə başlanması/tamamlanması deyil. Digər ekran, məkan və motion yoxdur.
+Orijinal referans D024-də qorunur. Ondan AI vasitəsilə boş taxta və ayrıca şəffaf daş atlası hazırlanır;
+daş/zər vəziyyəti şəkilə yapışdırılmır. Qayda, zər və input niyyəti həmin mühərriklərdən gəlir.
+Yeni art daxili sınaq üçündür; orijinal referansın kommersiya hüququ müstəqil təsdiqlənməyib.

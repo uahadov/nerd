@@ -14,7 +14,7 @@ Master Planın WAITING_FOR_HUMAN_REVIEW adı üçün yalnız bu alias istifadə 
 `authorization` başlanmağa icazənin kimdən və hansı açıq sözlə gəldiyini saxlayır.
 `human_approvals` yalnız faktiki qəbul edilmiş partları göstərir; təsdiqlənməmiş cari part daxil edilmir.
 Cari partın qəbulu gəlsə onun qeydi və uyğun boolean/status yenilənir; bu, növbəti partı açmır.
-Hazırkı validator yalnız P02.3-ün təsdiq gözləyən snapshot-unu yoxlayır; gələcək insan
+Hazırkı validator yalnız P02.4-ün təsdiq gözləyən snapshot-unu yoxlayır; gələcək insan
 qəbulu/status dəyişikliyi zamanı müvafiq yoxlama sərhədi də açıq icazəyə uyğun yenilənməlidir.
 `current_part_human_approved` və `next_part_authorized` ayrı bool sahələrdir.
 Qəbul və növbəti iş icazəsi hər ikisi insanın açıq sözünə söykənməlidir.
@@ -40,7 +40,7 @@ remote-də tarixçə varsa əvvəl uzlaşdır, üzərinə yazma. **Hazırkı ori
 Gələcək push üçün ayrıca açıq insan icazəsi, private görünüş yoxlaması
 və məzmun baxışı lazımdır. İcazəli push yalnız görünüş private kimi yoxlanandan və məzmun secret/cache baxımından yoxlanandan sonra, force olmadan edilir.
 Push-un nəticəsini real commit SHA ilə yoxla. Push uğuru insan qəbulu deyil.
-Qəbul tag-ı insan təsdiqindən sonra; P00.2, P00.3, P01.1 və P01.2 və P01.3 qəbul edilib; P01.4 qəbul edilib; P02.1 qəbul edilib; P02.2 qəbul edilib; P02.3 hələ qəbul edilməyib.
+Qəbul tag-ı insan təsdiqindən sonra; P00.2, P00.3, P01.1 və P01.2 və P01.3 qəbul edilib; P01.4 qəbul edilib; P02.1 qəbul edilib; P02.2 qəbul edilib; P02.3 qəbul edilib; P02.4 hələ qəbul edilməyib.
 İlk commitdə müəllif e-poçtu Git metadata-sına daxil olur; token heç vaxt daxil olmur.
 
 ## Təhlükəsizlik
@@ -54,7 +54,7 @@ Serverə giriş, DB, firewall, port, production, mağaza və ödəniş ayrıca a
 
 ## Xərc
 
-P02.3: əlavə xidmət alınmayıb, lokal pulsuz alətlər istifadə olunur; əlavə ödəniş 0 AZN; lokal Git/Python istifadə edilir.
+P02.4: əlavə xidmət alınmayıb, lokal pulsuz alətlər istifadə olunur; əlavə ödəniş 0 AZN; lokal Git/Python istifadə edilir.
 Mövcud AI planının qiyməti bu rəqəmə daxil deyil. Yeni CI/hosting və pullu API əlavə edilmir.
 Gələcək mağaza və iOS xərcləri aidiyyəti partda rəsmi mənbədən yenidən yoxlanacaq;
 bu sənəddə yeni qiymət proqnozu verilmir. Məhsula açıq mənbə lisenziyası əlavə edilmir.

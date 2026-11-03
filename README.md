@@ -2,9 +2,9 @@
 
 Android və iOS üçün Unity 6 / C# əsasında tam 2D nərd oyunu.
 Online istiqamət: Nakama authoritative TypeScript və istehsal üçün CockroachDB.
-P02.2 qəbul edilib. P02.3 lokal zər/tam növbə dövrü hazırdır; insan təsdiqi gözlənilir.
+P02.3 qəbul edilib. P02.4 drag, uyğun sürətli toxunma və lokal Undo insan təsdiqini gözləyir.
 Qəbul edilmiş uzun/qısa mühərriklər, matç sistemi və testləri qorunur.
-P00.3 Unity təməli qəbul edilib; fiziki Android testi açıqdır. Oynanıla bilən nərd hələ yoxdur.
+P00.3 Unity təməli qəbul edilib; fiziki Android testi açıqdır. Lokal iki insan prototipi var; bot və online hələ yoxdur.
 
 ## Yeni agent üçün giriş
 
@@ -24,7 +24,7 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [ARCHITECTURE](docs/ARCHITECTURE.md) | Gələcək modulların sərhədləri; implementasiya deyil |
 | [TEST_MATRIX](docs/TEST_MATRIX.md) | Test qaydası və təkrar icra əmrləri |
 | [OPERATIONS](docs/OPERATIONS.md) | Git, təsdiq, təhlükəsizlik, xərc və asset qaydaları |
-| [Asset manifesti](docs/ASSET_MANIFEST.csv) | Asset mənbə və hüquqları; hazırda boşdur |
+| [Asset manifesti](docs/ASSET_MANIFEST.csv) | Asset mənbə və hüquqları; texniki qrafika və daxili referans |
 | [P00.1 hesabatı](docs/reports/P00.1.md) | Əvvəlki auditin məhdudiyyətləri ilə saxlanan xülasəsi |
 | [P00.2 hesabatı](docs/reports/P00.2.md) | Qəbul edilmiş təməlin tarixi nəticəsi |
 | [P00.3 hesabatı](docs/reports/P00.3.md) | Qəbul edilmiş Unity/Android təməlinin tarixi sübutu |
@@ -34,7 +34,8 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [P01.4 hesabatı](docs/reports/P01.4.md) | Qəbul edilmiş matç/seriya müqaviləsinin tarixi sübutu |
 | [P02.1 hesabatı](docs/reports/P02.1.md) | Texniki 2D taxta, cari testlər, screenshot və manual baxış |
 | [P02.2 hesabatı](docs/reports/P02.2.md) | Cari seçim, marker, tap gedişi və real input/render yoxlamaları |
-| [P02.3 hesabatı](docs/reports/P02.3.md) | Cari zər/tam növbə, token istehlakı və interaktiv sübutlar |
+| [P02.3 hesabatı](docs/reports/P02.3.md) | Qəbul edilmiş zər/tam növbə və interaktiv sübutlar |
+| [P02.4 hesabatı](docs/reports/P02.4.md) | Cari drag, sürətli tap və Undo sübutları |
 | [Qayda müqaviləsi](docs/RULESET_VARIANTS.md) | Ortaq koordinatlar, qayda ID-ləri və provisional variantlar |
 | [Uzun qaydalar](docs/RULES_LONG.md), [qısa qaydalar](docs/RULES_SHORT.md) | Rejimlər üzrə sənəd tələbləri |
 | [Qayda matrisi](docs/RULE_MATRIX.md) | JSON nümunələrinin insan üçün oxunaqlı görünüşü |
@@ -77,20 +78,20 @@ Android build üçün uyğun rəsmi Android Build Support/SDK/NDK/OpenJDK lazım
 Raw loglar, NUnit XML və APK build/P00.3/ daxilində lokal saxlanır və Git-ə daxil edilmir.
 Eyni layihəni açıq Editor ilə batch prosesində paralel işlətməyin.
 
-## Cari qayda, matç, taxta, tap və növbə testləri — P02.3
+## Cari qayda, matç, taxta, tap və növbə testləri — P02.4
 
 ```bash
-python3 scripts/build/p012.py editmode --part P02.3
-python3 scripts/build/p012.py playmode --part P02.3
-python3 scripts/build/p012.py android --part P02.3
+python3 scripts/build/p012.py editmode --part P02.4
+python3 scripts/build/p012.py playmode --part P02.4
+python3 scripts/build/p012.py android --part P02.4
 ```
 
 Unity 6000.6.7f1 lazımdır; başqa yerdədirsə --editor parametrini verin.
-Runner build/P02.3/unity daxilində source-only lokal test surətini yaradır və onun
+Runner build/P02.4/unity daxilində source-only lokal test surətini yaradır və onun
 cache-indən istifadə edir. Açıq əsas Editor bağlanmır, əsas səhnə/UI dəyişdirilmir.
-NUnit XML/log və APK build/P02.3 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
+NUnit XML/log və APK build/P02.4 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
 Fixture-lər docs/rules/fixtures.json-dan oxunur. Uzun test faylı dəyişdirilmədiyi üçün onda 41 tarixi skip görünür; onların 30-u ShortFixture, 7-si MatchFixture adı ilə ayrıca icra olunur.
-67 unikal nümunənin 63-ü PASS-dır; 4 undo nümunəsi P02.4-ü gözləyir. Skip PASS sayılmır.
+67 unikal nümunə ayrı adlarla PASS-dır: 26 uzun, 30 qısa, 7 matç, 4 Undo. Tarixi 41 skip saxlanır; hamısı başqa uyğun assembly-də ayrıca icra edilir. Skip özü PASS sayılmır.
 PROVISIONAL_RULE seçimi ilkin standart olaraq qəbul edilib, müstəqil yerli oyunçu yoxlaması açıqdır.
 
 ## Texniki taxtaya baxmaq
@@ -104,17 +105,28 @@ Android P02.1 APK bu taxtadan başlayır; köhnə Bootstrap scene və build sett
 Gələcək final taxtanın insan-seçilmiş əsas [vizual referansı və tətbiq sərhədi](docs/DECISIONS.md) D024-dədir.
 Bu, cari mərhələni və növbəti part icazəsini dəyişmir.
 
-## Cari tap nümunəsi — P02.2
+## Əvvəlki texniki tap nümunəsi — P02.2
 
 Unity-də `NARD → P02.2 → Open tap example`, sonra Play seçin. Ağır final art əlavə edilməyib.
 Öz daşınıza, sonra bal rəngli hədəfə toxunun. Sabit 3–3 test atışı verilib; zər atışı və yeni növbə yoxdur.
 Texniki sıfırlama yalnız həmin eyni nümunəni yenidən göstərir. Bu, undo/revanş deyil.
 Əvvəlki P02.1 read-only scene və onun açılma menyusu ayrıca qorunur.
 
-## Cari lokal matç — P02.3
+## Əvvəlki texniki lokal matç — P02.3
 
 Unity-də `NARD → P02.3 → Open local long match` və ya `Open local short match`, sonra Play seçin.
 İki tərəf eyni cihazda əl ilə oynanır; bot/online yoxdur. İlk atışdan sonra qaydaya uyğun zərlər alınır.
 Markerə tap ilə gediş edin; qanuni hüquqlar bitəndə növbə avtomatik dəyişir. Sonra yeni oyunçu zər atsın.
 İşlənmiş token xəttlənir, mümkün olmayan qalıq X olur. Final premium dizayn D024-də referans olaraq saxlanır.
 Əvvəlki P02.1/P02.2 scene və menyuları ayrıca qalır; onların məhdudiyyətləri cari canlı dövrə aid deyil.
+
+## Cari sürükləmə və geri alma — P02.4
+
+Unity-də `NARD → P02.4 → Open undo long match` və ya `Open undo short match`, sonra Play seçin.
+İlk atışları edin. Daşı markerə sürükləyib buraxın; səhv hədəf və ekran xarici buraxma vəziyyəti dəyişmir.
+Öz açıq növbənizdə yuxarıdakı “Geri al” son addımı və zər hüququnu bərpa edir.
+Son qanuni addım avtomatik növbəni təsdiqləyir; sonra Undo mümkün deyil.
+Seçilmiş daşın yalnız bir hədəfi varsa ona ikinci qısa toxunuş həmin gedişi edir; çox hədəfdə özünüz seçin.
+İkinci barmaq və ləğv edilmiş toxunma dragı dayandırır. Son insan göstərişi D031 üzrə göndərilən qoz/krem/naxışlı taxta üslubu indi bu səhnəyə tətbiq olunub.
+Əvvəlki texniki səhnələr saxlanır; digər ekranların art mərhələsi və iki responsive yerləşim hələ açılmayıb.
+Fiziki Android, müstəqil yerli qayda və responsive orientation testləri tamamlanmış sayılmır.

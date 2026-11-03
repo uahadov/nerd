@@ -2,20 +2,20 @@
   "schema_version": 1,
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
-  "updated_on": "2026-11-03",
-  "active_part": "P02.3",
+  "updated_on": "2026-11-04",
+  "active_part": "P02.4",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P02.2",
+  "last_human_approved_part": "P02.3",
   "current_part_human_approved": false,
-  "next_part": "P02.4",
+  "next_part": "P02.5",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P02.3",
+    "part": "P02.4",
     "by": "human",
-    "date": "2026-11-03",
-    "quote": "P02.2-ni hesabatdakı nəticələrə əsasən təsdiqləyirəm. İndi yalnız P02.3-ə keç."
+    "date": "2026-11-04",
+    "quote": "P02.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm. İndi yalnız P02.4 mərhələsinə keç."
   },
   "human_approvals": [
     {
@@ -80,6 +80,13 @@
       "by": "human",
       "quote": "P02.2-ni hesabatdakı nəticələrə əsasən təsdiqləyirəm.",
       "report": "docs/reports/P02.2.md"
+    },
+    {
+      "part": "P02.3",
+      "date": "2026-11-04",
+      "by": "human",
+      "quote": "P02.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm.",
+      "report": "docs/reports/P02.3.md"
     }
   ],
   "sources": {
@@ -101,14 +108,14 @@
     "android_tools_installed": true,
     "game_modules_implemented": true
   },
-  "test_report": "docs/reports/P02.3.md",
+  "test_report": "docs/reports/P02.4.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
     "unity_build": "PASS",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P02.3.validation.json",
-    "tests_evidence": "docs/reports/P02.3.tests.txt"
+    "validation_evidence": "docs/reports/P02.4.validation.json",
+    "tests_evidence": "docs/reports/P02.4.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -141,12 +148,12 @@
     },
     {
       "id": "UNITY-EDITOR-EXIT",
-      "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.3",
-      "impact": "Köhnə Unity Analytics/WebRequest native bağlanış SIGSEGV-i həll edilməyib. P02.3 yekun 3 batch və ayrıca GUI zər/gediş/növbə/bağlanış exit=0 ilə bitib; həmin icralarda qəza təkrarlanmayıb.",
+      "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.4",
+      "impact": "Köhnə Analytics/WebRequest native SIGSEGV həll edilməyib. Cari üç batch və ayrıca GUI exit=0 ilə bitib; bu icralarda təkrarlanmayıb. Səbəb/həll təsdiqlənmir.",
       "next_action": "Təkrarlanarsa local build/P02.1/diagnostics log/dump ilə araşdır; native qəzanı gameplay xətası və ya həll edilmiş problem kimi təqdim etmə. Heç bir qlobal servis/Editor telemetri parametri dəyişdirilməyib."
     }
   ],
-  "resume_instruction": "Yalnız P02.3 lokal iki oyunçulu zər/tam növbə və token görünüşü. Qaydalar/Match/TapSelection və əvvəlki testlər qorunsun. P02.4 undo/drag, bot, online, final art yoxdur. Native qəza açıq risk; cihaz və yerli yoxlama NOT_RUN. AWAITING_HUMAN_APPROVAL; push və növbəti part icazəsi yoxdur.",
+  "resume_instruction": "P02.4 drag/sürətli tap/undo və son insan göstərişi D031 üzrə referans üslublu taxta/daş görünüşü hazırlanıb. AWAITING_HUMAN_APPROVAL: insan rəyini gözlə; yalnız bu part üçün istənən düzəlişi et. P02.5/başqa part və GitHub push icazəsi yoxdur. Fiziki Android və yerli qayda review NOT_RUN; native qəza açıq riskdir.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -155,16 +162,16 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p023-local-001",
+    "id": "android-p024-local-001",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
-    "apk": "build/P02.3/NARD-P02.3.apk",
-    "apk_bytes": 25489620,
-    "apk_sha256": "c4aa9d605c3bdab7ee0a8d73e116e301d5fcbcc3662b969291edd2bb8af6db6f",
-    "execution_evidence": "docs/reports/P02.3.execution.json",
+    "apk": "build/P02.4/NARD-P02.4.apk",
+    "apk_bytes": 38786749,
+    "apk_sha256": "67a4c2d6c1ab9be746f053b41ab061b938507876f58d0674094250f1f423c739",
+    "execution_evidence": "docs/reports/P02.4.execution.json",
     "editor_visual": "PASS",
     "physical_device": "NOT_RUN",
-    "produced_in_part": "P02.3"
+    "produced_in_part": "P02.4"
   },
   "human_editor_review": {
     "part": "P00.3",
@@ -180,10 +187,10 @@
     "ruleset_version": "long-az-gdd1-provisional.1"
   },
   "engine": {
-    "part": "P02.3",
-    "mode": "long_short_local_turn_loop",
+    "part": "P02.4",
+    "mode": "long_short_local_drag_undo",
     "status": "PASS",
-    "execution_evidence": "docs/reports/P02.3.execution.json",
+    "execution_evidence": "docs/reports/P02.4.execution.json",
     "ruleset_versions": [
       "long-az-gdd1-provisional.1",
       "short-gdd1-draft.1"
@@ -262,6 +269,18 @@
       "editor_visual": "PASS",
       "physical_device": "NOT_RUN",
       "produced_in_part": "P02.2"
+    },
+    {
+      "id": "android-p023-local-001",
+      "editor_version": "6000.6.7f1",
+      "platform": "Android ARM64 IL2CPP development",
+      "apk": "build/P02.3/NARD-P02.3.apk",
+      "apk_bytes": 25489620,
+      "apk_sha256": "c4aa9d605c3bdab7ee0a8d73e116e301d5fcbcc3662b969291edd2bb8af6db6f",
+      "execution_evidence": "docs/reports/P02.3.execution.json",
+      "editor_visual": "PASS",
+      "physical_device": "NOT_RUN",
+      "produced_in_part": "P02.3"
     }
   ],
   "historical_engines": [
@@ -316,6 +335,17 @@
         "short-gdd1-draft.1"
       ],
       "independent_local_review": "NOT_RUN"
+    },
+    {
+      "part": "P02.3",
+      "mode": "long_short_local_turn_loop",
+      "status": "PASS",
+      "execution_evidence": "docs/reports/P02.3.execution.json",
+      "ruleset_versions": [
+        "long-az-gdd1-provisional.1",
+        "short-gdd1-draft.1"
+      ],
+      "independent_local_review": "NOT_RUN"
     }
   ],
   "visual_reference": {
@@ -324,12 +354,13 @@
     "sha256": "ac2b6c31cd386a2c3b49a5b27cc6db6c66be5e7c1ce3d128fb93143efb2f40c3",
     "role": "PRIMARY_STYLE_REFERENCE",
     "selected_by": "human",
-    "implementation_authorized": false,
+    "implementation_authorized": true,
     "final_board_orientation": "LANDSCAPE",
     "match_orientations_retained": [
       "PORTRAIT",
       "LANDSCAPE"
     ],
-    "license_status": "UNVERIFIED_REFERENCE_ONLY"
+    "license_status": "UNVERIFIED_REFERENCE_ONLY",
+    "implementation_authorization": "D031"
   }
 }
