@@ -14,6 +14,14 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
 AUTHORIZED_PART = 'P02.1'
+# D024: user-selected original reference, explicitly reviewed by path and content hash.
+REVIEWED_REFERENCE_ASSETS = {'docs/references/nard-board-primary.png': 'ac2b6c31cd386a2c3b49a5b27cc6db6c66be5e7c1ce3d128fb93143efb2f40c3'}
+
+def allowed_file_size(name, data):
+    if name in REVIEWED_REFERENCE_ASSETS:
+        return len(data) <= 4 * 1024 * 1024 and hashlib.sha256(data).hexdigest() == REVIEWED_REFERENCE_ASSETS[name]
+    return len(data) <= 1024 * 1024
+
 ENGINE_BASELINE = {'unity/Assets/Game/Rules/LongNardeRules.cs': '48e29e9ac9231d198a04bea9026e434fb377763a7632ed3627bcfa5d08b96a07',
  'unity/Assets/Game/Rules/LongNardeRules.cs.meta': 'c57e59400cd9b27753e425648c29590da7c29597ff06ef5a4d4721f128d47796',
  'unity/Assets/Game/Rules/LongPosition.cs': 'e5e084c9ec79481adbc1e36d6314fc5ddef19f08a37eb6924d10a24ee2587c5c',
@@ -455,11 +463,11 @@ def validate(root):
             require(not p.is_symlink(), f'Symlink needs explicit review: {name}')
             require(p.resolve().is_relative_to(root), f'Path escapes repo: {name}')
             data = p.read_bytes()
-            require(len(data) <= 1024 * 1024, f'File over 1 MiB needs review: {name}')
+            require(allowed_file_size(name, data), f'File size/content needs review: {name}')
             require(not any(pattern.search(data) for pattern in SECRET_PATTERNS), f'Secret-like content: {name}')
             blob = subprocess.run(['git', '-C', str(root), 'show', ':' + name], capture_output=True, timeout=20)
             if blob.returncode == 0:
-                require(len(blob.stdout) <= 1024 * 1024, f'Large staged file: {name}')
+                require(allowed_file_size(name, blob.stdout), f'Staged file size/content needs review: {name}')
                 require(not any(pat.search(blob.stdout) for pat in SECRET_PATTERNS), f'Staged secret-like content: {name}')
         return f'{len(paths)} candidate files and available index blobs checked; limited pattern scan'
     check('candidate_and_index_safety', file_safety)

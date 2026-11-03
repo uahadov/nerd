@@ -287,6 +287,16 @@ class FoundationTests(unittest.TestCase):
         p.unlink()
         self.fails('test_evidence')
 
+    def test_reviewed_reference_exception_requires_exact_content(self):
+        p = self.root / 'docs/references/nard-board-primary.png'
+        p.write_bytes(p.read_bytes() + b'synthetic change')
+        self.fails('candidate_and_index_safety')
+
+    def test_reviewed_reference_exception_is_not_a_general_size_waiver(self):
+        p = self.root / 'docs/references/unreviewed.png'
+        p.write_bytes((self.root / 'docs/references/nard-board-primary.png').read_bytes())
+        self.fails('candidate_and_index_safety')
+
 
 if __name__ == '__main__':
     unittest.main()

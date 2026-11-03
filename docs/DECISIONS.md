@@ -174,3 +174,32 @@ TechnicalBoard ayrıca səhnədir. Bootstrap və əvvəlki EditorBuildSettings q
 build açıq scene siyahısı ilə TechnicalBoard-dan başlayır, Bootstrap da regressiya üçün daxil edilir.
 Legacy TextMesh-in linear rəng çevrilməsi real screenshot-da solğunluğu aradan qaldırmaq üçün düzəldildi.
 Rejim seçimi səhifəsi və gameplay idarəsi yoxdur; qısa/bar-off snapshot-ları test/preview vasitəsilə yoxlanır.
+
+## D024 — 2026-11-03, insanın seçdiyi əsas vizual referans (yalnız sənədləşmə)
+
+Əsas: istifadəçinin son açıq göstərişi — “İlk göndərdiyim nərd dizaynını əsas vizual
+referans kimi qəbul et.” Bu qeydə aid əsas şəkil həmin mesajdakı əlavədir;
+sonradan agentin generasiya etdiyi digər şəkil əsas referansı əvəz etmir.
+
+![Əsas nərd vizual referansı](references/nard-board-primary.png)
+
+- İstiqamət: isti, səmimi, detallı, premium, Azərbaycan ruhunda və real oyun hissi.
+  Təbii qoz ağacı, isti krem səth, terrakota/firuzə tonları, fil sümüyü və qoz rəngli daşlar;
+  əl işi oyma/inlay, ölçülü milli motivlər və toxunulası material hissi qorunsun.
+- Oyuncaq/plastik görünüş olmasın. Gələcək art 2D qalır; şəkil ayrıca 3D/perspektiv sistemi
+  qurmaq göstərişi deyil. Xırda ornament, parıltı və kölgələr mobil oxunaqlılığa görə yoxlanmalıdır.
+- Final taxta asseti **üfüqi** kompozisiyada hazırlanacaq. **Şaquli matç rejimi saxlanır**;
+  horizontal taxta asseti portrait ekran dəstəyini ləğv etmir. Yerləşim P02.5-də ayrıca icazə ilə,
+  final vizual istiqamət P04.1 və taxta istehsalı P04.2-də ayrıca icazə ilə işlənəcək.
+- Bu şəkil **üslub referansıdır**: təsvir edilmiş daş sayı, düzülüş, zər qiyməti və perspektiv
+  qayda müqaviləsi deyil. Final 24 xana/4×6, 15+15 daş, düzgün bar və engine-state uyğunluğu
+  mövcud GDD/qayda müqaviləsinə əsaslanacaq; daş/zər qatları gameplay-dən ayrı qalacaq.
+- İndi dizayn kodlaşdırılmır, Unity-yə import edilmir, mövcud texniki taxta dəyişmir.
+  Bu mesaj P02.1 qəbulu və ya P02.2/P04 başlanma icazəsi deyil.
+  Aktiv part P02.1, status AWAITING_HUMAN_APPROVAL, növbəti part icazəsi false qalır.
+- Mənbə: istifadəçinin bu mesajda təqdim etdiyi PNG; orijinal baytlar dəyişdirilmədən saxlanıb.
+  SHA-256: `ac2b6c31cd386a2c3b49a5b27cc6db6c66be5e7c1ce3d128fb93143efb2f40c3`. Ölçü: 3,284,243 bayt.
+  Müəllif/lisenziya müstəqil yoxlanmayıb: yalnız daxili referans, hazır kommersiya asseti deyil.
+  Məhsula birbaşa daxil etmə hüququ təsdiqlənmiş sayılmır.
+- Repo ölçü qaydasında yalnız bu dəqiq fayl/yol/SHA üçün baxılmış istisna var (4 MiB həddi);
+  başqa böyük fayllara və dəyişmiş baytlara ümumi icazə vermir. Master Plan/GDD dəyişmir.

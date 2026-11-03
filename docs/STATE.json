@@ -257,5 +257,19 @@
       ],
       "independent_local_review": "NOT_RUN"
     }
-  ]
+  ],
+  "visual_reference": {
+    "decision": "D024",
+    "path": "docs/references/nard-board-primary.png",
+    "sha256": "ac2b6c31cd386a2c3b49a5b27cc6db6c66be5e7c1ce3d128fb93143efb2f40c3",
+    "role": "PRIMARY_STYLE_REFERENCE",
+    "selected_by": "human",
+    "implementation_authorized": false,
+    "final_board_orientation": "LANDSCAPE",
+    "match_orientations_retained": [
+      "PORTRAIT",
+      "LANDSCAPE"
+    ],
+    "license_status": "UNVERIFIED_REFERENCE_ONLY"
+  }
 }

@@ -25,6 +25,8 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
    Gələcək part açıq icazə aldıqda bu cari-part cümləsini də yenilə.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.
+6. Gələcək final taxtanın əsas insan-seçilmiş [vizual referansını](docs/DECISIONS.md) D024-də oxu.
+   Üfüqi taxta və şaquli matç dəstəyi birlikdə saxlanır. Bu qeyd indi art/kod icrasına icazə deyil.
 
 ## Alət və xərc qaydaları
 

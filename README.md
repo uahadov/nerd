@@ -98,3 +98,6 @@ Ayrıca səhnə unity/Assets/Game/Scenes/TechnicalBoard.unity-dir. Uzun nərd il
 P02.1 read-only baxışdır: daş seçimi və zər atışı hələ yoxdur; ekranda açıq yazılır.
 Qısa/bar-off state-lərinin real Editor renderləri cari hesabatdadır. Son çayxana dizaynı deyil.
 Android P02.1 APK bu taxtadan başlayır; köhnə Bootstrap scene və build settings qorunub.
+
+Gələcək final taxtanın insan-seçilmiş əsas [vizual referansı və tətbiq sərhədi](docs/DECISIONS.md) D024-dədir.
+Bu, cari mərhələni və növbəti part icazəsini dəyişmir.

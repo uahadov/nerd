@@ -72,3 +72,10 @@
 - Əvvəldən açıq Editor-un native Analytics shutdown qəzası açıq qeyd edildi; dump lokal qorundu.
 - Gameplay input, zər atışı, bot, online və P02.2 yoxdur. Cihaz/yerli yoxlama NOT_RUN, push edilmədi.
 - Sübut və manual addımlar: [P02.1 hesabatı](docs/reports/P02.1.md).
+
+### P02.1 gözləməsində vizual referans qeydi — 2026-11-03
+
+- İnsanın təqdim etdiyi əsas taxta referansı orijinal PNG və D024 qeydi ilə saxlandı.
+- Üfüqi final taxta, isti/premium Azərbaycan üslubu və şaquli matç dəstəyi qeyd edildi.
+- Art kodlaşdırılmadı, Unity və mərhələ dəyişmədi; ayrıca art partına icazə verilmədi.
+- Yalnız dəqiq referans yol/hash üçün ölçü istisnası və iki mənfi validator testi əlavə edildi.

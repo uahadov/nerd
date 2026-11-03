@@ -14,11 +14,14 @@ Fiziki Android testi **NOT_RUN** olaraq ayrıca açıqdır; qəbul onun edildiyi
 P01.1 və altı provisional qaydanın ilkin standart seçimi qəbul edilib.
 P01.2 uzun və P01.3 qısa mühərrikləri qəbul edilib və qorunur.
 P01.4 nəticə/seriya/matç müqaviləsi qəbul edilib və qorunur.
-P02.1 texniki taxta hazırdır: 301 EditMode, 2 PlayMode, 98 Python testi və Android build PASS; [cari hesabat](docs/reports/P02.1.md).
+P02.1 texniki taxta hazırdır: 301 EditMode, 2 PlayMode, 100 Python testi (referans auditi daxil) və Android build PASS; [cari hesabat](docs/reports/P02.1.md).
 Yalnız state render və boş zər yerləri; interaktiv gediş hələ yoxdur.
 Əvvəldən açıq Editor-un native Analytics bağlanış qəzası açıq qeyddir; ayrıca GUI preview exit=0.
 Azərbaycan üzrə müstəqil yerli oyunçu yoxlaması NOT_RUN; PROVISIONAL_RULE qeydləri saxlanır.
 Mövcud origin-ə push qadağandır; private görünüş avtomatik icazə deyil.
+
+Gələcək final taxtanın əsas [vizual referansı](docs/DECISIONS.md) D024-də saxlanıb.
+Üfüqi taxta + şaquli matç dəstəyi qorunur; hazırda art/kod dəyişikliyinə icazə yoxdur.
 
 Agent dəyişdikdə AGENTS → STATE → bu fayl → cari hesabat → mənbələr sırası ilə oxu.
 Açıq məsələlər STATE-də open_items daxilindədir. Cari hissənin insan rəyini gözlə;
