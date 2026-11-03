@@ -1,0 +1,819 @@
+{
+  "part": "P01.2",
+  "ruleset_version": "long-az-gdd1-provisional.1",
+  "independent_local_player_review": "NOT_RUN",
+  "physical_android": "NOT_RUN",
+  "steps": {
+    "editmode": {
+      "part": "P01.2",
+      "step": "editmode",
+      "started_at": "2026-11-03T12:49:04+00:00",
+      "exit_code": 0,
+      "editor": "6000.6.7f1",
+      "project": "build/P01.2/unity (source copy)",
+      "source_sha256": {
+        "unity/Assets/Game/Rules/LongNardeRules.cs": "48e29e9ac9231d198a04bea9026e434fb377763a7632ed3627bcfa5d08b96a07",
+        "unity/Assets/Game/Rules/LongNardeRules.cs.meta": "c57e59400cd9b27753e425648c29590da7c29597ff06ef5a4d4721f128d47796",
+        "unity/Assets/Game/Rules/LongPosition.cs": "e5e084c9ec79481adbc1e36d6314fc5ddef19f08a37eb6924d10a24ee2587c5c",
+        "unity/Assets/Game/Rules/LongPosition.cs.meta": "eec70ed4adca23273a4f9074065777e7087dc08dcc49f2aa7a38a4e09b1fbf0a",
+        "unity/Assets/Game/Rules/Nard.Rules.Long.asmdef": "5a679457f5465cde54ed4495b7a5b7c7d92249187b5b7b2ceff3aa61cfb66b0d",
+        "unity/Assets/Game/Rules/Nard.Rules.Long.asmdef.meta": "c75cbae2d8afecb19d0e42e6593bc7582b10eb77266e55f6db374682ccfcc589",
+        "unity/Assets/Game/Tests/Rules/LongRulesTests.cs": "14c4dbdc39f4cc3c0fb965c934afc747e7c89b146ee6e01eba36cec4841da362",
+        "unity/Assets/Game/Tests/Rules/LongRulesTests.cs.meta": "10bb0adfc3b5632f948cbe731f4fecbcc1a64f28cfba7755d6530f195ab504d8",
+        "unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef": "4ce440ca99c8abfbbf8a227ce574081d9a1866d8c0887a83759edba2cdaa460b",
+        "unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef.meta": "bc897bb9f6c148aa933d9bf1f3572d3d09c154ec4844e4813cf1b7a24b205076",
+        "unity/Packages/manifest.json": "2a5870b026c87fa48b863a59171b4bb7019a494687b06947d836337f3f276463",
+        "unity/Packages/packages-lock.json": "5d48eaf6234e25c608c52a4213efb30c8f1eacd63ad3d5dba037b92ed0accc92",
+        "unity/ProjectSettings/AudioManager.asset": "aeedeb3243f07b61dbbe854aa08b5ef6f0b5274dd9852ad9f6129dde3e105a31",
+        "unity/ProjectSettings/ClusterInputManager.asset": "40e65dd214bf254955d2c8829ca8ce2130fd3510485560ce012e9a1ddd93e623",
+        "unity/ProjectSettings/DynamicsManager.asset": "bcbde4b212b462560ae157f8f3e3ea32aa74ca4723091ae017a27442eb816f57",
+        "unity/ProjectSettings/EditorBuildSettings.asset": "3b5f9daf51660455d44a90fbb75bad18daf72921cff45e47499372bb3bb70589",
+        "unity/ProjectSettings/EditorSettings.asset": "b8d26cffd60ff71609d969162b640135d26b0eec893c2f7961a8ed8c867f361c",
+        "unity/ProjectSettings/GraphicsSettings.asset": "eabbff5716068338470f2437b4f4e784357b40ac60a657ef9d2ccfb8c094d302",
+        "unity/ProjectSettings/InputManager.asset": "7a1bb836a1008d26d0860d143e9d9df7ca41731d30a72901b518063819c62df2",
+        "unity/ProjectSettings/MemorySettings.asset": "1e8379a461b10ae09f3f696911088c16875d63e87ed5f2d95df9e1892703f9fd",
+        "unity/ProjectSettings/MultiplayerManager.asset": "aba89fd1a1ddad182727ad82727e536d27372e90328a8196da2a4560398983dd",
+        "unity/ProjectSettings/NavMeshAreas.asset": "28db9a32b1eebd40fb57b40367780ae2c7722d9268f1f5249e4e09c617046a19",
+        "unity/ProjectSettings/NetworkManager.asset": "46395def99a6b5ae38ebb19b3e18f75215a9d4172c219361521a5a51e051f386",
+        "unity/ProjectSettings/PackageManagerSettings.asset": "a0d800ae6ebfb026812051126cd5243417d8d47b8f60e2137ad5ec33c6798506",
+        "unity/ProjectSettings/Physics2DSettings.asset": "50e61d70bc38c632cb0e6efe364a9c5bcfd9a8dbcf4e7b5ecfb06a2030c4518f",
+        "unity/ProjectSettings/PhysicsCoreProjectSettings2D.asset": "bedc5339a832c60dc3f11b84abc4f4384dbfa20b0cd9ad6c444b907e751fc35e",
+        "unity/ProjectSettings/PresetManager.asset": "29c125923fe6e29f90190d4fce1c82d660e7051546e2c9d02908d18c9cf2436c",
+        "unity/ProjectSettings/ProjectAuditorSettings.asset": "9e68444b9bda981e2927a98df9edf69ea88362f0c6b7f3c81b39b9d515d2a416",
+        "unity/ProjectSettings/ProjectSettings.asset": "f3f9001c4ab34d5dc4fcd8caaa71a76d30f446e1183b99d67c7d062dcc989129",
+        "unity/ProjectSettings/ProjectVersion.txt": "2a88e6864b6f54588287bed3bc6e9260e65bd49498910cca4478770ca8a5d674",
+        "unity/ProjectSettings/QualitySettings.asset": "c6b5a0f88cd4977d6219918e0e23b1ee361b3ad472809d42921500ed13456b32",
+        "unity/ProjectSettings/SceneTemplateSettings.json": "bb9098b3bfcde78d93e264b96f7b77b5430e64e8c57a7aad7f5a5d9c3945e16a",
+        "unity/ProjectSettings/TagManager.asset": "8e18b1c820e9c09e16bbd1f1b7842e9fb3b0158a0921b0964e0b8fa12c6e2c01",
+        "unity/ProjectSettings/TimeManager.asset": "1a83e54adbbda7c9f4851103a0c6ab7f6448a3343d4ea5b7620452fa08416ecd",
+        "unity/ProjectSettings/UnityConnectSettings.asset": "7f2112b8c6ea0885dcc72b312c9726ffcd909f2e89d1eead61889274a4e5d1c0",
+        "unity/ProjectSettings/VFXManager.asset": "e3e4bfb04f4a57154463c5b7313b79f93980bb5714be84e10d52944056f5c023",
+        "unity/ProjectSettings/VersionControlSettings.asset": "e7bda45bf7a394745fee1316e6c71fa676004d591ad1f3aa247fd3e4ceb86071",
+        "unity/ProjectSettings/XRSettings.asset": "edd2beb4a2e388312b4b7da241aa51070434005d82c59363f1237dd2e567585f",
+        "docs/rules/fixtures.json": "5697092fd1d7a27054292164bca67907f2e7c57d042a479721d72e594031f674"
+      },
+      "status": "PASS",
+      "compiler_errors": [],
+      "tests": {
+        "id": "2",
+        "testcasecount": "131",
+        "result": "Skipped:Ignored",
+        "total": "131",
+        "passed": "90",
+        "failed": "0",
+        "inconclusive": "0",
+        "skipped": "41",
+        "asserts": "0",
+        "engine-version": "3.5.0.0",
+        "clr-version": "4.0.30319.42000",
+        "start-time": "2026-11-03 12:49:11Z",
+        "end-time": "2026-11-03 12:49:12Z",
+        "duration": "1.2638274"
+      },
+      "cases": [
+        {
+          "name": "AllBlockedAllowsEmptyTurn",
+          "result": "Passed"
+        },
+        {
+          "name": "AlreadyBorneOffOpponentCheckerHasPassedTheBlock",
+          "result": "Passed"
+        },
+        {
+          "name": "BearingOffAndGameEndAreSymmetric(0)",
+          "result": "Passed"
+        },
+        {
+          "name": "BearingOffAndGameEndAreSymmetric(1)",
+          "result": "Passed"
+        },
+        {
+          "name": "BothPlayersFirstSpecialDoubles(0,3,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "BothPlayersFirstSpecialDoubles(0,4,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "BothPlayersFirstSpecialDoubles(0,6,2)",
+          "result": "Passed"
+        },
+        {
+          "name": "BothPlayersFirstSpecialDoubles(1,3,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "BothPlayersFirstSpecialDoubles(1,4,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "BothPlayersFirstSpecialDoubles(1,6,2)",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_START",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_OPEN_HIGH",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_OPEN_TIE",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_S_START",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_OPEN_HIGH",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_OPEN_TIE",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_L_STEP_OVER_OCCUPIED",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_OPPONENT_SINGLE_BLOCKS",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_SECOND_HEAD_REJECT",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_FIRST_33",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_FIRST_44",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_FIRST_66",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_FIRST_11",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_FIRST_55",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_LATER_66_SECOND_HEAD",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_P1_WRAP",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_ORDER_BOTH",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_BLOCK_ALL_BEHIND",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_BLOCK_ONE_AHEAD",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_BLOCK_GLOBAL_CORNER",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_NOT_ALL_HOME",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_BEAR_EXACT",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_OVERSHOOT_NEAR_REJECT",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_OVERSHOOT_FARTHEST",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_NO_SECOND_LAP",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_HIGH_REJECT",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_HIGH_ACCEPT",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_S_HIT_SINGLE",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_TWO_BLOCK",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_BAR_PRIORITY",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_BAR_ENTER_P0",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_BAR_ENTER_P1",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_BAR_HIT",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_BAR_FULL_BLOCK",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_BAR_PARTIAL",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_ORDER_BOTH",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_MAX_REQUIRED",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_LOW_ONLY",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_NO_SUM_JUMP",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_INTERMEDIATE_BLOCK",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_DOUBLE_FOUR",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_REUSED_DIE",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_WRONG_DIRECTION",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_NOT_ALL_HOME",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_BEAR_EXACT",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_OVERSHOOT_NEAR_REJECT",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_OVERSHOOT_FARTHEST",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_HIGH_REJECT",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_HIGH_ACCEPT",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_L_UNDO_LOCAL",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_L_UNDO_COMMITTED",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_UNDO_LOCAL",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_UNDO_COMMITTED",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_L_NORMAL",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_L_MARS",
+          "result": "Passed"
+        },
+        {
+          "name": "Fixture_S_NORMAL",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_MARS",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_KOKS_BAR",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_KOKS_HOME",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_S_OFF_ONE_PREVENTS_KOKS",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_C_BO3_CONTINUES",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_C_BO3_FINISHES",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_C_BO5_FINISHES",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_C_RATING_BOT_CASUAL",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_C_RATING_PRIVATE_CASUAL",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_C_RATING_RANDOM_RANKED",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "Fixture_C_RATING_RANDOM_CASUAL",
+          "result": "Skipped",
+          "label": "Ignored"
+        },
+        {
+          "name": "ConstructorAndExportArraysCannotMutateState",
+          "result": "Passed"
+        },
+        {
+          "name": "EnteringHomeDuringTurnAllowsBearingOff",
+          "result": "Passed"
+        },
+        {
+          "name": "EqualDieTokenPermutationRemainsValid",
+          "result": "Passed"
+        },
+        {
+          "name": "ExhaustiveInitialRollMatrixIsDeterministicAndSymmetric",
+          "result": "Passed"
+        },
+        {
+          "name": "FailedLateHopIsAtomicAndDoesNotConsumeDice",
+          "result": "Passed"
+        },
+        {
+          "name": "FirstThreeThreeIncludesUnevenDistribution(0)",
+          "result": "Passed"
+        },
+        {
+          "name": "FirstThreeThreeIncludesUnevenDistribution(1)",
+          "result": "Passed"
+        },
+        {
+          "name": "IndependentOracleAgreesOnEveryInitialRollAndPlayer",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidInputAndUnsupportedShortRulesetAreRejected",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidLocalMovesAreRejectedWithoutMutation(-1,2,0)",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidLocalMovesAreRejectedWithoutMutation(24,2,0)",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidLocalMovesAreRejectedWithoutMutation(0,25,0)",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidLocalMovesAreRejectedWithoutMutation(0,2,-1)",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidLocalMovesAreRejectedWithoutMutation(0,2,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidLocalMovesAreRejectedWithoutMutation(12,14,0)",
+          "result": "Passed"
+        },
+        {
+          "name": "InvalidLocalMovesAreRejectedWithoutMutation(0,1,0)",
+          "result": "Passed"
+        },
+        {
+          "name": "LaterSpecialDoublesDoNotGetSecondHead(0,3)",
+          "result": "Passed"
+        },
+        {
+          "name": "LaterSpecialDoublesDoNotGetSecondHead(0,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "LaterSpecialDoublesDoNotGetSecondHead(0,6)",
+          "result": "Passed"
+        },
+        {
+          "name": "LaterSpecialDoublesDoNotGetSecondHead(1,3)",
+          "result": "Passed"
+        },
+        {
+          "name": "LaterSpecialDoublesDoNotGetSecondHead(1,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "LaterSpecialDoublesDoNotGetSecondHead(1,6)",
+          "result": "Passed"
+        },
+        {
+          "name": "LowerDieMustComeFirstAndPrematurePassRejected",
+          "result": "Passed"
+        },
+        {
+          "name": "LowerOnlyIsPlayedWhenHigherBlocked",
+          "result": "Passed"
+        },
+        {
+          "name": "MiddleBoardHigherDieWinsWhenBothAreAlternatives",
+          "result": "Passed"
+        },
+        {
+          "name": "MovingCheckerOutOfOldBlockDoesNotInventSixPrime",
+          "result": "Passed"
+        },
+        {
+          "name": "OpeningWinnerNeedsFreshRoll(0)",
+          "result": "Passed"
+        },
+        {
+          "name": "OpeningWinnerNeedsFreshRoll(1)",
+          "result": "Passed"
+        },
+        {
+          "name": "OtherFirstDoublesUseOneHead(0,1)",
+          "result": "Passed"
+        },
+        {
+          "name": "OtherFirstDoublesUseOneHead(0,2)",
+          "result": "Passed"
+        },
+        {
+          "name": "OtherFirstDoublesUseOneHead(0,5)",
+          "result": "Passed"
+        },
+        {
+          "name": "OtherFirstDoublesUseOneHead(1,1)",
+          "result": "Passed"
+        },
+        {
+          "name": "OtherFirstDoublesUseOneHead(1,2)",
+          "result": "Passed"
+        },
+        {
+          "name": "OtherFirstDoublesUseOneHead(1,5)",
+          "result": "Passed"
+        },
+        {
+          "name": "OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,3,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,4,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,6,2)",
+          "result": "Passed"
+        },
+        {
+          "name": "OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,3,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,4,4)",
+          "result": "Passed"
+        },
+        {
+          "name": "OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,6,2)",
+          "result": "Passed"
+        },
+        {
+          "name": "SeededReachablePositionsRemainImmutableAndRepeatable",
+          "result": "Passed"
+        },
+        {
+          "name": "SeededSyntheticPositionsAgreeWithIndependentOracle(0)",
+          "result": "Passed"
+        },
+        {
+          "name": "SeededSyntheticPositionsAgreeWithIndependentOracle(1)",
+          "result": "Passed"
+        },
+        {
+          "name": "SixPrimeAcrossGlobalOrPlayerRotatedCorner(0,False)",
+          "result": "Passed"
+        },
+        {
+          "name": "SixPrimeAcrossGlobalOrPlayerRotatedCorner(0,True)",
+          "result": "Passed"
+        },
+        {
+          "name": "SixPrimeAcrossGlobalOrPlayerRotatedCorner(1,False)",
+          "result": "Passed"
+        },
+        {
+          "name": "SixPrimeAcrossGlobalOrPlayerRotatedCorner(1,True)",
+          "result": "Passed"
+        },
+        {
+          "name": "EditorVersionIsPinned",
+          "result": "Passed"
+        },
+        {
+          "name": "OnlyBootstrapIsEnabledForBuild",
+          "result": "Passed"
+        },
+        {
+          "name": "ProjectIs2DAndUsesTextSerialization",
+          "result": "Passed"
+        },
+        {
+          "name": "SafeAreaStaysWithinScreenAcrossAspectRatios(1080,2400,0,90,1080,2200)",
+          "result": "Passed"
+        },
+        {
+          "name": "SafeAreaStaysWithinScreenAcrossAspectRatios(2400,1080,90,0,2200,1080)",
+          "result": "Passed"
+        },
+        {
+          "name": "SafeAreaStaysWithinScreenAcrossAspectRatios(720,1280,-20,-20,800,1400)",
+          "result": "Passed"
+        },
+        {
+          "name": "ZeroSizeDuringStartupIsSafe",
+          "result": "Passed"
+        }
+      ],
+      "failures": [],
+      "expected_out_of_scope_skips": 41,
+      "executed_long_fixtures": 26
+    },
+    "playmode": {
+      "part": "P01.2",
+      "step": "playmode",
+      "started_at": "2026-11-03T12:49:22+00:00",
+      "exit_code": 0,
+      "editor": "6000.6.7f1",
+      "project": "build/P01.2/unity (source copy)",
+      "source_sha256": {
+        "unity/Assets/Game/Rules/LongNardeRules.cs": "48e29e9ac9231d198a04bea9026e434fb377763a7632ed3627bcfa5d08b96a07",
+        "unity/Assets/Game/Rules/LongNardeRules.cs.meta": "c57e59400cd9b27753e425648c29590da7c29597ff06ef5a4d4721f128d47796",
+        "unity/Assets/Game/Rules/LongPosition.cs": "e5e084c9ec79481adbc1e36d6314fc5ddef19f08a37eb6924d10a24ee2587c5c",
+        "unity/Assets/Game/Rules/LongPosition.cs.meta": "eec70ed4adca23273a4f9074065777e7087dc08dcc49f2aa7a38a4e09b1fbf0a",
+        "unity/Assets/Game/Rules/Nard.Rules.Long.asmdef": "5a679457f5465cde54ed4495b7a5b7c7d92249187b5b7b2ceff3aa61cfb66b0d",
+        "unity/Assets/Game/Rules/Nard.Rules.Long.asmdef.meta": "c75cbae2d8afecb19d0e42e6593bc7582b10eb77266e55f6db374682ccfcc589",
+        "unity/Assets/Game/Tests/Rules/LongRulesTests.cs": "14c4dbdc39f4cc3c0fb965c934afc747e7c89b146ee6e01eba36cec4841da362",
+        "unity/Assets/Game/Tests/Rules/LongRulesTests.cs.meta": "10bb0adfc3b5632f948cbe731f4fecbcc1a64f28cfba7755d6530f195ab504d8",
+        "unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef": "4ce440ca99c8abfbbf8a227ce574081d9a1866d8c0887a83759edba2cdaa460b",
+        "unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef.meta": "bc897bb9f6c148aa933d9bf1f3572d3d09c154ec4844e4813cf1b7a24b205076",
+        "unity/Packages/manifest.json": "2a5870b026c87fa48b863a59171b4bb7019a494687b06947d836337f3f276463",
+        "unity/Packages/packages-lock.json": "5d48eaf6234e25c608c52a4213efb30c8f1eacd63ad3d5dba037b92ed0accc92",
+        "unity/ProjectSettings/AudioManager.asset": "aeedeb3243f07b61dbbe854aa08b5ef6f0b5274dd9852ad9f6129dde3e105a31",
+        "unity/ProjectSettings/ClusterInputManager.asset": "40e65dd214bf254955d2c8829ca8ce2130fd3510485560ce012e9a1ddd93e623",
+        "unity/ProjectSettings/DynamicsManager.asset": "bcbde4b212b462560ae157f8f3e3ea32aa74ca4723091ae017a27442eb816f57",
+        "unity/ProjectSettings/EditorBuildSettings.asset": "3b5f9daf51660455d44a90fbb75bad18daf72921cff45e47499372bb3bb70589",
+        "unity/ProjectSettings/EditorSettings.asset": "b8d26cffd60ff71609d969162b640135d26b0eec893c2f7961a8ed8c867f361c",
+        "unity/ProjectSettings/GraphicsSettings.asset": "eabbff5716068338470f2437b4f4e784357b40ac60a657ef9d2ccfb8c094d302",
+        "unity/ProjectSettings/InputManager.asset": "7a1bb836a1008d26d0860d143e9d9df7ca41731d30a72901b518063819c62df2",
+        "unity/ProjectSettings/MemorySettings.asset": "1e8379a461b10ae09f3f696911088c16875d63e87ed5f2d95df9e1892703f9fd",
+        "unity/ProjectSettings/MultiplayerManager.asset": "aba89fd1a1ddad182727ad82727e536d27372e90328a8196da2a4560398983dd",
+        "unity/ProjectSettings/NavMeshAreas.asset": "28db9a32b1eebd40fb57b40367780ae2c7722d9268f1f5249e4e09c617046a19",
+        "unity/ProjectSettings/NetworkManager.asset": "46395def99a6b5ae38ebb19b3e18f75215a9d4172c219361521a5a51e051f386",
+        "unity/ProjectSettings/PackageManagerSettings.asset": "a0d800ae6ebfb026812051126cd5243417d8d47b8f60e2137ad5ec33c6798506",
+        "unity/ProjectSettings/Physics2DSettings.asset": "50e61d70bc38c632cb0e6efe364a9c5bcfd9a8dbcf4e7b5ecfb06a2030c4518f",
+        "unity/ProjectSettings/PhysicsCoreProjectSettings2D.asset": "bedc5339a832c60dc3f11b84abc4f4384dbfa20b0cd9ad6c444b907e751fc35e",
+        "unity/ProjectSettings/PresetManager.asset": "29c125923fe6e29f90190d4fce1c82d660e7051546e2c9d02908d18c9cf2436c",
+        "unity/ProjectSettings/ProjectAuditorSettings.asset": "9e68444b9bda981e2927a98df9edf69ea88362f0c6b7f3c81b39b9d515d2a416",
+        "unity/ProjectSettings/ProjectSettings.asset": "f3f9001c4ab34d5dc4fcd8caaa71a76d30f446e1183b99d67c7d062dcc989129",
+        "unity/ProjectSettings/ProjectVersion.txt": "2a88e6864b6f54588287bed3bc6e9260e65bd49498910cca4478770ca8a5d674",
+        "unity/ProjectSettings/QualitySettings.asset": "c6b5a0f88cd4977d6219918e0e23b1ee361b3ad472809d42921500ed13456b32",
+        "unity/ProjectSettings/SceneTemplateSettings.json": "bb9098b3bfcde78d93e264b96f7b77b5430e64e8c57a7aad7f5a5d9c3945e16a",
+        "unity/ProjectSettings/TagManager.asset": "8e18b1c820e9c09e16bbd1f1b7842e9fb3b0158a0921b0964e0b8fa12c6e2c01",
+        "unity/ProjectSettings/TimeManager.asset": "1a83e54adbbda7c9f4851103a0c6ab7f6448a3343d4ea5b7620452fa08416ecd",
+        "unity/ProjectSettings/UnityConnectSettings.asset": "7f2112b8c6ea0885dcc72b312c9726ffcd909f2e89d1eead61889274a4e5d1c0",
+        "unity/ProjectSettings/VFXManager.asset": "e3e4bfb04f4a57154463c5b7313b79f93980bb5714be84e10d52944056f5c023",
+        "unity/ProjectSettings/VersionControlSettings.asset": "e7bda45bf7a394745fee1316e6c71fa676004d591ad1f3aa247fd3e4ceb86071",
+        "unity/ProjectSettings/XRSettings.asset": "edd2beb4a2e388312b4b7da241aa51070434005d82c59363f1237dd2e567585f",
+        "docs/rules/fixtures.json": "5697092fd1d7a27054292164bca67907f2e7c57d042a479721d72e594031f674"
+      },
+      "status": "PASS",
+      "compiler_errors": [],
+      "tests": {
+        "id": "2",
+        "testcasecount": "1",
+        "result": "Passed",
+        "total": "1",
+        "passed": "1",
+        "failed": "0",
+        "inconclusive": "0",
+        "skipped": "0",
+        "asserts": "0",
+        "engine-version": "3.5.0.0",
+        "clr-version": "4.0.30319.42000",
+        "start-time": "2026-11-03 12:49:29Z",
+        "end-time": "2026-11-03 12:49:29Z",
+        "duration": "0.0973232"
+      },
+      "cases": [
+        {
+          "name": "BootstrapLoadsAndContinuesAdvancingFrames",
+          "result": "Passed"
+        }
+      ],
+      "failures": [],
+      "expected_out_of_scope_skips": 0,
+      "executed_long_fixtures": 0
+    },
+    "android": {
+      "part": "P01.2",
+      "step": "android",
+      "started_at": "2026-11-03T12:49:35+00:00",
+      "exit_code": 0,
+      "editor": "6000.6.7f1",
+      "project": "build/P01.2/unity (source copy)",
+      "source_sha256": {
+        "unity/Assets/Game/Rules/LongNardeRules.cs": "48e29e9ac9231d198a04bea9026e434fb377763a7632ed3627bcfa5d08b96a07",
+        "unity/Assets/Game/Rules/LongNardeRules.cs.meta": "c57e59400cd9b27753e425648c29590da7c29597ff06ef5a4d4721f128d47796",
+        "unity/Assets/Game/Rules/LongPosition.cs": "e5e084c9ec79481adbc1e36d6314fc5ddef19f08a37eb6924d10a24ee2587c5c",
+        "unity/Assets/Game/Rules/LongPosition.cs.meta": "eec70ed4adca23273a4f9074065777e7087dc08dcc49f2aa7a38a4e09b1fbf0a",
+        "unity/Assets/Game/Rules/Nard.Rules.Long.asmdef": "5a679457f5465cde54ed4495b7a5b7c7d92249187b5b7b2ceff3aa61cfb66b0d",
+        "unity/Assets/Game/Rules/Nard.Rules.Long.asmdef.meta": "c75cbae2d8afecb19d0e42e6593bc7582b10eb77266e55f6db374682ccfcc589",
+        "unity/Assets/Game/Tests/Rules/LongRulesTests.cs": "14c4dbdc39f4cc3c0fb965c934afc747e7c89b146ee6e01eba36cec4841da362",
+        "unity/Assets/Game/Tests/Rules/LongRulesTests.cs.meta": "10bb0adfc3b5632f948cbe731f4fecbcc1a64f28cfba7755d6530f195ab504d8",
+        "unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef": "4ce440ca99c8abfbbf8a227ce574081d9a1866d8c0887a83759edba2cdaa460b",
+        "unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef.meta": "bc897bb9f6c148aa933d9bf1f3572d3d09c154ec4844e4813cf1b7a24b205076",
+        "unity/Packages/manifest.json": "2a5870b026c87fa48b863a59171b4bb7019a494687b06947d836337f3f276463",
+        "unity/Packages/packages-lock.json": "5d48eaf6234e25c608c52a4213efb30c8f1eacd63ad3d5dba037b92ed0accc92",
+        "unity/ProjectSettings/AudioManager.asset": "aeedeb3243f07b61dbbe854aa08b5ef6f0b5274dd9852ad9f6129dde3e105a31",
+        "unity/ProjectSettings/ClusterInputManager.asset": "40e65dd214bf254955d2c8829ca8ce2130fd3510485560ce012e9a1ddd93e623",
+        "unity/ProjectSettings/DynamicsManager.asset": "bcbde4b212b462560ae157f8f3e3ea32aa74ca4723091ae017a27442eb816f57",
+        "unity/ProjectSettings/EditorBuildSettings.asset": "3b5f9daf51660455d44a90fbb75bad18daf72921cff45e47499372bb3bb70589",
+        "unity/ProjectSettings/EditorSettings.asset": "b8d26cffd60ff71609d969162b640135d26b0eec893c2f7961a8ed8c867f361c",
+        "unity/ProjectSettings/GraphicsSettings.asset": "eabbff5716068338470f2437b4f4e784357b40ac60a657ef9d2ccfb8c094d302",
+        "unity/ProjectSettings/InputManager.asset": "7a1bb836a1008d26d0860d143e9d9df7ca41731d30a72901b518063819c62df2",
+        "unity/ProjectSettings/MemorySettings.asset": "1e8379a461b10ae09f3f696911088c16875d63e87ed5f2d95df9e1892703f9fd",
+        "unity/ProjectSettings/MultiplayerManager.asset": "aba89fd1a1ddad182727ad82727e536d27372e90328a8196da2a4560398983dd",
+        "unity/ProjectSettings/NavMeshAreas.asset": "28db9a32b1eebd40fb57b40367780ae2c7722d9268f1f5249e4e09c617046a19",
+        "unity/ProjectSettings/NetworkManager.asset": "46395def99a6b5ae38ebb19b3e18f75215a9d4172c219361521a5a51e051f386",
+        "unity/ProjectSettings/PackageManagerSettings.asset": "a0d800ae6ebfb026812051126cd5243417d8d47b8f60e2137ad5ec33c6798506",
+        "unity/ProjectSettings/Physics2DSettings.asset": "50e61d70bc38c632cb0e6efe364a9c5bcfd9a8dbcf4e7b5ecfb06a2030c4518f",
+        "unity/ProjectSettings/PhysicsCoreProjectSettings2D.asset": "bedc5339a832c60dc3f11b84abc4f4384dbfa20b0cd9ad6c444b907e751fc35e",
+        "unity/ProjectSettings/PresetManager.asset": "29c125923fe6e29f90190d4fce1c82d660e7051546e2c9d02908d18c9cf2436c",
+        "unity/ProjectSettings/ProjectAuditorSettings.asset": "9e68444b9bda981e2927a98df9edf69ea88362f0c6b7f3c81b39b9d515d2a416",
+        "unity/ProjectSettings/ProjectSettings.asset": "f3f9001c4ab34d5dc4fcd8caaa71a76d30f446e1183b99d67c7d062dcc989129",
+        "unity/ProjectSettings/ProjectVersion.txt": "2a88e6864b6f54588287bed3bc6e9260e65bd49498910cca4478770ca8a5d674",
+        "unity/ProjectSettings/QualitySettings.asset": "c6b5a0f88cd4977d6219918e0e23b1ee361b3ad472809d42921500ed13456b32",
+        "unity/ProjectSettings/SceneTemplateSettings.json": "bb9098b3bfcde78d93e264b96f7b77b5430e64e8c57a7aad7f5a5d9c3945e16a",
+        "unity/ProjectSettings/TagManager.asset": "8e18b1c820e9c09e16bbd1f1b7842e9fb3b0158a0921b0964e0b8fa12c6e2c01",
+        "unity/ProjectSettings/TimeManager.asset": "1a83e54adbbda7c9f4851103a0c6ab7f6448a3343d4ea5b7620452fa08416ecd",
+        "unity/ProjectSettings/UnityConnectSettings.asset": "7f2112b8c6ea0885dcc72b312c9726ffcd909f2e89d1eead61889274a4e5d1c0",
+        "unity/ProjectSettings/VFXManager.asset": "e3e4bfb04f4a57154463c5b7313b79f93980bb5714be84e10d52944056f5c023",
+        "unity/ProjectSettings/VersionControlSettings.asset": "e7bda45bf7a394745fee1316e6c71fa676004d591ad1f3aa247fd3e4ceb86071",
+        "unity/ProjectSettings/XRSettings.asset": "edd2beb4a2e388312b4b7da241aa51070434005d82c59363f1237dd2e567585f",
+        "docs/rules/fixtures.json": "5697092fd1d7a27054292164bca67907f2e7c57d042a479721d72e594031f674"
+      },
+      "status": "PASS",
+      "compiler_errors": [],
+      "apk_exists": true,
+      "apk_bytes": 25354549,
+      "apk_sha256": "35339bd6b1c5e1f58bd22d5c5ba6672675c4e4ecc7937b38f68625500738ccc7"
+    }
+  },
+  "coverage": {
+    "original_fixtures": 67,
+    "executed_long_fixtures": 26,
+    "deferred_fixtures": 41,
+    "additional_rules_tests": 57,
+    "bootstrap_editmode_tests": 7,
+    "initial_roll_player_combinations": 72,
+    "synthetic_differential_positions": 1000,
+    "synthetic_seeds": [
+      1203,
+      1204
+    ],
+    "reachable_run_seed": 1202,
+    "reachable_turns": 91,
+    "reachable_differential_every_n_turns": 5,
+    "all_possible_positions_exhaustively_proven": false
+  },
+  "corrected_during_work": [
+    {
+      "issue": "Runner initially treated NUnit root Skipped:Ignored as failure despite 79 passed and 0 failed.",
+      "resolution": "Whitelist exact 41 out-of-scope skips; require all 26 authorized fixtures passed. Negative runner tests added."
+    },
+    {
+      "issue": "New five-block test unintentionally created a different six-block through head point 0. Engine correctly rejected it.",
+      "resolution": "Moved unrelated six checkers to point 5; test now isolates breaking the old block."
+    }
+  ],
+  "android_build_summary": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0,
+    "bytes": 228506108,
+    "seconds": 18.222772
+  },
+  "repository_audit": {
+    "status": "PASS",
+    "unity_meta_unique_guids": 26,
+    "original_sources_and_fixtures_unchanged_from": "d1f6a8d",
+    "bootstrap_packages_settings_unchanged": true,
+    "git_diff_check_exit": 0,
+    "git_fsck_exit": 0,
+    "preexisting_dangling_blobs": 4,
+    "physical_device": "NOT_RUN"
+  }
+}

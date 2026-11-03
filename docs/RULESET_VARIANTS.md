@@ -2,7 +2,9 @@
 
 Əsas qərarlar [GDD §4, §15–16](../NARD_Final_GDD_v1.0.md), əhatə
 [Master Plan P01.1](../NARD_Master_Icra_Plani_v2.md). Mənbələr dəyişdirilmir.
-Bu hissə sənəd və gözlənilən test məlumatıdır; qanuni gediş motoru yoxdur.
+Bu hissə P01.1 sənəd və gözlənilən test məlumatıdır; uzun mühərrik P01.2-də ayrıca yazılır.
+İstifadəçi altı PROVISIONAL_RULE variantını ilkin standart kimi qəbul edib. Cədvəldə və
+JSON-da PENDING müstəqil yerli oyunçu yoxlamasının açıq qalmasını bildirir; həmin yoxlama aparılmayıb.
 
 ## Koordinat müqaviləsi — board-global-v1
 

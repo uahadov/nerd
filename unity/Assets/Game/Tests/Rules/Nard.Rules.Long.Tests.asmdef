@@ -1,0 +1,12 @@
+{
+  "name": "Nard.Rules.Long.Tests",
+  "references": [
+    "Nard.Rules.Long"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

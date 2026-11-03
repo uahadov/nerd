@@ -92,3 +92,26 @@ GDD seçimi dəyişmir. L-OPEN/L-HEAD-FIRST və yerli konkretliyi açıq L-BLOCK
 PROVISIONAL_RULE olaraq qalır; 67 nümunənin ACCEPT/REJECT cavabları motor icrasının nəticəsi deyil.
 Tam məlumat rules/fixtures.json-da, insan indeksi RULE_MATRIX.md-dədir; iki müstəqil qərar mənbəyi deyil.
 Yerli təcrübəli oyunçu ilə 5 əsas mövqe yoxlanışı PENDING; fərq çıxarsa yeni RulesetVersion lazımdır.
+
+## D016 — 2026-11-03, P01.1 qəbulu və yalnız P01.2
+
+İstifadəçi P01.1-i və altı provisional qaydanın mövcud variantını ilkin standart kimi qəbul etdi.
+Azərbaycan üzrə müstəqil yerli oyunçu yoxlaması aparılmayıb; PROVISIONAL_RULE silinmir.
+Yalnız Master P01.2 uzun mühərrik icazəlidir. Qısa mühərrik P01.3, seriya və tam match
+state machine P01.4-də qalır. İstifadəçinin mars/son vəziyyət tələbi uzun mövqenin nəticə
+sorğusu ilə yoxlanır; reytinq/mükafat/seriya sistemi yaradılmır. Push qadağandır.
+
+## D017 — P01.2 texniki müqavilə və açıq dəqiqləşdirmə
+
+LongPosition giriş və çıxış massivlərini kopyalayır; LongNardeRules Unity/RNG/saatdan asılı deyil.
+Tam növbə maksimum istifadə və yüksək zər şərtindən keçir. Lokal tək addım analizi yalnız
+fixture/preview hesabıdır, tam növbənin qanuniliyi kimi təqdim edilmir.
+Eyni qiymətli qoşa tokenlərinin sırf nömrə permutasiyası fərqli oyun seçimi deyil;
+generator ən kiçik boş tokeni seçir, validator digər unikal token sıralarını da qəbul edir.
+Altılıq üçün artıq çıxarılmış rəqib daşı yolu bitirmiş, yəni blokdan irəli keçmiş sayılır
+(koordinat müqaviləsində off=24). Bu sərhəd əvvəlki 67 nümunədə yox idi; ayrıca test əlavə edilir.
+Bu şərh də müstəqil yerli oyunçu qapısında açıqdır; qayda versiyası və provisional işarələr saxlanır.
+Açıq Editor prosesinə toxunmadan ignored build/P01.2/unity mənbə surətində batch test/build aparılır.
+
+P01.2-də A01-in yalnız qayda mühərriki yazıldığı üçün inventarda status IN_PROGRESS oldu.
+A01 məhsul qərarının mətni və ilkin partı dəyişmədi; tam uzun oyun DONE kimi göstərilmir.

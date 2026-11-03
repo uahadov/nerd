@@ -3,19 +3,19 @@
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
   "updated_on": "2026-11-03",
-  "active_part": "P01.1",
+  "active_part": "P01.2",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P00.3",
+  "last_human_approved_part": "P01.1",
   "current_part_human_approved": false,
-  "next_part": "P01.2",
+  "next_part": "P01.3",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P01.1",
+    "part": "P01.2",
     "by": "human",
     "date": "2026-11-03",
-    "quote": "İndi yalnız Master Plandakı növbəti kiçik parta — P01.1-ə keç."
+    "quote": "İndi yalnız P01.2 — nərd qayda mühərrikinin hazırlanması mərhələsinə keç."
   },
   "human_approvals": [
     {
@@ -38,6 +38,13 @@
       "by": "human",
       "quote": "P00.3 mərhələsini təsdiqləyirəm. Unity Editor-da Game ekranını yoxladım, krem fon düzgün görünür.",
       "report": "docs/reports/P00.3.md"
+    },
+    {
+      "part": "P01.1",
+      "date": "2026-11-03",
+      "by": "human",
+      "quote": "P01.1 mərhələsini təsdiqləyirəm. Altı PROVISIONAL_RULE üçün mövcud qayda variantlarını ilkin standart kimi qəbul edirəm.",
+      "report": "docs/reports/P01.1.md"
     }
   ],
   "sources": {
@@ -57,16 +64,16 @@
   "scope": {
     "unity_project_created": true,
     "android_tools_installed": true,
-    "game_modules_implemented": false
+    "game_modules_implemented": true
   },
-  "test_report": "docs/reports/P01.1.md",
+  "test_report": "docs/reports/P01.2.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
-    "unity_build": "NOT_RUN",
+    "unity_build": "PASS",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P01.1.validation.json",
-    "tests_evidence": "docs/reports/P01.1.tests.txt"
+    "validation_evidence": "docs/reports/P01.2.validation.json",
+    "tests_evidence": "docs/reports/P01.2.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -94,11 +101,11 @@
     {
       "id": "RULES-LOCAL-REVIEW",
       "status": "WAITING_FOR_HUMAN",
-      "impact": "P01.1 qayda nümunələrinin insan qəbulu və GDD 4.5 üzrə bir neçə yerli təcrübəli oyunçu ilə yoxlanması hələ aparılmayıb. Altı uzun qayda dəqiqləşdirməsi provisional qalır.",
-      "next_action": "RULE_MATRIX.md-də beş mövqe qrupunu oxu və nümunə ID-ləri üzrə rəy ver. Yerli fərq varsa yeni RuleSetVersion/qərar qeydi ilə dəyiş; beta öncəsi yerli yoxlamanı tamamla."
+      "impact": "P01.1 və altı qaydanın ilkin standart seçimi qəbul edilib. Azərbaycan üzrə müstəqil yerli oyunçu yoxlaması aparılmayıb; PROVISIONAL_RULE qalır.",
+      "next_action": "Beta öncəsi bir neçə yerli təcrübəli oyunçu ilə nümunələri yoxla. İlkin standart qəbulu bu yoxlamanı tamamlamır."
     }
   ],
-  "resume_instruction": "Yalnız P01.1 qayda sənədləri/JSON fixture ssenariləri və onların doğrulama testləri. Qayda motoru, Unity UI, bot və server yazma. AWAITING_HUMAN_APPROVAL ilə dayan; P01.2-yə keçmə. Fiziki Android testi NOT_RUN qalır; push qadağandır.",
+  "resume_instruction": "Yalnız P01.2 uzun nərd pure C# mühərriki və testləri. Qısa mühərrik, UI, bot, multiplayer, seriya state machine yazma. Status AWAITING_HUMAN_APPROVAL; P01.3 icazəsi yoxdur. Yerli oyunçu və fiziki Android NOT_RUN; push qadağandır.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -107,16 +114,16 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p003-local-001",
+    "id": "android-p012-local-001",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
-    "apk": "build/P00.3/NARD-P00.3.apk",
-    "apk_bytes": 25286858,
-    "apk_sha256": "557300cb6a0a0e3187bf69ee18554bacfefede0c67a741b5ee9a08c112ffd1c1",
-    "execution_evidence": "docs/reports/P00.3.execution.json",
-    "editor_visual": "PASS",
+    "apk": "build/P01.2/NARD-P01.2.apk",
+    "apk_bytes": 25354549,
+    "apk_sha256": "35339bd6b1c5e1f58bd22d5c5ba6672675c4e4ecc7937b38f68625500738ccc7",
+    "execution_evidence": "docs/reports/P01.2.execution.json",
+    "editor_visual": "NOT_RUN",
     "physical_device": "NOT_RUN",
-    "produced_in_part": "P00.3"
+    "produced_in_part": "P01.2"
   },
   "human_editor_review": {
     "part": "P00.3",
@@ -124,5 +131,33 @@
     "by": "human",
     "date": "2026-11-03",
     "quote": "Unity Editor-da Game ekranını yoxladım, krem fon düzgün görünür."
-  }
+  },
+  "rules_review": {
+    "preliminary_standard": "ACCEPTED_BY_HUMAN",
+    "independent_azerbaijani_players": "NOT_RUN",
+    "provisional_rules_retained": true,
+    "ruleset_version": "long-az-gdd1-provisional.1"
+  },
+  "engine": {
+    "part": "P01.2",
+    "mode": "long",
+    "status": "PASS",
+    "execution_evidence": "docs/reports/P01.2.execution.json",
+    "ruleset_version": "long-az-gdd1-provisional.1",
+    "independent_local_review": "NOT_RUN"
+  },
+  "historical_builds": [
+    {
+      "id": "android-p003-local-001",
+      "editor_version": "6000.6.7f1",
+      "platform": "Android ARM64 IL2CPP development",
+      "apk": "build/P00.3/NARD-P00.3.apk",
+      "apk_bytes": 25286858,
+      "apk_sha256": "557300cb6a0a0e3187bf69ee18554bacfefede0c67a741b5ee9a08c112ffd1c1",
+      "execution_evidence": "docs/reports/P00.3.execution.json",
+      "editor_visual": "PASS",
+      "physical_device": "NOT_RUN",
+      "produced_in_part": "P00.3"
+    }
+  ]
 }

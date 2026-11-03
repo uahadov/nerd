@@ -3,7 +3,8 @@
 Əsas məlumat [fixtures.json](rules/fixtures.json), format [JSON Schema](rules/fixtures.schema.json).
 Bu cədvəl həmin məlumatın oxunaqlı indeksidir; müstəqil yeni qərar mənbəyi deyil.
 Validator ID/title/dice/move/result/assurance sətirlərinin JSON-la tam uyğunluğunu yoxlayır.
-ACCEPT/REJECT gələcək motor üçün **gözlənilən** cavabdır; motor hələ yazılmayıb.
+ACCEPT/REJECT P01.1-də yazılmış **gözlənilən** cavabdır. P01.2 uzun mühərrikdə
+26 aid nümunə icra edilir; qısa/seriya/reytinq/undo üçün motor testi hələ yoxdur.
 `move` tək addımın yerli şərtini, `turn` tam təklifin maksimum zər şərtini göstərir;
 heç biri server commit-i deyil. `slot` zərin unikal istifadə tokenidir.
 Tam 24 xana, bar/off və əvvəl/sonra vəziyyətlər JSON-dadır; [koordinatlar və variantlar](RULESET_VARIANTS.md).

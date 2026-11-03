@@ -32,3 +32,12 @@
 - Uzun/qısa qayda sənədləri, ortaq koordinat/variant müqaviləsi və 67 JSON nümunə əlavə edildi.
 - Fixture sxem/invariant/matris yoxlaması və mənfi testlər əlavə edildi; Unity kodu dəyişmədi.
 - Lokal yoxlamaların sübutları P01.1 hesabatındadır. P01.2 icazəsi yoxdur; push edilməyib.
+
+## P01.2 — 2026-11-03 — AWAITING_HUMAN_APPROVAL
+
+- P01.1 qəbulu və altı qaydanın ilkin standart seçimi qeyd edildi; müstəqil yerli baxış NOT_RUN/provisional saxlanıldı.
+- Immutable LongPosition və Unity/RNG-dən müstəqil LongNardeRules əlavə edildi; yalnız uzun nərd.
+- 26 mövcud fixture və 57 əlavə qayda testi, ayrıca hesablamaya qarşı 72 başlanğıc/1000 sintetik mövqe yoxlaması əlavə edildi.
+- EditMode 90 PASS/41 aid-part skip, PlayMode 1 PASS, Android bootstrap build uğurlu; fiziki Android NOT_RUN.
+- Lokal runner və saxta/missing evidence mənfi testləri; A01 statusu IN_PROGRESS, tam oyun deyil.
+- Sübutlar docs/reports/P01.2.* daxilindədir. UI/bot/server/qısa mühərrik əlavə edilmədi; push yoxdur.

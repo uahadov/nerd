@@ -6,13 +6,14 @@ import hashlib
 import json
 import re
 import subprocess
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
-AUTHORIZED_PART = 'P01.1'
+AUTHORIZED_PART = 'P01.2'
 SOURCES = {
     'NARD_Final_GDD_v1.0.md': '2d2471282160bc10dc4eaec57ed90b8b2e6e7684cb4101c9bd5f2d76e90a8580',
     'NARD_Master_Icra_Plani_v2.md': '1e333827bf7c861c5fc2b279818c795c69ddeabbd1fa8c93e3b7daad2d6828bc',
@@ -35,6 +36,13 @@ REQUIRED = [
     'scripts/validation/validate_rule_fixtures.py', 'scripts/validation/test_rule_fixtures.py',
     'docs/reports/P01.1.md', 'docs/reports/P01.1.validation.json',
     'docs/reports/P01.1.tests.txt', 'docs/reports/P01.1.rules.json',
+    'docs/reports/P01.2.md', 'docs/reports/P01.2.execution.json',
+    'docs/reports/P01.2.validation.json', 'docs/reports/P01.2.tests.txt',
+    'scripts/build/p012.py', 'scripts/validation/test_p012_runner.py',
+    'docs/reports/P01.2.editmode.xml', 'docs/reports/P01.2.playmode.xml', 'unity/Assets/Game/Rules/LongNardeRules.cs',
+    'unity/Assets/Game/Rules/LongPosition.cs', 'unity/Assets/Game/Rules/Nard.Rules.Long.asmdef',
+    'unity/Assets/Game/Tests/Rules/LongRulesTests.cs',
+    'unity/Assets/Game/Tests/Rules/Nard.Rules.Long.Tests.asmdef',
 ]
 ASSET_COLUMNS = ['asset_id', 'path', 'source', 'creator', 'license', 'license_evidence',
                  'modifications', 'approved_part', 'status']
@@ -98,7 +106,7 @@ def validate(root):
         try:
             detail = action() or 'OK'
             checks.append({'name': name, 'status': 'PASS', 'detail': detail})
-        except (ValueError, KeyError, TypeError, IndexError, AttributeError, OSError, subprocess.SubprocessError) as exc:
+        except (ValueError, KeyError, TypeError, IndexError, AttributeError, OSError, ET.ParseError, subprocess.SubprocessError) as exc:
             checks.append({'name': name, 'status': 'FAIL', 'detail': str(exc)})
 
     def required():
@@ -128,7 +136,7 @@ def validate(root):
                     if re.match(r'^\| ' + prefix + r'\d{2} \|', line)]
             require(len(rows) == count and all(len(row) == width for row in rows), f'{file} row count/shape')
             require([(r[0], r[1]) for r in rows] == expected, f'{file} differs from GDD wording/order')
-            require(all(r[2] == status for r in rows), f'{file} implementation status invalid')
+            require(all(r[2] == ('IN_PROGRESS' if prefix == 'A' and r[0] == 'A01' else status) for r in rows), f'{file} implementation status invalid')
             if prefix == 'A':
                 require(all(r[3] in parts(root) for r in rows), 'Unknown planned part in APPROVED')
             master = re.findall(r'^\d+\. \*\*(' + prefix + r'\d{2})\*\* (.+)$',
@@ -193,22 +201,43 @@ def validate(root):
             require(re.search(r'^Ran [1-9][0-9]* tests? in ', log, re.M) is not None
                     and '\nOK\n' in log and log.rstrip().endswith('Exit code: 0'),
                     'Test PASS lacks successful run evidence')
-        return 'Evidence paths exist inside repo and PASS claims match stored results; no freshness guarantee'
+        if s.get('engine', {}).get('status') == 'PASS':
+            import xml.etree.ElementTree as ET
+            engine_path = (root / s['engine']['execution_evidence']).resolve()
+            require(engine_path.is_relative_to(root), 'Unsafe engine evidence path')
+            execution = json.loads(engine_path.read_text())
+            require(execution['part'] == AUTHORIZED_PART and execution['physical_android'] == 'NOT_RUN'
+                    and execution['independent_local_player_review'] == 'NOT_RUN', 'Engine evidence scope mismatch')
+            for step in ['editmode', 'playmode', 'android']:
+                report = execution['steps'][step]
+                require(report['status'] == 'PASS' and report['exit_code'] == 0 and not report['compiler_errors'], 'Engine/build run failed')
+                for name, digest in report['source_sha256'].items():
+                    if '/Rules/' in name or name == 'docs/rules/fixtures.json':
+                        path = (root / name).resolve()
+                        require(path.is_relative_to(root) and hashlib.sha256(path.read_bytes()).hexdigest() == digest,
+                                'Engine evidence source mismatch: ' + name)
+                if step != 'android':
+                    document = ET.parse(root / ('docs/reports/P01.2.' + step + '.xml')).getroot()
+                    require(document.attrib['failed'] == '0' and int(document.attrib['passed']) > 0, 'Failed NUnit XML')
+                    require(document.attrib['passed'] == report['tests']['passed'] and document.attrib['skipped'] == report['tests']['skipped'], 'NUnit summary mismatch')
+            require(execution['coverage']['executed_long_fixtures'] == 26 and execution['coverage']['deferred_fixtures'] == 41,
+                    'Fixture execution coverage mismatch')
+        return 'Stored PASS evidence and runtime source hashes match; independent device/local reviews remain NOT_RUN'
     check('test_evidence', evidence)
 
     def scope():
         s = state(root)
-        # Updated only after the human's explicit P01.1 authorization (D014).
-        require(s['active_part'] == AUTHORIZED_PART, 'Only P01.1 is authorized')
-        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P01.1 must await human approval')
-        require(s['last_human_approved_part'] == 'P00.3', 'P00.3 acceptance missing')
+        # Updated only after the human's explicit P01.2 authorization (D016).
+        require(s['active_part'] == AUTHORIZED_PART, 'Only P01.2 is authorized')
+        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P01.2 must await human approval')
+        require(s['last_human_approved_part'] == 'P01.1', 'P01.1 acceptance missing')
         expected = {'unity_project_created', 'android_tools_installed', 'game_modules_implemented'}
         require(set(s['scope']) == expected, 'Scope fields missing or unexpected')
         require(all(type(value) is bool for value in s['scope'].values()), 'Scope flags must be booleans')
-        require(s['scope']['unity_project_created'] is True and s['scope']['game_modules_implemented'] is False,
-                'P01.1 permits rule documents and fixtures, not gameplay modules')
+        require(s['scope']['unity_project_created'] is True and s['scope']['game_modules_implemented'] is True,
+                'P01.2 permits only long rules and tests')
         require(not any((root / p).exists() for p in ['nakama', 'art']), 'Premature game/backend directories')
-        for module in ['Rules', 'Bots', 'Network', 'UI']:
+        for module in ['Bots', 'Network', 'UI', 'Rules/Short']:
             require(not (root / 'unity/Assets/Game' / module).exists(), 'Premature gameplay module: ' + module)
         version = read(root, 'unity/ProjectSettings/ProjectVersion.txt')
         require('m_EditorVersion: 6000.6.7f1\n' in version, 'Unity version not pinned')
@@ -219,7 +248,18 @@ def validate(root):
         for name in ['com.unity.inputsystem', 'com.unity.test-framework']:
             require(locked[name]['version'] == manifest[name], 'Manifest/lock mismatch: ' + name)
         require((root / 'unity/Assets/Game/Scenes/Bootstrap.unity').is_file(), 'Bootstrap scene missing')
-        return 'P01.1 only: documents/fixtures; preserved pinned Unity foundation, no gameplay modules'
+        assembly = json.loads(read(root, 'unity/Assets/Game/Rules/Nard.Rules.Long.asmdef'))
+        require(assembly.get('noEngineReferences') is True and not assembly.get('references'), 'Rules assembly must be pure C#')
+        files = sorted(p.name for p in (root / 'unity/Assets/Game/Rules').glob('*.cs'))
+        require(files == ['LongNardeRules.cs', 'LongPosition.cs'], 'Only long-engine sources authorized')
+        for file in files:
+            code = read(root, 'unity/Assets/Game/Rules/' + file)
+            require(not re.search(r'UnityEngine|UnityEditor|System\.Random|System\.IO|DateTime|Nakama', code), 'Rules dependency violation')
+        review = s['rules_review']
+        require(review['preliminary_standard'] == 'ACCEPTED_BY_HUMAN' and
+                review['independent_azerbaijani_players'] == 'NOT_RUN' and
+                review['provisional_rules_retained'] is True, 'Local review falsely completed')
+        return 'P01.2: pure long C# engine only; local review remains NOT_RUN'
     check('current_scope', scope)
 
     def policy():
@@ -229,7 +269,7 @@ def validate(root):
         require(p['standard_terminal_git_allowed'] is True, 'Standard tools must remain allowed')
         a = read(root, 'AGENTS.md')
         for term in ['Heç bir Skill', 'Antigravity MCP', 'Codex Gravity MCP', 'AWAITING_HUMAN_APPROVAL',
-                     'P01.1', 'R01–R20']:
+                     'P01.2', 'R01–R20']:
             require(term in a, f'Agent rule missing: {term}')
         return 'Agent-neutral rules and tool bans present'
     check('agent_policy', policy)
@@ -339,7 +379,7 @@ def validate(root):
         from validate_rule_fixtures import validate as validate_rules
         result = validate_rules(root)
         require(state(root)['build']['physical_device'] == 'NOT_RUN', 'Physical device test must remain open')
-        return f"{result['fixture_count']} authored examples; engine NOT_RUN, human rule review PENDING"
+        return f"{result['fixture_count']} authored examples; engine results separately in P01.2.execution.json, independent local review NOT_RUN"
     check('rule_specification', rule_specification)
 
     return {'schema_version': 1, 'part': state(root)['active_part'],

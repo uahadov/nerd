@@ -1,12 +1,15 @@
 # Test matrisi və sübut qaydası
 
-P01.1-də repository/sənəd/status, qayda fixture sxemi və məlumat uyğunluğu yoxlanır.
-Qanuni gediş motoru yoxdur; 67 nümunə gözlənilən cavablardır, motor testinin nəticəsi deyil.
+P01.2-də repository/sənəd/status və uzun nərd mühərriki yoxlanır.
+67 nümunənin 26-sı uzun mühərrikdə icra olunur; 39 qısa/ortaq və 2 undo nümunəsi öz partını gözləyir.
 Əmrlər repo kökündən, Python 3.10+ standart kitabxanası və Git ilə işləyir.
 
 ```bash
-python3 scripts/validation/validate_project.py --output docs/reports/P01.1.validation.json
-python3 scripts/validation/validate_rule_fixtures.py --output docs/reports/P01.1.rules.json
+python3 scripts/validation/validate_project.py --output docs/reports/P01.2.validation.json
+python3 scripts/validation/validate_rule_fixtures.py
+python3 scripts/build/p012.py editmode
+python3 scripts/build/p012.py playmode
+python3 scripts/build/p012.py android
 python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 ```
 
@@ -25,13 +28,13 @@ python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 | Uzaq nüsxə | Privacy, push və SHA yoxlaması; yalnız real nəticə qeyd edilir |
 | Fixture strukturu və uyğunluğu | P01.1.rules.json: 24 xana, 15+15 daş, tokenlər, before/after arifmetikası, ID/variant/undo istinadları, matris uyğunluğu |
 | Qayda mətninin uyğunluğu | Qayda ID-lərinin mövcudluğu avtomatik; məna və yerli variant qərarı insan baxışında. Tam təbii dil sübutu iddia edilmir |
-| Unity compile/EditMode/PlayMode, Android APK | P00.3 tarixi sübutu; bu partda Unity kodu dəyişməyib, yenidən icra NOT_RUN |
+| Unity compile/EditMode/PlayMode, Android APK | P01.2.execution.json və saxlanan NUnit XML; ayrı source copy-də real icra |
 | iOS və fiziki cihaz | Yalnız real icra varsa PASS; yoxdursa NOT_RUN və səbəb |
 
 Validator çıxış kodu: 0 = yoxlamalar keçib; 1 = uyğunsuzluq və ya oxuma xətası.
 Hər yoxlama adı və statusu JSON-da qalır. `--root` başqa checkout-un yoxlanmasına imkan verir.
 Validatorun özü heç bir statusu təsdiqləmir və növbəti partı açmır.
-P01.1 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
+P01.2 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
 validatoru sadəcə yaşıl nəticə almaq üçün zəiflətmə.
 
 ## Gələcək partlar üçün məcburi yanaşma
@@ -54,7 +57,18 @@ Cihazda test edilmədikcə bu nəticələr Android toxunma/orientation testi say
 
 Schema draft-2020-12 formatındadır. Offline checker yalnız faylda işlədilən sənədləşdirilmiş
 keyword alt çoxluğunu yoxlayır; naməlum keyword-u rədd edir, tam JSON Schema implementasiyası deyil.
-Hər iki rejimdə müqavilə və gözlənilən vəziyyət nümunələri saxlanır; motorun bütün qanuni
-gedişləri, maksimum zər axtarışı və fixture gözləntilərini icra etməsi P01.2/P01.3-də sınanacaq.
-İnsan baxışı [beş mövqe qrupu](RULE_MATRIX.md) üzrədir; hazırda PENDING.
+Hər iki rejimdə müqavilə və gözlənilən vəziyyət nümunələri saxlanır; uzun motorun gedişləri və maksimum zər axtarışı P01.2-də sınanır; qısa motor P01.3-də qalır.
+P01.1 ilkin qayda seçimi qəbul edilib. Müstəqil yerli oyunçu baxışı [beş mövqe qrupu](RULE_MATRIX.md) üzrə hələ NOT_RUN-dır.
 Fiziki Android və iOS testi bu partda NOT_RUN-dır.
+
+## P01.2 mühərrik yoxlaması
+
+Unity EditMode canonical JSON-u oxuyur; yalnız 26 aid uzun nümunə işlənir.
+Hər iki oyunçunun ilk/sonrakı qoşaları, döngədə altılıq, sıradan asılı maksimum istifadə,
+yüksək zər, qismən/tam blok, evə giriş/çıxış, son daş/mars və girişin dəyişməməsi əlavə C# testlərindədir.
+Test assembly-sində istehsal addım funksiyasını çağırmayan ayrıca nisbi-koordinat hesablaması var:
+72 başlanğıc roll/player kombinasiyası, 1000 sintetik mövqe və seed=1202 ilə çatılmış
+mövqelər onunla müqayisə edilir. Sintetik mövqelərin başlanğıcdan çatılması iddia edilmir.
+RNG yalnız test məlumatındadır; runtime qayda assembly-sində yoxdur.
+Bütün mümkün nərd mövqelərinin tam isbatı və mobil performans testi aparıldığı iddia edilmir.
+Runner yalnız əvvəlcədən müəyyən edilmiş 41 skip-i qəbul edir; yeni skip/fail nəticəni FAIL edir.

@@ -2,8 +2,8 @@
 
 Əsas: [GDD §4, §5, §10](../NARD_Final_GDD_v1.0.md) və
 [Master Planın ardıcıllığı](../NARD_Master_Icra_Plani_v2.md).
-P00.2-də qəbul edilmiş modul sərhədləridir; P00.3 yalnız texniki bootstrap əlavə edir.
-Oyun qaydaları, bot, UI/UX ekranları və backend modulları hələ yazılmayıb.
+P00.2-də qəbul edilmiş modul sərhədləridir; P00.3 texniki bootstrap əlavə edib.
+P01.2-də yalnız LongPosition/LongNardeRules pure C# modulu var. Qısa qayda, bot, UI/UX və backend yoxdur.
 İnfrastruktur, UI framework, əlavə servis və DB cədvəlləri bu sənədlə quraşdırılmır.
 
 ## Asılılıq istiqaməti
@@ -62,7 +62,7 @@ gələcək ehtiyac adı ilə ümumi framework və ya boş abstraksiya yazılmır
 ## Test sərhədləri
 
 Pure C# və TS eyni versiyalı fixture-lərlə yoxlanacaq: position + roll + move → expected state/rejection.
-İlkin koordinat xəritəsi və fixture schema P01.1-də hazırlanacaq; indi fixture yazılmır.
+İlkin koordinat xəritəsi və 67 fixture P01.1-də hazırlanıb. P01.2 uzun mühərriki uyğun 26 nümunəni icra edir; digər 41 nümunə öz partını gözləyir.
 Differential testlər online POC-də parity göstərəcək. Botlar simulyasiya, presentation
 render/input, adapterlər integration, economy təkrar əməliyyat/receipt testləri keçirəcək.
 [Test matrisi](TEST_MATRIX.md) hansı yoxlamaların hazırda real olduğunu ayırır.
@@ -76,3 +76,17 @@ Animation, Audio, Art və Tests istiqamətlərinə bölünə bilər.
 Backend nakama/server, ortaq fixtures nakama/fixtures, backend testləri nakama/tests;
 art mənbələri art/originals, export art/exported daxilində olacaq.
 Dəqiq assembly/interface/paket adları müvafiq partda seçilib yoxlanacaq.
+
+## P01.2 konkret uzun mühərrik sərhədi
+
+unity/Assets/Game/Rules daxilində Nard.Rules.Long assembly-si noEngineReferences=true ilə
+Unity-dən ayrıdır. LongPosition immutable vəziyyətdir; massivləri giriş/çıxışda kopyalayır.
+LongNardeRules ilkin mövqe, verilmiş opening/roll, lokal addım analizi və tam qanuni növbələri verir.
+Tam gediş generasiyası dərinliyi ən çox dörd zər addımıdır; bütün mənbələr və fərqli qalan
+zər qiymətləri araşdırılır, sonra maksimum istifadə və yüksək zər şərti tətbiq edilir.
+Equal-die token permutasiyası tək təmsil olunur; oyun baxımından fərqli yollar saxlanır.
+TryApplyTurn bütöv təklifi atomik yoxlayır. Lokal TryApplyLocalStep yalnız lokal şərtləri yoxlayır;
+UI və ya server onu təkbaşına tam növbə təsdiqi kimi istifadə etməməlidir.
+ResultPoints yalnız uzun nərd normal/mars sorğusudur; seriya, mükafat və reytinq yaratmır.
+İlk növbə flag-lərinin növbəsonu dəyişməsi və növbə sahibi seçimi gələcək application qatınındır.
+Qısa mühərrik eyni state-in mode flag-i kimi əlavə edilmir; ayrıca modul olacaq.

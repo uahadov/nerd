@@ -2,14 +2,15 @@
 
 Mətnlər [GDD §13](../NARD_Final_GDD_v1.0.md) ilə sözbəsöz eynidir.
 Master Plan XV ilə də müqayisə edilir. Məhsul qəbulu implementasiya/part icazəsi deyil.
-Bütün maddələr hələ NOT_STARTED-dır. İlkin part əlaqəsi işin ilk aidiyyəti yerini
+A01 uzun qayda mühərriki ilə IN_PROGRESS-dır; oynanıla bilən tam uzun nərd hələ hazır deyil.
+Digər maddələr NOT_STARTED-dır. İlkin part əlaqəsi işin ilk aidiyyəti yerini
 izləmək üçündür, tam əhatə və ya həmin partı indi icra etmək vədi deyil.
 Mənbə ardıcıllığı üstün qalır. A38 yalnız ilk reklamsız buraxılışdan sonrakı yeniləmə üçündür.
 Qalan 7 buraxılış qərarı və GDD §15–16 ayrıca mənbədə qalır; A sayına əlavə edilmir.
 
 | ID | Qəbul edilmiş mətn | İcra statusu | İlkin part |
 |---|---|---|---|
-| A01 | Uzun nərd | NOT_STARTED | P01.2 |
+| A01 | Uzun nərd | IN_PROGRESS | P01.2 |
 | A02 | Qısa nərd | NOT_STARTED | P01.3 |
 | A03 | Dostla onlayn oyun | NOT_STARTED | P05.3 |
 | A04 | Təsadüfi onlayn rəqib | NOT_STARTED | P06.3 |

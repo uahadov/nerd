@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="131" result="Skipped:Ignored" total="131" passed="90" failed="0" inconclusive="0" skipped="41" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.2638274">
+  <test-suite type="TestSuite" id="1000" name="NƏRD. — P00.3" fullname="NƏRD. — P00.3" runstate="Runnable" testcasecount="131" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.263827" total="131" passed="90" failed="0" inconclusive="0" skipped="41" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <reason>
+      <message><![CDATA[One or more child tests were ignored]]></message>
+    </reason>
+    <test-suite type="Assembly" id="1137" name="Nard.Rules.Long.Tests.dll" fullname="/home/ua/Desktop/NERD/build/P01.2/unity/Library/ScriptAssemblies/Nard.Rules.Long.Tests.dll" runstate="Runnable" testcasecount="124" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.242227" total="124" passed="83" failed="0" inconclusive="0" skipped="41" asserts="0">
+      <properties>
+        <property name="_PID" value="180961" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <reason>
+        <message><![CDATA[One or more child tests were ignored]]></message>
+      </reason>
+      <test-suite type="TestSuite" id="1138" name="Nard" fullname="Nard" runstate="Runnable" testcasecount="124" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.241685" total="124" passed="83" failed="0" inconclusive="0" skipped="41" asserts="0">
+        <properties />
+        <reason>
+          <message><![CDATA[One or more child tests were ignored]]></message>
+        </reason>
+        <test-suite type="TestSuite" id="1139" name="Tests" fullname="Nard.Tests" runstate="Runnable" testcasecount="124" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.241579" total="124" passed="83" failed="0" inconclusive="0" skipped="41" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[One or more child tests were ignored]]></message>
+          </reason>
+          <test-suite type="TestSuite" id="1140" name="Rules" fullname="Nard.Tests.Rules" runstate="Runnable" testcasecount="124" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.241470" total="124" passed="83" failed="0" inconclusive="0" skipped="41" asserts="0">
+            <properties />
+            <reason>
+              <message><![CDATA[One or more child tests were ignored]]></message>
+            </reason>
+            <test-suite type="TestFixture" id="1001" name="LongRulesTests" fullname="Nard.Tests.Rules.LongRulesTests" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="124" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.240638" total="124" passed="83" failed="0" inconclusive="0" skipped="41" asserts="0">
+              <properties />
+              <reason>
+                <message><![CDATA[One or more child tests were ignored]]></message>
+              </reason>
+              <test-case id="1107" name="AllBlockedAllowsEmptyTurn" fullname="Nard.Tests.Rules.LongRulesTests.AllBlockedAllowsEmptyTurn" methodname="AllBlockedAllowsEmptyTurn" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="2038499226" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.015160" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1131" name="AlreadyBorneOffOpponentCheckerHasPassedTheBlock" fullname="Nard.Tests.Rules.LongRulesTests.AlreadyBorneOffOpponentCheckerHasPassedTheBlock" methodname="AlreadyBorneOffOpponentCheckerHasPassedTheBlock" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1459102641" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000489" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1115" name="BearingOffAndGameEndAreSymmetric" fullname="Nard.Tests.Rules.LongRulesTests.BearingOffAndGameEndAreSymmetric" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.004971" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1113" name="BearingOffAndGameEndAreSymmetric(0)" fullname="Nard.Tests.Rules.LongRulesTests.BearingOffAndGameEndAreSymmetric(0)" methodname="BearingOffAndGameEndAreSymmetric" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1899065239" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.002227" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1114" name="BearingOffAndGameEndAreSymmetric(1)" fullname="Nard.Tests.Rules.LongRulesTests.BearingOffAndGameEndAreSymmetric(1)" methodname="BearingOffAndGameEndAreSymmetric" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="987997527" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000160" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1076" name="BothPlayersFirstSpecialDoubles" fullname="Nard.Tests.Rules.LongRulesTests.BothPlayersFirstSpecialDoubles" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.004429" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1070" name="BothPlayersFirstSpecialDoubles(0,3,4)" fullname="Nard.Tests.Rules.LongRulesTests.BothPlayersFirstSpecialDoubles(0,3,4)" methodname="BothPlayersFirstSpecialDoubles" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1347896377" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.002450" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1071" name="BothPlayersFirstSpecialDoubles(0,4,4)" fullname="Nard.Tests.Rules.LongRulesTests.BothPlayersFirstSpecialDoubles(0,4,4)" methodname="BothPlayersFirstSpecialDoubles" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="635868039" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000290" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1072" name="BothPlayersFirstSpecialDoubles(0,6,2)" fullname="Nard.Tests.Rules.LongRulesTests.BothPlayersFirstSpecialDoubles(0,6,2)" methodname="BothPlayersFirstSpecialDoubles" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="251791586" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000124" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1073" name="BothPlayersFirstSpecialDoubles(1,3,4)" fullname="Nard.Tests.Rules.LongRulesTests.BothPlayersFirstSpecialDoubles(1,3,4)" methodname="BothPlayersFirstSpecialDoubles" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="48849393" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000406" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1074" name="BothPlayersFirstSpecialDoubles(1,4,4)" fullname="Nard.Tests.Rules.LongRulesTests.BothPlayersFirstSpecialDoubles(1,4,4)" methodname="BothPlayersFirstSpecialDoubles" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="2073219047" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000207" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1075" name="BothPlayersFirstSpecialDoubles(1,6,2)" fullname="Nard.Tests.Rules.LongRulesTests.BothPlayersFirstSpecialDoubles(1,6,2)" methodname="BothPlayersFirstSpecialDoubles" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="497452075" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000084" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1069" name="CanonicalFixture" fullname="Nard.Tests.Rules.LongRulesTests.CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="67" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.022556" total="67" passed="26" failed="0" inconclusive="0" skipped="41" asserts="0">
+                <properties />
+                <reason>
+                  <message><![CDATA[One or more child tests were ignored]]></message>
+                </reason>
+                <test-case id="1002" name="Fixture_L_START" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_START" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="416220239" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.003651" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1003" name="Fixture_L_OPEN_HIGH" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_OPEN_HIGH" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="621806094" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.001006" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1004" name="Fixture_L_OPEN_TIE" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_OPEN_TIE" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1442469206" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000292" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1005" name="Fixture_S_START" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_START" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1091119333" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000232" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1006" name="Fixture_S_OPEN_HIGH" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_OPEN_HIGH" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1666286237" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1007" name="Fixture_S_OPEN_TIE" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_OPEN_TIE" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="301557087" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1008" name="Fixture_L_STEP_OVER_OCCUPIED" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_STEP_OVER_OCCUPIED" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="124227455" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000558" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1009" name="Fixture_L_OPPONENT_SINGLE_BLOCKS" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_OPPONENT_SINGLE_BLOCKS" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="398406768" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000212" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1010" name="Fixture_L_SECOND_HEAD_REJECT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_SECOND_HEAD_REJECT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1430759945" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000151" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1011" name="Fixture_L_FIRST_33" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_FIRST_33" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="471061584" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.001570" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1012" name="Fixture_L_FIRST_44" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_FIRST_44" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1240224273" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000373" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1013" name="Fixture_L_FIRST_66" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_FIRST_66" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="792744358" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000201" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1014" name="Fixture_L_FIRST_11" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_FIRST_11" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1305378869" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000433" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1015" name="Fixture_L_FIRST_55" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_FIRST_55" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="413737513" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000277" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1016" name="Fixture_L_LATER_66_SECOND_HEAD" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_LATER_66_SECOND_HEAD" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1808859061" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000161" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1017" name="Fixture_L_P1_WRAP" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_P1_WRAP" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1542632807" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000146" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1018" name="Fixture_L_ORDER_BOTH" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_ORDER_BOTH" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1283552872" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000166" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1019" name="Fixture_L_BLOCK_ALL_BEHIND" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_BLOCK_ALL_BEHIND" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1057264712" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000176" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1020" name="Fixture_L_BLOCK_ONE_AHEAD" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_BLOCK_ONE_AHEAD" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="81286885" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.002193" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1021" name="Fixture_L_BLOCK_GLOBAL_CORNER" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_BLOCK_GLOBAL_CORNER" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="750435200" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000276" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1022" name="Fixture_L_NOT_ALL_HOME" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_NOT_ALL_HOME" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="339432121" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000224" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1023" name="Fixture_L_BEAR_EXACT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_BEAR_EXACT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="382786658" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000178" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1024" name="Fixture_L_OVERSHOOT_NEAR_REJECT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_OVERSHOOT_NEAR_REJECT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="320605916" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000152" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1025" name="Fixture_L_OVERSHOOT_FARTHEST" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_OVERSHOOT_FARTHEST" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1467163279" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000139" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1026" name="Fixture_L_NO_SECOND_LAP" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_NO_SECOND_LAP" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1803425153" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000147" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1027" name="Fixture_L_HIGH_REJECT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_HIGH_REJECT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="393313679" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000241" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1028" name="Fixture_L_HIGH_ACCEPT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_HIGH_ACCEPT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="390696318" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.001189" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1029" name="Fixture_S_HIT_SINGLE" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_HIT_SINGLE" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="844821088" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000004" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1030" name="Fixture_S_TWO_BLOCK" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_TWO_BLOCK" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1664139187" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1031" name="Fixture_S_BAR_PRIORITY" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_BAR_PRIORITY" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="813734946" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000002" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1032" name="Fixture_S_BAR_ENTER_P0" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_BAR_ENTER_P0" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1332951613" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000003" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1033" name="Fixture_S_BAR_ENTER_P1" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_BAR_ENTER_P1" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1774800215" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1034" name="Fixture_S_BAR_HIT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_BAR_HIT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1109854452" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1035" name="Fixture_S_BAR_FULL_BLOCK" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_BAR_FULL_BLOCK" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="146183014" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1036" name="Fixture_S_BAR_PARTIAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_BAR_PARTIAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1387600897" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1037" name="Fixture_S_ORDER_BOTH" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_ORDER_BOTH" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1929123651" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000002" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1038" name="Fixture_S_MAX_REQUIRED" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_MAX_REQUIRED" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1814167106" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000002" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1039" name="Fixture_S_LOW_ONLY" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_LOW_ONLY" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="262199387" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1040" name="Fixture_S_NO_SUM_JUMP" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_NO_SUM_JUMP" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="962125536" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1041" name="Fixture_S_INTERMEDIATE_BLOCK" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_INTERMEDIATE_BLOCK" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1537610843" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1042" name="Fixture_S_DOUBLE_FOUR" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_DOUBLE_FOUR" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="614272380" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1043" name="Fixture_S_REUSED_DIE" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_REUSED_DIE" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1001879471" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1044" name="Fixture_S_WRONG_DIRECTION" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_WRONG_DIRECTION" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="843354364" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1045" name="Fixture_S_NOT_ALL_HOME" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_NOT_ALL_HOME" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="623937692" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1046" name="Fixture_S_BEAR_EXACT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_BEAR_EXACT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1437055284" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1047" name="Fixture_S_OVERSHOOT_NEAR_REJECT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_OVERSHOOT_NEAR_REJECT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1002135209" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1048" name="Fixture_S_OVERSHOOT_FARTHEST" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_OVERSHOOT_FARTHEST" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="2126794571" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1049" name="Fixture_S_HIGH_REJECT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_HIGH_REJECT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1930669636" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1050" name="Fixture_S_HIGH_ACCEPT" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_HIGH_ACCEPT" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="181759832" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1051" name="Fixture_L_UNDO_LOCAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_UNDO_LOCAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1284120872" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P02.4: undo application is not a P01.2 engine action" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P02.4: undo application is not a P01.2 engine action]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1052" name="Fixture_L_UNDO_COMMITTED" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_UNDO_COMMITTED" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1885970759" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P02.4: undo application is not a P01.2 engine action" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P02.4: undo application is not a P01.2 engine action]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1053" name="Fixture_S_UNDO_LOCAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_UNDO_LOCAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="2101153435" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1054" name="Fixture_S_UNDO_COMMITTED" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_UNDO_COMMITTED" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="16933325" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000002" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1055" name="Fixture_L_NORMAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_NORMAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="154146756" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000495" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1056" name="Fixture_L_MARS" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_L_MARS" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1299409599" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000363" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1057" name="Fixture_S_NORMAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_NORMAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="33433581" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000003" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1058" name="Fixture_S_MARS" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_MARS" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="301200178" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1059" name="Fixture_S_KOKS_BAR" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_KOKS_BAR" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="2122789574" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1060" name="Fixture_S_KOKS_HOME" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_KOKS_HOME" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1435177827" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1061" name="Fixture_S_OFF_ONE_PREVENTS_KOKS" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_S_OFF_ONE_PREVENTS_KOKS" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1272972558" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1062" name="Fixture_C_BO3_CONTINUES" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_C_BO3_CONTINUES" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="2058344416" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1063" name="Fixture_C_BO3_FINISHES" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_C_BO3_FINISHES" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1426890014" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1064" name="Fixture_C_BO5_FINISHES" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_C_BO5_FINISHES" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="881751228" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1065" name="Fixture_C_RATING_BOT_CASUAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_C_RATING_BOT_CASUAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="617024999" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1066" name="Fixture_C_RATING_PRIVATE_CASUAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_C_RATING_PRIVATE_CASUAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1285593618" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1067" name="Fixture_C_RATING_RANDOM_RANKED" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_C_RATING_RANDOM_RANKED" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1612907705" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+                <test-case id="1068" name="Fixture_C_RATING_RANDOM_CASUAL" fullname="Nard.Tests.Rules.LongRulesTests.Fixture_C_RATING_RANDOM_CASUAL" methodname="CanonicalFixture" classname="Nard.Tests.Rules.LongRulesTests" runstate="Ignored" seed="1830373553" result="Skipped" label="Ignored" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000001" asserts="0">
+                  <properties>
+                    <property name="_SKIPREASON" value="P01.3/P01.4: short/series/rating engine not authorized" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[P01.3/P01.4: short/series/rating engine not authorized]]></message>
+                  </reason>
+                </test-case>
+              </test-suite>
+              <test-case id="1118" name="ConstructorAndExportArraysCannotMutateState" fullname="Nard.Tests.Rules.LongRulesTests.ConstructorAndExportArraysCannotMutateState" methodname="ConstructorAndExportArraysCannotMutateState" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1363076043" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000559" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1116" name="EnteringHomeDuringTurnAllowsBearingOff" fullname="Nard.Tests.Rules.LongRulesTests.EnteringHomeDuringTurnAllowsBearingOff" methodname="EnteringHomeDuringTurnAllowsBearingOff" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="265202903" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000629" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1128" name="EqualDieTokenPermutationRemainsValid" fullname="Nard.Tests.Rules.LongRulesTests.EqualDieTokenPermutationRemainsValid" methodname="EqualDieTokenPermutationRemainsValid" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="819145483" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000504" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1129" name="ExhaustiveInitialRollMatrixIsDeterministicAndSymmetric" fullname="Nard.Tests.Rules.LongRulesTests.ExhaustiveInitialRollMatrixIsDeterministicAndSymmetric" methodname="ExhaustiveInitialRollMatrixIsDeterministicAndSymmetric" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="756355713" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.016829" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1117" name="FailedLateHopIsAtomicAndDoesNotConsumeDice" fullname="Nard.Tests.Rules.LongRulesTests.FailedLateHopIsAtomicAndDoesNotConsumeDice" methodname="FailedLateHopIsAtomicAndDoesNotConsumeDice" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1898151853" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000474" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1093" name="FirstThreeThreeIncludesUnevenDistribution" fullname="Nard.Tests.Rules.LongRulesTests.FirstThreeThreeIncludesUnevenDistribution" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.002193" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1091" name="FirstThreeThreeIncludesUnevenDistribution(0)" fullname="Nard.Tests.Rules.LongRulesTests.FirstThreeThreeIncludesUnevenDistribution(0)" methodname="FirstThreeThreeIncludesUnevenDistribution" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1008426684" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000931" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1092" name="FirstThreeThreeIncludesUnevenDistribution(1)" fullname="Nard.Tests.Rules.LongRulesTests.FirstThreeThreeIncludesUnevenDistribution(1)" methodname="FirstThreeThreeIncludesUnevenDistribution" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1207466058" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000241" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1132" name="IndependentOracleAgreesOnEveryInitialRollAndPlayer" fullname="Nard.Tests.Rules.LongRulesTests.IndependentOracleAgreesOnEveryInitialRollAndPlayer" methodname="IndependentOracleAgreesOnEveryInitialRollAndPlayer" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1653670267" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.012654" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1119" name="InvalidInputAndUnsupportedShortRulesetAreRejected" fullname="Nard.Tests.Rules.LongRulesTests.InvalidInputAndUnsupportedShortRulesetAreRejected" methodname="InvalidInputAndUnsupportedShortRulesetAreRejected" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="515937947" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.002823" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1127" name="InvalidLocalMovesAreRejectedWithoutMutation" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.001395" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1120" name="InvalidLocalMovesAreRejectedWithoutMutation(-1,2,0)" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation(-1,2,0)" methodname="InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="930611725" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000236" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1121" name="InvalidLocalMovesAreRejectedWithoutMutation(24,2,0)" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation(24,2,0)" methodname="InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1405159049" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000105" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1122" name="InvalidLocalMovesAreRejectedWithoutMutation(0,25,0)" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation(0,25,0)" methodname="InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1278275751" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000045" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1123" name="InvalidLocalMovesAreRejectedWithoutMutation(0,2,-1)" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation(0,2,-1)" methodname="InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="2147479949" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000041" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1124" name="InvalidLocalMovesAreRejectedWithoutMutation(0,2,4)" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation(0,2,4)" methodname="InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1858222600" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000041" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1125" name="InvalidLocalMovesAreRejectedWithoutMutation(12,14,0)" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation(12,14,0)" methodname="InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="39709490" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000038" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1126" name="InvalidLocalMovesAreRejectedWithoutMutation(0,1,0)" fullname="Nard.Tests.Rules.LongRulesTests.InvalidLocalMovesAreRejectedWithoutMutation(0,1,0)" methodname="InvalidLocalMovesAreRejectedWithoutMutation" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1241603225" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000054" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1100" name="LaterSpecialDoublesDoNotGetSecondHead" fullname="Nard.Tests.Rules.LongRulesTests.LaterSpecialDoublesDoNotGetSecondHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.001317" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1094" name="LaterSpecialDoublesDoNotGetSecondHead(0,3)" fullname="Nard.Tests.Rules.LongRulesTests.LaterSpecialDoublesDoNotGetSecondHead(0,3)" methodname="LaterSpecialDoublesDoNotGetSecondHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1343242036" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000368" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1095" name="LaterSpecialDoublesDoNotGetSecondHead(0,4)" fullname="Nard.Tests.Rules.LongRulesTests.LaterSpecialDoublesDoNotGetSecondHead(0,4)" methodname="LaterSpecialDoublesDoNotGetSecondHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1720506905" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000079" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1096" name="LaterSpecialDoublesDoNotGetSecondHead(0,6)" fullname="Nard.Tests.Rules.LongRulesTests.LaterSpecialDoublesDoNotGetSecondHead(0,6)" methodname="LaterSpecialDoublesDoNotGetSecondHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1176320380" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000042" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1097" name="LaterSpecialDoublesDoNotGetSecondHead(1,3)" fullname="Nard.Tests.Rules.LongRulesTests.LaterSpecialDoublesDoNotGetSecondHead(1,3)" methodname="LaterSpecialDoublesDoNotGetSecondHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="2093806276" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000038" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1098" name="LaterSpecialDoublesDoNotGetSecondHead(1,4)" fullname="Nard.Tests.Rules.LongRulesTests.LaterSpecialDoublesDoNotGetSecondHead(1,4)" methodname="LaterSpecialDoublesDoNotGetSecondHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="360692632" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000051" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1099" name="LaterSpecialDoublesDoNotGetSecondHead(1,6)" fullname="Nard.Tests.Rules.LongRulesTests.LaterSpecialDoublesDoNotGetSecondHead(1,6)" methodname="LaterSpecialDoublesDoNotGetSecondHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1034585917" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000062" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1104" name="LowerDieMustComeFirstAndPrematurePassRejected" fullname="Nard.Tests.Rules.LongRulesTests.LowerDieMustComeFirstAndPrematurePassRejected" methodname="LowerDieMustComeFirstAndPrematurePassRejected" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1714733305" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000368" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1106" name="LowerOnlyIsPlayedWhenHigherBlocked" fullname="Nard.Tests.Rules.LongRulesTests.LowerOnlyIsPlayedWhenHigherBlocked" methodname="LowerOnlyIsPlayedWhenHigherBlocked" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1289746479" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000288" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1105" name="MiddleBoardHigherDieWinsWhenBothAreAlternatives" fullname="Nard.Tests.Rules.LongRulesTests.MiddleBoardHigherDieWinsWhenBothAreAlternatives" methodname="MiddleBoardHigherDieWinsWhenBothAreAlternatives" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="505800297" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000347" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1130" name="MovingCheckerOutOfOldBlockDoesNotInventSixPrime" fullname="Nard.Tests.Rules.LongRulesTests.MovingCheckerOutOfOldBlockDoesNotInventSixPrime" methodname="MovingCheckerOutOfOldBlockDoesNotInventSixPrime" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1183225283" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000162" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1103" name="OpeningWinnerNeedsFreshRoll" fullname="Nard.Tests.Rules.LongRulesTests.OpeningWinnerNeedsFreshRoll" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.001354" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1101" name="OpeningWinnerNeedsFreshRoll(0)" fullname="Nard.Tests.Rules.LongRulesTests.OpeningWinnerNeedsFreshRoll(0)" methodname="OpeningWinnerNeedsFreshRoll" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="527970863" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000555" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1102" name="OpeningWinnerNeedsFreshRoll(1)" fullname="Nard.Tests.Rules.LongRulesTests.OpeningWinnerNeedsFreshRoll(1)" methodname="OpeningWinnerNeedsFreshRoll" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="712814758" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000216" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1090" name="OtherFirstDoublesUseOneHead" fullname="Nard.Tests.Rules.LongRulesTests.OtherFirstDoublesUseOneHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.002113" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1084" name="OtherFirstDoublesUseOneHead(0,1)" fullname="Nard.Tests.Rules.LongRulesTests.OtherFirstDoublesUseOneHead(0,1)" methodname="OtherFirstDoublesUseOneHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1431152359" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000569" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1085" name="OtherFirstDoublesUseOneHead(0,2)" fullname="Nard.Tests.Rules.LongRulesTests.OtherFirstDoublesUseOneHead(0,2)" methodname="OtherFirstDoublesUseOneHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="133145405" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000181" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1086" name="OtherFirstDoublesUseOneHead(0,5)" fullname="Nard.Tests.Rules.LongRulesTests.OtherFirstDoublesUseOneHead(0,5)" methodname="OtherFirstDoublesUseOneHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="117488018" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000099" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1087" name="OtherFirstDoublesUseOneHead(1,1)" fullname="Nard.Tests.Rules.LongRulesTests.OtherFirstDoublesUseOneHead(1,1)" methodname="OtherFirstDoublesUseOneHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1976961452" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000089" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1088" name="OtherFirstDoublesUseOneHead(1,2)" fullname="Nard.Tests.Rules.LongRulesTests.OtherFirstDoublesUseOneHead(1,2)" methodname="OtherFirstDoublesUseOneHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="3687129" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000094" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1089" name="OtherFirstDoublesUseOneHead(1,5)" fullname="Nard.Tests.Rules.LongRulesTests.OtherFirstDoublesUseOneHead(1,5)" methodname="OtherFirstDoublesUseOneHead" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="51895829" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000102" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1083" name="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" fullname="Nard.Tests.Rules.LongRulesTests.OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.003399" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1077" name="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,3,4)" fullname="Nard.Tests.Rules.LongRulesTests.OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,3,4)" methodname="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="699248939" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.001195" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1078" name="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,4,4)" fullname="Nard.Tests.Rules.LongRulesTests.OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,4,4)" methodname="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="381662254" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000234" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1079" name="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,6,2)" fullname="Nard.Tests.Rules.LongRulesTests.OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(0,6,2)" methodname="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1096150313" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000085" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1080" name="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,3,4)" fullname="Nard.Tests.Rules.LongRulesTests.OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,3,4)" methodname="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1411403045" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000356" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1081" name="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,4,4)" fullname="Nard.Tests.Rules.LongRulesTests.OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,4,4)" methodname="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="516295255" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000156" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1082" name="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,6,2)" fullname="Nard.Tests.Rules.LongRulesTests.OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed(1,6,2)" methodname="OwnFirstDoubleWorksAfterOpponentHasAlreadyPlayed" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1733614528" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.000070" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1136" name="SeededReachablePositionsRemainImmutableAndRepeatable" fullname="Nard.Tests.Rules.LongRulesTests.SeededReachablePositionsRemainImmutableAndRepeatable" methodname="SeededReachablePositionsRemainImmutableAndRepeatable" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1100126390" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:11Z" duration="0.107749" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Reachable position run: seed=1202, turns=91
+]]></output>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1135" name="SeededSyntheticPositionsAgreeWithIndependentOracle" fullname="Nard.Tests.Rules.LongRulesTests.SeededSyntheticPositionsAgreeWithIndependentOracle" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="1.019163" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1133" name="SeededSyntheticPositionsAgreeWithIndependentOracle(0)" fullname="Nard.Tests.Rules.LongRulesTests.SeededSyntheticPositionsAgreeWithIndependentOracle(0)" methodname="SeededSyntheticPositionsAgreeWithIndependentOracle" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1061636507" result="Passed" start-time="2026-11-03 12:49:11Z" end-time="2026-11-03 12:49:12Z" duration="0.460681" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Synthetic differential samples: seed=1203, count=500; reachability not asserted
+]]></output>
+                </test-case>
+                <test-case id="1134" name="SeededSyntheticPositionsAgreeWithIndependentOracle(1)" fullname="Nard.Tests.Rules.LongRulesTests.SeededSyntheticPositionsAgreeWithIndependentOracle(1)" methodname="SeededSyntheticPositionsAgreeWithIndependentOracle" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="2014731244" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.557691" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Synthetic differential samples: seed=1204, count=500; reachability not asserted
+]]></output>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1112" name="SixPrimeAcrossGlobalOrPlayerRotatedCorner" fullname="Nard.Tests.Rules.LongRulesTests.SixPrimeAcrossGlobalOrPlayerRotatedCorner" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.001935" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1108" name="SixPrimeAcrossGlobalOrPlayerRotatedCorner(0,False)" fullname="Nard.Tests.Rules.LongRulesTests.SixPrimeAcrossGlobalOrPlayerRotatedCorner(0,False)" methodname="SixPrimeAcrossGlobalOrPlayerRotatedCorner" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="13862106" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000600" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1109" name="SixPrimeAcrossGlobalOrPlayerRotatedCorner(0,True)" fullname="Nard.Tests.Rules.LongRulesTests.SixPrimeAcrossGlobalOrPlayerRotatedCorner(0,True)" methodname="SixPrimeAcrossGlobalOrPlayerRotatedCorner" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1816758953" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000149" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1110" name="SixPrimeAcrossGlobalOrPlayerRotatedCorner(1,False)" fullname="Nard.Tests.Rules.LongRulesTests.SixPrimeAcrossGlobalOrPlayerRotatedCorner(1,False)" methodname="SixPrimeAcrossGlobalOrPlayerRotatedCorner" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="1331210696" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000093" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1111" name="SixPrimeAcrossGlobalOrPlayerRotatedCorner(1,True)" fullname="Nard.Tests.Rules.LongRulesTests.SixPrimeAcrossGlobalOrPlayerRotatedCorner(1,True)" methodname="SixPrimeAcrossGlobalOrPlayerRotatedCorner" classname="Nard.Tests.Rules.LongRulesTests" runstate="Runnable" seed="2040282151" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000064" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1150" name="Nard.Tests.EditMode.dll" fullname="/home/ua/Desktop/NERD/build/P01.2/unity/Library/ScriptAssemblies/Nard.Tests.EditMode.dll" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.008993" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="180961" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1151" name="Nard" fullname="Nard" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.008769" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1152" name="Tests" fullname="Nard.Tests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.008657" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1141" name="FoundationTests" fullname="Nard.Tests.FoundationTests" classname="Nard.Tests.FoundationTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.008523" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1142" name="EditorVersionIsPinned" fullname="Nard.Tests.FoundationTests.EditorVersionIsPinned" methodname="EditorVersionIsPinned" classname="Nard.Tests.FoundationTests" runstate="Runnable" seed="1395423908" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000501" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1143" name="OnlyBootstrapIsEnabledForBuild" fullname="Nard.Tests.FoundationTests.OnlyBootstrapIsEnabledForBuild" methodname="OnlyBootstrapIsEnabledForBuild" classname="Nard.Tests.FoundationTests" runstate="Runnable" seed="1785088959" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.003034" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1144" name="ProjectIs2DAndUsesTextSerialization" fullname="Nard.Tests.FoundationTests.ProjectIs2DAndUsesTextSerialization" methodname="ProjectIs2DAndUsesTextSerialization" classname="Nard.Tests.FoundationTests" runstate="Runnable" seed="1898355368" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000638" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1148" name="SafeAreaStaysWithinScreenAcrossAspectRatios" fullname="Nard.Tests.FoundationTests.SafeAreaStaysWithinScreenAcrossAspectRatios" classname="Nard.Tests.FoundationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.002462" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1145" name="SafeAreaStaysWithinScreenAcrossAspectRatios(1080,2400,0,90,1080,2200)" fullname="Nard.Tests.FoundationTests.SafeAreaStaysWithinScreenAcrossAspectRatios(1080,2400,0,90,1080,2200)" methodname="SafeAreaStaysWithinScreenAcrossAspectRatios" classname="Nard.Tests.FoundationTests" runstate="Runnable" seed="543059789" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.001504" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1146" name="SafeAreaStaysWithinScreenAcrossAspectRatios(2400,1080,90,0,2200,1080)" fullname="Nard.Tests.FoundationTests.SafeAreaStaysWithinScreenAcrossAspectRatios(2400,1080,90,0,2200,1080)" methodname="SafeAreaStaysWithinScreenAcrossAspectRatios" classname="Nard.Tests.FoundationTests" runstate="Runnable" seed="1934049532" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000156" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1147" name="SafeAreaStaysWithinScreenAcrossAspectRatios(720,1280,-20,-20,800,1400)" fullname="Nard.Tests.FoundationTests.SafeAreaStaysWithinScreenAcrossAspectRatios(720,1280,-20,-20,800,1400)" methodname="SafeAreaStaysWithinScreenAcrossAspectRatios" classname="Nard.Tests.FoundationTests" runstate="Runnable" seed="461546226" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000075" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1149" name="ZeroSizeDuringStartupIsSafe" fullname="Nard.Tests.FoundationTests.ZeroSizeDuringStartupIsSafe" methodname="ZeroSizeDuringStartupIsSafe" classname="Nard.Tests.FoundationTests" runstate="Runnable" seed="1304015296" result="Passed" start-time="2026-11-03 12:49:12Z" end-time="2026-11-03 12:49:12Z" duration="0.000731" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /home/ua/Desktop/NERD/build/P01.2/editmode.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

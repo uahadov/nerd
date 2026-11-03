@@ -2,7 +2,7 @@
 
 Android və iOS üçün Unity 6 / C# əsasında tam 2D nərd oyunu.
 Online istiqamət: Nakama authoritative TypeScript və istehsal üçün CockroachDB.
-Hazırda P01.1 üzrə uzun/qısa qayda müqaviləsi və fixture nümunələri yoxlanır.
+Hazırda P01.2 üzrə uzun nərdin müstəqil C# qayda mühərriki və testləri hazırlanıb.
 P00.3 Unity təməli qəbul edilib; fiziki Android testi açıqdır. Oynanıla bilən nərd hələ yoxdur.
 
 ## Yeni agent üçün giriş
@@ -27,7 +27,8 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [P00.1 hesabatı](docs/reports/P00.1.md) | Əvvəlki auditin məhdudiyyətləri ilə saxlanan xülasəsi |
 | [P00.2 hesabatı](docs/reports/P00.2.md) | Qəbul edilmiş təməlin tarixi nəticəsi |
 | [P00.3 hesabatı](docs/reports/P00.3.md) | Qəbul edilmiş Unity/Android təməlinin tarixi sübutu |
-| [P01.1 hesabatı](docs/reports/P01.1.md) | Cari qayda sənədləri və real avtomatik yoxlamalar |
+| [P01.1 hesabatı](docs/reports/P01.1.md) | Qəbul edilmiş qayda sənədləri və nümunələr |
+| [P01.2 hesabatı](docs/reports/P01.2.md) | Uzun mühərrik, real NUnit nəticələri və açıq yoxlamalar |
 | [Qayda müqaviləsi](docs/RULESET_VARIANTS.md) | Ortaq koordinatlar, qayda ID-ləri və provisional variantlar |
 | [Uzun qaydalar](docs/RULES_LONG.md), [qısa qaydalar](docs/RULES_SHORT.md) | Rejimlər üzrə sənəd tələbləri |
 | [Qayda matrisi](docs/RULE_MATRIX.md) | JSON nümunələrinin insan üçün oxunaqlı görünüşü |
@@ -69,3 +70,19 @@ Runner əlavə xidmət qurmur. Başqa kompüterdə --editor ilə Editor yolu ver
 Android build üçün uyğun rəsmi Android Build Support/SDK/NDK/OpenJDK lazımdır.
 Raw loglar, NUnit XML və APK build/P00.3/ daxilində lokal saxlanır və Git-ə daxil edilmir.
 Eyni layihəni açıq Editor ilə batch prosesində paralel işlətməyin.
+
+## P01.2 uzun mühərrik testləri
+
+```bash
+python3 scripts/build/p012.py editmode
+python3 scripts/build/p012.py playmode
+python3 scripts/build/p012.py android
+```
+
+Unity 6000.6.7f1 lazımdır; başqa yerdədirsə --editor parametrini verin.
+Runner build/P01.2/unity daxilində source-only lokal test surətini yaradır və onun
+cache-indən istifadə edir. Açıq əsas Editor bağlanmır, əsas səhnə/UI dəyişdirilmir.
+NUnit XML/log və APK build/P01.2 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
+Fixture-lər docs/rules/fixtures.json-dan oxunur. 41 kənar-əhatə nümunəsi skipped kimi görünür,
+PASS sayılmır; bu, bütün 67 nümunənin mühərrik tərəfindən icra edildiyi iddiası deyil.
+PROVISIONAL_RULE seçimi ilkin standart olaraq qəbul edilib, müstəqil yerli oyunçu yoxlaması açıqdır.
