@@ -81,12 +81,12 @@ class FoundationTests(unittest.TestCase):
         self.fails('state_contract')
 
     def test_wrong_authorization_rejected(self):
-        self.change_state(lambda s: s['authorization'].update(part='P01.1'))
+        self.change_state(lambda s: s['authorization'].update(part='P01.2'))
         self.fails('state_contract')
 
     def test_future_human_approval_rejected(self):
         self.change_state(lambda s: s['human_approvals'].append(
-            {'part': 'P00.3', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
+            {'part': 'P01.1', 'by': 'human', 'quote': 'synthetic test', 'report': 'docs/reports/P00.1.md'}))
         self.fails('state_contract')
 
     def test_progress_drift_rejected(self):
@@ -152,11 +152,11 @@ class FoundationTests(unittest.TestCase):
         self.fails('remote_safety')
 
     def test_coordinated_next_part_change_rejected(self):
-        self.change_state(lambda s: (s.update(active_part='P01.1', next_part='P01.2'),
-                                     s['authorization'].update(part='P01.1')))
+        self.change_state(lambda s: (s.update(active_part='P01.2', next_part='P01.3'),
+                                     s['authorization'].update(part='P01.2')))
         p = self.root / 'PROGRESS.md'
-        p.write_text(p.read_text().replace('- Aktiv part: `P00.3`', '- Aktiv part: `P01.1`')
-                     .replace('- Növbəti part: `P01.1`', '- Növbəti part: `P01.2`'))
+        p.write_text(p.read_text().replace('- Aktiv part: `P01.1`', '- Aktiv part: `P01.2`')
+                     .replace('- Növbəti part: `P01.2`', '- Növbəti part: `P01.3`'))
         self.fails('current_scope')
 
     def test_empty_scope_rejected(self):
@@ -189,6 +189,10 @@ class FoundationTests(unittest.TestCase):
         r = subprocess.run(['python3', str(MODULE_PATH), '--root', str(self.root)], capture_output=True, text=True)
         self.assertEqual(r.returncode, 1)
         self.assertGreater(json.loads(r.stdout)['failed'], 0)
+
+    def test_unperformed_device_test_cannot_be_claimed(self):
+        self.change_state(lambda s: s['build'].update(physical_device='PASS'))
+        self.fails('rule_specification')
 
 
 if __name__ == '__main__':

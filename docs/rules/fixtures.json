@@ -1,0 +1,8808 @@
+{
+  "format_version": 1,
+  "coordinate_version": "board-global-v1",
+  "rule_sets": {
+    "long-az-gdd1-provisional.1": {
+      "mode": "long",
+      "human_review": "PENDING",
+      "provisional_rules": [
+        "L-BEAR",
+        "L-BLOCK",
+        "L-HEAD-FIRST",
+        "L-HIGH",
+        "L-MARS",
+        "L-OPEN"
+      ]
+    },
+    "short-gdd1-draft.1": {
+      "mode": "short",
+      "human_review": "PENDING",
+      "provisional_rules": []
+    }
+  },
+  "cases": [
+    {
+      "id": "L_START",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Başlanğıc: 24 xana, hər tərəfdə 15 daş",
+      "covers": [
+        "C-BOARD",
+        "L-START"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "start",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_OPEN_HIGH",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "İlkin 6/2: qalib və ilk oyun zərləri",
+      "covers": [
+        "C-OPEN",
+        "L-OPEN"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-OPEN"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "opening",
+        "moves": [],
+        "opening_dice": [
+          6,
+          2
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "await_roll",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "starter": 0,
+        "next_roll": "FRESH_TWO_DICE"
+      }
+    },
+    {
+      "id": "L_OPEN_TIE",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "İlkin 4/4: heç kim başlamır, təkrar atılır",
+      "covers": [
+        "C-OPEN",
+        "L-OPEN"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-OPEN"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "opening",
+        "moves": [],
+        "opening_dice": [
+          4,
+          4
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "starter": -1,
+        "next_roll": "REROLL_OPENING"
+      }
+    },
+    {
+      "id": "S_START",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Başlanğıc: 24 xana, hər tərəfdə 15 daş",
+      "covers": [
+        "C-BOARD",
+        "S-START"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "start",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_OPEN_HIGH",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "İlkin 6/2: qalib və ilk oyun zərləri",
+      "covers": [
+        "C-OPEN"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "opening",
+        "moves": [],
+        "opening_dice": [
+          6,
+          2
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            6,
+            2
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "starter": 0,
+        "next_roll": "OPENING_VALUES"
+      }
+    },
+    {
+      "id": "S_OPEN_TIE",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "İlkin 4/4: heç kim başlamır, təkrar atılır",
+      "covers": [
+        "C-OPEN"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "opening",
+        "moves": [],
+        "opening_dice": [
+          4,
+          4
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "starter": -1,
+        "next_roll": "REROLL_OPENING"
+      }
+    },
+    {
+      "id": "L_STEP_OVER_OCCUPIED",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Bir zərin daxilində aralıq xana tutulsa da boş hədəfə tullanmaq olar",
+      "covers": [
+        "C-DIRECTION",
+        "C-INTERMEDIATE",
+        "L-HEAD"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          15,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 0,
+            "target": 2,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            14,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            1,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_OPPONENT_SINGLE_BLOCKS",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Rəqibin tək daşı vurulmur, həmin xana bağlıdır",
+      "covers": [
+        "L-HEAD",
+        "C-DIRECTION"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          14,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 5,
+            "target": 7,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "DESTINATION_OCCUPIED",
+        "after": {
+          "points": [
+            14,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_SECOND_HEAD_REJECT",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Adi növbədə ikinci daş başdan çıxmır",
+      "covers": [
+        "L-HEAD"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          14,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          3,
+          2
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          1,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 0,
+            "target": 2,
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "HEAD_LIMIT",
+        "after": {
+          "points": [
+            14,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            3,
+            2
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            1,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_FIRST_33",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "İlk şəxsi növbə 3/3: iki baş daşı",
+      "covers": [
+        "L-HEAD-FIRST",
+        "C-DICE",
+        "C-MAX"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HEAD-FIRST"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          3,
+          3
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": 3,
+            "slot": 0
+          },
+          {
+            "source": 3,
+            "target": 6,
+            "slot": 1
+          },
+          {
+            "source": 0,
+            "target": 3,
+            "slot": 2
+          },
+          {
+            "source": 3,
+            "target": 6,
+            "slot": 3
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            3,
+            3
+          ],
+          "used": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            2,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 4
+      }
+    },
+    {
+      "id": "L_FIRST_44",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "İlk şəxsi növbə 4/4: iki baş daşı",
+      "covers": [
+        "L-HEAD-FIRST",
+        "C-DICE",
+        "C-MAX"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HEAD-FIRST"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          4,
+          4
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": 4,
+            "slot": 0
+          },
+          {
+            "source": 4,
+            "target": 8,
+            "slot": 1
+          },
+          {
+            "source": 0,
+            "target": 4,
+            "slot": 2
+          },
+          {
+            "source": 4,
+            "target": 8,
+            "slot": 3
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            4,
+            4
+          ],
+          "used": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            2,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 4
+      }
+    },
+    {
+      "id": "L_FIRST_66",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "İlk şəxsi növbə 6/6: iki baş daşı",
+      "covers": [
+        "L-HEAD-FIRST",
+        "C-DICE",
+        "C-MAX"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HEAD-FIRST"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          6,
+          6
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": 6,
+            "slot": 0
+          },
+          {
+            "source": 0,
+            "target": 6,
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            6,
+            6
+          ],
+          "used": [
+            0,
+            1
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            2,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 2
+      }
+    },
+    {
+      "id": "L_FIRST_11",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "İlk 1/1: yalnız bir baş daşı, dörd ayrı hərəkət",
+      "covers": [
+        "L-HEAD-FIRST",
+        "C-DICE",
+        "C-MAX"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HEAD-FIRST"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          1,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": 1,
+            "slot": 0
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "slot": 1
+          },
+          {
+            "source": 2,
+            "target": 3,
+            "slot": 2
+          },
+          {
+            "source": 3,
+            "target": 4,
+            "slot": 3
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            14,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            1,
+            1
+          ],
+          "used": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            1,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 4
+      }
+    },
+    {
+      "id": "L_FIRST_55",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "İlk 5/5: yalnız bir baş daşı, dörd ayrı hərəkət",
+      "covers": [
+        "L-HEAD-FIRST",
+        "C-DICE",
+        "C-MAX"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HEAD-FIRST"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          5,
+          5
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": 5,
+            "slot": 0
+          },
+          {
+            "source": 5,
+            "target": 10,
+            "slot": 1
+          },
+          {
+            "source": 10,
+            "target": 15,
+            "slot": 2
+          },
+          {
+            "source": 15,
+            "target": 20,
+            "slot": 3
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            5,
+            5
+          ],
+          "used": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            1,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 4
+      }
+    },
+    {
+      "id": "L_LATER_66_SECOND_HEAD",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Sonrakı 6/6 növbəsində iki baş daşı istisnası yoxdur",
+      "covers": [
+        "L-HEAD-FIRST",
+        "L-HEAD"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HEAD-FIRST"
+      ],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          6,
+          6
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": 6,
+            "slot": 0
+          },
+          {
+            "source": 0,
+            "target": 6,
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "HEAD_LIMIT",
+        "after": {
+          "points": [
+            15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            6,
+            6
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 1
+      }
+    },
+    {
+      "id": "L_P1_WRAP",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "P1 23→1 gedir: öz yolunda irəliləyir, P0 ilə eyni dövrə istiqaməti",
+      "covers": [
+        "C-DIRECTION"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 1,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 23,
+            "target": 1,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            15,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 1,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_ORDER_BOTH",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "1 sonra 2: hər iki zər oynanır; 2 əvvəl bağlıdır",
+      "covers": [
+        "C-MAX",
+        "C-INTERMEDIATE",
+        "L-HEAD"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          15,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": 1,
+            "slot": 1
+          },
+          {
+            "source": 1,
+            "target": 3,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            14,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            1,
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            1,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 2
+      }
+    },
+    {
+      "id": "L_BLOCK_ALL_BEHIND",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "18..23 altılığı: bütün rəqib daşları arxadadır",
+      "covers": [
+        "L-BLOCK"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BLOCK"
+      ],
+      "before": {
+        "points": [
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 17,
+            "target": 23,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "SIX_BLOCK_TRAPS_ALL",
+        "after": {
+          "points": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_BLOCK_ONE_AHEAD",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Eyni altılıq: rəqibin bir daşı blokdan qabaqdadır",
+      "covers": [
+        "L-BLOCK"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BLOCK"
+      ],
+      "before": {
+        "points": [
+          4,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 17,
+            "target": 23,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            4,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_BLOCK_GLOBAL_CORNER",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "22,23,0,1,2,3: global döngə də ardıcıldır",
+      "covers": [
+        "L-BLOCK"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BLOCK"
+      ],
+      "before": {
+        "points": [
+          7,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          3,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 0,
+            "target": 3,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "SIX_BLOCK_TRAPS_ALL",
+        "after": {
+          "points": [
+            7,
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            3,
+            1
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_NOT_ALL_HOME",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "17-də daş qaldıqda 18-dən çıxarmaq olmaz",
+      "covers": [
+        "L-BEAR"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BEAR"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          1,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [
+          1
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 18,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "NOT_ALL_HOME",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            1,
+            14,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [
+            1
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_BEAR_EXACT",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "21-dəki son daş məsafə 3 ilə çıxır",
+      "covers": [
+        "L-BEAR"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BEAR"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          3
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 21,
+            "target": "off",
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [
+            2,
+            3
+          ],
+          "used": [
+            0,
+            1
+          ],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_OVERSHOOT_NEAR_REJECT",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "6 ilə yalnız ən uzaq 20-dəki daş artıq qiymətlə çıxarıla bilər",
+      "covers": [
+        "L-BEAR"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BEAR"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          13,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [
+          1
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 22,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "OVERSHOOT_NOT_FARTHEST",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            13,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [
+            1
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_OVERSHOOT_FARTHEST",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "6 ilə yalnız ən uzaq 20-dəki daş artıq qiymətlə çıxarıla bilər",
+      "covers": [
+        "L-BEAR"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BEAR"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          13,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [
+          1
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 20,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [
+            1,
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_NO_SECOND_LAP",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "23-dən 0-a ikinci dövrə yox; evdən çıxış off-dur",
+      "covers": [
+        "L-BEAR",
+        "C-DIRECTION"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-BEAR"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 23,
+            "target": 0,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "SECOND_LAP",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_HIGH_REJECT",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Tək son daş: maksimum 1 hərəkətdirsə yüksək zər seçilir",
+      "covers": [
+        "L-HIGH",
+        "C-HIGH",
+        "C-MAX"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HIGH"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 23,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "HIGHER_DIE_REQUIRED",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 1
+      }
+    },
+    {
+      "id": "L_HIGH_ACCEPT",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Tək son daş: maksimum 1 hərəkətdirsə yüksək zər seçilir",
+      "covers": [
+        "L-HIGH",
+        "C-HIGH",
+        "C-MAX"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-HIGH"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 23,
+            "target": "off",
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [
+            1
+          ],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 1
+      }
+    },
+    {
+      "id": "S_HIT_SINGLE",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "7→5: tək rəqib daşı bar-a gedir",
+      "covers": [
+        "S-HIT"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -14,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 7,
+            "target": 5,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -14,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            1
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_TWO_BLOCK",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "İki rəqib daşı hədəfi bağlayır",
+      "covers": [
+        "S-HIT"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -13,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 7,
+            "target": 5,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "DESTINATION_OCCUPIED",
+        "after": {
+          "points": [
+            -13,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_BAR_PRIORITY",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Bar boşalmadan 5→3 seçmək olmaz",
+      "covers": [
+        "S-BAR"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -13,
+          0,
+          0,
+          0,
+          0,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2
+        ],
+        "bar": [
+          1,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 5,
+            "target": 3,
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "BAR_REQUIRED",
+        "after": {
+          "points": [
+            -13,
+            0,
+            0,
+            0,
+            0,
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -2
+          ],
+          "bar": [
+            1,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_BAR_ENTER_P0",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "P0 bar-dan 1 ilə 23-ə girir",
+      "covers": [
+        "S-BAR",
+        "C-DIRECTION"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -15,
+          0,
+          0,
+          0,
+          0,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          1,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": "bar",
+            "target": 23,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -15,
+            0,
+            0,
+            0,
+            0,
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_BAR_ENTER_P1",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "P1 bar-dan 3 ilə 2-yə girir",
+      "covers": [
+        "S-BAR",
+        "C-DIRECTION"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          15
+        ],
+        "bar": [
+          0,
+          1
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          3,
+          2
+        ],
+        "used": [],
+        "to_move": 1,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": "bar",
+            "target": 2,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            3,
+            2
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 1,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_BAR_HIT",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Bar-dan giriş tək rəqib daşını vura bilər",
+      "covers": [
+        "S-BAR",
+        "S-HIT"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -14,
+          0,
+          0,
+          0,
+          0,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1
+        ],
+        "bar": [
+          1,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": "bar",
+            "target": 23,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -14,
+            0,
+            0,
+            0,
+            0,
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "bar": [
+            0,
+            1
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_BAR_FULL_BLOCK",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "1 və 2 girişləri bağlı: sıfır hərəkətli turn qanunidir",
+      "covers": [
+        "S-BAR",
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -11,
+          0,
+          0,
+          0,
+          0,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          -2
+        ],
+        "bar": [
+          1,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -11,
+            0,
+            0,
+            0,
+            0,
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            -2
+          ],
+          "bar": [
+            1,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 0
+      }
+    },
+    {
+      "id": "S_BAR_PARTIAL",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "İki bar daşından yalnız biri 2 ilə girir, 1 bağlıdır",
+      "covers": [
+        "S-BAR",
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -13,
+          0,
+          0,
+          0,
+          0,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2
+        ],
+        "bar": [
+          2,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": "bar",
+            "target": 22,
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -13,
+            0,
+            0,
+            0,
+            0,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -2
+          ],
+          "bar": [
+            1,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [
+            1
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 1
+      }
+    },
+    {
+      "id": "S_ORDER_BOTH",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "8→7→5: əvvəl kiçik zər lazımdır, hər ikisi istifadə olunur",
+      "covers": [
+        "C-MAX",
+        "C-INTERMEDIATE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -13
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 8,
+            "target": 7,
+            "slot": 1
+          },
+          {
+            "source": 7,
+            "target": 5,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -13
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            1,
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 2
+      }
+    },
+    {
+      "id": "S_MAX_REQUIRED",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "İki gediş mümkün olduğu halda bir gedişlə turn bitmir",
+      "covers": [
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 8,
+            "target": 6,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "MAX_DICE_REQUIRED",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 2
+      }
+    },
+    {
+      "id": "S_LOW_ONLY",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Yüksək zər bağlıdırsa yeganə kiçik zər işlənir",
+      "covers": [
+        "C-HIGH",
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -11,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          -2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 8,
+            "target": 7,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -11,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            -2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 1
+      }
+    },
+    {
+      "id": "S_NO_SUM_JUMP",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "2/3 zərlərini 5 sayıb 8→3 sıçramaq olmaz",
+      "covers": [
+        "C-INTERMEDIATE",
+        "C-DICE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          -2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -11
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          3
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 8,
+            "target": 3,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "SUMMED_DICE_STEP",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            -2,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -11
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            3
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_INTERMEDIATE_BLOCK",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Hər iki aralıq dayanacaq bağlıdır: bütün turn keçilir",
+      "covers": [
+        "C-INTERMEDIATE",
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          -2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -11
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          3
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            -2,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -11
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            3
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 0
+      }
+    },
+    {
+      "id": "S_DOUBLE_FOUR",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "2/2: dörd ayrı token və dörd ardıcıl hərəkət",
+      "covers": [
+        "C-DICE",
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 12,
+            "target": 10,
+            "slot": 0
+          },
+          {
+            "source": 10,
+            "target": 8,
+            "slot": 1
+          },
+          {
+            "source": 8,
+            "target": 6,
+            "slot": 2
+          },
+          {
+            "source": 6,
+            "target": 4,
+            "slot": 3
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            2
+          ],
+          "used": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 4
+      }
+    },
+    {
+      "id": "S_REUSED_DIE",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "İstehlak olunmuş token ikinci dəfə işlənmir",
+      "covers": [
+        "C-DICE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 8,
+            "target": 6,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "DIE_ALREADY_USED",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_WRONG_DIRECTION",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "P0 5→6 ilə geri gedə bilməz",
+      "covers": [
+        "C-DIRECTION"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 5,
+            "target": 6,
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "WRONG_DIRECTION",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_NOT_ALL_HOME",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "7-də daş qaldıqda 5-dən çıxarmaq olmaz",
+      "covers": [
+        "S-BEAR"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          14,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [
+          1
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 5,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "NOT_ALL_HOME",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            14,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [
+            1
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_BEAR_EXACT",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "2-dəki son daş məsafə 3 ilə çıxır",
+      "covers": [
+        "S-BEAR"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          3
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 2,
+            "target": "off",
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [
+            2,
+            3
+          ],
+          "used": [
+            0,
+            1
+          ],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_OVERSHOOT_NEAR_REJECT",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "6 ilə yalnız ən uzaq 4-dəki daş artıq qiymətlə çıxarıla bilər",
+      "covers": [
+        "S-BEAR"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          13,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [
+          1
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 3,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "OVERSHOOT_NOT_FARTHEST",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            13,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [
+            1
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_OVERSHOOT_FARTHEST",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "6 ilə yalnız ən uzaq 4-dəki daş artıq qiymətlə çıxarıla bilər",
+      "covers": [
+        "S-BEAR"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          13,
+          0
+        ],
+        "roll": [
+          6,
+          1
+        ],
+        "used": [
+          1
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "move",
+        "moves": [
+          {
+            "source": 4,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            6,
+            1
+          ],
+          "used": [
+            1,
+            0
+          ],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_HIGH_REJECT",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "0-da tək son daş: yüksək 2 seçilir",
+      "covers": [
+        "C-HIGH",
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": "off",
+            "slot": 0
+          }
+        ]
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "HIGHER_DIE_REQUIRED",
+        "after": {
+          "points": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 1
+      }
+    },
+    {
+      "id": "S_HIGH_ACCEPT",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "0-da tək son daş: yüksək 2 seçilir",
+      "covers": [
+        "C-HIGH",
+        "C-MAX"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          1,
+          2
+        ],
+        "used": [],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "turn",
+        "moves": [
+          {
+            "source": 0,
+            "target": "off",
+            "slot": 1
+          }
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [
+            1,
+            2
+          ],
+          "used": [
+            1
+          ],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "max_used": 1
+      }
+    },
+    {
+      "id": "L_UNDO_LOCAL",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Öz təsdiqlənməmiş növbəsi: daş, bar və zər tokeni birlikdə geri qayıdır",
+      "covers": [
+        "C-UNDO"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          14,
+          -1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          1,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "undo",
+        "moves": [],
+        "snapshot_fixture": "L_STEP_OVER_OCCUPIED"
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            15,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "L_UNDO_COMMITTED",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Server təsdiqindən sonra undo rədd edilir",
+      "covers": [
+        "C-UNDO"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          14,
+          -1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "committed",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          1,
+          0
+        ],
+        "committed": true
+      },
+      "action": {
+        "kind": "undo",
+        "moves": [],
+        "snapshot_fixture": "L_STEP_OVER_OCCUPIED"
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "COMMITTED_TURN",
+        "after": {
+          "points": [
+            14,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "committed",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            1,
+            0
+          ],
+          "committed": true
+        }
+      }
+    },
+    {
+      "id": "S_UNDO_LOCAL",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Öz təsdiqlənməmiş növbəsi: daş, bar və zər tokeni birlikdə geri qayıdır",
+      "covers": [
+        "C-UNDO"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -14,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          1
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "moving",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "undo",
+        "moves": [],
+        "snapshot_fixture": "S_HIT_SINGLE"
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -14,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [],
+          "to_move": 0,
+          "phase": "moving",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        }
+      }
+    },
+    {
+      "id": "S_UNDO_COMMITTED",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Server təsdiqindən sonra undo rədd edilir",
+      "covers": [
+        "C-UNDO"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -14,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          1
+        ],
+        "off": [
+          14,
+          0
+        ],
+        "roll": [
+          2,
+          1
+        ],
+        "used": [
+          0
+        ],
+        "to_move": 0,
+        "phase": "committed",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": true
+      },
+      "action": {
+        "kind": "undo",
+        "moves": [],
+        "snapshot_fixture": "S_HIT_SINGLE"
+      },
+      "expected": {
+        "status": "REJECT",
+        "reason": "COMMITTED_TURN",
+        "after": {
+          "points": [
+            -14,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            1
+          ],
+          "off": [
+            14,
+            0
+          ],
+          "roll": [
+            2,
+            1
+          ],
+          "used": [
+            0
+          ],
+          "to_move": 0,
+          "phase": "committed",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": true
+        }
+      }
+    },
+    {
+      "id": "L_NORMAL",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Nəticə: NORMAL",
+      "covers": [
+        "L-MARS"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-MARS"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          15,
+          1
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": 0,
+        "phase": "finished",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "classify_result",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            1
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_kind": "NORMAL",
+        "points": 1
+      }
+    },
+    {
+      "id": "L_MARS",
+      "mode": "long",
+      "ruleset_version": "long-az-gdd1-provisional.1",
+      "title": "Nəticə: MARS",
+      "covers": [
+        "L-MARS"
+      ],
+      "assurance": "PROVISIONAL_RULE",
+      "provisional_rules": [
+        "L-MARS"
+      ],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          15,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": 0,
+        "phase": "finished",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "classify_result",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_kind": "MARS",
+        "points": 2
+      }
+    },
+    {
+      "id": "S_NORMAL",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Nəticə: NORMAL",
+      "covers": [
+        "S-SCORE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          15,
+          1
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": 0,
+        "phase": "finished",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "classify_result",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            1
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_kind": "NORMAL",
+        "points": 1
+      }
+    },
+    {
+      "id": "S_MARS",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Nəticə: MARS",
+      "covers": [
+        "S-SCORE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          15,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": 0,
+        "phase": "finished",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "classify_result",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_kind": "MARS",
+        "points": 2
+      }
+    },
+    {
+      "id": "S_KOKS_BAR",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Nəticə: KOKS",
+      "covers": [
+        "S-SCORE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          1
+        ],
+        "off": [
+          15,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": 0,
+        "phase": "finished",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "classify_result",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            1
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_kind": "KOKS",
+        "points": 3
+      }
+    },
+    {
+      "id": "S_KOKS_HOME",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Nəticə: KOKS",
+      "covers": [
+        "S-SCORE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          15,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": 0,
+        "phase": "finished",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "classify_result",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_kind": "KOKS",
+        "points": 3
+      }
+    },
+    {
+      "id": "S_OFF_ONE_PREVENTS_KOKS",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Nəticə: NORMAL",
+      "covers": [
+        "S-SCORE"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -14,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          15,
+          1
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": 0,
+        "phase": "finished",
+        "first_turn": [
+          false,
+          false
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "classify_result",
+        "moves": []
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            15,
+            1
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": 0,
+          "phase": "finished",
+          "first_turn": [
+            false,
+            false
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_kind": "NORMAL",
+        "points": 1
+      }
+    },
+    {
+      "id": "C_BO3_CONTINUES",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Seriyada mars/koks xalı ayrıca partiya qələbəsi deyil",
+      "covers": [
+        "C-SERIES"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "series",
+        "moves": [],
+        "series_length": 3,
+        "winners": [
+          0,
+          1
+        ],
+        "win_kinds": [
+          "NORMAL",
+          "MARS"
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": -1,
+        "win_counts": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "C_BO3_FINISHES",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Seriyada mars/koks xalı ayrıca partiya qələbəsi deyil",
+      "covers": [
+        "C-SERIES"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "series",
+        "moves": [],
+        "series_length": 3,
+        "winners": [
+          0,
+          1,
+          0
+        ],
+        "win_kinds": [
+          "MARS",
+          "NORMAL",
+          "NORMAL"
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_counts": [
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "C_BO5_FINISHES",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Seriyada mars/koks xalı ayrıca partiya qələbəsi deyil",
+      "covers": [
+        "C-SERIES"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "series",
+        "moves": [],
+        "series_length": 5,
+        "winners": [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "win_kinds": [
+          "KOKS",
+          "NORMAL",
+          "KOKS",
+          "NORMAL",
+          "NORMAL"
+        ]
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "winner": 0,
+        "win_counts": [
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "C_RATING_BOT_CASUAL",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Reytinq yalnız təsdiqli ranked random nəticəsinə aiddir",
+      "covers": [
+        "C-RATING"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "rating_policy",
+        "moves": [],
+        "channel": "bot",
+        "ranked": false
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "rating_eligible": false
+      }
+    },
+    {
+      "id": "C_RATING_PRIVATE_CASUAL",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Reytinq yalnız təsdiqli ranked random nəticəsinə aiddir",
+      "covers": [
+        "C-RATING"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "rating_policy",
+        "moves": [],
+        "channel": "private",
+        "ranked": false
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "rating_eligible": false
+      }
+    },
+    {
+      "id": "C_RATING_RANDOM_RANKED",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Reytinq yalnız təsdiqli ranked random nəticəsinə aiddir",
+      "covers": [
+        "C-RATING"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "rating_policy",
+        "moves": [],
+        "channel": "random",
+        "ranked": true
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "rating_eligible": true
+      }
+    },
+    {
+      "id": "C_RATING_RANDOM_CASUAL",
+      "mode": "short",
+      "ruleset_version": "short-gdd1-draft.1",
+      "title": "Reytinq yalnız təsdiqli ranked random nəticəsinə aiddir",
+      "covers": [
+        "C-RATING"
+      ],
+      "assurance": "GDD_ALIGNED",
+      "provisional_rules": [],
+      "before": {
+        "points": [
+          -2,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          3,
+          0,
+          0,
+          0,
+          -5,
+          5,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          -5,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "bar": [
+          0,
+          0
+        ],
+        "off": [
+          0,
+          0
+        ],
+        "roll": [],
+        "used": [],
+        "to_move": -1,
+        "phase": "opening",
+        "first_turn": [
+          true,
+          true
+        ],
+        "head_departures": [
+          0,
+          0
+        ],
+        "committed": false
+      },
+      "action": {
+        "kind": "rating_policy",
+        "moves": [],
+        "channel": "random",
+        "ranked": false
+      },
+      "expected": {
+        "status": "ACCEPT",
+        "reason": "OK",
+        "after": {
+          "points": [
+            -2,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            3,
+            0,
+            0,
+            0,
+            -5,
+            5,
+            0,
+            0,
+            0,
+            -3,
+            0,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "bar": [
+            0,
+            0
+          ],
+          "off": [
+            0,
+            0
+          ],
+          "roll": [],
+          "used": [],
+          "to_move": -1,
+          "phase": "opening",
+          "first_turn": [
+            true,
+            true
+          ],
+          "head_departures": [
+            0,
+            0
+          ],
+          "committed": false
+        },
+        "rating_eligible": false
+      }
+    }
+  ]
+}

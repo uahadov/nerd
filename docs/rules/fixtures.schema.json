@@ -1,0 +1,517 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nard:p01.1:fixtures:1",
+  "description": "Specification examples only. Not a rules engine execution result.",
+  "type": "object",
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "coordinate_version": {
+      "const": "board-global-v1"
+    },
+    "rule_sets": {
+      "type": "object",
+      "properties": {
+        "long-az-gdd1-provisional.1": {
+          "$ref": "#/$defs/ruleset"
+        },
+        "short-gdd1-draft.1": {
+          "$ref": "#/$defs/ruleset"
+        }
+      },
+      "required": [
+        "long-az-gdd1-provisional.1",
+        "short-gdd1-draft.1"
+      ],
+      "additionalProperties": false
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/case"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "format_version",
+    "coordinate_version",
+    "rule_sets",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "state": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": -15,
+            "maximum": 15
+          },
+          "minItems": 24,
+          "maxItems": 24
+        },
+        "bar": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 15
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "off": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 15
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "roll": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "minItems": 0,
+          "maxItems": 2
+        },
+        "used": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "maxItems": 4,
+          "uniqueItems": true
+        },
+        "to_move": {
+          "type": "integer",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "phase": {
+          "enum": [
+            "opening",
+            "await_roll",
+            "moving",
+            "committed",
+            "finished"
+          ]
+        },
+        "first_turn": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "head_departures": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 15
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "committed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "points",
+        "bar",
+        "off",
+        "roll",
+        "used",
+        "to_move",
+        "phase",
+        "first_turn",
+        "head_departures",
+        "committed"
+      ],
+      "additionalProperties": false
+    },
+    "move": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": [
+            "integer",
+            "string"
+          ],
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            "bar"
+          ]
+        },
+        "target": {
+          "type": [
+            "integer",
+            "string"
+          ],
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            "off"
+          ]
+        },
+        "slot": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "slot"
+      ],
+      "additionalProperties": false
+    },
+    "action": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "start",
+            "opening",
+            "move",
+            "turn",
+            "undo",
+            "classify_result",
+            "series",
+            "rating_policy"
+          ]
+        },
+        "moves": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/move"
+          },
+          "maxItems": 4
+        },
+        "opening_dice": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "snapshot_fixture": {
+          "type": "string",
+          "pattern": "^[A-Z0-9_]+$"
+        },
+        "series_length": {
+          "enum": [
+            3,
+            5
+          ]
+        },
+        "winners": {
+          "type": "array",
+          "items": {
+            "enum": [
+              0,
+              1
+            ]
+          }
+        },
+        "win_kinds": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "NORMAL",
+              "MARS",
+              "KOKS"
+            ]
+          }
+        },
+        "channel": {
+          "enum": [
+            "bot",
+            "private",
+            "random"
+          ]
+        },
+        "ranked": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "kind",
+        "moves"
+      ],
+      "additionalProperties": false
+    },
+    "expected": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "ACCEPT",
+            "REJECT"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "after": {
+          "$ref": "#/$defs/state"
+        },
+        "max_used": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "starter": {
+          "enum": [
+            -1,
+            0,
+            1
+          ]
+        },
+        "next_roll": {
+          "enum": [
+            "REROLL_OPENING",
+            "FRESH_TWO_DICE",
+            "OPENING_VALUES"
+          ]
+        },
+        "winner": {
+          "enum": [
+            -1,
+            0,
+            1
+          ]
+        },
+        "win_kind": {
+          "enum": [
+            "NORMAL",
+            "MARS",
+            "KOKS"
+          ]
+        },
+        "points": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "win_counts": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "rating_eligible": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "status",
+        "reason",
+        "after"
+      ],
+      "additionalProperties": false
+    },
+    "case": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z0-9_]+$"
+        },
+        "mode": {
+          "enum": [
+            "long",
+            "short"
+          ]
+        },
+        "ruleset_version": {
+          "enum": [
+            "long-az-gdd1-provisional.1",
+            "short-gdd1-draft.1"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "covers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "C-BOARD",
+              "C-DIRECTION",
+              "C-DICE",
+              "C-MAX",
+              "C-HIGH",
+              "C-INTERMEDIATE",
+              "C-OPEN",
+              "C-UNDO",
+              "C-SERIES",
+              "C-RATING",
+              "L-START",
+              "L-HEAD",
+              "L-HEAD-FIRST",
+              "L-BLOCK",
+              "L-BEAR",
+              "L-MARS",
+              "S-START",
+              "S-HIT",
+              "S-BAR",
+              "S-BEAR",
+              "S-SCORE",
+              "L-OPEN",
+              "L-HIGH"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "assurance": {
+          "enum": [
+            "GDD_ALIGNED",
+            "PROVISIONAL_RULE"
+          ]
+        },
+        "provisional_rules": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "L-BEAR",
+              "L-BLOCK",
+              "L-HEAD-FIRST",
+              "L-HIGH",
+              "L-MARS",
+              "L-OPEN"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "before": {
+          "$ref": "#/$defs/state"
+        },
+        "action": {
+          "$ref": "#/$defs/action"
+        },
+        "expected": {
+          "$ref": "#/$defs/expected"
+        }
+      },
+      "required": [
+        "id",
+        "mode",
+        "ruleset_version",
+        "title",
+        "covers",
+        "assurance",
+        "provisional_rules",
+        "before",
+        "action",
+        "expected"
+      ],
+      "additionalProperties": false
+    },
+    "ruleset": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "long",
+            "short"
+          ]
+        },
+        "human_review": {
+          "const": "PENDING"
+        },
+        "provisional_rules": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "L-BEAR",
+              "L-BLOCK",
+              "L-HEAD-FIRST",
+              "L-HIGH",
+              "L-MARS",
+              "L-OPEN"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "mode",
+        "human_review",
+        "provisional_rules"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

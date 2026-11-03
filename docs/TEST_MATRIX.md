@@ -1,10 +1,12 @@
 # Test matrisi və sübut qaydası
 
-P00.3-də repository/sənəd/status və minimal Unity bootstrap yoxlanır. Nərd oyun testləri deyil.
+P01.1-də repository/sənəd/status, qayda fixture sxemi və məlumat uyğunluğu yoxlanır.
+Qanuni gediş motoru yoxdur; 67 nümunə gözlənilən cavablardır, motor testinin nəticəsi deyil.
 Əmrlər repo kökündən, Python 3.10+ standart kitabxanası və Git ilə işləyir.
 
 ```bash
-python3 scripts/validation/validate_project.py --output docs/reports/P00.3.validation.json
+python3 scripts/validation/validate_project.py --output docs/reports/P01.1.validation.json
+python3 scripts/validation/validate_rule_fixtures.py --output docs/reports/P01.1.rules.json
 python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 ```
 
@@ -21,13 +23,15 @@ python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 | Validatorun mənfi sınaqları | unittest: zədələnmiş mənbə, status, inventar, istinad, ignore və secret rədd olunur |
 | Git bütövlüyü, whitespace, təmiz commit vəziyyəti | git fsck, git diff --check, son status; part hesabatında qeyd |
 | Uzaq nüsxə | Privacy, push və SHA yoxlaması; yalnız real nəticə qeyd edilir |
-| Unity compile/EditMode/PlayMode, Android APK | P00.3 runner, real NUnit XML/log/build nəticələri; cari hesabatda |
+| Fixture strukturu və uyğunluğu | P01.1.rules.json: 24 xana, 15+15 daş, tokenlər, before/after arifmetikası, ID/variant/undo istinadları, matris uyğunluğu |
+| Qayda mətninin uyğunluğu | Qayda ID-lərinin mövcudluğu avtomatik; məna və yerli variant qərarı insan baxışında. Tam təbii dil sübutu iddia edilmir |
+| Unity compile/EditMode/PlayMode, Android APK | P00.3 tarixi sübutu; bu partda Unity kodu dəyişməyib, yenidən icra NOT_RUN |
 | iOS və fiziki cihaz | Yalnız real icra varsa PASS; yoxdursa NOT_RUN və səbəb |
 
 Validator çıxış kodu: 0 = yoxlamalar keçib; 1 = uyğunsuzluq və ya oxuma xətası.
 Hər yoxlama adı və statusu JSON-da qalır. `--root` başqa checkout-un yoxlanmasına imkan verir.
 Validatorun özü heç bir statusu təsdiqləmir və növbəti partı açmır.
-P00.3 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
+P01.1 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
 validatoru sadəcə yaşıl nəticə almaq üçün zəiflətmə.
 
 ## Gələcək partlar üçün məcburi yanaşma
@@ -45,3 +49,12 @@ Repository mənfi sınaqları yalnız müvəqqəti surətdə işləyir; iş qovl
 EditMode versiya, build səhnəsi, 2D serialization və safe-area sərhəd nümunələrini yoxlayır.
 PlayMode Bootstrap səhnəsini yükləyir və kadrların həqiqətən irəlilədiyini yoxlayır.
 Cihazda test edilmədikcə bu nəticələr Android toxunma/orientation testi sayılmır.
+
+## P01.1 sərhədi
+
+Schema draft-2020-12 formatındadır. Offline checker yalnız faylda işlədilən sənədləşdirilmiş
+keyword alt çoxluğunu yoxlayır; naməlum keyword-u rədd edir, tam JSON Schema implementasiyası deyil.
+Hər iki rejimdə müqavilə və gözlənilən vəziyyət nümunələri saxlanır; motorun bütün qanuni
+gedişləri, maksimum zər axtarışı və fixture gözləntilərini icra etməsi P01.2/P01.3-də sınanacaq.
+İnsan baxışı [beş mövqe qrupu](RULE_MATRIX.md) üzrədir; hazırda PENDING.
+Fiziki Android və iOS testi bu partda NOT_RUN-dır.

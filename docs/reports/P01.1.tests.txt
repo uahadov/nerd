@@ -1,0 +1,72 @@
+Command: python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
+Executed: 2026-11-03T15:25:14+04:00
+Scope: repository mutation tests and fixture specification checks; no game engine tests.
+
+test_asset_without_rights_rejected (test_foundation.FoundationTests.test_asset_without_rights_rejected) ... ok
+test_changed_source_rejected (test_foundation.FoundationTests.test_changed_source_rejected) ... ok
+test_coordinated_next_part_change_rejected (test_foundation.FoundationTests.test_coordinated_next_part_change_rejected) ... ok
+test_empty_scope_rejected (test_foundation.FoundationTests.test_empty_scope_rejected) ... ok
+test_failed_test_log_with_pass_claim_rejected (test_foundation.FoundationTests.test_failed_test_log_with_pass_claim_rejected) ... ok
+test_false_evidence_reference_rejected (test_foundation.FoundationTests.test_false_evidence_reference_rejected) ... ok
+test_forced_tracked_secret_path_rejected (test_foundation.FoundationTests.test_forced_tracked_secret_path_rejected) ... ok
+test_future_human_approval_rejected (test_foundation.FoundationTests.test_future_human_approval_rejected) ... ok
+test_gameplay_directory_rejected (test_foundation.FoundationTests.test_gameplay_directory_rejected) ... ok
+test_large_file_rejected (test_foundation.FoundationTests.test_large_file_rejected) ... ok
+test_missing_link_rejected (test_foundation.FoundationTests.test_missing_link_rejected) ... ok
+test_missing_rejection_rejected (test_foundation.FoundationTests.test_missing_rejection_rejected) ... ok
+test_missing_secret_ignore_rejected (test_foundation.FoundationTests.test_missing_secret_ignore_rejected) ... ok
+test_missing_state_cli_returns_failure (test_foundation.FoundationTests.test_missing_state_cli_returns_failure) ... ok
+test_next_part_authorization_rejected (test_foundation.FoundationTests.test_next_part_authorization_rejected) ... ok
+test_numeric_scope_boolean_rejected (test_foundation.FoundationTests.test_numeric_scope_boolean_rejected) ... ok
+test_overbroad_ignore_rejected (test_foundation.FoundationTests.test_overbroad_ignore_rejected) ... ok
+test_path_escape_rejected (test_foundation.FoundationTests.test_path_escape_rejected) ... ok
+test_private_visibility_is_not_push_permission (test_foundation.FoundationTests.test_private_visibility_is_not_push_permission) ... ok
+test_progress_drift_rejected (test_foundation.FoundationTests.test_progress_drift_rejected) ... ok
+test_public_push_record_rejected (test_foundation.FoundationTests.test_public_push_record_rejected) ... ok
+test_push_authorization_bypass_rejected (test_foundation.FoundationTests.test_push_authorization_bypass_rejected) ... ok
+test_reworded_decision_rejected (test_foundation.FoundationTests.test_reworded_decision_rejected) ... ok
+test_secret_pattern_rejected (test_foundation.FoundationTests.test_secret_pattern_rejected) ... ok
+test_self_approval_rejected (test_foundation.FoundationTests.test_self_approval_rejected) ... ok
+test_skill_policy_bypass_rejected (test_foundation.FoundationTests.test_skill_policy_bypass_rejected) ... ok
+test_staged_secret_hidden_by_clean_worktree_rejected (test_foundation.FoundationTests.test_staged_secret_hidden_by_clean_worktree_rejected) ... ok
+test_string_boolean_rejected (test_foundation.FoundationTests.test_string_boolean_rejected) ... ok
+test_unperformed_device_test_cannot_be_claimed (test_foundation.FoundationTests.test_unperformed_device_test_cannot_be_claimed) ... ok
+test_unplanned_part_link_rejected (test_foundation.FoundationTests.test_unplanned_part_link_rejected) ... ok
+test_valid_foundation_passes_from_different_path (test_foundation.FoundationTests.test_valid_foundation_passes_from_different_path) ... ok
+test_wrong_authorization_rejected (test_foundation.FoundationTests.test_wrong_authorization_rejected) ... ok
+test_accepted_move_without_roll_rejected (test_rule_fixtures.RuleSpecificationTests.test_accepted_move_without_roll_rejected) ... ok
+test_accepted_reused_token_rejected (test_rule_fixtures.RuleSpecificationTests.test_accepted_reused_token_rejected) ... ok
+test_accepted_transition_drift_rejected (test_rule_fixtures.RuleSpecificationTests.test_accepted_transition_drift_rejected) ... ok
+test_best_of_count_drift_rejected (test_rule_fixtures.RuleSpecificationTests.test_best_of_count_drift_rejected) ... ok
+test_boolean_is_not_enum_integer (test_rule_fixtures.RuleSpecificationTests.test_boolean_is_not_enum_integer) ... ok
+test_boolean_is_not_integer (test_rule_fixtures.RuleSpecificationTests.test_boolean_is_not_integer) ... ok
+test_canonical_corpus_passes (test_rule_fixtures.RuleSpecificationTests.test_canonical_corpus_passes) ... ok
+test_checker_loss_rejected (test_rule_fixtures.RuleSpecificationTests.test_checker_loss_rejected) ... ok
+test_duplicate_id_rejected (test_rule_fixtures.RuleSpecificationTests.test_duplicate_id_rejected) ... ok
+test_invalid_used_slot_rejected (test_rule_fixtures.RuleSpecificationTests.test_invalid_used_slot_rejected) ... ok
+test_kind_specific_fields_rejected (test_rule_fixtures.RuleSpecificationTests.test_kind_specific_fields_rejected) ... ok
+test_long_bar_rejected (test_rule_fixtures.RuleSpecificationTests.test_long_bar_rejected) ... ok
+test_matrix_drift_rejected (test_rule_fixtures.RuleSpecificationTests.test_matrix_drift_rejected) ... ok
+test_missing_coverage_rejected (test_rule_fixtures.RuleSpecificationTests.test_missing_coverage_rejected) ... ok
+test_missing_field_rejected (test_rule_fixtures.RuleSpecificationTests.test_missing_field_rejected) ... ok
+test_one_die_roll_rejected (test_rule_fixtures.RuleSpecificationTests.test_one_die_roll_rejected) ... ok
+test_overshoot_example_really_exceeds_distance (test_rule_fixtures.RuleSpecificationTests.test_overshoot_example_really_exceeds_distance) ... ok
+test_provisional_tag_loss_rejected (test_rule_fixtures.RuleSpecificationTests.test_provisional_tag_loss_rejected) ... ok
+test_rating_private_ranked_rejected (test_rule_fixtures.RuleSpecificationTests.test_rating_private_ranked_rejected) ... ok
+test_rejected_state_mutation_rejected (test_rule_fixtures.RuleSpecificationTests.test_rejected_state_mutation_rejected) ... ok
+test_ruleset_mode_mismatch_rejected (test_rule_fixtures.RuleSpecificationTests.test_ruleset_mode_mismatch_rejected) ... ok
+test_score_drift_rejected (test_rule_fixtures.RuleSpecificationTests.test_score_drift_rejected) ... ok
+test_score_label_condition_rejected (test_rule_fixtures.RuleSpecificationTests.test_score_label_condition_rejected) ... ok
+test_twenty_three_points_rejected (test_rule_fixtures.RuleSpecificationTests.test_twenty_three_points_rejected) ... ok
+test_undocumented_requirement_rejected (test_rule_fixtures.RuleSpecificationTests.test_undocumented_requirement_rejected) ... ok
+test_unknown_field_rejected (test_rule_fixtures.RuleSpecificationTests.test_unknown_field_rejected) ... ok
+test_unknown_keyword_fails_closed (test_rule_fixtures.RuleSpecificationTests.test_unknown_keyword_fails_closed) ... ok
+test_wrong_opening_values_rejected (test_rule_fixtures.RuleSpecificationTests.test_wrong_opening_values_rejected) ... ok
+test_wrong_undo_reference_rejected (test_rule_fixtures.RuleSpecificationTests.test_wrong_undo_reference_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 61 tests in 10.206s
+
+OK
+
+Exit code: 0

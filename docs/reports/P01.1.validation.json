@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "part": "P01.1",
+  "executed_at": "2026-11-03T15:25:15+04:00",
+  "passed": 15,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "required_files",
+      "status": "PASS",
+      "detail": "45 required files exist"
+    },
+    {
+      "name": "source_integrity",
+      "status": "PASS",
+      "detail": "Both original source files and recorded SHA-256 match baseline"
+    },
+    {
+      "name": "decision_inventory",
+      "status": "PASS",
+      "detail": "87 approved + 20 rejected: exact text, order, status and part links"
+    },
+    {
+      "name": "state_contract",
+      "status": "PASS",
+      "detail": "P01.1: authorization and approval gate consistent"
+    },
+    {
+      "name": "test_evidence",
+      "status": "PASS",
+      "detail": "Evidence paths exist inside repo and PASS claims match stored results; no freshness guarantee"
+    },
+    {
+      "name": "current_scope",
+      "status": "PASS",
+      "detail": "P01.1 only: documents/fixtures; preserved pinned Unity foundation, no gameplay modules"
+    },
+    {
+      "name": "agent_policy",
+      "status": "PASS",
+      "detail": "Agent-neutral rules and tool bans present"
+    },
+    {
+      "name": "progress_consistency",
+      "status": "PASS",
+      "detail": "Human progress view matches STATE"
+    },
+    {
+      "name": "local_links",
+      "status": "PASS",
+      "detail": "89 local Markdown links resolve"
+    },
+    {
+      "name": "asset_manifest",
+      "status": "PASS",
+      "detail": "0 assets registered"
+    },
+    {
+      "name": "git_root",
+      "status": "PASS",
+      "detail": "Git root and branch match STATE"
+    },
+    {
+      "name": "gitignore_behavior",
+      "status": "PASS",
+      "detail": "24 excluded + 12 retained paths checked"
+    },
+    {
+      "name": "candidate_and_index_safety",
+      "status": "PASS",
+      "detail": "100 candidate files and available index blobs checked; limited pattern scan"
+    },
+    {
+      "name": "remote_safety",
+      "status": "PASS",
+      "detail": "Remote PUBLIC; sync DEFERRED_PUBLIC_REMOTE"
+    },
+    {
+      "name": "rule_specification",
+      "status": "PASS",
+      "detail": "67 authored examples; engine NOT_RUN, human rule review PENDING"
+    }
+  ]
+}

@@ -77,3 +77,18 @@ yeniləmələri bitəndən sonraya gecikdirildi; normal Editor API ilə bağlan�
 Son açılışda 25 kadrdan sonra yeni screenshot alındı, C# error və exception sayı 0 oldu.
 Bu, müşahidə ilə yoxlanmış lokal həll yoludur; Garuda/Intel üçün ümumi rəsmi dəstək iddiası deyil.
 Mənbə: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Modules/QuickSearch/Editor/Indexing/SearchDatabase.cs
+
+## D014 — 2026-11-03, P00.3 qəbulu və yalnız P01.1
+
+İstifadəçi P00.3-ü və Editor-da krem Game ekranını qəbul edib. Fiziki Android testi
+aparılmayıb və açıq NOT_RUN qalır. Yalnız Master Plan P01.1 sənəd/test ssenariləri
+icazəlidir; “qaydaları hazırla” bu dar əhatədə tətbiq edilir. Qayda motoru P01.2/P01.3
+işidir və başlanmır. Status AWAITING_HUMAN_APPROVAL, P01.2 icazəsi false qalır.
+
+## D015 — P01.1 qayda müqaviləsi və açıq variant qapısı
+
+board-global-v1 texniki koordinat müqaviləsi və versiyalı uzun/qısa fixture məlumatı əlavə edildi.
+GDD seçimi dəyişmir. L-OPEN/L-HEAD-FIRST və yerli konkretliyi açıq L-BLOCK/L-BEAR/L-HIGH/L-MARS
+PROVISIONAL_RULE olaraq qalır; 67 nümunənin ACCEPT/REJECT cavabları motor icrasının nəticəsi deyil.
+Tam məlumat rules/fixtures.json-da, insan indeksi RULE_MATRIX.md-dədir; iki müstəqil qərar mənbəyi deyil.
+Yerli təcrübəli oyunçu ilə 5 əsas mövqe yoxlanışı PENDING; fərq çıxarsa yeni RulesetVersion lazımdır.

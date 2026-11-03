@@ -2,7 +2,8 @@
 
 Android və iOS üçün Unity 6 / C# əsasında tam 2D nərd oyunu.
 Online istiqamət: Nakama authoritative TypeScript və istehsal üçün CockroachDB.
-Hazırda P00.3 üzrə minimal Unity başlanğıcı və build/test infrastrukturu yoxlanır; oynanıla bilən nərd yoxdur.
+Hazırda P01.1 üzrə uzun/qısa qayda müqaviləsi və fixture nümunələri yoxlanır.
+P00.3 Unity təməli qəbul edilib; fiziki Android testi açıqdır. Oynanıla bilən nərd hələ yoxdur.
 
 ## Yeni agent üçün giriş
 
@@ -25,7 +26,11 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [Asset manifesti](docs/ASSET_MANIFEST.csv) | Asset mənbə və hüquqları; hazırda boşdur |
 | [P00.1 hesabatı](docs/reports/P00.1.md) | Əvvəlki auditin məhdudiyyətləri ilə saxlanan xülasəsi |
 | [P00.2 hesabatı](docs/reports/P00.2.md) | Qəbul edilmiş təməlin tarixi nəticəsi |
-| [P00.3 hesabatı](docs/reports/P00.3.md) | Cari Unity/Android nəticələri və insan yoxlaması |
+| [P00.3 hesabatı](docs/reports/P00.3.md) | Qəbul edilmiş Unity/Android təməlinin tarixi sübutu |
+| [P01.1 hesabatı](docs/reports/P01.1.md) | Cari qayda sənədləri və real avtomatik yoxlamalar |
+| [Qayda müqaviləsi](docs/RULESET_VARIANTS.md) | Ortaq koordinatlar, qayda ID-ləri və provisional variantlar |
+| [Uzun qaydalar](docs/RULES_LONG.md), [qısa qaydalar](docs/RULES_SHORT.md) | Rejimlər üzrə sənəd tələbləri |
+| [Qayda matrisi](docs/RULE_MATRIX.md) | JSON nümunələrinin insan üçün oxunaqlı görünüşü |
 | [Hesabat şablonu](docs/reports/TEMPLATE.md) | Növbəti icazəli partda istifadə edilən format |
 | [CHANGELOG](CHANGELOG.md) | Faktiki dəyişiklik tarixçəsi |
 
@@ -36,12 +41,13 @@ Bütün əmrlər repository kökündən icra olunur:
 
 ```bash
 python3 scripts/validation/validate_project.py
+python3 scripts/validation/validate_rule_fixtures.py
 python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 ```
 
 Qovluq daşındıqda istinadlar nisbi qalır. Mənbə sənədləri surətlənmir və adları dəyişdirilmir.
 Master Plandakı GDD.md və docs/MASTER_PLAN.md adları bu repoda yuxarıdakı orijinallara uyğundur.
-Gələcək qayda, Art Bible və release sənədləri yalnız müvafiq partda yaradılacaq.
+Art Bible və release sənədləri yalnız müvafiq gələcək partda yaradılacaq.
 P00.3-də unity/ daxilində yalnız texniki başlanğıc mövcuddur; Nakama/art modulları yaradılmır.
 
 Repository-nin uzaq nüsxəsi və yoxlanmış vəziyyəti STATE-də `repository` sahəsindədir.

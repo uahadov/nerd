@@ -12,7 +12,7 @@ from urllib.parse import unquote, urlsplit
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
-AUTHORIZED_PART = 'P00.3'
+AUTHORIZED_PART = 'P01.1'
 SOURCES = {
     'NARD_Final_GDD_v1.0.md': '2d2471282160bc10dc4eaec57ed90b8b2e6e7684cb4101c9bd5f2d76e90a8580',
     'NARD_Master_Icra_Plani_v2.md': '1e333827bf7c861c5fc2b279818c795c69ddeabbd1fa8c93e3b7daad2d6828bc',
@@ -30,6 +30,11 @@ REQUIRED = [
     'unity/ProjectSettings/ProjectVersion.txt', 'scripts/build/p003.py',
     'docs/reports/P00.3.execution.json', 'docs/screenshots/P00.3-editor.png',
     'docs/screenshots/P00.3-gameview.png',
+    'docs/RULES_LONG.md', 'docs/RULES_SHORT.md', 'docs/RULESET_VARIANTS.md',
+    'docs/RULE_MATRIX.md', 'docs/rules/fixtures.json', 'docs/rules/fixtures.schema.json',
+    'scripts/validation/validate_rule_fixtures.py', 'scripts/validation/test_rule_fixtures.py',
+    'docs/reports/P01.1.md', 'docs/reports/P01.1.validation.json',
+    'docs/reports/P01.1.tests.txt', 'docs/reports/P01.1.rules.json',
 ]
 ASSET_COLUMNS = ['asset_id', 'path', 'source', 'creator', 'license', 'license_evidence',
                  'modifications', 'approved_part', 'status']
@@ -193,15 +198,15 @@ def validate(root):
 
     def scope():
         s = state(root)
-        # Updated only after the human's explicit P00.3 authorization (D010).
-        require(s['active_part'] == AUTHORIZED_PART, 'Only P00.3 is authorized')
-        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P00.3 must await human approval')
-        require(s['last_human_approved_part'] == 'P00.2', 'P00.2 acceptance missing')
+        # Updated only after the human's explicit P01.1 authorization (D014).
+        require(s['active_part'] == AUTHORIZED_PART, 'Only P01.1 is authorized')
+        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P01.1 must await human approval')
+        require(s['last_human_approved_part'] == 'P00.3', 'P00.3 acceptance missing')
         expected = {'unity_project_created', 'android_tools_installed', 'game_modules_implemented'}
         require(set(s['scope']) == expected, 'Scope fields missing or unexpected')
         require(all(type(value) is bool for value in s['scope'].values()), 'Scope flags must be booleans')
         require(s['scope']['unity_project_created'] is True and s['scope']['game_modules_implemented'] is False,
-                'P00.3 permits a Unity foundation, not game modules')
+                'P01.1 permits rule documents and fixtures, not gameplay modules')
         require(not any((root / p).exists() for p in ['nakama', 'art']), 'Premature game/backend directories')
         for module in ['Rules', 'Bots', 'Network', 'UI']:
             require(not (root / 'unity/Assets/Game' / module).exists(), 'Premature gameplay module: ' + module)
@@ -214,7 +219,7 @@ def validate(root):
         for name in ['com.unity.inputsystem', 'com.unity.test-framework']:
             require(locked[name]['version'] == manifest[name], 'Manifest/lock mismatch: ' + name)
         require((root / 'unity/Assets/Game/Scenes/Bootstrap.unity').is_file(), 'Bootstrap scene missing')
-        return 'P00.3 only: pinned Editor, bootstrap and test/input packages; no gameplay modules'
+        return 'P01.1 only: documents/fixtures; preserved pinned Unity foundation, no gameplay modules'
     check('current_scope', scope)
 
     def policy():
@@ -224,7 +229,7 @@ def validate(root):
         require(p['standard_terminal_git_allowed'] is True, 'Standard tools must remain allowed')
         a = read(root, 'AGENTS.md')
         for term in ['Heç bir Skill', 'Antigravity MCP', 'Codex Gravity MCP', 'AWAITING_HUMAN_APPROVAL',
-                     'P00.3', 'R01–R20']:
+                     'P01.1', 'R01–R20']:
             require(term in a, f'Agent rule missing: {term}')
         return 'Agent-neutral rules and tool bans present'
     check('agent_policy', policy)
@@ -329,6 +334,13 @@ def validate(root):
                 'Push recorded despite explicit no-push instruction')
         return f"Remote {repo['remote_visibility']}; sync {repo['sync_status']}"
     check('remote_safety', remote_safety)
+
+    def rule_specification():
+        from validate_rule_fixtures import validate as validate_rules
+        result = validate_rules(root)
+        require(state(root)['build']['physical_device'] == 'NOT_RUN', 'Physical device test must remain open')
+        return f"{result['fixture_count']} authored examples; engine NOT_RUN, human rule review PENDING"
+    check('rule_specification', rule_specification)
 
     return {'schema_version': 1, 'part': state(root)['active_part'],
             'executed_at': datetime.now(ZoneInfo('Asia/Baku')).isoformat(timespec='seconds'),

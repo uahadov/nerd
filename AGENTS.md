@@ -16,9 +16,10 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P00.3 icazəlidir: Unity 6000.6.7f1 minimal 2D layihəsi,
-   rəsmi/pulsuz Android alətləri, ilkin compile/build və test infrastrukturu.
-   Nərd qaydaları, UI/UX ekranları, bot, multiplayer və növbəti part qadağandır.
+4. Hazırda yalnız P01.1 icazəlidir: uzun/qısa nərdin qayda matrisi,
+   koordinat müqaviləsi, versiyalı JSON nümunələri və sənəd/fixture doğrulama testləri.
+   Qayda motoru (P01.2/P01.3), Unity UI, bot və server yazma.
+   Fiziki Android testi aparılmayıb; P00.3 Editor qəbulu ilə qarışdırma.
    Gələcək part açıq icazə aldıqda bu cari-part cümləsini də yenilə.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.

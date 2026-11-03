@@ -3,19 +3,19 @@
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
   "updated_on": "2026-11-03",
-  "active_part": "P00.3",
+  "active_part": "P01.1",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P00.2",
+  "last_human_approved_part": "P00.3",
   "current_part_human_approved": false,
-  "next_part": "P01.1",
+  "next_part": "P01.2",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P00.3",
+    "part": "P01.1",
     "by": "human",
     "date": "2026-11-03",
-    "quote": "İndi yalnız P00.3 mərhələsinə keç."
+    "quote": "İndi yalnız Master Plandakı növbəti kiçik parta — P01.1-ə keç."
   },
   "human_approvals": [
     {
@@ -31,6 +31,13 @@
       "by": "human",
       "quote": "P00.2 mərhələsini təsdiqləyirəm.",
       "report": "docs/reports/P00.2.md"
+    },
+    {
+      "part": "P00.3",
+      "date": "2026-11-03",
+      "by": "human",
+      "quote": "P00.3 mərhələsini təsdiqləyirəm. Unity Editor-da Game ekranını yoxladım, krem fon düzgün görünür.",
+      "report": "docs/reports/P00.3.md"
     }
   ],
   "sources": {
@@ -52,14 +59,14 @@
     "android_tools_installed": true,
     "game_modules_implemented": false
   },
-  "test_report": "docs/reports/P00.3.md",
+  "test_report": "docs/reports/P01.1.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
-    "unity_build": "PASS",
+    "unity_build": "NOT_RUN",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P00.3.validation.json",
-    "tests_evidence": "docs/reports/P00.3.tests.txt"
+    "validation_evidence": "docs/reports/P01.1.validation.json",
+    "tests_evidence": "docs/reports/P01.1.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -81,11 +88,17 @@
     {
       "id": "DEVICE-ANDROID",
       "status": "WAITING_FOR_HUMAN",
-      "impact": "ADB işləyir, qoşulmuş fiziki telefon yoxdur. APK açılışı və toxunma cihazda təsdiqlənməyib.",
-      "next_action": "İnsan build hazır olduqda Android telefonda açılış/bağlanış və orientation sınağını aparsın; yalnız P00.3 daxilində qal."
+      "impact": "Fiziki Android testi aparılmayıb. İstifadəçi P00.3 Editor ekranını qəbul edib; bu, telefon testi deyil.",
+      "next_action": "Fiziki cihaz imkanı olan ayrıca icazəli yoxlamada APK açılış/bağlanış və orientation testini apar; NOT_RUN statusunu real sübut olmadan dəyişmə."
+    },
+    {
+      "id": "RULES-LOCAL-REVIEW",
+      "status": "WAITING_FOR_HUMAN",
+      "impact": "P01.1 qayda nümunələrinin insan qəbulu və GDD 4.5 üzrə bir neçə yerli təcrübəli oyunçu ilə yoxlanması hələ aparılmayıb. Altı uzun qayda dəqiqləşdirməsi provisional qalır.",
+      "next_action": "RULE_MATRIX.md-də beş mövqe qrupunu oxu və nümunə ID-ləri üzrə rəy ver. Yerli fərq varsa yeni RuleSetVersion/qərar qeydi ilə dəyiş; beta öncəsi yerli yoxlamanı tamamla."
     }
   ],
-  "resume_instruction": "Yalnız P00.3: Unity 6000.6.7f1 minimal 2D layihəsi, Android alətləri, ilkin build/test. Sonra AWAITING_HUMAN_APPROVAL ilə dayan; P01.1 və başqa parta keçmə. GitHub push qadağandır.",
+  "resume_instruction": "Yalnız P01.1 qayda sənədləri/JSON fixture ssenariləri və onların doğrulama testləri. Qayda motoru, Unity UI, bot və server yazma. AWAITING_HUMAN_APPROVAL ilə dayan; P01.2-yə keçmə. Fiziki Android testi NOT_RUN qalır; push qadağandır.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -102,6 +115,14 @@
     "apk_sha256": "557300cb6a0a0e3187bf69ee18554bacfefede0c67a741b5ee9a08c112ffd1c1",
     "execution_evidence": "docs/reports/P00.3.execution.json",
     "editor_visual": "PASS",
-    "physical_device": "NOT_RUN"
+    "physical_device": "NOT_RUN",
+    "produced_in_part": "P00.3"
+  },
+  "human_editor_review": {
+    "part": "P00.3",
+    "status": "PASS",
+    "by": "human",
+    "date": "2026-11-03",
+    "quote": "Unity Editor-da Game ekranını yoxladım, krem fon düzgün görünür."
   }
 }

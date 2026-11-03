@@ -1,0 +1,11 @@
+{
+  "part": "P01.1",
+  "executed_at": "2026-11-03T11:25:14+00:00",
+  "fixture_count": 67,
+  "provisional_fixture_count": 20,
+  "requirement_count": 23,
+  "status": "PASS",
+  "engine_tests": "NOT_RUN",
+  "human_rule_review": "PENDING",
+  "scope": "schema, invariants, authored transition arithmetic, references and matrix consistency"
+}
