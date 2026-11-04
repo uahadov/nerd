@@ -136,7 +136,7 @@ def run(step, editor, part='P01.2'):
                 prefix = '.MatchLayoutTests.' if step == 'editmode' else '.MatchLayoutSceneTests.'
                 layout_cases = [c for c in report['cases'] if prefix in c.get('fullname', '') and c['result'] == 'Passed']
                 report['executed_layout_cases'] = len(layout_cases)
-                if len(layout_cases) != (28 if step == 'editmode' else 5):
+                if len(layout_cases) != (30 if step == 'editmode' else 7):
                     report.update(status='FAIL', reason='Required responsive layout suite missing or incomplete')
             if (int(root.attrib.get('failed', '0')) != 0 or int(root.attrib.get('inconclusive', '0')) != 0
                     or int(root.attrib.get('passed', '0')) == 0 or actual_skips != allowed_skips

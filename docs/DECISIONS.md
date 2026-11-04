@@ -329,3 +329,13 @@ Taxta landşaft asseti kimi qalır; portretdə onun render yerləşimi 90° çev
 Beləliklə portret ekranın ortasına balaca horizontal şəkil yapışdırılmır; board mobil ekranın əsas hissəsini tutur.
 Bu təqdimat seçimi qaydaları, istiqamət indekslərini və eyni matç snapshot-unu dəyişmir.
 “Gedişi tamamla” saxta düyməsi çıxarılır; avtomatik commit qalır. Zər atışı yalnız real CanRoll zamanı aktivdir.
+
+## D034 — 2026-11-04, yalnız P02.5 görünüşünün yenidən işlənməsi
+
+İnsan cari üfüqi/şaquli görüntünü təkmilləşdirməyi, portreti ayrıca dizayn etməyi istəyib.
+D033-dəki 90° render seçimi bu düzəlişlə əvəzlənir: portretdə əvvəlki sol yarı yuxarı,
+sağ yarı aşağı tray olur; hər tray altı dik sütundan ibarətdir. 24 indeks, istiqamət,
+qayda, zər və Undo dəyişmir. Eyni material atlasından frame/point/medallion sprite-ləri təkrar istifadə olunur.
+HUD real lokal tərəfləri və qalan hüquqları göstərir. Lokal dövrə tək partiyadır;
+profil adları və UI-yə qoşulmamış BO3/BO5 hesabı uydurulmur. Final polish, yeni ekran,
+seriya inteqrasiyası və P02.6 yoxdur. P02.5 qəbul edilməyib, status AWAITING_HUMAN_APPROVAL qalır.

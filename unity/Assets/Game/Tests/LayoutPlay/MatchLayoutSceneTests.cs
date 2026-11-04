@@ -43,7 +43,7 @@ namespace Nard.Tests.Layout
         private void CheckPieces()
         {
             Assert.AreEqual(30,view.Checkers.Count);var l=view.CurrentLayout;
-            foreach(var c in view.Checkers){Assert.IsTrue(c.Renderer.enabled);var at=l.WorldToPixel(c.Renderer.transform.localPosition);Assert.IsTrue(l.Safe.Contains(at),c.Renderer.name);Assert.IsTrue(l.Board.Contains(at),c.Renderer.name);
+            foreach(var c in view.Checkers){Assert.IsTrue(c.Renderer.enabled);var at=l.WorldToPixel(c.Renderer.transform.localPosition);Assert.IsTrue(l.Safe.Contains(at),c.Renderer.name);Assert.IsTrue(l.Board.Contains(at),c.Renderer.name);Assert.AreEqual(c.Point,BoardHitMap.PointAt(l.WorldToCanonical(c.Renderer.transform.localPosition),c.Player),"Checker/hit-map mismatch: "+c.Renderer.name);
                 var min=l.WorldToPixel(c.Renderer.bounds.min);var max=l.WorldToPixel(c.Renderer.bounds.max);var bounds=Rect.MinMaxRect(min.x,min.y,max.x,max.y);
                 Assert.IsFalse(bounds.Overlaps(l.Dice),"Dice overlaps "+c.Renderer.name);
                 Assert.That(bounds.xMin,Is.GreaterThanOrEqualTo(l.Safe.xMin-.1f));Assert.That(bounds.xMax,Is.LessThanOrEqualTo(l.Safe.xMax+.1f));Assert.That(bounds.yMin,Is.GreaterThanOrEqualTo(l.Safe.yMin-.1f));Assert.That(bounds.yMax,Is.LessThanOrEqualTo(l.Safe.yMax+.1f));}
@@ -56,6 +56,30 @@ namespace Nard.Tests.Layout
             var rt=new RenderTexture(l.Width,l.Height,24);var texture=new Texture2D(l.Width,l.Height,TextureFormat.RGB24,false);var old=camera.targetTexture;var active=RenderTexture.active;
             try{camera.targetTexture=rt;camera.Render();RenderTexture.active=rt;texture.ReadPixels(new Rect(0,0,l.Width,l.Height),0,0);texture.Apply();File.WriteAllBytes(System.IO.Path.Combine(dir,name+".png"),texture.EncodeToPNG());}
             finally{camera.targetTexture=old;RenderTexture.active=active;rt.Release();UnityEngine.Object.Destroy(rt);UnityEngine.Object.Destroy(texture);}
+        }
+        [UnityTest] public IEnumerator PortraitCheckerEdgesSelectCorrectLaneAndHudShowsBothRealSides()
+        {
+            yield return Load();var dice=new Dice();var loop=Ready(GameMode.Long,dice);Viewport(540,960);yield return null;
+            var mouse=InputSystem.AddDevice<Mouse>();
+            try
+            {
+                var l=view.CurrentLayout;var cell=l.PointTouchRect(0);
+                var world=l.PixelToWorld(new Vector2(cell.xMax-1,cell.center.y));
+                yield return Click(mouse,Camera.main.WorldToScreenPoint(world));Assert.AreEqual(0,loop.Selected);Assert.AreEqual(0,loop.LongPosition.UsedMask);
+                Assert.NotNull(GameObject.Find("SelectedChecker"));Assert.IsTrue(loop.Targets.Count>0);
+                var texts=input.GetComponentsInChildren<TextMesh>().Where(t=>t.GetComponent<Renderer>().enabled).Select(t=>t.text).ToArray();
+                CollectionAssert.Contains(texts,"Açıq tərəf");CollectionAssert.Contains(texts,"Qoz tərəf");CollectionAssert.Contains(texts,"4 gediş qalıb");
+                Assert.IsFalse(texts.Any(t=>t.Contains("0:0")||t.Contains("BO3")));
+                Capture("layout-portrait-selection");CheckPieces();
+            }finally{InputSystem.RemoveDevice(mouse);}
+        }
+        [UnityTest] public IEnumerator OpeningAndRollControlsShowOnlyRealActions()
+        {
+            yield return Load();var dice=new Dice();var loop=new LocalTurnLoop(MatchSession.Create("opening-hud",GameMode.Long,RuleContract.VersionFor(GameMode.Long)),dice);input.Bind(loop);Viewport(540,960);yield return null;
+            Assert.IsTrue(loop.CanRoll);Assert.IsFalse(loop.CanUndo);Assert.NotNull(GameObject.Find("RollLabel"));
+            var mouse=InputSystem.AddDevice<Mouse>();
+            try{yield return Click(mouse,P(0,-9.35f));Assert.AreEqual(2,dice.Calls);Assert.IsTrue(loop.CanRoll);Assert.IsFalse(loop.CanUndo);Assert.AreEqual(MatchPhase.Rolling,loop.Session.Phase);CollectionAssert.Contains(input.GetComponentsInChildren<TextMesh>().Where(t=>t.GetComponent<Renderer>().enabled).Select(t=>t.text).ToArray(),"Bərabərdir · yenidən atın");Capture("layout-portrait-opening");}
+            finally{InputSystem.RemoveDevice(mouse);}
         }
         [UnityTest] public IEnumerator FiveAspectSafeAreaRendersKeepTheSameMatch()
         {

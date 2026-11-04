@@ -136,7 +136,7 @@ Fiziki Android, müstəqil yerli qayda və responsive orientation testləri tama
 
 Unity-də `NARD → P02.5 → Open responsive long match` və ya `Open responsive short match`, sonra Play seçin.
 Game görünüşünü Free Aspect ilə dar/uzun, sonra enli edin: eyni matç davam etməlidir.
-Portretdə landşaft taxta asseti 90° çevrilir; daşlar, zərlər və mətnlər dik qalır. Landşaftda taxta təbii üfüqidir.
+Portretdə sol/sağ yarılar iki altı sütunlu dik tray kimi yenidən qurulur; taxta bütöv 90° çevrilmir. Landşaftda taxta təbii üfüqidir.
 Status, Undo və atış idarəsi taxta səthi ilə vahid kompozisiyadır; zərlər taxtanın ortasında yerləşir.
 Son hüquq yenə avtomatik commit edir; ayrıca “Gedişi tamamla” düyməsi yoxdur. Böyük off zolağı kiçik yuvalarla əvəzlənib.
 Bu yerləşim prototipidir: fiziki telefon/iOS, yerli qayda yoxlaması və final polish tamamlanmış sayılmır.

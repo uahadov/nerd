@@ -157,10 +157,12 @@ D031 görünüş dəyişikliyi: 24 xana, iki oyunçu üçün bar/off və iki dü
 
 ## P02.5 yerləşim və state davamlılığı
 
-28 əlavə EditMode: 12 ölçü × full/notch safe area = 24 hal; yanlış ölçü üçün 3 exception və safe-area fallback/clipping.
+30 əlavə EditMode: 12 ölçü × full/notch safe area = 24 hal; yanlış ölçü üçün 3 exception və safe-area fallback/clipping.
+Əlavə iki test portretdə 6 dik sütunu, daş diametrini, yanlış indeksləri və çərçivənin passivliyini yoxlayır.
 Hər ölçüdə bütün 24 xana, hər iki owner bar/off, ayrı idarələr, böyük board sahəsi, təbii aspect və tərs input yoxlanır.
-5 əlavə PlayMode: 5 real render nisbəti; tap→undo→resize→drag→commit; iki istiqamətdə touch/multitouch;
+7 əlavə PlayMode: 5 real render nisbəti; tap→undo→resize→drag→commit; iki istiqamətdə touch/multitouch;
 ekran/control sərhədi; həqiqi çatılmış bar/off/bitmiş matçın çevrilməsi. Hər renderdə 30 daş,
 qorunan safe area, zərlə daşın toqquşmaması, köhnə zolağın/debug yazıların gizlənməsi yoxlanır.
+Əlavə PlayMode: portretin xana kənarından seçim/real iki tərəf HUD-u və ilkin bərabər atış/real idarələr.
 Bunlar sintetik Input System + real Editor renderidir, fiziki orientation/barmaq sınağı deyil.
 Əvvəlki 749 EditMode və 17 PlayMode adlarının saxlanması ayrıca müqayisə edilir; 67 canonical nümunə və 41 tarixi Ignore dəyişmir.

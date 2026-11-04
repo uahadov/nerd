@@ -10,7 +10,7 @@
     "editmode": {
       "part": "P02.5",
       "step": "editmode",
-      "started_at": "2026-11-03T23:52:25+00:00",
+      "started_at": "2026-11-04T09:37:30+00:00",
       "exit_code": 0,
       "editor": "6000.6.7f1",
       "project": "build/P02.5/unity (source copy)",
@@ -68,9 +68,9 @@
         "unity/Assets/Game/Presentation/BoardTurnInput.cs.meta": "953d248a8428ce9849d038dba244dba82f77910c5da25111a4e8f8fcb858d33c",
         "unity/Assets/Game/Presentation/BoardView.cs": "66948265680f3ad9d8cb2fd7c52967e6ad04b8995ba9dd7934ebe8bde649eb83",
         "unity/Assets/Game/Presentation/BoardView.cs.meta": "66340f492a04d4e5003c0592b483ac477b34206a427e789a310309b125b466ed",
-        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "7ce078fd728d8f9ad521b42401d588affe83785ddacd42f930af89b977308182",
+        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "d22274dcc46a8812e9258f083948f0381587c416049ceaaa722054a4dc15b9a6",
         "unity/Assets/Game/Presentation/MatchBoardLayout.cs.meta": "fdd3dc02337d559b156a865281c97b2c6449a99b4af31ad1e760c96cb6176fb5",
-        "unity/Assets/Game/Presentation/MatchHudView.cs": "d48411b236c95ca4ab39f89fa78b9b4294eda3cb7baa576a0ac69f7413a072ed",
+        "unity/Assets/Game/Presentation/MatchHudView.cs": "3bc8164b87bc39cc022b630e18a7cd780ae7eed905af571681ecd818da1007d1",
         "unity/Assets/Game/Presentation/MatchHudView.cs.meta": "7f270717bf9828010b30502fd7c9894c8f226964d2b684aded1a12dcd36f0cf2",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef": "1311a69359069559570eaa8bc94f90fee9d7cc6cef7a588a99145e9ac2b7cfdf",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef.meta": "c755d890b18e47d8e4d87dc23c346b602572e1626287067e0f2474e6f07ac9e5",
@@ -138,12 +138,12 @@
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef": "1f63c86ff2f28d4f605275a36b1809b8463cd85ef76c0c1554e3ce605a912cb0",
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef.meta": "731d06adb2964a1d3f09808390f0c68ee5325fbbe9185358fcbcfeafcd924316",
         "unity/Assets/Game/Tests/EditMode.meta": "db138cbdf888b9e2905cb074127852aca61619f596f866c265c037b4043e0819",
-        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "0927cd798a1b21e1fbb5bb734a7b3e36efb89e861e0fdde6ce3f889a11308ba3",
+        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "056a4f7fd9354bd84663e6e8a44d2e811174a90de81c56c673463445bf0e75e8",
         "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs.meta": "3d8dc658452993470c82c3d7f224ceb475eb50c11d84347727e7d4f40ef04f35",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef": "f1110dd70fea549d0afdcad5062ecdad6bbca4b6d7ac96925be5424c5fa114f0",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef.meta": "729d645bab90f82aa9ff03bf99e8e0fa83c3cd2f762342d95fba372dc206ae55",
         "unity/Assets/Game/Tests/LayoutEditor.meta": "e6901df08c90f6bee5b74b3e27af6cd4f56f9c0e3a56a12b191550574b3eb5a7",
-        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "cfb5589c273561720c07f52503e5f446969cd02ddbecd758d0061ac08d40bedf",
+        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "25e7274af4150444c80b424619c5eb8d0e3eda08b92c0196e788a9ce14216d97",
         "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs.meta": "a884320a53a2c2c27aadb2bb4496aa509cfda45a908811a908475ff8e117013c",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef": "aae2e03c37a55fedbecf867e2ffb57f9019dbebd0ee7bfa1968771f74d8bc57d",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef.meta": "08b620de66fd7b3e44f508264921e429feb9c9c4a11720ac18c061b954d7b604",
@@ -237,19 +237,19 @@
       "compiler_errors": [],
       "tests": {
         "id": "2",
-        "testcasecount": "818",
+        "testcasecount": "820",
         "result": "Skipped:Ignored",
-        "total": "818",
-        "passed": "777",
+        "total": "820",
+        "passed": "779",
         "failed": "0",
         "inconclusive": "0",
         "skipped": "41",
         "asserts": "0",
         "engine-version": "3.5.0.0",
         "clr-version": "4.0.30319.42000",
-        "start-time": "2026-11-03 23:52:36Z",
-        "end-time": "2026-11-03 23:52:45Z",
-        "duration": "9.1811086"
+        "start-time": "2026-11-04 09:37:36Z",
+        "end-time": "2026-11-04 09:37:40Z",
+        "duration": "4.2680321"
       },
       "failures": [],
       "expected_out_of_scope_skips": 41,
@@ -264,12 +264,12 @@
       "executed_undo_fixtures": 4,
       "executed_undo_tests": 194,
       "executed_reference_skin_cases": 27,
-      "executed_layout_cases": 28
+      "executed_layout_cases": 30
     },
     "playmode": {
       "part": "P02.5",
       "step": "playmode",
-      "started_at": "2026-11-03T23:52:56+00:00",
+      "started_at": "2026-11-04T09:37:48+00:00",
       "exit_code": 0,
       "editor": "6000.6.7f1",
       "project": "build/P02.5/unity (source copy)",
@@ -327,9 +327,9 @@
         "unity/Assets/Game/Presentation/BoardTurnInput.cs.meta": "953d248a8428ce9849d038dba244dba82f77910c5da25111a4e8f8fcb858d33c",
         "unity/Assets/Game/Presentation/BoardView.cs": "66948265680f3ad9d8cb2fd7c52967e6ad04b8995ba9dd7934ebe8bde649eb83",
         "unity/Assets/Game/Presentation/BoardView.cs.meta": "66340f492a04d4e5003c0592b483ac477b34206a427e789a310309b125b466ed",
-        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "7ce078fd728d8f9ad521b42401d588affe83785ddacd42f930af89b977308182",
+        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "d22274dcc46a8812e9258f083948f0381587c416049ceaaa722054a4dc15b9a6",
         "unity/Assets/Game/Presentation/MatchBoardLayout.cs.meta": "fdd3dc02337d559b156a865281c97b2c6449a99b4af31ad1e760c96cb6176fb5",
-        "unity/Assets/Game/Presentation/MatchHudView.cs": "d48411b236c95ca4ab39f89fa78b9b4294eda3cb7baa576a0ac69f7413a072ed",
+        "unity/Assets/Game/Presentation/MatchHudView.cs": "3bc8164b87bc39cc022b630e18a7cd780ae7eed905af571681ecd818da1007d1",
         "unity/Assets/Game/Presentation/MatchHudView.cs.meta": "7f270717bf9828010b30502fd7c9894c8f226964d2b684aded1a12dcd36f0cf2",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef": "1311a69359069559570eaa8bc94f90fee9d7cc6cef7a588a99145e9ac2b7cfdf",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef.meta": "c755d890b18e47d8e4d87dc23c346b602572e1626287067e0f2474e6f07ac9e5",
@@ -397,12 +397,12 @@
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef": "1f63c86ff2f28d4f605275a36b1809b8463cd85ef76c0c1554e3ce605a912cb0",
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef.meta": "731d06adb2964a1d3f09808390f0c68ee5325fbbe9185358fcbcfeafcd924316",
         "unity/Assets/Game/Tests/EditMode.meta": "db138cbdf888b9e2905cb074127852aca61619f596f866c265c037b4043e0819",
-        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "0927cd798a1b21e1fbb5bb734a7b3e36efb89e861e0fdde6ce3f889a11308ba3",
+        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "056a4f7fd9354bd84663e6e8a44d2e811174a90de81c56c673463445bf0e75e8",
         "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs.meta": "3d8dc658452993470c82c3d7f224ceb475eb50c11d84347727e7d4f40ef04f35",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef": "f1110dd70fea549d0afdcad5062ecdad6bbca4b6d7ac96925be5424c5fa114f0",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef.meta": "729d645bab90f82aa9ff03bf99e8e0fa83c3cd2f762342d95fba372dc206ae55",
         "unity/Assets/Game/Tests/LayoutEditor.meta": "e6901df08c90f6bee5b74b3e27af6cd4f56f9c0e3a56a12b191550574b3eb5a7",
-        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "cfb5589c273561720c07f52503e5f446969cd02ddbecd758d0061ac08d40bedf",
+        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "25e7274af4150444c80b424619c5eb8d0e3eda08b92c0196e788a9ce14216d97",
         "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs.meta": "a884320a53a2c2c27aadb2bb4496aa509cfda45a908811a908475ff8e117013c",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef": "aae2e03c37a55fedbecf867e2ffb57f9019dbebd0ee7bfa1968771f74d8bc57d",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef.meta": "08b620de66fd7b3e44f508264921e429feb9c9c4a11720ac18c061b954d7b604",
@@ -496,19 +496,19 @@
       "compiler_errors": [],
       "tests": {
         "id": "2",
-        "testcasecount": "22",
+        "testcasecount": "24",
         "result": "Passed",
-        "total": "22",
-        "passed": "22",
+        "total": "24",
+        "passed": "24",
         "failed": "0",
         "inconclusive": "0",
         "skipped": "0",
         "asserts": "0",
         "engine-version": "3.5.0.0",
         "clr-version": "4.0.30319.42000",
-        "start-time": "2026-11-03 23:53:06Z",
-        "end-time": "2026-11-03 23:53:17Z",
-        "duration": "11.1202782"
+        "start-time": "2026-11-04 09:37:54Z",
+        "end-time": "2026-11-04 09:38:03Z",
+        "duration": "8.7568564"
       },
       "failures": [],
       "expected_out_of_scope_skips": 0,
@@ -522,12 +522,12 @@
       "executed_turn_roll_cases": 0,
       "executed_undo_fixtures": 0,
       "executed_undo_tests": 5,
-      "executed_layout_cases": 5
+      "executed_layout_cases": 7
     },
     "android": {
       "part": "P02.5",
       "step": "android",
-      "started_at": "2026-11-03T23:54:55+00:00",
+      "started_at": "2026-11-04T09:38:11+00:00",
       "exit_code": 0,
       "editor": "6000.6.7f1",
       "project": "build/P02.5/unity (source copy)",
@@ -585,9 +585,9 @@
         "unity/Assets/Game/Presentation/BoardTurnInput.cs.meta": "953d248a8428ce9849d038dba244dba82f77910c5da25111a4e8f8fcb858d33c",
         "unity/Assets/Game/Presentation/BoardView.cs": "66948265680f3ad9d8cb2fd7c52967e6ad04b8995ba9dd7934ebe8bde649eb83",
         "unity/Assets/Game/Presentation/BoardView.cs.meta": "66340f492a04d4e5003c0592b483ac477b34206a427e789a310309b125b466ed",
-        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "7ce078fd728d8f9ad521b42401d588affe83785ddacd42f930af89b977308182",
+        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "d22274dcc46a8812e9258f083948f0381587c416049ceaaa722054a4dc15b9a6",
         "unity/Assets/Game/Presentation/MatchBoardLayout.cs.meta": "fdd3dc02337d559b156a865281c97b2c6449a99b4af31ad1e760c96cb6176fb5",
-        "unity/Assets/Game/Presentation/MatchHudView.cs": "d48411b236c95ca4ab39f89fa78b9b4294eda3cb7baa576a0ac69f7413a072ed",
+        "unity/Assets/Game/Presentation/MatchHudView.cs": "3bc8164b87bc39cc022b630e18a7cd780ae7eed905af571681ecd818da1007d1",
         "unity/Assets/Game/Presentation/MatchHudView.cs.meta": "7f270717bf9828010b30502fd7c9894c8f226964d2b684aded1a12dcd36f0cf2",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef": "1311a69359069559570eaa8bc94f90fee9d7cc6cef7a588a99145e9ac2b7cfdf",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef.meta": "c755d890b18e47d8e4d87dc23c346b602572e1626287067e0f2474e6f07ac9e5",
@@ -655,12 +655,12 @@
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef": "1f63c86ff2f28d4f605275a36b1809b8463cd85ef76c0c1554e3ce605a912cb0",
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef.meta": "731d06adb2964a1d3f09808390f0c68ee5325fbbe9185358fcbcfeafcd924316",
         "unity/Assets/Game/Tests/EditMode.meta": "db138cbdf888b9e2905cb074127852aca61619f596f866c265c037b4043e0819",
-        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "0927cd798a1b21e1fbb5bb734a7b3e36efb89e861e0fdde6ce3f889a11308ba3",
+        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "056a4f7fd9354bd84663e6e8a44d2e811174a90de81c56c673463445bf0e75e8",
         "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs.meta": "3d8dc658452993470c82c3d7f224ceb475eb50c11d84347727e7d4f40ef04f35",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef": "f1110dd70fea549d0afdcad5062ecdad6bbca4b6d7ac96925be5424c5fa114f0",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef.meta": "729d645bab90f82aa9ff03bf99e8e0fa83c3cd2f762342d95fba372dc206ae55",
         "unity/Assets/Game/Tests/LayoutEditor.meta": "e6901df08c90f6bee5b74b3e27af6cd4f56f9c0e3a56a12b191550574b3eb5a7",
-        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "cfb5589c273561720c07f52503e5f446969cd02ddbecd758d0061ac08d40bedf",
+        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "25e7274af4150444c80b424619c5eb8d0e3eda08b92c0196e788a9ce14216d97",
         "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs.meta": "a884320a53a2c2c27aadb2bb4496aa509cfda45a908811a908475ff8e117013c",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef": "aae2e03c37a55fedbecf867e2ffb57f9019dbebd0ee7bfa1968771f74d8bc57d",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef.meta": "08b620de66fd7b3e44f508264921e429feb9c9c4a11720ac18c061b954d7b604",
@@ -753,8 +753,8 @@
       "status": "PASS",
       "compiler_errors": [],
       "apk_exists": true,
-      "apk_bytes": 26570780,
-      "apk_sha256": "d18ce58fe50a9a0021d2705969fa69d210eb8c0afafec34b13fcaf4f7abce7b8"
+      "apk_bytes": 39859298,
+      "apk_sha256": "38959b5f2c70f1b5145170a2adb7cef786a9c32efd2c5197bcc3aadd076ba5f5"
     }
   },
   "coverage": {
@@ -1106,7 +1106,7 @@
   "android_signature": {
     "status": "PASS",
     "exit_code": 0,
-    "apk_sha256": "d18ce58fe50a9a0021d2705969fa69d210eb8c0afafec34b13fcaf4f7abce7b8",
+    "apk_sha256": "38959b5f2c70f1b5145170a2adb7cef786a9c32efd2c5197bcc3aadd076ba5f5",
     "output": [
       "Verifies",
       "Verified using v1 scheme (JAR signing): false",
@@ -1134,7 +1134,7 @@
       {
         "kind": "layout-landscape",
         "path": "docs/screenshots/P02.5-layout-landscape.png",
-        "sha256": "70a70b5ffc0844f2bd913be1b4a1a7a8ca94d0b967c90524691721acbdc03f65",
+        "sha256": "90eee81f4c3deb9429b1961519dd252fddb6249464132232b5558ee4529e1a47",
         "width": 960,
         "height": 540,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1142,7 +1142,7 @@
       {
         "kind": "layout-portrait",
         "path": "docs/screenshots/P02.5-layout-portrait.png",
-        "sha256": "c53c8332a657325cd763f300cd71e717e2ab1b672ead88297a14db37130af92e",
+        "sha256": "64df311e6101d20712c2d7e44da6ac8f42c6adac5060be5919b94c65e82a7737",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1150,7 +1150,7 @@
       {
         "kind": "layout-wide-safe",
         "path": "docs/screenshots/P02.5-layout-wide-safe.png",
-        "sha256": "1979041f0c17aaf1c6458197d97ba480cf003ac2686908844d30c47ae33eac7b",
+        "sha256": "1e560d23fe0ce7282695cd581557f7f147be99c685696313f47e963d7c97efcf",
         "width": 1280,
         "height": 720,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1158,7 +1158,7 @@
       {
         "kind": "layout-tall-safe",
         "path": "docs/screenshots/P02.5-layout-tall-safe.png",
-        "sha256": "f7f771597401ffcf73da00a4e0829a4101391d5139aea365037f13dbccd55f17",
+        "sha256": "2623a6b75a2c7ee93b6feb49396e091c89f83639ccb5026c4a31a9bfb46aaccf",
         "width": 720,
         "height": 1280,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1166,7 +1166,7 @@
       {
         "kind": "layout-tablet",
         "path": "docs/screenshots/P02.5-layout-tablet.png",
-        "sha256": "eb519eb4f2089cb854c7a4a9b35309f0a1236a49cf3cd7b622b6289c0306fb6f",
+        "sha256": "08d9968f071e97e91ea59e2453e3095a52a8b7c8d5ca76524c8ee740802b506b",
         "width": 1024,
         "height": 768,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1174,7 +1174,7 @@
       {
         "kind": "layout-portrait-moving",
         "path": "docs/screenshots/P02.5-layout-portrait-moving.png",
-        "sha256": "67285210ec8471a1ed761d87f576cd26684b6441ca74a2063b98a35505c16998",
+        "sha256": "8c95123af6c53187663a4e2bc0a40eb0c830bfba47c087ee8e1204b2363303dc",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1182,7 +1182,7 @@
       {
         "kind": "layout-short-bar",
         "path": "docs/screenshots/P02.5-layout-short-bar.png",
-        "sha256": "df602461106d6e93286bceac39516dff703aae35ef20f4a467a34492fcb6e49a",
+        "sha256": "596168aef031ff3219eb540a0f66037eb0232ea6b4dc2a192edb088582fe2278",
         "width": 960,
         "height": 540,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1190,7 +1190,7 @@
       {
         "kind": "layout-short-off",
         "path": "docs/screenshots/P02.5-layout-short-off.png",
-        "sha256": "45b15589a37dcfa5ec994fd67adaef38bb3367c92ee376eeaad5d8c3f5f384b1",
+        "sha256": "2af78df28744d72cb1a6856b0c5c8062c2153e63c2616c0438a0de4cc1a122fb",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1198,9 +1198,9 @@
       {
         "kind": "editor-gameview",
         "path": "docs/screenshots/P02.5-editor-gameview.png",
-        "sha256": "cb365ecb20389279a05dddd435ff7ed63ce5d2afdcce752777ed305aed4d264c",
+        "sha256": "a93d97cc594dc633edfa312b1b258c4af103d7c91a817f371df19ed8a4752bf9",
         "width": 1101,
-        "height": 577,
+        "height": 592,
         "source": "Unity GUI Game View + synthetic Input System Mouse"
       }
     ],
@@ -1216,10 +1216,40 @@
       "quick head=14 used=1 ok=True"
     ],
     "input_kind": "SYNTHETIC_UNITY_INPUT_SYSTEM_NOT_PHYSICAL_TOUCH",
-    "os_mouse_or_finger_test": "NOT_RUN"
+    "os_mouse_or_finger_test": "NOT_RUN",
+    "additional_images": [
+      {
+        "kind": "layout-portrait-selection",
+        "path": "docs/screenshots/P02.5-layout-portrait-selection.png",
+        "sha256": "7922c619f8be05bec69ae813d433842cd0d1ba09adbdad2aa88790371d087818",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode Camera.Render; synthetic Input System"
+      },
+      {
+        "kind": "layout-portrait-opening",
+        "path": "docs/screenshots/P02.5-layout-portrait-opening.png",
+        "sha256": "35591d8a6dadcc235ff200a50b1b123bdfc27093864cabbb0e0dc5c60389325e",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode Camera.Render; synthetic Input System"
+      }
+    ],
+    "before_images": [
+      {
+        "path": "docs/screenshots/P02.5-before-landscape.png",
+        "sha256": "70a70b5ffc0844f2bd913be1b4a1a7a8ca94d0b967c90524691721acbdc03f65",
+        "source_commit": "a06ddbb"
+      },
+      {
+        "path": "docs/screenshots/P02.5-before-portrait.png",
+        "sha256": "c53c8332a657325cd763f300cd71e717e2ab1b672ead88297a14db37130af92e",
+        "source_commit": "a06ddbb"
+      }
+    ]
   },
   "layout_validation": {
-    "math_cases": 28,
+    "math_cases": 30,
     "viewport_safe_area_combinations": 24,
     "rendered_aspects": 5,
     "same_match_and_undo_after_resize": "PASS",
@@ -1227,7 +1257,15 @@
     "cancel_drag_on_resize": "PASS",
     "safe_area_and_dice_checker_bounds": "PASS",
     "real_phone_rotation_sensor": "NOT_RUN",
-    "physical_touch_size_comfort": "NOT_RUN"
+    "physical_touch_size_comfort": "NOT_RUN",
+    "portrait_layout": "UPRIGHT_SIX_COLUMNS_PER_TRAY_24_CANONICAL_IDS_UNCHANGED",
+    "nonoverlapping_touch_lanes_and_checker_center_inverse": "PASS",
+    "new_cases": [
+      "PortraitHasSixUprightLanesPerTrayAndLargerCheckers",
+      "InvalidPointIdsAreRejectedAndFrameDoesNotSelectAPoint",
+      "PortraitCheckerEdgesSelectCorrectLaneAndHudShowsBothRealSides",
+      "OpeningAndRollControlsShowOnlyRealActions"
+    ]
   },
   "editor_exit_observation": {
     "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.5",
@@ -1249,13 +1287,14 @@
     "git_fsck_exit_code": 0,
     "previous_editmode_passed_names_preserved": 749,
     "previous_playmode_passed_names_preserved": 17,
-    "push": "NOT_RUN_NOT_AUTHORIZED"
+    "push": "NOT_RUN_NOT_AUTHORIZED",
+    "previous_p025_editmode_passed_names_preserved": 777,
+    "previous_p025_playmode_passed_names_preserved": 22
   },
   "implementation_findings": [
-    "Portrait tablet initially squeezed HUD controls; UI scale now follows fitted board width",
-    "Portrait tablet initial board area too small; fitting reserves HUD space at the fitted scale",
-    "Large cream HUD panels removed; dice moved into protected central board space, full off strip replaced with compact pockets",
-    "Dice corner radius initially too large at small rendered size; dedicated square dice mask verified visually",
-    "No changes to rules, match lifecycle, dice source, interaction logic or previous C# tests"
+    "D034: portrait recomposed into two upright six-column trays; no whole-board rotation",
+    "Larger checkers with nonoverlapping lane hit regions; real two-side HUD and available-right count",
+    "Initial float lane overlap, two central-landscape input failures and sprite mesh boundary errors found and corrected; all final suites rerun",
+    "Frozen rules/match/interaction and pre-P02.5 tests unchanged"
   ]
 }

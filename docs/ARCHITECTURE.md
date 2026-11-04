@@ -201,7 +201,11 @@ Asset hüquqları daxili preview kimi qeyd edilib; kommersiya hüququ təsdiqi i
 
 MatchBoardLayout yalnız viewport/safe-area piksel həndəsəsidir. Hər iki yerləşim üçün board, status,
 Undo, roll, dice və off yuvalarını verir; dünya/kanonik input koordinatlarının tərs çevrilməsi burada qalır.
-Heç bir qayda, RNG və növbə keçidi hesablamır. Referans taxta landşaft assetidir, portretdə render 90° çevrilir.
+Heç bir qayda, RNG və növbə keçidi hesablamır. D034 üzrə portret ayrıca iki dik tray kompozisiyasıdır: sol yarı yuxarı, sağ yarı aşağı; 24 indeks dəyişmir.
+Soldan sağa vizual xəritə: yuxarı tray üst 12–17, alt 11–6; aşağı tray üst 18–23, alt 5–0.
+Bar iki tray arasındadır, owner-ə məxsus off yuvası kənardadır. Layout yalnız məkan çevirməsidir;
+qanuni istiqamət və hədəflər mövcud engine/Interaction-dan gəlir. PointTouchRect-lər qonşu ilə örtüşmür,
+checker mərkəzi həmin point-in inverse xəritəsinə düşür; portret/landşaft üzrə real test edilir.
 MatchHudView eyni snapshot, LocalTurnLoop hüquqları və markerlərini çəkir; mətnlərdə P0/P1 debug işarələri yoxdur.
 Böyük krem HUD paneli yoxdur; zərlər board-un boş mərkəzində, digər idarələr ortaq taxta səthindədir.
 

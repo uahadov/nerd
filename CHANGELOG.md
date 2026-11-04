@@ -130,3 +130,11 @@
 - Əvvəlki mühərriklər, Interaction və C# testləri qorunur. 777 EditMode, 22 PlayMode, 118 Python, 15/15 struktur və 67/67 canonical nümunə PASS.
 - Real render/input sübutları, Android ARM64 APK və imza yoxlaması [cari hesabatda](docs/reports/P02.5.md).
 - Fiziki Android/iOS/yerli oyunçu NOT_RUN; native Editor qəzası həll edilmiş sayılmır. Final polish, P02.6 və GitHub push yoxdur.
+
+## 2026-11-04 — P02.5 D034 yerləşim düzəlişi, insan təsdiqi gözlənilir
+
+- Portret bütöv 90° fırlatma əvəzinə 24 ID-ni saxlayan iki dik altı-sütunlu tray kimi quruldu.
+- Daşlar böyüdü, qonşularla örtüşməyən toxunma sahələri, aydın seçim/marker və stack sayı əlavə edildi.
+- İki lokal tərəf, aktiv növbə, real hüquq sayı və işlək Undo/atış vəziyyəti HUD-da göstərilir.
+- Əvvəlki şəkillər müqayisə üçün saxlanır; yekun test/build və native Editor sübutları P02.5 hesabatında yenilənir.
+- Rules/Match/Interaction və əvvəlki part testləri dəyişmir. Push/P02.6 yoxdur; cihaz/yerli review NOT_RUN.

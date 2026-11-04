@@ -164,10 +164,10 @@
       "id": "MATCH-HUD-REWORK",
       "status": "AWAITING_HUMAN_APPROVAL_P02.5",
       "impact": "Hazırkı səhnə/HUD insan tərəfindən qəbul edilməyib; avtomatik render PASS vizual qəbul deyil.",
-      "next_action": "D032 brifi üzrə yeni iki yerləşimin screenshot/build nəticəsini insana göstər; vizual qəbulu agent özü vermir. P02.6 yoxdur."
+      "next_action": "D034 düzəlişi üzrə yeni iki yerləşimin screenshot/build nəticəsini insana göstər; vizual qəbulu agent özü vermir. P02.6 yoxdur."
     }
   ],
-  "resume_instruction": "P02.5 iki responsive matç/HUD yerləşimi hazırlanıb, insan rəyini gözlə. P02.4 funksiyaları qəbul edilib, P02.5 görünüşü hələ qəbul edilməyib. AWAITING_HUMAN_APPROVAL; yalnız istənən cari düzəlişi et. P02.6/save, başqa part, final polish və push yoxdur. Fiziki Android/yerli review NOT_RUN; native qəza riski açıq.",
+  "resume_instruction": "D034 P02.5 portret/HUD düzəlişi hazırlanıb, insan rəyini gözlə. P02.4 funksiyaları qəbul edilib, P02.5 görünüşü hələ qəbul edilməyib. AWAITING_HUMAN_APPROVAL; yalnız istənən cari düzəlişi et. P02.6/save, başqa part, final polish və push yoxdur. Fiziki Android/yerli review NOT_RUN; native qəza riski açıq.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -176,12 +176,12 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p025-local-001",
+    "id": "android-p025-local-002",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
     "apk": "build/P02.5/NARD-P02.5.apk",
-    "apk_bytes": 26570780,
-    "apk_sha256": "d18ce58fe50a9a0021d2705969fa69d210eb8c0afafec34b13fcaf4f7abce7b8",
+    "apk_bytes": 39859298,
+    "apk_sha256": "38959b5f2c70f1b5145170a2adb7cef786a9c32efd2c5197bcc3aadd076ba5f5",
     "execution_evidence": "docs/reports/P02.5.execution.json",
     "editor_visual": "PASS",
     "physical_device": "NOT_RUN",
@@ -408,5 +408,11 @@
     "decision": "D032",
     "reason": "Taxtanın materialı deyil, səhnə/HUD kompozisiyası oyun hissi vermir.",
     "scope_clarification": "P02.5_EXPLICITLY_AUTHORIZED"
+  },
+  "rework_authorization": {
+    "part": "P02.5",
+    "by": "human",
+    "decision": "D034",
+    "scope": "İki orientasiyanın yerləşimi, daş/toxunma sahələri və real HUD düzəlişi; növbəti part yoxdur."
   }
 }

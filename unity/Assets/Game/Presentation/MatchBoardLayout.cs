@@ -2,14 +2,15 @@ using System;
 using UnityEngine;
 namespace Nard.Presentation
 {
-    /// <summary>Pixel-space presentation geometry. No dice, turn or movement rules.</summary>
+    /// <summary>Presentation-only geometry; canonical point IDs never change with orientation.</summary>
     public sealed class MatchBoardLayout
     {
         public int Width {get;} public int Height {get;}
         public bool Portrait {get;}
         public Rect Safe {get;} public Rect Board {get;} public Rect Rail {get;} public Rect Header {get;}
         public Rect Undo {get;} public Rect Roll {get;} public Rect Status {get;} public Rect Dice {get;}
-        public float Unit {get;} public float BoardScale=> (Portrait?Board.height:Board.width)/16f;
+        public float Unit {get;} public float BoardScale=>Board.width/(Portrait?10f:16f);
+        public float CheckerDiameter=>BoardScale*(Portrait?1.18f:.92f);
         public MatchBoardLayout(int width,int height,Rect safe)
         {
             if(width<=0||height<=0)throw new ArgumentOutOfRangeException(nameof(width));
@@ -17,62 +18,88 @@ namespace Nard.Presentation
             float x=Mathf.Clamp(safe.xMin,0,width),y=Mathf.Clamp(safe.yMin,0,height);
             float right=Mathf.Clamp(safe.xMax,x,width),top=Mathf.Clamp(safe.yMax,y,height);
             Safe=right>x&&top>y?Rect.MinMaxRect(x,y,right,top):new Rect(0,0,width,height);
-            Unit=Portrait?Safe.width/390f:Mathf.Min(Safe.height/390f,Safe.width/700f);
-            float m=8*Unit;
             if(Portrait)
             {
-                float h=Mathf.Min((Safe.width-2*m)/.75f,(Safe.height-2*m)/(1+160*.75f/390f));
-                h=Mathf.Max(h,Safe.height*.25f);float w=h*.75f;
-                float free=Safe.height-h-2*m;
-                float topH=Mathf.Min(90*Unit,free*.35f),bottomH=Mathf.Min(160*Unit,free-topH);
-                float bottom=Safe.center.y-(h+topH+bottomH)*.5f;
-                Board=new Rect(Safe.center.x-w*.5f,bottom+bottomH,w,h);
-                Unit=Board.width/390f;
-                Header=new Rect(Board.xMin,Board.yMax,Board.width,topH);
-                Rail=new Rect(Board.xMin,bottom,Board.width,bottomH);
-                Status=new Rect(Header.xMin+8*Unit,Header.yMin,Header.width-16*Unit,Header.height);
-                Undo=new Rect(Rail.xMin+10*Unit,Rail.center.y-22*Unit,84*Unit,44*Unit);
-                Roll=new Rect(Rail.xMax-94*Unit,Rail.center.y-22*Unit,84*Unit,44*Unit);
-                Dice=new Rect(Rail.center.x-46*Unit,Rail.center.y-22*Unit,92*Unit,44*Unit);
+                float w=Mathf.Min(Safe.width*.97f,Safe.height/(1.6f+132f/390));
+                Unit=w/390;float h=w*1.6f;
+                float bottom=Safe.center.y-(h+124*Unit)*.5f;
+                Rail=new Rect(Safe.center.x-w/2,bottom,w,64*Unit);
+                Board=new Rect(Rail.xMin,Rail.yMax,w,h);
+                Header=new Rect(Board.xMin,Board.yMax,w,60*Unit);Status=Header;
+                Undo=new Rect(Rail.xMin+8*Unit,Rail.yMin+10*Unit,114*Unit,44*Unit);
+                Roll=new Rect(Rail.xMax-122*Unit,Rail.yMin+10*Unit,114*Unit,44*Unit);
+                Dice=Centered(Board.center,Board.width*.21f,Board.width*.083f);
             }
             else
             {
-                float h=Mathf.Min(Safe.height-2*m,(Safe.width-3*m-120*Unit)*.75f);h=Mathf.Max(h,Safe.height*.25f);
-                Board=new Rect(Safe.xMin+m,Safe.center.y-h*.5f,h/ .75f,h);
-                Rail=new Rect(Board.xMax+3*Unit,Board.yMin,Safe.xMax-m-Board.xMax-3*Unit,h);
-                Header=Rail;
-                Status=new Rect(Rail.xMin+10*Unit,Rail.yMax-108*Unit,Rail.width-20*Unit,78*Unit);
-                Dice=new Rect(Rail.center.x-46*Unit,Rail.center.y-12*Unit,92*Unit,44*Unit);
-                Undo=new Rect(Rail.xMin+12*Unit,Rail.yMin+24*Unit,Rail.width-24*Unit,44*Unit);
-                Roll=new Rect(Undo.xMin,Undo.yMax+12*Unit,Undo.width,44*Unit);
+                Unit=Mathf.Min(Safe.height/390,Safe.width/760);float m=7*Unit;
+                float h=Mathf.Min(Safe.height-2*m,(Safe.width-3*m-150*Unit)*.75f);
+                Board=new Rect(Safe.xMin+m,Safe.center.y-h/2,h/.75f,h);
+                Rail=new Rect(Board.xMax+5*Unit,Board.yMin,Safe.xMax-m-Board.xMax-5*Unit,h);
+                Header=Rail;Status=new Rect(Rail.xMin+8*Unit,Rail.yMax-182*Unit,Rail.width-16*Unit,166*Unit);
+                Undo=new Rect(Rail.xMin+10*Unit,Rail.yMin+16*Unit,Rail.width-20*Unit,44*Unit);
+                Roll=new Rect(Undo.xMin,Undo.yMax+10*Unit,Undo.width,44*Unit);
+                Dice=Centered(WorldToPixel(FromBoard(new Vector2(4,0))),1.9f*BoardScale,.9f*BoardScale);
             }
-            // Dice rest in the empty middle of the board, not in a separate app panel.
-            var diceCenter=WorldToPixel(FromBoard(new Vector2(4,0)));
-            Dice=new Rect(diceCenter.x-.9f*BoardScale,diceCenter.y-.425f*BoardScale,1.8f*BoardScale,.85f*BoardScale);
         }
-        public Vector2 PixelToWorld(Vector2 p)=>(p-new Vector2(Width,Height)*.5f)/100f;
-        public Vector2 WorldToPixel(Vector2 p)=>p*100f+new Vector2(Width,Height)*.5f;
-        public Vector2 FromBoard(Vector2 p)
-        {if(Portrait)p=new Vector2(-p.y,p.x);return PixelToWorld(Board.center+p*BoardScale);}
-        public Vector2 IntoBoard(Vector2 world)
-        {var p=(WorldToPixel(world)-Board.center)/BoardScale;return Portrait?new Vector2(p.y,-p.x):p;}
+        private static Rect Centered(Vector2 p,float w,float h)=>new Rect(p.x-w/2,p.y-h/2,w,h);
+        public Vector2 PixelToWorld(Vector2 p)=>(p-new Vector2(Width,Height)*.5f)/100;
+        public Vector2 WorldToPixel(Vector2 p)=>p*100+new Vector2(Width,Height)*.5f;
+        public Vector2 FromBoard(Vector2 p)=>PixelToWorld(Board.center+p*BoardScale);
+        public Vector2 IntoBoard(Vector2 p)=>(WorldToPixel(p)-Board.center)/BoardScale;
+        // Upper tray = original left half; lower tray = original right half. All points stay upright.
+        public Rect Tray(int half)
+        {float h=Board.width*.75f;return new Rect(Board.xMin,half==0?Board.yMax-h:Board.yMin,Board.width,h);}
+        public Rect BarPocket(int player)
+        {
+            if(!Portrait)return Centered(WorldToPixel(FromBoard(new Vector2(0,player==0?-3.3f:3.3f))),.72f*BoardScale,4*BoardScale);
+            return Centered(Board.center+Vector2.right*(player==0?-.37f:.37f)*Board.width,Board.width*.17f,Board.width*.085f);
+        }
         public Rect OffPocket(int player)
-        {var center=WorldToPixel(FromBoard(new Vector2(7.27f,player==0?-3.7f:3.7f)));float size=.86f*BoardScale;return new Rect(center.x-size*.5f,center.y-size*.5f,size,size);}
+        {if(Portrait){var tray=Tray(player==0?1:0);return Centered(new Vector2(tray.xMax-Board.width*.035f,tray.center.y),Board.width*.052f,Board.width*.13f);}return Centered(WorldToPixel(FromBoard(new Vector2(7.27f,player==0?-3.7f:3.7f))),.86f*BoardScale,.86f*BoardScale);}
+        public Rect PointTouchRect(int point)
+        {
+            if(point<0||point>23)throw new ArgumentOutOfRangeException(nameof(point));
+            if(Portrait)
+            {
+                bool left=point>=6&&point<18,top=point>=12;var tray=Tray(left?0:1);
+                int col=point<12?(11-point)%6:(point-12)%6;
+                float lane=tray.width*.86f/6,edge=tray.width*.07f;
+                return new Rect(tray.xMin+edge+col*lane+.01f,top?tray.center.y+tray.height*.12f:tray.yMin+tray.height*.14f,lane-.02f,tray.height*.24f);
+            }
+            var p=ReferenceBoardSkin.ToLocal(BoardGeometry.PointBase(point));
+            return Centered(WorldToPixel(FromBoard(new Vector2(p.x,point<12?-3.1f:3.1f))),.98f*BoardScale,4f*BoardScale);
+        }
+        public Vector2 CheckerPixel(int point,int player,int ordinal,int count)
+        {
+            if(point==24)return OffPocket(player).center;
+            var cell=point==-1?BarPocket(player):PointTouchRect(point);
+            if(point==-1&&Portrait)return cell.center+Vector2.right*(ordinal-(count-1)*.5f)*Mathf.Min(CheckerDiameter*.36f,cell.width/Mathf.Max(1,count));
+            bool top=point==-1?player==1:point>=12;
+            float d=CheckerDiameter,spacing=Mathf.Min(d*.88f,Mathf.Max(0,cell.height-d*.9f)/Mathf.Max(1,count-1));
+            return new Vector2(cell.center.x,(top?cell.yMax-d*.5f:cell.yMin+d*.5f)+(top?-1:1)*spacing*ordinal);
+        }
+        public Vector2 TargetPixel(int point,int player)
+        {if(point==24)return OffPocket(player).center;var cell=PointTouchRect(point);return new Vector2(cell.center.x,point<12?cell.yMax-CheckerDiameter*.24f:cell.yMin+CheckerDiameter*.24f);}
         public Vector2 CanonicalToWorld(Vector2 p)
         {
             if(p.y>9.1f)return PixelToWorld(Undo.center);
             if(p.y< -9.05f)return PixelToWorld(Roll.center);
             if(p.x>=4.22f&&p.x<=4.84f)return PixelToWorld(OffPocket(p.y<0?0:1).center);
-            return FromBoard(ReferenceBoardSkin.ToLocal(p));
+            if(!Portrait)return FromBoard(ReferenceBoardSkin.ToLocal(p));
+            if(Mathf.Abs(p.x+.25f)<.3f)return PixelToWorld(BarPocket(p.y<0?0:1).center);
+            int index=BoardHitMap.PointAt(p,0);if(index<0)return new Vector2(100,100);
+            return PixelToWorld(PointTouchRect(index).center);
         }
         public Vector2 WorldToCanonical(Vector2 world)
         {
             var pixel=WorldToPixel(world);
             if(Undo.Contains(pixel))return new Vector2(0,9.45f);
             if(Roll.Contains(pixel)||Dice.Contains(pixel))return new Vector2(0,-9.35f);
-            for(int player=0;player<2;player++)if(OffPocket(player).Contains(pixel))return new Vector2(4.53f,player==0?-4:4);
-            if(!Board.Contains(pixel))return new Vector2(100,100);
-            return ReferenceBoardSkin.ToBoard(IntoBoard(world));
+            for(int player=0;player<2;player++)
+            {if(OffPocket(player).Contains(pixel))return new Vector2(4.53f,player==0?-4:4);if(BarPocket(player).Contains(pixel))return new Vector2(-.25f,player==0?-4:4);}
+            for(int i=0;i<24;i++)if(PointTouchRect(i).Contains(pixel)){var p=BoardGeometry.PointBase(i);p.y=i<12?-4:4;return p;}
+            return new Vector2(100,100);
         }
     }
 }

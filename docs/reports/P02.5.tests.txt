@@ -118,7 +118,7 @@ test_wrong_opening_values_rejected (test_rule_fixtures.RuleSpecificationTests.te
 test_wrong_undo_reference_rejected (test_rule_fixtures.RuleSpecificationTests.test_wrong_undo_reference_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 118 tests in 208.984s
+Ran 118 tests in 90.539s
 
 OK
 
