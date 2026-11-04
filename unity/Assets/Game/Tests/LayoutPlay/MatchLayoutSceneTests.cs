@@ -87,9 +87,9 @@ namespace Nard.Tests.Layout
             try
             {
                 Assert.NotNull(GameObject.Find("PortraitCentralBar"));Assert.NotNull(GameObject.Find("PortraitHinge_-1"));Assert.IsNull(GameObject.Find("TrayTop_0"));
-                foreach(int layer in new[]{0,1,2,3,4})
+                foreach(int layer in Enumerable.Range(0,15))
                 {
-                    if(loop.Selected!=TapSelection.None)loop.Tap(0,loop.Selected);input.Bind(loop);var l=view.CurrentLayout;var pixel=l.CheckerPixel(0,0,10+layer,15);yield return Click(mouse,Camera.main.WorldToScreenPoint(l.PixelToWorld(pixel)));
+                    if(loop.Selected!=TapSelection.None)loop.Tap(0,loop.Selected);input.Bind(loop);var l=view.CurrentLayout;var pixel=l.CheckerPixel(0,0,layer,15);yield return Click(mouse,Camera.main.WorldToScreenPoint(l.PixelToWorld(pixel)));
                     Assert.AreEqual(0,loop.Selected);Assert.AreEqual(0,loop.LongPosition.UsedMask);
                     int target=loop.Targets[0];var at=Camera.main.WorldToScreenPoint(l.PixelToWorld(l.TargetPixel(target,0)));yield return Click(mouse,at);
                     Assert.AreEqual(1,loop.Tokens.Count(t=>t.State==TokenState.Used));Assert.IsTrue(loop.CanUndo);yield return Click(mouse,P(0,9.45f));Assert.AreEqual(0,loop.LongPosition.UsedMask);
@@ -110,6 +110,46 @@ namespace Nard.Tests.Layout
                 Capture("portrait-unified-"+size.x+"x"+size.y);
             }
             Viewport(960,540,new Rect(32,12,906,516));yield return null;Assert.IsNull(GameObject.Find("PortraitCentralBar"));CheckPieces();Assert.AreSame(state,loop.Session);Capture("portrait-landscape-regression");
+        }
+        [Serializable] private sealed class StackMetric
+        {public int width,height,count;public float board_width,board_height,lane_width,sprite_footprint,min_renderer_clearance;}
+        [Serializable] private sealed class StackMetrics {public List<StackMetric> rows=new List<StackMetric>();}
+        private float CheckPortraitCells()
+        {
+            CheckPieces();float minimum=float.MaxValue;var l=view.CurrentLayout;
+            foreach(var c in view.Checkers)
+            {
+                Rect cell=c.Point==-1?l.BarPocket(c.Player):c.Point==24?l.OffPocket(c.Player):l.PointVisualRect(c.Point);
+                var min=l.WorldToPixel(c.Renderer.bounds.min);var max=l.WorldToPixel(c.Renderer.bounds.max);
+                float clear=Mathf.Min(min.x-cell.xMin,cell.xMax-max.x,min.y-cell.yMin,cell.yMax-max.y);Assert.Greater(clear,0,"Checker touches its cell/frame boundary: "+c.Renderer.name);minimum=Mathf.Min(minimum,clear);
+                foreach(var other in view.Checkers.Where(o=>o.Point!=c.Point))Assert.IsFalse(c.Renderer.bounds.Intersects(other.Renderer.bounds),"Different lanes/rows collide");
+            }
+            return minimum;
+        }
+        [UnityTest] public IEnumerator PortraitOneTwoFiveTenFifteenStacksFitRenderedCells()
+        {
+            yield return Load();var loop=Ready(GameMode.Long,new Dice());input.enabled=false;var metrics=new StackMetrics();
+            foreach(var size in new[]{new Vector2Int(320,568),new Vector2Int(390,844),new Vector2Int(540,960),new Vector2Int(720,1600)})
+            {
+                Viewport(size.x,size.y,new Rect(0,20,size.x,size.y-56));yield return null;
+                foreach(int count in new[]{1,2,5,10,15})
+                {
+                    var points=new int[24];points[0]=count;points[1]=15-count;points[12]=-count;points[13]=-(15-count);
+                    var position=new LongPosition(points,new int[2],new[]{3,3},0,LongPhase.Moving,new[]{false,false},new int[2]);
+                    view.Display(BoardSnapshot.From(position));view.SetTurnOverlay(loop,"");yield return null;float clearance=CheckPortraitCells();
+                    metrics.rows.Add(new StackMetric{width=size.x,height=size.y,count=count,board_width=view.CurrentLayout.Board.width,board_height=view.CurrentLayout.Board.height,lane_width=view.CurrentLayout.PortraitLaneWidth,sprite_footprint=view.CurrentLayout.CheckerFootprint(0),min_renderer_clearance=clearance});
+                    foreach(int point in new[]{0,12})Assert.AreEqual(count,view.Checkers.Where(c=>c.Point==point).Select(c=>(Vector2)c.Renderer.transform.localPosition).Distinct().Count());
+                    if(size.x==320||size.x==540||count==15)Capture("portrait-stack-"+count+"-"+size.x+"x"+size.y);
+                }
+            }
+            Viewport(540,960);yield return null;var shortLoop=Ready(GameMode.Short,new Dice());input.enabled=false;
+            foreach(bool bar in new[]{true,false})
+            {
+                var points=new int[24];if(!bar)points[12]=-15;
+                var position=new ShortPosition(points,bar?new[]{15,15}:new int[2],bar?new int[2]:new[]{15,0},new[]{6,1},0,bar?ShortPhase.Moving:ShortPhase.Finished);
+                view.Display(BoardSnapshot.From(position));view.SetTurnOverlay(shortLoop,"");yield return null;CheckPortraitCells();Capture("portrait-stack-15-"+(bar?"bar":"off"));
+            }
+            string dir=Environment.GetEnvironmentVariable("NARD_BOARD_CAPTURE_DIR");if(!string.IsNullOrEmpty(dir))File.WriteAllText(System.IO.Path.Combine(dir,"portrait-measurements.json"),JsonUtility.ToJson(metrics,true));
         }
         [UnityTest] public IEnumerator FiveAspectSafeAreaRendersKeepTheSameMatch()
         {

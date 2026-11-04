@@ -20,7 +20,7 @@ namespace Nard.Tests.Layout
             var l=new MatchBoardLayout(w,h,safe);Inside(safe,l.Board);Inside(safe,l.Rail);Inside(safe,l.Header);Inside(l.Rail,l.Undo);Inside(l.Rail,l.Roll);Inside(l.Portrait?l.Rail:l.Board,l.Dice);
             Assert.IsFalse(l.Undo.Overlaps(l.Roll));Assert.IsFalse(l.Undo.Overlaps(l.Dice));Assert.IsFalse(l.Roll.Overlaps(l.Dice));
             Assert.That(l.Undo.height/l.Unit,Is.GreaterThanOrEqualTo(43.99f));Assert.That(l.Roll.height/l.Unit,Is.GreaterThanOrEqualTo(43.99f));
-            Assert.AreEqual(h>w,l.Portrait);Assert.That(l.Board.width/l.Board.height,Is.EqualTo(l.Portrait?1f/(l.CompactPortrait?1.15f:1.43f):4f/3f).Within(.001));
+            Assert.AreEqual(h>w,l.Portrait);if(l.Portrait)Assert.That(l.Board.height/l.PortraitLaneWidth,Is.InRange(9.60f-.01f,11.60f+.01f));else Assert.That(l.Board.width/l.Board.height,Is.EqualTo(4f/3f).Within(.001));
             Assert.That(l.Board.width*l.Board.height/(safe.width*safe.height),Is.GreaterThan(.39f));
             for(int i=0;i<24;i++)
             {var p=BoardGeometry.PointBase(i);p.y=i<12?-4:4;var world=l.CanonicalToWorld(p);Assert.IsTrue(l.Board.Contains(l.WorldToPixel(world)));Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(world),0));}
@@ -55,15 +55,41 @@ namespace Nard.Tests.Layout
         public void PortraitHasJoinedBoardAndOrderedControls(int w,int h)
         {
             var l=new MatchBoardLayout(w,h,new Rect(0,20,w,h-56));
-            Assert.That(l.Tray(0).yMin-l.Tray(1).yMax,Is.EqualTo(l.Board.width*.05f).Within(.01f));
+            Assert.That(l.Tray(0).yMin-l.Tray(1).yMax,Is.EqualTo(l.PortraitBar.height).Within(.01f));
             Assert.That(l.Header.yMin,Is.EqualTo(l.Board.yMax).Within(.01f));Assert.That(l.Rail.yMax,Is.EqualTo(l.Board.yMin).Within(.01f));
             Assert.Greater(l.Dice.yMin,l.Undo.yMax);Assert.Greater(l.Dice.yMin,l.Roll.yMax);
-            Assert.GreaterOrEqual(l.Undo.width/l.Unit,160);Assert.That(l.Undo.height/l.Unit,Is.EqualTo(48).Within(.001f));
+            Assert.GreaterOrEqual(l.Undo.width/l.Unit,160);Assert.That(l.Undo.height/l.Unit,Is.EqualTo(44).Within(.001f));
             for(int i=0;i<24;i++)
             {
                 var at=l.CheckerPixel(i,i<12?0:1,14,15);Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(at)),0));
-                var centers=new HashSet<Vector2>();for(int n=0;n<15;n++)centers.Add(l.CheckerPixel(i,0,n,15));Assert.AreEqual(5,centers.Count);
+                var centers=new HashSet<Vector2>();for(int n=0;n<15;n++)centers.Add(l.CheckerPixel(i,0,n,15));Assert.AreEqual(15,centers.Count);
                 for(int n=0;n<5;n++)Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(l.CheckerPixel(i,0,n,5))),0));
+            }
+        }
+        [TestCase(1)] [TestCase(2)] [TestCase(5)] [TestCase(10)] [TestCase(15)]
+        public void PortraitEveryStackFitsItsActualLaneAndNeverSharesAnotherTouchCell(int count)
+        {
+            foreach(var size in new[]{new Vector2Int(320,568),new Vector2Int(390,844),new Vector2Int(540,960),new Vector2Int(720,1600)})
+            {
+                var l=new MatchBoardLayout(size.x,size.y,new Rect(0,20,size.x,size.y-56));float lane=l.PortraitLaneWidth;
+                Assert.That(l.CheckerFootprint(0)/lane,Is.EqualTo(.80f).Within(.001));Assert.Greater(l.PointTouchRect(0).width,l.CheckerFootprint(0));
+                for(int point=-1;point<=24;point++)for(int player=0;player<2;player++)
+                {
+                    var cell=point==-1?l.BarPocket(player):point==24?l.OffPocket(player):l.PointVisualRect(point);float d=l.CheckerFootprint(point);var positions=new HashSet<Vector2>();
+                    for(int i=0;i<count;i++)
+                    {
+                        var at=l.CheckerPixel(point,player,i,count);positions.Add(at);Inside(cell,new Rect(at.x-d/2,at.y-d/2,d,d));
+                        Assert.AreEqual(point,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(at)),player));
+                    }
+                    Assert.AreEqual(count,positions.Count,"Every checker has its own regularly spaced center");
+                    if(point>=0&&point<24)
+                    {
+                        var marker=l.TargetPixel(point,player);float m=lane*.24f;
+                        for(int i=0;i<count;i++){var at=l.CheckerPixel(point,player,i,count);Assert.IsFalse(new Rect(marker.x-m/2,marker.y-m/2,m,m).Overlaps(new Rect(at.x-d/2,at.y-d/2,d,d)),"marker touches stack");}
+                        var touch=l.PointTouchRect(point);Assert.AreEqual(point,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(new Vector2(touch.xMin+.1f,touch.center.y))),player));
+                        for(int j=point+1;j<24;j++)Assert.IsFalse(touch.Overlaps(l.PointTouchRect(j)));
+                    }
+                }
             }
         }
         [TestCase(0,100)] [TestCase(100,0)] [TestCase(-1,100)] public void InvalidViewportIsRejected(int w,int h)=>Assert.Throws<ArgumentOutOfRangeException>(()=>new MatchBoardLayout(w,h,new Rect()));

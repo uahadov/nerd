@@ -349,3 +349,14 @@ Sıx portret yığını ən çox beş görünən pillə və həqiqi say nişanı
 qanuni mənbə bütün xana sahəsindən seçilir. Bu yalnız render təqdimatıdır, qayda və ya daş sayının dəyişməsi deyil.
 24 indeks xəritəsi D034-dəki kimidir. Final polish/P02.6, əlavə ekran, bot/online və push yoxdur.
 Status AWAITING_HUMAN_APPROVAL, cari insan qəbulu false qalır. Cihaz və yerli oyunçu NOT_RUN.
+
+## D036 — 2026-11-04, yalnız portrait ölçü sistemi və yığın yerləşimi
+
+İnsan D035 görünüşünü rədd edib: taxta/daş/yığın nisbəti dar və sıxdır. Yalnız cari P02.5 portrait düzəlişi icazəlidir.
+Xana pitch-i L = daxili oyun eni / 6; üçbucaq eni .94L, bütün sprite qutusu .80L, daşların yığını və kənar payları L-dən hesablanır.
+Beş pillə limiti ləğv edilir: 1–15 daşın hər birinin ayrıca, bərabər aralı mərkəzi var; aralıq mövcud sıra uzunluğuna sığır.
+Xana/toxunma eni render qutusundan böyük qalır. Əsas risk sadəcə görünən dairə yox, bütün sprite/alpha sərhədidir;
+frame/qonşu xana/bar-off yoxlaması real Renderer.bounds ilə aparılır. 24 indeks və gediş istiqaməti dəyişmir.
+Portrait HUD hündürlüyü azaldılır, oyun sıralarına daha çox yer ayrılır. Qoz/krem/terrakota/firuzə assetləri saxlanır;
+landscape, Rules/Match/Interaction və RNG mənbəyi dəyişmir. Fiziki Android/yerli review NOT_RUN, native qəza açıq riskdir.
+AWAITING_HUMAN_APPROVAL qalır; insan qəbulu və növbəti part icazəsi false. Final polish/P02.6/push yoxdur.

@@ -252,7 +252,7 @@ class RunnerTests(unittest.TestCase):
     def test_layout_requires_complete_new_suite_and_accepted_suites(self):
         self.include_undo_cases()
         self.assertEqual(self.run_step(part='P02.5'), 1)
-        for i in range(35):
+        for i in range(40):
             ET.SubElement(self.xml, 'test-case', name=f'Layout{i}', fullname=f'Nard.Tests.Layout.MatchLayoutTests.Layout{i}', result='Passed')
         self.assertEqual(self.run_step(part='P02.5'), 0)
         self.xml.remove(self.xml[-1])
@@ -260,7 +260,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_layout_cannot_omit_a_previous_undo_fixture(self):
         self.include_undo_cases()
-        for i in range(35):
+        for i in range(40):
             ET.SubElement(self.xml, 'test-case', name=f'Layout{i}', fullname=f'Nard.Tests.Layout.MatchLayoutTests.Layout{i}', result='Passed')
         self.xml.remove(next(c for c in self.xml if c.get('name') == 'UndoFixture_S_UNDO_COMMITTED'))
         self.assertEqual(self.run_step(part='P02.5'), 1)
@@ -268,7 +268,7 @@ class RunnerTests(unittest.TestCase):
     def test_layout_play_requires_interactive_cases(self):
         self.xml.clear()
         self.xml.attrib.update(passed='22', failed='0', inconclusive='0', skipped='0')
-        for suite, count in [('BoardSceneTests', 1), ('TapSceneTests', 5), ('TurnSceneTests', 5), ('UndoSceneTests', 5), ('MatchLayoutSceneTests', 9)]:
+        for suite, count in [('BoardSceneTests', 1), ('TapSceneTests', 5), ('TurnSceneTests', 5), ('UndoSceneTests', 5), ('MatchLayoutSceneTests', 10)]:
             for i in range(count):
                 ET.SubElement(self.xml, 'test-case', name=f'{suite}{i}', fullname=f'Nard.Tests.{suite}.{suite}{i}', result='Passed')
         self.assertEqual(self.run_step('playmode', 'P02.5'), 0)

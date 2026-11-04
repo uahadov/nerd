@@ -164,10 +164,10 @@
       "id": "MATCH-HUD-REWORK",
       "status": "AWAITING_HUMAN_APPROVAL_P02.5",
       "impact": "Hazırkı səhnə/HUD insan tərəfindən qəbul edilməyib; avtomatik render PASS vizual qəbul deyil.",
-      "next_action": "D035 yalnız portrait düzəlişinin screenshot/build nəticəsini insana göstər; vizual qəbulu agent özü vermir. P02.6 yoxdur."
+      "next_action": "D036 portrait ölçü düzəlişinin screenshot/build nəticəsini insana göstər; vizual qəbulu agent özü vermir. P02.6 yoxdur."
     }
   ],
-  "resume_instruction": "D035 yalnız P02.5 portrait UX düzəlişi hazırdır, insan rəyini gözlə. Vahid çərçivə/menteşəli bar, qısa/uzun ekran yerləşimi, alt idarələr və beş pilləli saylı yığın var. Landscape qorunur. AWAITING_HUMAN_APPROVAL; P02.6, push və yeni funksiya yoxdur. Fiziki Android/yerli review NOT_RUN, native qəza riski açıq.",
+  "resume_instruction": "D036 yalnız P02.5 portrait ölçü/yığın düzəlişi hazırdır, insan rəyini gözlə. Xana eni vahid ölçüdür, 1–15 daş ayrıca mərkəzdədir, faktiki Renderer.bounds sərhədləri yoxlanıb, toxunma ayrıdır. Landscape/qaydalar qorunur. AWAITING_HUMAN_APPROVAL; P02.6/push yoxdur. Fiziki Android/yerli review NOT_RUN, native qəza açıq riskdir.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -176,12 +176,12 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p025-local-003",
+    "id": "android-p025-local-004",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
     "apk": "build/P02.5/NARD-P02.5.apk",
     "apk_bytes": 39859298,
-    "apk_sha256": "0e700b948f5be9608c83dc8d8e6cd5aad71154df34a45819bd4437752eb4d537",
+    "apk_sha256": "d14596aa3869866794e9468d83f4efabee6b7f6851dee0e8b498d028f0ba7737",
     "execution_evidence": "docs/reports/P02.5.execution.json",
     "editor_visual": "PASS",
     "physical_device": "NOT_RUN",
@@ -412,7 +412,15 @@
   "rework_authorization": {
     "part": "P02.5",
     "by": "human",
-    "decision": "D035",
-    "scope": "Yalnız portrait layout/UX: vahid taxta, daş yığını seçimi, əlaqəli HUD və alt idarələr. Landscape yalnız regressiya yoxlanır."
+    "decision": "D036",
+    "scope": "Yalnız portrait proporsiya və daş yerləşimi: real xana eni, sprite sərhədi, nizamlı 1/2/5/10/15 yığınları, azaldılmış HUD və ayrıca toxunma xəritəsi. Landscape/qaydalar dəyişmir."
+  },
+  "portrait_layout_review": {
+    "part": "P02.5",
+    "rejected_commit": "0b6db69",
+    "decision": "D036",
+    "by": "human",
+    "status": "REJECTED_PREVIOUS_VISUAL_AWAITING_CURRENT_REVIEW",
+    "quote": "Hazırkı portrait görünüşü vizual olaraq qəbul etmirəm."
   }
 }

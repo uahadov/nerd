@@ -157,14 +157,15 @@ D031 görünüş dəyişikliyi: 24 xana, iki oyunçu üçün bar/off və iki dü
 
 ## P02.5 yerləşim və state davamlılığı
 
-35 əlavə EditMode: 12 ölçü × full/notch safe area = 24 hal; yanlış ölçü üçün 3 exception və safe-area fallback/clipping.
+40 əlavə EditMode: 12 ölçü × full/notch safe area = 24 hal; yanlış ölçü üçün 3 exception və safe-area fallback/clipping.
 Əlavə iki test portretdə 6 dik sütunu, daş diametrini, yanlış indeksləri və çərçivənin passivliyini yoxlayır.
 Hər ölçüdə bütün 24 xana, hər iki owner bar/off, ayrı idarələr, böyük board sahəsi, təbii aspect və tərs input yoxlanır.
-9 əlavə PlayMode: 5 real render nisbəti; tap→undo→resize→drag→commit; iki istiqamətdə touch/multitouch;
+10 əlavə PlayMode: 5 real render nisbəti; tap→undo→resize→drag→commit; iki istiqamətdə touch/multitouch;
 ekran/control sərhədi; həqiqi çatılmış bar/off/bitmiş matçın çevrilməsi. Hər renderdə 30 daş,
 qorunan safe area, zərlə daşın toqquşmaması, köhnə zolağın/debug yazıların gizlənməsi yoxlanır.
 Əlavə PlayMode: portretin xana kənarından seçim/real iki tərəf HUD-u və ilkin bərabər atış/real idarələr.
 Bunlar sintetik Input System + real Editor renderidir, fiziki orientation/barmaq sınağı deyil.
 Əvvəlki 749 EditMode və 17 PlayMode adlarının saxlanması ayrıca müqayisə edilir; 67 canonical nümunə və 41 tarixi Ignore dəyişmir.
 
-D035: beş portrait ölçüdə vahid çərçivə/bar, bitişik HUD, qısa/uzun telefon yerləşimi, board→dice→status→48-unit idarə sırası və beş pilləli yığın həndəsəsi. İki yeni PlayMode testi hər görünən pillədən seçim→gediş→Undo, dörd telefon nisbətində mətn/bounds, dəyişməyən landscape renderi üçündür. Fiziki rahatlıq NOT_RUN qalır.
+D036 D035-in beş pillə və 48-unit idarə fərziyyəsini yeniləyir. İdarə 44 layout-unit-dir; oyun sıraları böyüyüb. Bütün 15 daşın ayrıca mərkəzi, hər pillədən seçim→gediş→Undo, dörd telefon nisbətində mətn/bounds və landscape piksel regressiyası yoxlanır.
+Beş yeni EditMode halı count=1/2/5/10/15 × dörd telefon × 24 xana və iki owner bar/off üçün sprite sığması, unikal mərkəzlər, marker və toxunma ayrılığını yoxlayır. Yeni PlayMode faktiki Renderer.bounds/keçid xanası və 20 sintetik mövqe renderində ən kiçik məsafəni ölçür; 15 bar/off ayrıca stress-renderdir. Sintetik mövqelərin oyundan çatılması iddia edilmir. Fiziki rahatlıq NOT_RUN qalır.

@@ -10,7 +10,7 @@
     "editmode": {
       "part": "P02.5",
       "step": "editmode",
-      "started_at": "2026-11-04T10:32:40+00:00",
+      "started_at": "2026-11-04T11:14:47+00:00",
       "exit_code": 0,
       "editor": "6000.6.7f1",
       "project": "build/P02.5/unity (source copy)",
@@ -68,9 +68,9 @@
         "unity/Assets/Game/Presentation/BoardTurnInput.cs.meta": "953d248a8428ce9849d038dba244dba82f77910c5da25111a4e8f8fcb858d33c",
         "unity/Assets/Game/Presentation/BoardView.cs": "66948265680f3ad9d8cb2fd7c52967e6ad04b8995ba9dd7934ebe8bde649eb83",
         "unity/Assets/Game/Presentation/BoardView.cs.meta": "66340f492a04d4e5003c0592b483ac477b34206a427e789a310309b125b466ed",
-        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "3d75a1e4425c2be9b1c33476a663d14d4c58e2a9487826d5869e4d52e4013115",
+        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "b8fcd70c87e2b9011629d863fd704a87684208921c53796aa46a3f420d0f07d2",
         "unity/Assets/Game/Presentation/MatchBoardLayout.cs.meta": "fdd3dc02337d559b156a865281c97b2c6449a99b4af31ad1e760c96cb6176fb5",
-        "unity/Assets/Game/Presentation/MatchHudView.cs": "736485e3947c11dd6e0bb391d4c02a011057141ae6a16e307d52c0445c680990",
+        "unity/Assets/Game/Presentation/MatchHudView.cs": "ab8c737aa2ba736f63d2fd1db86700f9fb992c3f0a2d437b77794f437f193c24",
         "unity/Assets/Game/Presentation/MatchHudView.cs.meta": "7f270717bf9828010b30502fd7c9894c8f226964d2b684aded1a12dcd36f0cf2",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef": "1311a69359069559570eaa8bc94f90fee9d7cc6cef7a588a99145e9ac2b7cfdf",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef.meta": "c755d890b18e47d8e4d87dc23c346b602572e1626287067e0f2474e6f07ac9e5",
@@ -138,12 +138,12 @@
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef": "1f63c86ff2f28d4f605275a36b1809b8463cd85ef76c0c1554e3ce605a912cb0",
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef.meta": "731d06adb2964a1d3f09808390f0c68ee5325fbbe9185358fcbcfeafcd924316",
         "unity/Assets/Game/Tests/EditMode.meta": "db138cbdf888b9e2905cb074127852aca61619f596f866c265c037b4043e0819",
-        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "daaf0824bbd68845bd22e2f13a757c70b006d9dc005b8ccde348a764c74a98e2",
+        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "d37a5f418d1689d4b560cb4593a16f0c71fd486ba7710534c471cdfd319974ba",
         "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs.meta": "3d8dc658452993470c82c3d7f224ceb475eb50c11d84347727e7d4f40ef04f35",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef": "f1110dd70fea549d0afdcad5062ecdad6bbca4b6d7ac96925be5424c5fa114f0",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef.meta": "729d645bab90f82aa9ff03bf99e8e0fa83c3cd2f762342d95fba372dc206ae55",
         "unity/Assets/Game/Tests/LayoutEditor.meta": "e6901df08c90f6bee5b74b3e27af6cd4f56f9c0e3a56a12b191550574b3eb5a7",
-        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "826c922d3daf71daa6ef70280ceb5552c0de0ef5f2ee8161096f62304c180cf4",
+        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "51a15f2feb21f7b7e60bb73ad0e23f8b46c81a0cf93e645b295b713ad398940d",
         "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs.meta": "a884320a53a2c2c27aadb2bb4496aa509cfda45a908811a908475ff8e117013c",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef": "aae2e03c37a55fedbecf867e2ffb57f9019dbebd0ee7bfa1968771f74d8bc57d",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef.meta": "08b620de66fd7b3e44f508264921e429feb9c9c4a11720ac18c061b954d7b604",
@@ -237,19 +237,19 @@
       "compiler_errors": [],
       "tests": {
         "id": "2",
-        "testcasecount": "825",
+        "testcasecount": "830",
         "result": "Skipped:Ignored",
-        "total": "825",
-        "passed": "784",
+        "total": "830",
+        "passed": "789",
         "failed": "0",
         "inconclusive": "0",
         "skipped": "41",
         "asserts": "0",
         "engine-version": "3.5.0.0",
         "clr-version": "4.0.30319.42000",
-        "start-time": "2026-11-04 10:32:47Z",
-        "end-time": "2026-11-04 10:32:52Z",
-        "duration": "4.3469446"
+        "start-time": "2026-11-04 11:14:55Z",
+        "end-time": "2026-11-04 11:14:59Z",
+        "duration": "4.4373867"
       },
       "failures": [],
       "expected_out_of_scope_skips": 41,
@@ -264,12 +264,12 @@
       "executed_undo_fixtures": 4,
       "executed_undo_tests": 194,
       "executed_reference_skin_cases": 27,
-      "executed_layout_cases": 35
+      "executed_layout_cases": 40
     },
     "playmode": {
       "part": "P02.5",
       "step": "playmode",
-      "started_at": "2026-11-04T10:33:04+00:00",
+      "started_at": "2026-11-04T11:17:59+00:00",
       "exit_code": 0,
       "editor": "6000.6.7f1",
       "project": "build/P02.5/unity (source copy)",
@@ -327,9 +327,9 @@
         "unity/Assets/Game/Presentation/BoardTurnInput.cs.meta": "953d248a8428ce9849d038dba244dba82f77910c5da25111a4e8f8fcb858d33c",
         "unity/Assets/Game/Presentation/BoardView.cs": "66948265680f3ad9d8cb2fd7c52967e6ad04b8995ba9dd7934ebe8bde649eb83",
         "unity/Assets/Game/Presentation/BoardView.cs.meta": "66340f492a04d4e5003c0592b483ac477b34206a427e789a310309b125b466ed",
-        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "3d75a1e4425c2be9b1c33476a663d14d4c58e2a9487826d5869e4d52e4013115",
+        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "b8fcd70c87e2b9011629d863fd704a87684208921c53796aa46a3f420d0f07d2",
         "unity/Assets/Game/Presentation/MatchBoardLayout.cs.meta": "fdd3dc02337d559b156a865281c97b2c6449a99b4af31ad1e760c96cb6176fb5",
-        "unity/Assets/Game/Presentation/MatchHudView.cs": "736485e3947c11dd6e0bb391d4c02a011057141ae6a16e307d52c0445c680990",
+        "unity/Assets/Game/Presentation/MatchHudView.cs": "ab8c737aa2ba736f63d2fd1db86700f9fb992c3f0a2d437b77794f437f193c24",
         "unity/Assets/Game/Presentation/MatchHudView.cs.meta": "7f270717bf9828010b30502fd7c9894c8f226964d2b684aded1a12dcd36f0cf2",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef": "1311a69359069559570eaa8bc94f90fee9d7cc6cef7a588a99145e9ac2b7cfdf",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef.meta": "c755d890b18e47d8e4d87dc23c346b602572e1626287067e0f2474e6f07ac9e5",
@@ -397,12 +397,12 @@
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef": "1f63c86ff2f28d4f605275a36b1809b8463cd85ef76c0c1554e3ce605a912cb0",
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef.meta": "731d06adb2964a1d3f09808390f0c68ee5325fbbe9185358fcbcfeafcd924316",
         "unity/Assets/Game/Tests/EditMode.meta": "db138cbdf888b9e2905cb074127852aca61619f596f866c265c037b4043e0819",
-        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "daaf0824bbd68845bd22e2f13a757c70b006d9dc005b8ccde348a764c74a98e2",
+        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "d37a5f418d1689d4b560cb4593a16f0c71fd486ba7710534c471cdfd319974ba",
         "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs.meta": "3d8dc658452993470c82c3d7f224ceb475eb50c11d84347727e7d4f40ef04f35",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef": "f1110dd70fea549d0afdcad5062ecdad6bbca4b6d7ac96925be5424c5fa114f0",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef.meta": "729d645bab90f82aa9ff03bf99e8e0fa83c3cd2f762342d95fba372dc206ae55",
         "unity/Assets/Game/Tests/LayoutEditor.meta": "e6901df08c90f6bee5b74b3e27af6cd4f56f9c0e3a56a12b191550574b3eb5a7",
-        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "826c922d3daf71daa6ef70280ceb5552c0de0ef5f2ee8161096f62304c180cf4",
+        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "51a15f2feb21f7b7e60bb73ad0e23f8b46c81a0cf93e645b295b713ad398940d",
         "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs.meta": "a884320a53a2c2c27aadb2bb4496aa509cfda45a908811a908475ff8e117013c",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef": "aae2e03c37a55fedbecf867e2ffb57f9019dbebd0ee7bfa1968771f74d8bc57d",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef.meta": "08b620de66fd7b3e44f508264921e429feb9c9c4a11720ac18c061b954d7b604",
@@ -496,19 +496,19 @@
       "compiler_errors": [],
       "tests": {
         "id": "2",
-        "testcasecount": "26",
+        "testcasecount": "27",
         "result": "Passed",
-        "total": "26",
-        "passed": "26",
+        "total": "27",
+        "passed": "27",
         "failed": "0",
         "inconclusive": "0",
         "skipped": "0",
         "asserts": "0",
         "engine-version": "3.5.0.0",
         "clr-version": "4.0.30319.42000",
-        "start-time": "2026-11-04 10:33:11Z",
-        "end-time": "2026-11-04 10:33:20Z",
-        "duration": "9.9268487"
+        "start-time": "2026-11-04 11:18:07Z",
+        "end-time": "2026-11-04 11:18:19Z",
+        "duration": "11.9093782"
       },
       "failures": [],
       "expected_out_of_scope_skips": 0,
@@ -522,12 +522,12 @@
       "executed_turn_roll_cases": 0,
       "executed_undo_fixtures": 0,
       "executed_undo_tests": 5,
-      "executed_layout_cases": 9
+      "executed_layout_cases": 10
     },
     "android": {
       "part": "P02.5",
       "step": "android",
-      "started_at": "2026-11-04T10:37:06+00:00",
+      "started_at": "2026-11-04T11:20:01+00:00",
       "exit_code": 0,
       "editor": "6000.6.7f1",
       "project": "build/P02.5/unity (source copy)",
@@ -585,9 +585,9 @@
         "unity/Assets/Game/Presentation/BoardTurnInput.cs.meta": "953d248a8428ce9849d038dba244dba82f77910c5da25111a4e8f8fcb858d33c",
         "unity/Assets/Game/Presentation/BoardView.cs": "66948265680f3ad9d8cb2fd7c52967e6ad04b8995ba9dd7934ebe8bde649eb83",
         "unity/Assets/Game/Presentation/BoardView.cs.meta": "66340f492a04d4e5003c0592b483ac477b34206a427e789a310309b125b466ed",
-        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "3d75a1e4425c2be9b1c33476a663d14d4c58e2a9487826d5869e4d52e4013115",
+        "unity/Assets/Game/Presentation/MatchBoardLayout.cs": "b8fcd70c87e2b9011629d863fd704a87684208921c53796aa46a3f420d0f07d2",
         "unity/Assets/Game/Presentation/MatchBoardLayout.cs.meta": "fdd3dc02337d559b156a865281c97b2c6449a99b4af31ad1e760c96cb6176fb5",
-        "unity/Assets/Game/Presentation/MatchHudView.cs": "736485e3947c11dd6e0bb391d4c02a011057141ae6a16e307d52c0445c680990",
+        "unity/Assets/Game/Presentation/MatchHudView.cs": "ab8c737aa2ba736f63d2fd1db86700f9fb992c3f0a2d437b77794f437f193c24",
         "unity/Assets/Game/Presentation/MatchHudView.cs.meta": "7f270717bf9828010b30502fd7c9894c8f226964d2b684aded1a12dcd36f0cf2",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef": "1311a69359069559570eaa8bc94f90fee9d7cc6cef7a588a99145e9ac2b7cfdf",
         "unity/Assets/Game/Presentation/Nard.Presentation.asmdef.meta": "c755d890b18e47d8e4d87dc23c346b602572e1626287067e0f2474e6f07ac9e5",
@@ -655,12 +655,12 @@
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef": "1f63c86ff2f28d4f605275a36b1809b8463cd85ef76c0c1554e3ce605a912cb0",
         "unity/Assets/Game/Tests/EditMode/Nard.Tests.EditMode.asmdef.meta": "731d06adb2964a1d3f09808390f0c68ee5325fbbe9185358fcbcfeafcd924316",
         "unity/Assets/Game/Tests/EditMode.meta": "db138cbdf888b9e2905cb074127852aca61619f596f866c265c037b4043e0819",
-        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "daaf0824bbd68845bd22e2f13a757c70b006d9dc005b8ccde348a764c74a98e2",
+        "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs": "d37a5f418d1689d4b560cb4593a16f0c71fd486ba7710534c471cdfd319974ba",
         "unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs.meta": "3d8dc658452993470c82c3d7f224ceb475eb50c11d84347727e7d4f40ef04f35",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef": "f1110dd70fea549d0afdcad5062ecdad6bbca4b6d7ac96925be5424c5fa114f0",
         "unity/Assets/Game/Tests/LayoutEditor/Nard.Tests.LayoutEditor.asmdef.meta": "729d645bab90f82aa9ff03bf99e8e0fa83c3cd2f762342d95fba372dc206ae55",
         "unity/Assets/Game/Tests/LayoutEditor.meta": "e6901df08c90f6bee5b74b3e27af6cd4f56f9c0e3a56a12b191550574b3eb5a7",
-        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "826c922d3daf71daa6ef70280ceb5552c0de0ef5f2ee8161096f62304c180cf4",
+        "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs": "51a15f2feb21f7b7e60bb73ad0e23f8b46c81a0cf93e645b295b713ad398940d",
         "unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs.meta": "a884320a53a2c2c27aadb2bb4496aa509cfda45a908811a908475ff8e117013c",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef": "aae2e03c37a55fedbecf867e2ffb57f9019dbebd0ee7bfa1968771f74d8bc57d",
         "unity/Assets/Game/Tests/LayoutPlay/Nard.Tests.LayoutPlay.asmdef.meta": "08b620de66fd7b3e44f508264921e429feb9c9c4a11720ac18c061b954d7b604",
@@ -754,7 +754,7 @@
       "compiler_errors": [],
       "apk_exists": true,
       "apk_bytes": 39859298,
-      "apk_sha256": "0e700b948f5be9608c83dc8d8e6cd5aad71154df34a45819bd4437752eb4d537"
+      "apk_sha256": "d14596aa3869866794e9468d83f4efabee6b7f6851dee0e8b498d028f0ba7737"
     }
   },
   "coverage": {
@@ -1106,7 +1106,7 @@
   "android_signature": {
     "status": "PASS",
     "exit_code": 0,
-    "apk_sha256": "0e700b948f5be9608c83dc8d8e6cd5aad71154df34a45819bd4437752eb4d537",
+    "apk_sha256": "d14596aa3869866794e9468d83f4efabee6b7f6851dee0e8b498d028f0ba7737",
     "output": [
       "Verifies",
       "Verified using v1 scheme (JAR signing): false",
@@ -1134,7 +1134,7 @@
       {
         "kind": "layout-landscape",
         "path": "docs/screenshots/P02.5-layout-landscape.png",
-        "sha256": "90eee81f4c3deb9429b1961519dd252fddb6249464132232b5558ee4529e1a47",
+        "sha256": "22596eb4c5eac2eb392d477fd9a43092fec06397bc261d0e7b8e7f8212eb915e",
         "width": 960,
         "height": 540,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1142,7 +1142,7 @@
       {
         "kind": "layout-portrait",
         "path": "docs/screenshots/P02.5-layout-portrait.png",
-        "sha256": "1d24af85f8956fb89ee223d4ab9f03598082263dc3db9b6758b9e00e3d6690cb",
+        "sha256": "397c83eae030b56a25544961c74a5493ec836272bd079577cdf3cdd6b7a219a7",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1158,7 +1158,7 @@
       {
         "kind": "layout-tall-safe",
         "path": "docs/screenshots/P02.5-layout-tall-safe.png",
-        "sha256": "dc48861933b214408e490aa2513044663e837652a5525c978216ba16bfd43fd6",
+        "sha256": "7b66fd99d1c3945858843638e7e8aefd56013f6071fee083cf65595de5aa40f8",
         "width": 720,
         "height": 1280,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1174,7 +1174,7 @@
       {
         "kind": "layout-portrait-moving",
         "path": "docs/screenshots/P02.5-layout-portrait-moving.png",
-        "sha256": "82ebf96222f089c497047c5c26c20bb49883d77d1f1875788e42afa8956be3ea",
+        "sha256": "f592d8fab2518f67d56839c70384cf02618a3eac68f5f9a035d25f68543943f5",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1190,7 +1190,7 @@
       {
         "kind": "layout-short-off",
         "path": "docs/screenshots/P02.5-layout-short-off.png",
-        "sha256": "b45302eb0194ab6063e41d7e1e5b4203df2be9226ec5875b9bb11f002854a802",
+        "sha256": "6b37c6e432717563247c773e52a56a24d443272f31504466ef11440b5ca42aeb",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render + synthetic Mouse/TouchState + explicit viewport/safe-area preview"
@@ -1198,7 +1198,7 @@
       {
         "kind": "editor-gameview",
         "path": "docs/screenshots/P02.5-editor-gameview.png",
-        "sha256": "795c4c584f638c9a22f94c8962c3a2f488e406a03f0d93b968dce4723ca2ede0",
+        "sha256": "56f5c86f3c564ece6fdb5c6d3cdbc7d21c48cccf784d13122d91e50886bd6a2d",
         "width": 420,
         "height": 839,
         "source": "Unity GUI Game View + synthetic Input System Mouse"
@@ -1221,7 +1221,7 @@
       {
         "kind": "layout-portrait-selection",
         "path": "docs/screenshots/P02.5-layout-portrait-selection.png",
-        "sha256": "01a747e26e3c4be10966c2d61cd4f12d51d6ef3f2bbfca14d7ff5fad413adeea",
+        "sha256": "36363fccab446b52ac197ab148b3db2fc3ead26b7b795a95fd646a3e48ff6f10",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render; synthetic Input System"
@@ -1229,7 +1229,7 @@
       {
         "kind": "layout-portrait-opening",
         "path": "docs/screenshots/P02.5-layout-portrait-opening.png",
-        "sha256": "48dcdd9f11374266ef9db72b4c6055769642d4e14a0878fe83071d3ea3435e2a",
+        "sha256": "67f9b4f2b149ac1fccb7fce1a99e29a4ff3d8aea3a41db135bc97750d14f5996",
         "width": 540,
         "height": 960,
         "source": "Unity PlayMode Camera.Render; synthetic Input System"
@@ -1237,88 +1237,212 @@
     ],
     "before_images": [
       {
-        "path": "docs/screenshots/P02.5-portrait-before-D035.png",
-        "sha256": "64df311e6101d20712c2d7e44da6ac8f42c6adac5060be5919b94c65e82a7737",
-        "source_commit": "faf1512"
+        "path": "docs/screenshots/P02.5-portrait-before-D036.png",
+        "sha256": "1d24af85f8956fb89ee223d4ab9f03598082263dc3db9b6758b9e00e3d6690cb",
+        "source_commit": "0b6db69"
       },
       {
-        "path": "docs/screenshots/P02.5-portrait-selection-before-D035.png",
-        "sha256": "7922c619f8be05bec69ae813d433842cd0d1ba09adbdad2aa88790371d087818",
-        "source_commit": "faf1512"
+        "path": "docs/screenshots/P02.5-portrait-selection-before-D036.png",
+        "sha256": "01a747e26e3c4be10966c2d61cd4f12d51d6ef3f2bbfca14d7ff5fad413adeea",
+        "source_commit": "0b6db69"
       }
     ],
     "portrait_phone_images": [
       {
         "kind": "portrait-unified-320x568",
         "path": "docs/screenshots/P02.5-portrait-unified-320x568.png",
-        "sha256": "49f78568341d268c79c012b4f1e33635400683045dcc0ccbe9b4a44bcba0fe92",
+        "sha256": "897e229d051c7e1ee71e553da63a206a0368c75e64ac99da0ef8f538439dc72a",
         "width": 320,
         "height": 568,
-        "source": "Unity PlayMode actual camera render and synthetic Input System input; not a physical phone"
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
       },
       {
         "kind": "portrait-unified-390x844",
         "path": "docs/screenshots/P02.5-portrait-unified-390x844.png",
-        "sha256": "004c7893c833612c7f2cc0ae2afd6ffeb58ea55d6bc847b184f366c09b67fef5",
+        "sha256": "2e1e0987dc0bd234512d9708d1cad9969421574811311e8d998d2435e8b9f3da",
         "width": 390,
         "height": 844,
-        "source": "Unity PlayMode actual camera render and synthetic Input System input; not a physical phone"
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
       },
       {
         "kind": "portrait-unified-540x960",
         "path": "docs/screenshots/P02.5-portrait-unified-540x960.png",
-        "sha256": "179a9f4deae9d43e5ceee43855e0dd2f01cdbf0a76562eadb3b95c3accebb052",
+        "sha256": "eb2624f6b2dd3ce2b089fbdd8bc540653ac9b9d45db00e32b005f4be5cd48f25",
         "width": 540,
         "height": 960,
-        "source": "Unity PlayMode actual camera render and synthetic Input System input; not a physical phone"
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
       },
       {
         "kind": "portrait-unified-720x1600",
         "path": "docs/screenshots/P02.5-portrait-unified-720x1600.png",
-        "sha256": "c8b51bdc4734eddfc3215680efd49b9d690aafe79b0bc7286909f9be19f2e9bf",
+        "sha256": "332230e59187ec2f1ff017f41c543b45a3f51e6bd59463a869d1d525c5f7b4d2",
         "width": 720,
         "height": 1600,
-        "source": "Unity PlayMode actual camera render and synthetic Input System input; not a physical phone"
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
       },
       {
         "kind": "portrait-unified-long",
         "path": "docs/screenshots/P02.5-portrait-unified-long.png",
-        "sha256": "fd205d7e842a497001b8879593b0cc318d72d4099c0f266486cd1785e55be1dd",
+        "sha256": "163fe238c9310840ce2682686a5c99ed4185d2777a6dc0cf6de5a7d17dea4057",
         "width": 540,
         "height": 960,
-        "source": "Unity PlayMode actual camera render and synthetic Input System input; not a physical phone"
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      }
+    ],
+    "portrait_stack_images": [
+      {
+        "kind": "portrait-stack-1-320x568",
+        "path": "docs/screenshots/P02.5-portrait-stack-1-320x568.png",
+        "sha256": "ea53e8595374df029b53e770f66e7ea5a0835b28687d94ad1a7d56d5328d181e",
+        "width": 320,
+        "height": 568,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-2-320x568",
+        "path": "docs/screenshots/P02.5-portrait-stack-2-320x568.png",
+        "sha256": "9edb3c07859509513245ec457917f7483449203fb24cdcc1a20dc14613b43418",
+        "width": 320,
+        "height": 568,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-5-320x568",
+        "path": "docs/screenshots/P02.5-portrait-stack-5-320x568.png",
+        "sha256": "731d80dff6e0e60590ec7036e38cc52b7b3ca97d4b547c78903e2aba0950f0b0",
+        "width": 320,
+        "height": 568,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-10-320x568",
+        "path": "docs/screenshots/P02.5-portrait-stack-10-320x568.png",
+        "sha256": "47aea624579ee4b5e8fd721fcd4d5b13b80cd8484b0ddcab6eda99d976c616eb",
+        "width": 320,
+        "height": 568,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-15-320x568",
+        "path": "docs/screenshots/P02.5-portrait-stack-15-320x568.png",
+        "sha256": "6f02c1e6b1639f5bac100bfa877fc525b510788ad253d8e1fbab249237bc7d2f",
+        "width": 320,
+        "height": 568,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-1-540x960",
+        "path": "docs/screenshots/P02.5-portrait-stack-1-540x960.png",
+        "sha256": "b1a81a6bd4992a806e4e67f1eec093a2a1bfb529e524a2053dbb4c881a0cb81e",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-2-540x960",
+        "path": "docs/screenshots/P02.5-portrait-stack-2-540x960.png",
+        "sha256": "93da46c030758aac6cde752d64fa5d08f1f1f66eb305756f08c320d3d2868101",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-5-540x960",
+        "path": "docs/screenshots/P02.5-portrait-stack-5-540x960.png",
+        "sha256": "fee3cf108a4c17386cc2e332e6b728188cbbf00f518274b77eac6616199f3ed1",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-10-540x960",
+        "path": "docs/screenshots/P02.5-portrait-stack-10-540x960.png",
+        "sha256": "9e2efc8bd572d26b2fc42e7750ee86cd5430425b83013c241f5a35a8631e29df",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-15-540x960",
+        "path": "docs/screenshots/P02.5-portrait-stack-15-540x960.png",
+        "sha256": "a0cfc2c3f269106db0e37744863d961237cfdccea4fab26b98e48152cf78c4c5",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-15-390x844",
+        "path": "docs/screenshots/P02.5-portrait-stack-15-390x844.png",
+        "sha256": "4ae17c509cc2fdeb9ca4fd3e243fae7d5944aaf91f163f0fa888f6710cd6c234",
+        "width": 390,
+        "height": 844,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-15-720x1600",
+        "path": "docs/screenshots/P02.5-portrait-stack-15-720x1600.png",
+        "sha256": "b949f12e00fcd3bd30472a68c4032b54e143fbcf1bfe710ba9b3e705573673c3",
+        "width": 720,
+        "height": 1600,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-15-bar",
+        "path": "docs/screenshots/P02.5-portrait-stack-15-bar.png",
+        "sha256": "546d39a55b52a0e2f31e3cdcd060cf7f7ff01b49bedbc3385f3de3bbb04a8bc7",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
+      },
+      {
+        "kind": "portrait-stack-15-off",
+        "path": "docs/screenshots/P02.5-portrait-stack-15-off.png",
+        "sha256": "ea49aa72a9555e8a6add611e9c9fad4881d02b02d7081ecf3a47c2d8139ae29d",
+        "width": 540,
+        "height": 960,
+        "source": "Unity PlayMode real Camera.Render, synthetic Input System; not a physical device"
       }
     ],
     "landscape_pixel_comparison": [
       {
+        "max_channel_delta": 1,
         "kind": "layout-landscape",
-        "changed_pixels": 0,
-        "bbox": null,
-        "baseline_commit": "faf1512"
+        "changed_pixels": 1,
+        "bbox": [
+          838,
+          233,
+          838,
+          233
+        ],
+        "baseline_commit": "0b6db69"
       },
       {
+        "max_channel_delta": 0,
         "kind": "layout-wide-safe",
         "changed_pixels": 0,
         "bbox": null,
-        "baseline_commit": "faf1512"
+        "baseline_commit": "0b6db69"
       },
       {
+        "max_channel_delta": 0,
         "kind": "layout-tablet",
         "changed_pixels": 0,
         "bbox": null,
-        "baseline_commit": "faf1512"
+        "baseline_commit": "0b6db69"
       },
       {
+        "max_channel_delta": 0,
         "kind": "layout-short-bar",
         "changed_pixels": 0,
         "bbox": null,
-        "baseline_commit": "faf1512"
+        "baseline_commit": "0b6db69"
       }
     ],
+    "landscape_raster_note": "Three renders are pixel-identical. Standard landscape differs at one text-edge pixel: RGB 187,169,149 -> 188,169,149. Cause unconfirmed; no geometry or gameplay change. Tolerance is at most one pixel and one channel level.",
     "gui_orientation": "PORTRAIT_REAL_GAME_VIEW"
   },
   "layout_validation": {
-    "math_cases": 35,
+    "math_cases": 40,
     "viewport_safe_area_combinations": 24,
     "rendered_aspects": 5,
     "same_match_and_undo_after_resize": "PASS",
@@ -1327,16 +1451,15 @@
     "safe_area_and_dice_checker_bounds": "PASS",
     "real_phone_rotation_sensor": "NOT_RUN",
     "physical_touch_size_comfort": "NOT_RUN",
-    "portrait_layout": "UNIFIED_FRAME_HINGED_BAR_COMPACT_OR_TALL_PHONE_DICE_BELOW_BOARD",
+    "portrait_layout": "LANE_BASED_24_POINTS_WITH_FULL_SPRITE_CONTAINMENT",
     "nonoverlapping_touch_lanes_and_checker_center_inverse": "PASS",
     "new_cases": [
-      "PortraitHasJoinedBoardAndOrderedControls (5 phone/tablet sizes)",
-      "PortraitStackCanBeSelectedFromEveryVisibleLayerAndUndone",
-      "PortraitPhoneSizesKeepHudReadableAndLandscapeRendersUnchanged"
+      "PortraitEveryStackFitsItsActualLaneAndNeverSharesAnotherTouchCell (counts 1/2/5/10/15, four sizes, every point/bar/off and owner)",
+      "PortraitOneTwoFiveTenFifteenStacksFitRenderedCells (20 projections plus 15-bar and 15-off)"
     ],
     "portrait_phone_renders": 4,
-    "portrait_stack_layers": 5,
-    "portrait_stack_layer_selection_and_undo": "PASS"
+    "portrait_stack_layers": "ALL_1_TO_15_UNIQUE_CENTERS",
+    "portrait_stack_layer_selection_and_undo": "ALL_15_LAYERS_PASS"
   },
   "editor_exit_observation": {
     "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.5",
@@ -1359,24 +1482,319 @@
     "previous_editmode_passed_names_preserved": 749,
     "previous_playmode_passed_names_preserved": 17,
     "push": "NOT_RUN_NOT_AUTHORIZED",
-    "previous_p025_editmode_passed_names_preserved": 779,
-    "previous_p025_playmode_passed_names_preserved": 24,
-    "current_editmode_passed_names": 784,
-    "current_playmode_passed_names": 26
+    "previous_p025_editmode_passed_names_preserved": 784,
+    "previous_p025_playmode_passed_names_preserved": 26,
+    "current_editmode_passed_names": 789,
+    "current_playmode_passed_names": 27
   },
   "implementation_findings": [
-    "D035: portrait only, unified outside frame, narrow hinged bar, compact phone variant, connected lower command area",
-    "Portrait dense stacks use five spaced layers plus a truthful count; every visible layer can select the same legal source",
-    "Portrait controls and text are larger; landscape geometry is unchanged and four decoded renders are pixel-identical to faf1512",
+    "D036: portrait lane pitch is the common scale for point width, full sprite footprint, stack stride, clearance and bar/off pockets",
+    "Every 1/2/5/10/15 checker has its own uniformly spaced center; the five-layer cap is removed; input cells are larger than the sprite",
+    "Actual renderer bounds measured in 20 synthetic board projections; all 24 point/bar/off geometry and all 15-layer mouse/undo transitions tested",
     "Frozen rules/match/interaction and pre-P02.5 tests unchanged"
   ],
-  "android_wrapper_retry": {
-    "initial_terminal_exit": 143,
-    "initial_unity_log_exit": 0,
-    "reason": "Terminal wrapper close was ambiguous; no Unity native crash established. Build repeated for an unambiguous runner exit.",
-    "final_runner_exit": 0,
-    "final_unity_exit": 0,
-    "initial_log_local": "build/P02.5/portrait-android-summary.txt",
-    "retry_log_local": "build/P02.5/portrait-android-retry-summary.txt"
+  "portrait_measurements": {
+    "source": "Actual Unity layout and SpriteRenderer.bounds from PortraitOneTwoFiveTenFifteenStacksFitRenderedCells",
+    "units": "Preview pixels; not physical mm or DPI",
+    "lane_formula": "L=0.86*board_width/6",
+    "sprite_footprint": "F=0.80*L includes the entire sprite rectangle",
+    "triangle_width": "0.94*L",
+    "row_height": "R=board_height/4-0.75*L",
+    "end_margin": "0.06*L",
+    "stack_stride": "n>1: min(0.84*F+0.05*L, (R-0.12*L-F)/(n-1)); n=1: 0",
+    "touch_width": "L-0.02px, independent of sprite size",
+    "alpha_analysis": {
+      "source": "unity/Assets/Game/Presentation/Resources/NardCheckers.png",
+      "sha256": "d236ef73b2ac0e5314caf9e15419ff3ee79877c2e189575cbe89a0229bf46e69",
+      "cell_pixels": 887,
+      "threshold": "alpha>32; full sprite bounds used for containment, including lower alpha pixels",
+      "opaque_width_pixels": 726,
+      "opaque_height_pixels_ivory": 747,
+      "opaque_height_pixels_walnut": 749
+    },
+    "rows": [
+      {
+        "width": 320,
+        "height": 568,
+        "count": 1,
+        "board_width": 289.96282958984375,
+        "board_height": 398.98883056640625,
+        "lane_width": 41.56134033203125,
+        "sprite_footprint": 33.24907302856445,
+        "min_renderer_clearance": 2.49365234375,
+        "row_height": 68.57620239257812,
+        "opaque_width_alpha32": 27.21401016768635,
+        "opaque_height_alpha32_max": 28.07616200495465,
+        "stack_stride": 0
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "count": 2,
+        "board_width": 289.96282958984375,
+        "board_height": 398.98883056640625,
+        "lane_width": 41.56134033203125,
+        "sprite_footprint": 33.24907302856445,
+        "min_renderer_clearance": 2.493682861328125,
+        "row_height": 68.57620239257812,
+        "opaque_width_alpha32": 27.21401016768635,
+        "opaque_height_alpha32_max": 28.07616200495465,
+        "stack_stride": 30.0072883605957
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "count": 5,
+        "board_width": 289.96282958984375,
+        "board_height": 398.98883056640625,
+        "lane_width": 41.56134033203125,
+        "sprite_footprint": 33.24907302856445,
+        "min_renderer_clearance": 2.493682861328125,
+        "row_height": 68.57620239257812,
+        "opaque_width_alpha32": 27.21401016768635,
+        "opaque_height_alpha32_max": 28.07616200495465,
+        "stack_stride": 7.58494213104248
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "count": 10,
+        "board_width": 289.96282958984375,
+        "board_height": 398.98883056640625,
+        "lane_width": 41.56134033203125,
+        "sprite_footprint": 33.24907302856445,
+        "min_renderer_clearance": 2.493682861328125,
+        "row_height": 68.57620239257812,
+        "opaque_width_alpha32": 27.21401016768635,
+        "opaque_height_alpha32_max": 28.07616200495465,
+        "stack_stride": 3.3710853915744354
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "count": 15,
+        "board_width": 289.96282958984375,
+        "board_height": 398.98883056640625,
+        "lane_width": 41.56134033203125,
+        "sprite_footprint": 33.24907302856445,
+        "min_renderer_clearance": 2.49365234375,
+        "row_height": 68.57620239257812,
+        "opaque_width_alpha32": 27.21401016768635,
+        "opaque_height_alpha32_max": 28.07616200495465,
+        "stack_stride": 2.1671263231549944
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "count": 1,
+        "board_width": 378.3000183105469,
+        "board_height": 628.9868774414062,
+        "lane_width": 54.22300338745117,
+        "sprite_footprint": 43.37840270996094,
+        "min_renderer_clearance": 3.25335693359375,
+        "row_height": 116.57946681976318,
+        "opaque_width_alpha32": 35.50475802416194,
+        "opaque_height_alpha32_max": 36.62956440784751,
+        "stack_stride": 0
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "count": 2,
+        "board_width": 378.3000183105469,
+        "board_height": 628.9868774414062,
+        "lane_width": 54.22300338745117,
+        "sprite_footprint": 43.37840270996094,
+        "min_renderer_clearance": 3.25335693359375,
+        "row_height": 116.57946681976318,
+        "opaque_width_alpha32": 35.50475802416194,
+        "opaque_height_alpha32_max": 36.62956440784751,
+        "stack_stride": 39.149008445739746
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "count": 5,
+        "board_width": 378.3000183105469,
+        "board_height": 628.9868774414062,
+        "lane_width": 54.22300338745117,
+        "sprite_footprint": 43.37840270996094,
+        "min_renderer_clearance": 3.25335693359375,
+        "row_height": 116.57946681976318,
+        "opaque_width_alpha32": 35.50475802416194,
+        "opaque_height_alpha32_max": 36.62956440784751,
+        "stack_stride": 16.673575925827027
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "count": 10,
+        "board_width": 378.3000183105469,
+        "board_height": 628.9868774414062,
+        "lane_width": 54.22300338745117,
+        "sprite_footprint": 43.37840270996094,
+        "min_renderer_clearance": 3.25335693359375,
+        "row_height": 116.57946681976318,
+        "opaque_width_alpha32": 35.50475802416194,
+        "opaque_height_alpha32_max": 36.62956440784751,
+        "stack_stride": 7.410478189256456
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "count": 15,
+        "board_width": 378.3000183105469,
+        "board_height": 628.9868774414062,
+        "lane_width": 54.22300338745117,
+        "sprite_footprint": 43.37840270996094,
+        "min_renderer_clearance": 3.25335693359375,
+        "row_height": 116.57946681976318,
+        "opaque_width_alpha32": 35.50475802416194,
+        "opaque_height_alpha32_max": 36.62956440784751,
+        "stack_stride": 4.763878835950579
+      },
+      {
+        "width": 540,
+        "height": 960,
+        "count": 1,
+        "board_width": 511.96563720703125,
+        "board_height": 704.4646606445312,
+        "lane_width": 73.38174438476562,
+        "sprite_footprint": 58.70539474487305,
+        "min_renderer_clearance": 4.40289306640625,
+        "row_height": 121.0798568725586,
+        "opaque_width_alpha32": 48.049736848678506,
+        "opaque_height_alpha32_max": 49.57197369099201,
+        "stack_stride": 0
+      },
+      {
+        "width": 540,
+        "height": 960,
+        "count": 2,
+        "board_width": 511.96563720703125,
+        "board_height": 704.4646606445312,
+        "lane_width": 73.38174438476562,
+        "sprite_footprint": 58.70539474487305,
+        "min_renderer_clearance": 4.40289306640625,
+        "row_height": 121.0798568725586,
+        "opaque_width_alpha32": 48.049736848678506,
+        "opaque_height_alpha32_max": 49.57197369099201,
+        "stack_stride": 52.981618804931635
+      },
+      {
+        "width": 540,
+        "height": 960,
+        "count": 5,
+        "board_width": 511.96563720703125,
+        "board_height": 704.4646606445312,
+        "lane_width": 73.38174438476562,
+        "sprite_footprint": 58.70539474487305,
+        "min_renderer_clearance": 4.40289306640625,
+        "row_height": 121.0798568725586,
+        "opaque_width_alpha32": 48.049736848678506,
+        "opaque_height_alpha32_max": 49.57197369099201,
+        "stack_stride": 13.39216320037842
+      },
+      {
+        "width": 540,
+        "height": 960,
+        "count": 10,
+        "board_width": 511.96563720703125,
+        "board_height": 704.4646606445312,
+        "lane_width": 73.38174438476562,
+        "sprite_footprint": 58.70539474487305,
+        "min_renderer_clearance": 4.40289306640625,
+        "row_height": 121.0798568725586,
+        "opaque_width_alpha32": 48.049736848678506,
+        "opaque_height_alpha32_max": 49.57197369099201,
+        "stack_stride": 5.95207253350152
+      },
+      {
+        "width": 540,
+        "height": 960,
+        "count": 15,
+        "board_width": 511.96563720703125,
+        "board_height": 704.4646606445312,
+        "lane_width": 73.38174438476562,
+        "sprite_footprint": 58.70539474487305,
+        "min_renderer_clearance": 4.40289306640625,
+        "row_height": 121.0798568725586,
+        "opaque_width_alpha32": 48.049736848678506,
+        "opaque_height_alpha32_max": 49.57197369099201,
+        "stack_stride": 3.8263323429652627
+      },
+      {
+        "width": 720,
+        "height": 1600,
+        "count": 1,
+        "board_width": 698.4000244140625,
+        "board_height": 1161.20654296875,
+        "lane_width": 100.10400390625,
+        "sprite_footprint": 80.08320617675781,
+        "min_renderer_clearance": 6.0062255859375,
+        "row_height": 215.2236328125,
+        "opaque_width_alpha32": 65.54724654377246,
+        "opaque_height_alpha32_max": 67.62381220562752,
+        "stack_stride": 0
+      },
+      {
+        "width": 720,
+        "height": 1600,
+        "count": 2,
+        "board_width": 698.4000244140625,
+        "board_height": 1161.20654296875,
+        "lane_width": 100.10400390625,
+        "sprite_footprint": 80.08320617675781,
+        "min_renderer_clearance": 6.0062255859375,
+        "row_height": 215.2236328125,
+        "opaque_width_alpha32": 65.54724654377246,
+        "opaque_height_alpha32_max": 67.62381220562752,
+        "stack_stride": 72.27509338378906
+      },
+      {
+        "width": 720,
+        "height": 1600,
+        "count": 5,
+        "board_width": 698.4000244140625,
+        "board_height": 1161.20654296875,
+        "lane_width": 100.10400390625,
+        "sprite_footprint": 80.08320617675781,
+        "min_renderer_clearance": 6.0062255859375,
+        "row_height": 215.2236328125,
+        "opaque_width_alpha32": 65.54724654377246,
+        "opaque_height_alpha32_max": 67.62381220562752,
+        "stack_stride": 30.781986541748047
+      },
+      {
+        "width": 720,
+        "height": 1600,
+        "count": 10,
+        "board_width": 698.4000244140625,
+        "board_height": 1161.20654296875,
+        "lane_width": 100.10400390625,
+        "sprite_footprint": 80.08320617675781,
+        "min_renderer_clearance": 6.0062255859375,
+        "row_height": 215.2236328125,
+        "opaque_width_alpha32": 65.54724654377246,
+        "opaque_height_alpha32_max": 67.62381220562752,
+        "stack_stride": 13.680882907443577
+      },
+      {
+        "width": 720,
+        "height": 1600,
+        "count": 15,
+        "board_width": 698.4000244140625,
+        "board_height": 1161.20654296875,
+        "lane_width": 100.10400390625,
+        "sprite_footprint": 80.08320617675781,
+        "min_renderer_clearance": 6.0062255859375,
+        "row_height": 215.2236328125,
+        "opaque_width_alpha32": 65.54724654377246,
+        "opaque_height_alpha32_max": 67.62381220562752,
+        "stack_stride": 8.7948532976423
+      }
+    ],
+    "synthetic_states_not_claimed_reachable": true,
+    "bar_off_15_renderer_bounds": "PASS"
   }
 }

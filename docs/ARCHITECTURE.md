@@ -201,14 +201,14 @@ Asset hüquqları daxili preview kimi qeyd edilib; kommersiya hüququ təsdiqi i
 
 MatchBoardLayout yalnız viewport/safe-area piksel həndəsəsidir. Hər iki yerləşim üçün board, status,
 Undo, roll, dice və off yuvalarını verir; dünya/kanonik input koordinatlarının tərs çevrilməsi burada qalır.
-Heç bir qayda, RNG və növbə keçidi hesablamır. D035 üzrə portret vahid xarici çərçivə və dar menteşəli bar daxilində iki dik oyun sahəsidir: sol yarı yuxarı, sağ yarı aşağı; 24 indeks dəyişmir.
+Heç bir qayda, RNG və növbə keçidi hesablamır. D036 üzrə portret vahid xarici çərçivə və dar menteşəli bar daxilində iki dik oyun sahəsidir: sol yarı yuxarı, sağ yarı aşağı; 24 indeks dəyişmir.
 Soldan sağa vizual xəritə: yuxarı tray üst 12–17, alt 11–6; aşağı tray üst 18–23, alt 5–0.
 Bar iki tray arasındadır, owner-ə məxsus off yuvası kənardadır. Layout yalnız məkan çevirməsidir;
 qanuni istiqamət və hədəflər mövcud engine/Interaction-dan gəlir. PointTouchRect-lər qonşu ilə örtüşmür,
 checker mərkəzi həmin point-in inverse xəritəsinə düşür; portret/landşaft üzrə real test edilir.
 MatchHudView eyni snapshot, LocalTurnLoop hüquqları və markerlərini çəkir; mətnlərdə P0/P1 debug işarələri yoxdur.
 Portret zərləri və böyüdülmüş status/düymələr board-un altındakı bitişik taxta idarə sahəsindədir. Landscape render/həndəsə əvvəlki kimidir.
-Portretin 6+ daş yığını beş görünən pillə və həqiqi say badge-i ilə göstərilir; rendererlər orijinal point ID-lərini saxlayır. Bütün xana toxunma sahəsidir; qanuni seçim yalnız Interaction-dan gəlir.
+PortraitLaneWidth vahid həndəsədir: PointVisualRect, tam sprite qutusu (.80 xana eni), bərabər yığın aralığı və təhlükəsiz kənar payı buradan çıxır. Bütün 1–15 daşın mərkəzi ayrıdır; 6+ say nişanı var. PointTouchRect daha geniş və markerə doğru uzadılmış input sahəsidir, qonşu ilə örtüşmür. Qanuni seçim yalnız Interaction-dan gəlir. Renderer.bounds ayrıca testlə vizual xana/bar/off sahəsinə sığmalıdır.
 
 BoardView yalnız viewport/safe area dəyişəndə yerləşimi yeniləyir. BoardTurnInput əvvəlcə yeni həndəsəni alır,
 yarımçıq dragı ləğv edir və həmin kadrın köhnə koordinatlı input-unu qəbul etmir. Eyni LocalTurnLoop,

@@ -146,3 +146,11 @@
 - Sıx yığın beş aralı görünən pillə və həqiqi sayla göstərilir; mənbə bütün xanadan seçilir.
 - Landscape, mühərrik/Undo/zər/növbə məntiqi dəyişmir; yeni portrait testləri və regressiya sübutları cari hesabatdadır.
 - AWAITING_HUMAN_APPROVAL; fiziki Android/yerli review NOT_RUN, native Editor riski açıq, push/P02.6 yoxdur.
+
+## 2026-11-04 — P02.5 D036, portrait ölçü/yığın düzəlişi
+
+- Daşın tam sprite qutusu real xana eninin 80%-inə bağlandı; üçbucaq, kənar payı və sıra eyni xana ölçüsündən hesablanır.
+- Beş görünən pillə limiti ləğv edildi: bütün 1–15 daş ayrıca, bərabər aralı mərkəzlə yerləşir; toxunma sahəsi geniş qalır.
+- Portrait HUD qısaldıldı və oyun sahəsi böyüdü; BAR/çıxarılan daşlar da ölçülü qutulara sığır.
+- 1/2/5/10/15 × dörd telefon ölçüsü üçün faktiki render və sərhəd məsafələri, bütün xana/bar/off həndəsəsi yoxlanır.
+- Qaydalar/landscape qorunur; yalnız lokal commit. AWAITING_HUMAN_APPROVAL; P02.6/push yoxdur.

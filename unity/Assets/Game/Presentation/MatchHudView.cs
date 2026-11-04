@@ -47,12 +47,12 @@ namespace Nard.Presentation
                 float diameter=c.Point==24?layout.CheckerDiameter*.54f:c.Point==-1&&layout.Portrait?layout.CheckerDiameter*.68f:layout.CheckerDiameter;
                 Vector2 position=layout.PixelToWorld(layout.CheckerPixel(c.Point,c.Player,ordinal,count));
                 var r=c.Renderer;r.enabled=true;r.sprite=c.Player==0?skin.IvorySprite:skin.WalnutSprite;r.color=Color.white;
-                r.transform.localPosition=position;float size=diameter/.84f/100;r.transform.localScale=new Vector3(size/r.sprite.bounds.size.x,size/r.sprite.bounds.size.y,1);r.sortingOrder=10+ordinal;
+                r.transform.localPosition=position;float size=(layout.Portrait?layout.CheckerFootprint(c.Point):diameter/.84f)/100;r.transform.localScale=new Vector3(size/r.sprite.bounds.size.x,size/r.sprite.bounds.size.y,1);r.sortingOrder=10+ordinal;
             }
             foreach(int point in Enumerable.Range(0,24))
             {
                 int count=Math.Abs(view.Snapshot.Point(point));if(count<=5)continue;
-                var p=layout.TargetPixel(point,0);
+                var p=layout.Portrait?layout.CheckerPixel(point,0,count-1,count):layout.TargetPixel(point,0);
                 Draw("StackCountBadge_"+point,circle,Centered(p,19*layout.Unit,19*layout.Unit),Cream,44);
                 Label("StackCount_"+point,count.ToString(),p,11*layout.Unit,Ink,45);
             }
@@ -66,13 +66,13 @@ namespace Nard.Presentation
             var selected=view.Checkers.LastOrDefault(c=>c.Point==loop.Selected&&c.Player==loop.Session.Player);
             if(selected!=null)
             {
-                float d=layout.CheckerDiameter*1.12f;
+                float d=layout.Portrait?layout.CheckerFootprint(selected.Point)*1.08f:layout.CheckerDiameter*1.12f;
                 Draw("SelectedChecker",circle,Centered(layout.WorldToPixel(selected.Renderer.transform.localPosition),d,d),Honey,9);
             }
             foreach(int target in loop.Targets)
             {
                 var p=layout.TargetPixel(target,loop.Session.Player);
-                float d=layout.CheckerDiameter*.44f;Draw("LegalTarget_"+target,circle,Centered(p,d,d),Ink,40);Draw("LegalTargetFace_"+target,circle,Centered(p,d*.65f,d*.65f),new Color32(77,153,149,255),41);
+                float d=layout.Portrait?layout.PortraitLaneWidth*.24f:layout.CheckerDiameter*.44f;Draw("LegalTarget_"+target,circle,Centered(p,d,d),Ink,40);Draw("LegalTargetFace_"+target,circle,Centered(p,d*.65f,d*.65f),new Color32(77,153,149,255),41);
             }
             Status(loop);
             Dice(loop);
@@ -92,19 +92,19 @@ namespace Nard.Presentation
                 Rect tray=layout.Tray(half);
                 Draw("TrayLeft_"+half,sideFrame,new Rect(tray.xMin,tray.yMin,w*.07f,tray.height),Color.white,3);
                 Draw("TrayRight_"+half,sideFrame,new Rect(tray.xMax-w*.07f,tray.yMin,w*.07f,tray.height),Color.white,3).flipX=true;
-                var field=new Rect(tray.xMin+w*.07f,tray.yMin+(half==0?0:w*.08f),w*.86f,tray.height-w*.08f);
+                var field=layout.PortraitField(half);
                 Draw("CreamField_"+half,creamField,field,Color.white,1);
                 for(int col=0;col<6;col++)
                 {
-                    Rect top=layout.PointTouchRect((half==0?12:18)+col),bottom=layout.PointTouchRect((half==0?11:5)-col);
+                    Rect top=layout.PointVisualRect((half==0?12:18)+col),bottom=layout.PointVisualRect((half==0?11:5)-col);
                     Draw("TopPoint_"+half+"_"+col,topPoints[col],top,Color.white,2);
                     Draw("BottomPoint_"+half+"_"+col,bottomPoints[col],bottom,Color.white,2);
                 }
             }
-            Draw("PortraitCentralBar",grain,Centered(board.center,w,w*.05f),new Color(.85f,.81f,.76f,1),4);
+            Draw("PortraitCentralBar",grain,layout.PortraitBar,new Color(.85f,.81f,.76f,1),4);
             foreach(int side in new[]{-1,1})
             {
-                var r=Draw("PortraitHinge_"+side,hinge,Centered(board.center+Vector2.right*side*w*.20f,w*.045f,w*.09f),Color.white,6);
+                var r=Draw("PortraitHinge_"+side,hinge,Centered(board.center+Vector2.right*side*layout.PortraitLaneWidth*3.18f,layout.PortraitLaneWidth*.22f,layout.PortraitLaneWidth*.44f),Color.white,6);
                 r.transform.localRotation=Quaternion.Euler(0,0,90);
             }
             Draw("PortraitHudWood",grain,layout.Header,new Color(.86f,.83f,.78f,1),46);
@@ -113,20 +113,20 @@ namespace Nard.Presentation
         private void PortraitStatus(LocalTurnLoop loop)
         {
             Rect r=layout.Status;float u=layout.Unit;
-            Label("ModeTitle",loop.Session.Mode==GameMode.Long?"UZUN NƏRD":"QISA NƏRD",new Vector2(r.center.x,r.yMax-12*u),13*u,Cream,50);
+            Label("ModeTitle",loop.Session.Mode==GameMode.Long?"UZUN NƏRD":"QISA NƏRD",new Vector2(r.center.x,r.yMax-9*u),12*u,Cream,50);
             for(int player=0;player<2;player++)
             {
                 bool active=loop.Session.Player==player;
-                var seat=Centered(new Vector2(r.xMin+(player==0?.25f:.75f)*r.width,r.yMin+25*u),r.width*.46f,42*u);
+                var seat=Centered(new Vector2(r.xMin+(player==0?.25f:.75f)*r.width,r.yMin+17*u),r.width*.46f,32*u);
                 Draw("PlayerSeat_"+player,grain,seat,active?Color.white:new Color(.87f,.85f,.80f,1),48);
                 Draw("PlayerActiveEdge_"+player,rounded,new Rect(seat.xMin+8*u,seat.yMin,seat.width-16*u,3*u),active?new Color32(77,153,149,255):Wood,49);
-                Draw("PlayerChecker_"+player,player==0?skin.IvorySprite:skin.WalnutSprite,Centered(new Vector2(seat.xMin+22*u,seat.center.y),32*u,32*u),Color.white,50);
-                Label("PlayerName_"+player,player==0?"Açıq tərəf":"Qoz tərəf",seat.center+new Vector2(14*u,8*u),15*u,Cream,50);
+                Draw("PlayerChecker_"+player,player==0?skin.IvorySprite:skin.WalnutSprite,Centered(new Vector2(seat.xMin+22*u,seat.center.y),24*u,24*u),Color.white,50);
+                Label("PlayerName_"+player,player==0?"Açıq tərəf":"Qoz tərəf",seat.center+new Vector2(10*u,4*u),15*u,Cream,50);
                 string turn=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==player?"Qalib":"Partiya bitdi"):active?"Sizin növbəniz":"Gözləyir";
-                Label("PlayerTurn_"+player,turn,seat.center+new Vector2(14*u,-10*u),11*u,active?Cream:new Color32(207,185,156,255),50);
+                Label("PlayerTurn_"+player,turn,seat.center+new Vector2(10*u,-9*u),9*u,active?Cream:new Color32(207,185,156,255),50);
             }
             string feedback=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==0?"Açıq tərəf qalibdir":"Qoz tərəf qalibdir"):loop.Reason=="OPENING_TIE"?"Bərabərdir · yenidən atın":loop.Reason=="DICE_SOURCE_FAILED"||loop.Reason=="INVALID_DICE"?"Zər alınmadı · yenidən atın":loop.CanRoll?"Başlamaq üçün zər atın":loop.Reason=="UNDO_COMPLETE"?"Gediş geri alındı":loop.Selected==TapSelection.None?"Öz daşınızı seçin":"İşarəli xanaya oynayın";
-            Label("MoveFeedback",feedback,new Vector2(layout.Rail.center.x,layout.Rail.yMin+(layout.CompactPortrait?70:82)*u),14*u,Cream,50);
+            Label("MoveFeedback",feedback,new Vector2(layout.Rail.xMin+260*u,layout.Rail.yMin+64*u),13*u,Cream,50);
         }
         private void Status(LocalTurnLoop loop)
         {
@@ -161,16 +161,16 @@ namespace Nard.Presentation
                 for(int i=0;i<spots.Count;i++)Draw("MatchPip_"+die+"_"+i,circle,Centered(at+spots[i]*side*.23f,side*.10f,side*.10f),Ink,52);
             }
             var tokens=loop.Tokens;int available=tokens.Count(t=>t.State==TokenState.Available);
-            Vector2 center=layout.Portrait?new Vector2(layout.Rail.xMin+255*u,layout.Rail.yMax-40*u):new Vector2(layout.Rail.center.x,layout.Rail.yMin+135*u);
+            Vector2 center=layout.Portrait?new Vector2(layout.Rail.xMin+135*u,layout.Rail.yMax-20*u):new Vector2(layout.Rail.center.x,layout.Rail.yMin+135*u);
             if(layout.Portrait&&(loop.CanRoll||loop.Session.Phase==MatchPhase.Finished))
-                Label("RightsRemaining",loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Atış gözlənilir",center+Vector2.up*10*u,14*u,Cream,52);
+                Label("RightsRemaining",loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Atış gözlənilir",new Vector2(layout.Rail.xMin+260*u,layout.Rail.yMax-14*u),14*u,Cream,52);
             else if(tokens.Count>0)
             {
-                Label("RightsRemaining",available+" gediş qalıb",center+Vector2.up*15*u,(layout.Portrait?14:11)*u,Cream,52);
+                Label("RightsRemaining",available+" gediş qalıb",layout.Portrait?new Vector2(layout.Rail.xMin+260*u,layout.Rail.yMax-14*u):center+Vector2.up*15*u,(layout.Portrait?14:11)*u,Cream,52);
                 for(int i=0;i<tokens.Count;i++)
                 {
-                    Vector2 at=center+Vector2.right*(i-(tokens.Count-1)*.5f)*18*u;
-                    Draw("MoveRight_"+i,circle,Centered(at,12*u,12*u),tokens[i].State==TokenState.Available?Honey:new Color32(141,113,80,255),52);
+                    Vector2 at=center+Vector2.right*(i-(tokens.Count-1)*.5f)*(layout.Portrait?12:18)*u;
+                    Draw("MoveRight_"+i,circle,Centered(at,(layout.Portrait?8:12)*u,(layout.Portrait?8:12)*u),tokens[i].State==TokenState.Available?Honey:new Color32(141,113,80,255),52);
                     if(tokens[i].State==TokenState.Used)Draw("SpentRight_"+i,rounded,Centered(at,10*u,1.5f*u),Cream,53);
                     if(tokens[i].State==TokenState.Unavailable)Label("BlockedRight_"+i,"×",at,12*u,Cream,53);
                 }

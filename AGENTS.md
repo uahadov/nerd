@@ -18,7 +18,7 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
 4. Hazırda yalnız P02.5 icazəlidir: iki responsive matç yerləşimi, safe area və çevrilmədə state-in qorunması.
    D033 insanın P02.4 funksional qəbulunu və P02.5 icazəsini saxlayır. D032 üzrə board-focus HUD qurulur;
-   premium referans material üslubudur, bütöv hazır səhnə deyil. D035 cari düzəlişi yalnız portrait layout/UX ilə məhdudlaşdırır; vahid çərçivəli portret, alt zər/status/idarə sahəsi. Landscape görünüşünü dəyişmə, regressiya ilə qoru. Final polish və P02.6/save yoxdur.
+   premium referans material üslubudur, bütöv hazır səhnə deyil. D036 yalnız portrait proporsiya/daş yerləşimi düzəlişidir: xana pitch-i bütün ölçülərin əsasıdır; bütün 1–15 daş ayrıca mərkəzlə göstərilir, toxunma renderdən ayrıdır. Landscape görünüşünü dəyişmə, regressiya ilə qoru. Final polish və P02.6/save yoxdur.
    Rules/Match/Interaction, zər mənbəyi və əvvəlki C# testlərini qoru. Undo/avtomatik commit qaydasını dəyişmə.
    Bot, online, başqa ekran və final art yoxdur. Fiziki Android və yerli oyunçu NOT_RUN qalır.
    Altı PROVISIONAL_RULE saxlanır. Native Editor qəzası həll sübutu olmadan açıq riskdir.
