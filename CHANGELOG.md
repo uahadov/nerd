@@ -138,3 +138,11 @@
 - İki lokal tərəf, aktiv növbə, real hüquq sayı və işlək Undo/atış vəziyyəti HUD-da göstərilir.
 - Əvvəlki şəkillər müqayisə üçün saxlanır; yekun test/build və native Editor sübutları P02.5 hesabatında yenilənir.
 - Rules/Match/Interaction və əvvəlki part testləri dəyişmir. Push/P02.6 yoxdur; cihaz/yerli review NOT_RUN.
+
+## 2026-11-04 — P02.5 D035, yalnız portrait UX düzəlişi
+
+- Ayrı çərçivəli hissələr vahid qoz çərçivə və dar menteşəli barla birləşdirildi.
+- Zərlər/status və geniş Undo/atış düymələri taxtanın altına toplandı; HUD mətnləri böyüdü.
+- Sıx yığın beş aralı görünən pillə və həqiqi sayla göstərilir; mənbə bütün xanadan seçilir.
+- Landscape, mühərrik/Undo/zər/növbə məntiqi dəyişmir; yeni portrait testləri və regressiya sübutları cari hesabatdadır.
+- AWAITING_HUMAN_APPROVAL; fiziki Android/yerli review NOT_RUN, native Editor riski açıq, push/P02.6 yoxdur.

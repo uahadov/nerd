@@ -19,7 +19,7 @@ P02.2 seçim/marker/tap qəbul edilib; mühərrik və köhnə testlər qorunur.
 P02.3 insan tərəfindən qəbul edilib və testləri qorunur.
 P02.4 funksional nəticələri: 749 EditMode, 17 PlayMode, 67/67 canonical nümunə və Android build/imza PASS.
 P02.4 funksiyaları insan tərəfindən qəbul edilib; rədd edilmiş layout D032 brifi üzrə yalnız P02.5-də işlənir.
-D033 P02.5-ə açıq insan icazəsidir. D034 P02.5 portret/HUD düzəlişi: 779 EditMode, 24 PlayMode, Android build/imza və ayrıca Editor input/render PASS; insan görünüş qəbulu gözlənilir.
+D033 P02.5-ə açıq insan icazəsidir. D035 yalnız portrait UX: 784 EditMode, 26 PlayMode, Android build/imza və native portrait input/render PASS; 4 landscape renderində dəyişən piksel 0; insan qəbulu gözlənilir.
 P02.5: 118 Python testi və 15/15 struktur yoxlaması PASS; [cari hesabat](docs/reports/P02.5.md).
 D031 son insan göstərişi ilə qoz/krem/naxışlı taxta və işləməli daş görünüşü Unity-yə tətbiq edilib.
 P02.5-də iki responsive yerləşim var; başqa final art/bot/online və P02.6 yoxdur.

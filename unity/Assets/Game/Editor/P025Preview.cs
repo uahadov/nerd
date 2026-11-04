@@ -41,6 +41,11 @@ namespace Nard.Build
             if(firstFrame<0)
             {
                 if(input?.Loop==null)return;Application.runInBackground=true;EditorApplication.ExecuteMenuItem("Window/General/Game");Directory.CreateDirectory(dir);
+                if(Environment.GetEnvironmentVariable("NARD_GUI_PORTRAIT")=="1")
+                {
+                    var game=ScriptableObject.CreateInstance(typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView")) as EditorWindow;
+                    game.titleContent=new GUIContent("NƏRD portrait evidence");game.ShowUtility();game.position=new Rect(80,60,420,860);game.Focus();
+                }
                 previous=UnityEngine.Object.Instantiate(InputSystem.settings);previous.hideFlags=HideFlags.HideAndDontSave;var settings=UnityEngine.Object.Instantiate(previous);settings.hideFlags=HideFlags.HideAndDontSave;
                 settings.editorInputBehaviorInPlayMode=InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;InputSystem.settings=settings;
                 var root=MatchSession.Create("gui-undo",GameMode.Long,RuleContract.VersionFor(GameMode.Long)).Begin().ResolveOpening(6,1);var loop=new LocalTurnLoop(root,new Dice());loop.TryRoll(0);input.Bind(loop);mouse=InputSystem.AddDevice<Mouse>();firstFrame=Time.frameCount;
@@ -48,7 +53,7 @@ namespace Nard.Build
             int frame=Time.frameCount-firstFrame;if(frame<nextFrame)return;nextFrame=frame+5;
             switch(step++)
             {
-                case 0:if(!Check(input,0,"start"))return;Shot("editor-layout-start");break;
+                case 0:if(Environment.GetEnvironmentVariable("NARD_GUI_PORTRAIT")=="1"&&Screen.height<=Screen.width){Debug.LogError("NARD_P025_EXPECTED_PORTRAIT_GAMEVIEW");EditorApplication.Exit(1);return;}if(!Check(input,0,"start"))return;Shot("editor-layout-start");break;
                 case 1:Mouse(3.75f,-4,true);break;
                 case 2:Mouse(1.8f,-3,true);break;
                 case 3:if(!Check(input,0,"drag"))return;Shot("editor-layout-drag");break;

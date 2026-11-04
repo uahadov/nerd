@@ -17,10 +17,10 @@ namespace Nard.Tests.Layout
         [TestCaseSource(nameof(Viewports))] public void SafeAreaControlsBoardAndEveryHitTargetStayConsistent(int w,int h,bool notch)
         {
             var safe=notch?(h>w?new Rect(0,20,w,h-56):new Rect(36,12,w-66,h-24)):new Rect(0,0,w,h);
-            var l=new MatchBoardLayout(w,h,safe);Inside(safe,l.Board);Inside(safe,l.Rail);Inside(safe,l.Header);Inside(l.Rail,l.Undo);Inside(l.Rail,l.Roll);Inside(l.Board,l.Dice);
+            var l=new MatchBoardLayout(w,h,safe);Inside(safe,l.Board);Inside(safe,l.Rail);Inside(safe,l.Header);Inside(l.Rail,l.Undo);Inside(l.Rail,l.Roll);Inside(l.Portrait?l.Rail:l.Board,l.Dice);
             Assert.IsFalse(l.Undo.Overlaps(l.Roll));Assert.IsFalse(l.Undo.Overlaps(l.Dice));Assert.IsFalse(l.Roll.Overlaps(l.Dice));
             Assert.That(l.Undo.height/l.Unit,Is.GreaterThanOrEqualTo(43.99f));Assert.That(l.Roll.height/l.Unit,Is.GreaterThanOrEqualTo(43.99f));
-            Assert.AreEqual(h>w,l.Portrait);Assert.That(l.Board.width/l.Board.height,Is.EqualTo(l.Portrait?.625f:4f/3f).Within(.001));
+            Assert.AreEqual(h>w,l.Portrait);Assert.That(l.Board.width/l.Board.height,Is.EqualTo(l.Portrait?1f/(l.CompactPortrait?1.15f:1.43f):4f/3f).Within(.001));
             Assert.That(l.Board.width*l.Board.height/(safe.width*safe.height),Is.GreaterThan(.39f));
             for(int i=0;i<24;i++)
             {var p=BoardGeometry.PointBase(i);p.y=i<12?-4:4;var world=l.CanonicalToWorld(p);Assert.IsTrue(l.Board.Contains(l.WorldToPixel(world)));Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(world),0));}
@@ -50,6 +50,21 @@ namespace Nard.Tests.Layout
             var l=new MatchBoardLayout(390,844,new Rect(0,0,390,844));
             Assert.Throws<ArgumentOutOfRangeException>(()=>l.PointTouchRect(-1));Assert.Throws<ArgumentOutOfRangeException>(()=>l.PointTouchRect(24));
             Assert.AreEqual(BoardHitMap.Outside,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(new Vector2(l.Board.xMin+1,l.Board.center.y))),0));
+        }
+        [TestCase(320,568)] [TestCase(390,844)] [TestCase(540,960)] [TestCase(720,1600)] [TestCase(768,1024)]
+        public void PortraitHasJoinedBoardAndOrderedControls(int w,int h)
+        {
+            var l=new MatchBoardLayout(w,h,new Rect(0,20,w,h-56));
+            Assert.That(l.Tray(0).yMin-l.Tray(1).yMax,Is.EqualTo(l.Board.width*.05f).Within(.01f));
+            Assert.That(l.Header.yMin,Is.EqualTo(l.Board.yMax).Within(.01f));Assert.That(l.Rail.yMax,Is.EqualTo(l.Board.yMin).Within(.01f));
+            Assert.Greater(l.Dice.yMin,l.Undo.yMax);Assert.Greater(l.Dice.yMin,l.Roll.yMax);
+            Assert.GreaterOrEqual(l.Undo.width/l.Unit,160);Assert.That(l.Undo.height/l.Unit,Is.EqualTo(48).Within(.001f));
+            for(int i=0;i<24;i++)
+            {
+                var at=l.CheckerPixel(i,i<12?0:1,14,15);Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(at)),0));
+                var centers=new HashSet<Vector2>();for(int n=0;n<15;n++)centers.Add(l.CheckerPixel(i,0,n,15));Assert.AreEqual(5,centers.Count);
+                for(int n=0;n<5;n++)Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(l.CheckerPixel(i,0,n,5))),0));
+            }
         }
         [TestCase(0,100)] [TestCase(100,0)] [TestCase(-1,100)] public void InvalidViewportIsRejected(int w,int h)=>Assert.Throws<ArgumentOutOfRangeException>(()=>new MatchBoardLayout(w,h,new Rect()));
         [Test] public void InvalidSafeAreaFallsBackAndOversizedSafeAreaIsClipped()

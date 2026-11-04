@@ -81,6 +81,36 @@ namespace Nard.Tests.Layout
             try{yield return Click(mouse,P(0,-9.35f));Assert.AreEqual(2,dice.Calls);Assert.IsTrue(loop.CanRoll);Assert.IsFalse(loop.CanUndo);Assert.AreEqual(MatchPhase.Rolling,loop.Session.Phase);CollectionAssert.Contains(input.GetComponentsInChildren<TextMesh>().Where(t=>t.GetComponent<Renderer>().enabled).Select(t=>t.text).ToArray(),"Bərabərdir · yenidən atın");Capture("layout-portrait-opening");}
             finally{InputSystem.RemoveDevice(mouse);}
         }
+        [UnityTest] public IEnumerator PortraitStackCanBeSelectedFromEveryVisibleLayerAndUndone()
+        {
+            yield return Load();var loop=Ready(GameMode.Long,new Dice());Viewport(540,960);yield return null;var original=loop.LongPosition;var mouse=InputSystem.AddDevice<Mouse>();
+            try
+            {
+                Assert.NotNull(GameObject.Find("PortraitCentralBar"));Assert.NotNull(GameObject.Find("PortraitHinge_-1"));Assert.IsNull(GameObject.Find("TrayTop_0"));
+                foreach(int layer in new[]{0,1,2,3,4})
+                {
+                    if(loop.Selected!=TapSelection.None)loop.Tap(0,loop.Selected);input.Bind(loop);var l=view.CurrentLayout;var pixel=l.CheckerPixel(0,0,10+layer,15);yield return Click(mouse,Camera.main.WorldToScreenPoint(l.PixelToWorld(pixel)));
+                    Assert.AreEqual(0,loop.Selected);Assert.AreEqual(0,loop.LongPosition.UsedMask);
+                    int target=loop.Targets[0];var at=Camera.main.WorldToScreenPoint(l.PixelToWorld(l.TargetPixel(target,0)));yield return Click(mouse,at);
+                    Assert.AreEqual(1,loop.Tokens.Count(t=>t.State==TokenState.Used));Assert.IsTrue(loop.CanUndo);yield return Click(mouse,P(0,9.45f));Assert.AreEqual(0,loop.LongPosition.UsedMask);
+                    CollectionAssert.AreEqual(original.CopyPoints(),loop.LongPosition.CopyPoints());
+                }
+                Capture("portrait-unified-long");CheckPieces();
+            }finally{InputSystem.RemoveDevice(mouse);}
+        }
+        [UnityTest] public IEnumerator PortraitPhoneSizesKeepHudReadableAndLandscapeRendersUnchanged()
+        {
+            yield return Load();var loop=Ready(GameMode.Short,new Dice());var state=loop.Session;
+            foreach(var size in new[]{new Vector2Int(320,568),new Vector2Int(390,844),new Vector2Int(540,960),new Vector2Int(720,1600)})
+            {
+                Viewport(size.x,size.y,new Rect(0,20,size.x,size.y-56));yield return null;CheckPieces();Assert.AreSame(state,loop.Session);
+                var l=view.CurrentLayout;var labels=input.GetComponentsInChildren<TextMesh>().Where(t=>t.GetComponent<Renderer>().enabled);
+                foreach(string name in new[]{"MoveFeedback","RightsRemaining","UndoLabel","PlayerName_0","PlayerName_1"})
+                {var text=labels.Single(t=>t.name==name);Assert.GreaterOrEqual(text.characterSize*100*6.4f/l.Unit,12.9f);var bounds=text.GetComponent<Renderer>().bounds;Assert.IsTrue(l.Safe.Contains(l.WorldToPixel(bounds.min)),name);Assert.IsTrue(l.Safe.Contains(l.WorldToPixel(bounds.max)),name);}
+                Capture("portrait-unified-"+size.x+"x"+size.y);
+            }
+            Viewport(960,540,new Rect(32,12,906,516));yield return null;Assert.IsNull(GameObject.Find("PortraitCentralBar"));CheckPieces();Assert.AreSame(state,loop.Session);Capture("portrait-landscape-regression");
+        }
         [UnityTest] public IEnumerator FiveAspectSafeAreaRendersKeepTheSameMatch()
         {
             yield return Load();var dice=new Dice();var loop=Ready(GameMode.Short,dice);var session=loop.Session;var position=loop.ShortPosition;int i=0;

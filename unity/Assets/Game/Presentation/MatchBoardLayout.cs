@@ -7,10 +7,11 @@ namespace Nard.Presentation
     {
         public int Width {get;} public int Height {get;}
         public bool Portrait {get;}
+        public bool CompactPortrait=>Portrait&&Safe.height/Safe.width<1.85f;
         public Rect Safe {get;} public Rect Board {get;} public Rect Rail {get;} public Rect Header {get;}
         public Rect Undo {get;} public Rect Roll {get;} public Rect Status {get;} public Rect Dice {get;}
         public float Unit {get;} public float BoardScale=>Board.width/(Portrait?10f:16f);
-        public float CheckerDiameter=>BoardScale*(Portrait?1.18f:.92f);
+        public float CheckerDiameter=>BoardScale*(Portrait?1.24f:.92f);
         public MatchBoardLayout(int width,int height,Rect safe)
         {
             if(width<=0||height<=0)throw new ArgumentOutOfRangeException(nameof(width));
@@ -20,15 +21,18 @@ namespace Nard.Presentation
             Safe=right>x&&top>y?Rect.MinMaxRect(x,y,right,top):new Rect(0,0,width,height);
             if(Portrait)
             {
-                float w=Mathf.Min(Safe.width*.97f,Safe.height/(1.6f+132f/390));
-                Unit=w/390;float h=w*1.6f;
-                float bottom=Safe.center.y-(h+124*Unit)*.5f;
-                Rail=new Rect(Safe.center.x-w/2,bottom,w,64*Unit);
+                float ratio=CompactPortrait?1.15f:1.43f,reference=CompactPortrait?360:390;
+                float header=CompactPortrait?62:70,footer=CompactPortrait?128:152;
+                float w=Mathf.Min(Safe.width*.97f,Safe.height/(ratio+(header+footer+8)/reference));
+                Unit=w/reference;float h=w*ratio;
+                float bottom=Safe.center.y-(h+(header+footer)*Unit)*.5f;
+                Rail=new Rect(Safe.center.x-w/2,bottom,w,footer*Unit);
                 Board=new Rect(Rail.xMin,Rail.yMax,w,h);
-                Header=new Rect(Board.xMin,Board.yMax,w,60*Unit);Status=Header;
-                Undo=new Rect(Rail.xMin+8*Unit,Rail.yMin+10*Unit,114*Unit,44*Unit);
-                Roll=new Rect(Rail.xMax-122*Unit,Rail.yMin+10*Unit,114*Unit,44*Unit);
-                Dice=Centered(Board.center,Board.width*.21f,Board.width*.083f);
+                Header=new Rect(Board.xMin,Board.yMax,w,header*Unit);Status=Header;
+                float button=(w-36*Unit)/2;
+                Undo=new Rect(Rail.xMin+12*Unit,Rail.yMin+12*Unit,button,48*Unit);
+                Roll=new Rect(Rail.xMax-12*Unit-button,Rail.yMin+12*Unit,button,48*Unit);
+                Dice=new Rect(Rail.xMin+28*Unit,Rail.yMax-50*Unit,92*Unit,40*Unit);
             }
             else
             {
@@ -49,11 +53,11 @@ namespace Nard.Presentation
         public Vector2 IntoBoard(Vector2 p)=>(WorldToPixel(p)-Board.center)/BoardScale;
         // Upper tray = original left half; lower tray = original right half. All points stay upright.
         public Rect Tray(int half)
-        {float h=Board.width*.75f;return new Rect(Board.xMin,half==0?Board.yMax-h:Board.yMin,Board.width,h);}
+        {float h=(Board.height-Board.width*.05f)/2;return new Rect(Board.xMin,half==0?Board.yMax-h:Board.yMin,Board.width,h);}
         public Rect BarPocket(int player)
         {
             if(!Portrait)return Centered(WorldToPixel(FromBoard(new Vector2(0,player==0?-3.3f:3.3f))),.72f*BoardScale,4*BoardScale);
-            return Centered(Board.center+Vector2.right*(player==0?-.37f:.37f)*Board.width,Board.width*.17f,Board.width*.085f);
+            return Centered(Board.center+Vector2.right*(player==0?-.32f:.32f)*Board.width,Board.width*.20f,Board.width*.11f);
         }
         public Rect OffPocket(int player)
         {if(Portrait){var tray=Tray(player==0?1:0);return Centered(new Vector2(tray.xMax-Board.width*.035f,tray.center.y),Board.width*.052f,Board.width*.13f);}return Centered(WorldToPixel(FromBoard(new Vector2(7.27f,player==0?-3.7f:3.7f))),.86f*BoardScale,.86f*BoardScale);}
@@ -65,7 +69,8 @@ namespace Nard.Presentation
                 bool left=point>=6&&point<18,top=point>=12;var tray=Tray(left?0:1);
                 int col=point<12?(11-point)%6:(point-12)%6;
                 float lane=tray.width*.86f/6,edge=tray.width*.07f;
-                return new Rect(tray.xMin+edge+col*lane+.01f,top?tray.center.y+tray.height*.12f:tray.yMin+tray.height*.14f,lane-.02f,tray.height*.24f);
+                float inset=(left&&!top)||(!left&&top)?.04f:.08f,row=CompactPortrait?.20f:.22f;
+                return new Rect(tray.xMin+edge+col*lane+.01f,top?tray.yMax-tray.width*(inset+row):tray.yMin+tray.width*inset,lane-.02f,tray.width*row);
             }
             var p=ReferenceBoardSkin.ToLocal(BoardGeometry.PointBase(point));
             return Centered(WorldToPixel(FromBoard(new Vector2(p.x,point<12?-3.1f:3.1f))),.98f*BoardScale,4f*BoardScale);
@@ -75,6 +80,9 @@ namespace Nard.Presentation
             if(point==24)return OffPocket(player).center;
             var cell=point==-1?BarPocket(player):PointTouchRect(point);
             if(point==-1&&Portrait)return cell.center+Vector2.right*(ordinal-(count-1)*.5f)*Mathf.Min(CheckerDiameter*.36f,cell.width/Mathf.Max(1,count));
+            // On a dense portrait head, show five spaced layers plus the truthful count badge.
+            // Every renderer still belongs to its original point; input selects the whole lane.
+            if(Portrait&&point>=0&&count>5){ordinal=Mathf.Max(0,ordinal-(count-5));count=5;}
             bool top=point==-1?player==1:point>=12;
             float d=CheckerDiameter,spacing=Mathf.Min(d*.88f,Mathf.Max(0,cell.height-d*.9f)/Mathf.Max(1,count-1));
             return new Vector2(cell.center.x,(top?cell.yMax-d*.5f:cell.yMin+d*.5f)+(top?-1:1)*spacing*ordinal);

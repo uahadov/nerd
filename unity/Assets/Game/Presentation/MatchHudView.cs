@@ -12,7 +12,7 @@ namespace Nard.Presentation
         private readonly ReferenceBoardSkin skin;
         private readonly Sprite rounded,circle,grain,diceFace;
         private readonly List<UnityEngine.Object> owned=new List<UnityEngine.Object>();
-        private readonly Sprite creamField,topFrame,bottomFrame,sideFrame;
+        private readonly Sprite creamField,topFrame,bottomFrame,sideFrame,hinge;
         private readonly Sprite[] topPoints=new Sprite[6],bottomPoints=new Sprite[6];
         private Transform root;private MatchBoardLayout layout;
         private static readonly Color Cream=new Color32(246,235,213,255),Wood=new Color32(103,64,40,255),Honey=new Color32(224,176,100,255),Ink=new Color32(78,48,31,255);
@@ -22,6 +22,7 @@ namespace Nard.Presentation
             var texture=skin.BoardSprite.texture;
             creamField=Sprite(128,128,(x,y)=>{float v=.003f*Mathf.Sin(x*347+y*113);return new Color(.963f+v,.865f+v,.698f+v,1);});
             topFrame=Slice(texture,new Rect(0,1008,720,78));bottomFrame=Slice(texture,new Rect(0,0,720,90));sideFrame=Slice(texture,new Rect(0,90,128,918));
+            hinge=Slice(texture,new Rect(701,843,49,96));
             for(int i=0;i<6;i++){topPoints[i]=PointSprite(texture,new Rect(130+i*90,694,90,318),true);bottomPoints[i]=PointSprite(texture,new Rect(130+i*90,83,90,345),false);}
             rounded=Sprite(96,96,(x,y)=>{float a=Mathf.Max(Mathf.Abs(x-.5f)-.37f,0),b=Mathf.Max(Mathf.Abs(y-.5f)-.37f,0);return a*a+b*b<=.13f*.13f?Color.white:Color.clear;});
             diceFace=Sprite(96,96,(x,y)=>{float a=Mathf.Max(Mathf.Abs(x-.5f)-.46f,0),b=Mathf.Max(Mathf.Abs(y-.5f)-.46f,0);return a*a+b*b<=.04f*.04f?Color.white:Color.clear;});
@@ -81,26 +82,55 @@ namespace Nard.Presentation
         }
         private void PortraitBoard()
         {
+            Rect board=layout.Board;float w=board.width;
+            Draw("PortraitBoardFrame",grain,board,Color.white,0);
+            // One continuous case: only its outside top/bottom edges carry a full ornamental rail.
+            Draw("PortraitOuterTop",topFrame,new Rect(board.xMin,board.yMax-w*.09f,w,w*.09f),Color.white,4);
+            Draw("PortraitOuterBottom",bottomFrame,new Rect(board.xMin,board.yMin,w,w*.09f),Color.white,4);
             for(int half=0;half<2;half++)
             {
-                Rect tray=layout.Tray(half);Draw("PortraitTray_"+half,grain,tray,Color.white,0);
-                Draw("TrayTop_"+half,topFrame,new Rect(tray.xMin,tray.yMax-tray.width*.10f,tray.width,tray.width*.10f),Color.white,4);
-                Draw("TrayBottom_"+half,bottomFrame,new Rect(tray.xMin,tray.yMin,tray.width,tray.width*.10f),Color.white,4);
-                Draw("TrayLeft_"+half,sideFrame,new Rect(tray.xMin,tray.yMin+tray.width*.09f,tray.width*.07f,tray.height-tray.width*.18f),Color.white,3);
-                Draw("TrayRight_"+half,sideFrame,new Rect(tray.xMax-tray.width*.07f,tray.yMin+tray.width*.09f,tray.width*.07f,tray.height-tray.width*.18f),Color.white,3).flipX=true;
-                var field=new Rect(tray.xMin+tray.width*.07f,tray.yMin+tray.width*.10f,tray.width*.86f,tray.height-tray.width*.20f);
+                Rect tray=layout.Tray(half);
+                Draw("TrayLeft_"+half,sideFrame,new Rect(tray.xMin,tray.yMin,w*.07f,tray.height),Color.white,3);
+                Draw("TrayRight_"+half,sideFrame,new Rect(tray.xMax-w*.07f,tray.yMin,w*.07f,tray.height),Color.white,3).flipX=true;
+                var field=new Rect(tray.xMin+w*.07f,tray.yMin+(half==0?0:w*.08f),w*.86f,tray.height-w*.08f);
                 Draw("CreamField_"+half,creamField,field,Color.white,1);
-                // Portrait leaves a quiet cream gap; ornament remains on points, frames and checkers.
                 for(int col=0;col<6;col++)
                 {
-                    float lane=field.width/6,x=field.xMin+(col+.5f)*lane;
-                    Draw("TopPoint_"+half+"_"+col,topPoints[col],new Rect(x-lane/2,field.yMax-tray.width*.20f,lane,tray.width*.20f),Color.white,2);
-                    Draw("BottomPoint_"+half+"_"+col,bottomPoints[col],new Rect(x-lane/2,field.yMin,lane,tray.width*.20f),Color.white,2);
+                    Rect top=layout.PointTouchRect((half==0?12:18)+col),bottom=layout.PointTouchRect((half==0?11:5)-col);
+                    Draw("TopPoint_"+half+"_"+col,topPoints[col],top,Color.white,2);
+                    Draw("BottomPoint_"+half+"_"+col,bottomPoints[col],bottom,Color.white,2);
                 }
             }
+            Draw("PortraitCentralBar",grain,Centered(board.center,w,w*.05f),new Color(.85f,.81f,.76f,1),4);
+            foreach(int side in new[]{-1,1})
+            {
+                var r=Draw("PortraitHinge_"+side,hinge,Centered(board.center+Vector2.right*side*w*.20f,w*.045f,w*.09f),Color.white,6);
+                r.transform.localRotation=Quaternion.Euler(0,0,90);
+            }
+            Draw("PortraitHudWood",grain,layout.Header,new Color(.86f,.83f,.78f,1),46);
+            Draw("PortraitControlWood",grain,layout.Rail,new Color(.86f,.83f,.78f,1),46);
+        }
+        private void PortraitStatus(LocalTurnLoop loop)
+        {
+            Rect r=layout.Status;float u=layout.Unit;
+            Label("ModeTitle",loop.Session.Mode==GameMode.Long?"UZUN NƏRD":"QISA NƏRD",new Vector2(r.center.x,r.yMax-12*u),13*u,Cream,50);
+            for(int player=0;player<2;player++)
+            {
+                bool active=loop.Session.Player==player;
+                var seat=Centered(new Vector2(r.xMin+(player==0?.25f:.75f)*r.width,r.yMin+25*u),r.width*.46f,42*u);
+                Draw("PlayerSeat_"+player,grain,seat,active?Color.white:new Color(.87f,.85f,.80f,1),48);
+                Draw("PlayerActiveEdge_"+player,rounded,new Rect(seat.xMin+8*u,seat.yMin,seat.width-16*u,3*u),active?new Color32(77,153,149,255):Wood,49);
+                Draw("PlayerChecker_"+player,player==0?skin.IvorySprite:skin.WalnutSprite,Centered(new Vector2(seat.xMin+22*u,seat.center.y),32*u,32*u),Color.white,50);
+                Label("PlayerName_"+player,player==0?"Açıq tərəf":"Qoz tərəf",seat.center+new Vector2(14*u,8*u),15*u,Cream,50);
+                string turn=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==player?"Qalib":"Partiya bitdi"):active?"Sizin növbəniz":"Gözləyir";
+                Label("PlayerTurn_"+player,turn,seat.center+new Vector2(14*u,-10*u),11*u,active?Cream:new Color32(207,185,156,255),50);
+            }
+            string feedback=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==0?"Açıq tərəf qalibdir":"Qoz tərəf qalibdir"):loop.Reason=="OPENING_TIE"?"Bərabərdir · yenidən atın":loop.Reason=="DICE_SOURCE_FAILED"||loop.Reason=="INVALID_DICE"?"Zər alınmadı · yenidən atın":loop.CanRoll?"Başlamaq üçün zər atın":loop.Reason=="UNDO_COMPLETE"?"Gediş geri alındı":loop.Selected==TapSelection.None?"Öz daşınızı seçin":"İşarəli xanaya oynayın";
+            Label("MoveFeedback",feedback,new Vector2(layout.Rail.center.x,layout.Rail.yMin+(layout.CompactPortrait?70:82)*u),14*u,Cream,50);
         }
         private void Status(LocalTurnLoop loop)
         {
+            if(layout.Portrait){PortraitStatus(loop);return;}
             var r=layout.Status;float u=layout.Unit;
             Label("ModeTitle",loop.Session.Mode==GameMode.Long?"UZUN NƏRD":"QISA NƏRD",new Vector2(r.center.x,r.yMax-10*u),13*u,Cream,50);
             for(int player=0;player<2;player++)
@@ -131,10 +161,12 @@ namespace Nard.Presentation
                 for(int i=0;i<spots.Count;i++)Draw("MatchPip_"+die+"_"+i,circle,Centered(at+spots[i]*side*.23f,side*.10f,side*.10f),Ink,52);
             }
             var tokens=loop.Tokens;int available=tokens.Count(t=>t.State==TokenState.Available);
-            Vector2 center=layout.Portrait?new Vector2(layout.Rail.center.x,layout.Rail.center.y+7*u):new Vector2(layout.Rail.center.x,layout.Rail.yMin+135*u);
-            if(tokens.Count>0)
+            Vector2 center=layout.Portrait?new Vector2(layout.Rail.xMin+255*u,layout.Rail.yMax-40*u):new Vector2(layout.Rail.center.x,layout.Rail.yMin+135*u);
+            if(layout.Portrait&&(loop.CanRoll||loop.Session.Phase==MatchPhase.Finished))
+                Label("RightsRemaining",loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Atış gözlənilir",center+Vector2.up*10*u,14*u,Cream,52);
+            else if(tokens.Count>0)
             {
-                Label("RightsRemaining",available+" gediş qalıb",center+Vector2.up*15*u,11*u,Cream,52);
+                Label("RightsRemaining",available+" gediş qalıb",center+Vector2.up*15*u,(layout.Portrait?14:11)*u,Cream,52);
                 for(int i=0;i<tokens.Count;i++)
                 {
                     Vector2 at=center+Vector2.right*(i-(tokens.Count-1)*.5f)*18*u;
@@ -148,7 +180,7 @@ namespace Nard.Presentation
         {
             Draw(name+"Frame",rounded,rect,active?new Color32(161,123,77,255):new Color32(99,76,55,255),49);
             var inner=rect;inner.xMin+=2*layout.Unit;inner.xMax-=2*layout.Unit;inner.yMin+=2*layout.Unit;inner.yMax-=2*layout.Unit;
-            Draw(name+"Wood",grain,inner,active?Color.white:new Color(.80f,.77f,.70f,1),50);Label(name+"Label",label,rect.center,13*layout.Unit,active?Cream:new Color32(182,160,133,255),51);
+            Draw(name+"Wood",grain,inner,active?Color.white:new Color(.80f,.77f,.70f,1),50);Label(name+"Label",label,rect.center,(layout.Portrait?15:13)*layout.Unit,active?Cream:new Color32(182,160,133,255),51);
         }
         private SpriteRenderer Draw(string name,Sprite sprite,Rect pixel,Color color,int order)
         {

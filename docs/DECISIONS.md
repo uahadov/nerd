@@ -339,3 +339,13 @@ qayda, zər və Undo dəyişmir. Eyni material atlasından frame/point/medallion
 HUD real lokal tərəfləri və qalan hüquqları göstərir. Lokal dövrə tək partiyadır;
 profil adları və UI-yə qoşulmamış BO3/BO5 hesabı uydurulmur. Final polish, yeni ekran,
 seriya inteqrasiyası və P02.6 yoxdur. P02.5 qəbul edilməyib, status AWAITING_HUMAN_APPROVAL qalır.
+
+## D035 — 2026-11-04, yalnız portrait layout/UX düzəlişi
+
+İnsan: “Yalnız NƏRD oyununun şaquli (portrait) rejimini yaxşılaşdır.” P02.5 daxilində cari düzəlişdir;
+landscape, mühərriklər, Undo/zər/növbə məntiqi dəyişdirilmir. Portret bir xarici çərçivə və dar menteşəli barla birləşir.
+Qısa portret ekran üçün daha yığcam, uzun ekran üçün daha hündür board nisbəti seçilir; bu avtomatik responsive yerləşimdir, ayrıca istifadəçi interfeysi rejimi deyil. Zərlər və status board-un altındakı vahid idarə sahəsindədir. Yuxarı HUD və alt idarələr bitişik taxta materialındadır.
+Sıx portret yığını ən çox beş görünən pillə və həqiqi say nişanı ilə göstərilir; bütün 15 daş state-də qalır,
+qanuni mənbə bütün xana sahəsindən seçilir. Bu yalnız render təqdimatıdır, qayda və ya daş sayının dəyişməsi deyil.
+24 indeks xəritəsi D034-dəki kimidir. Final polish/P02.6, əlavə ekran, bot/online və push yoxdur.
+Status AWAITING_HUMAN_APPROVAL, cari insan qəbulu false qalır. Cihaz və yerli oyunçu NOT_RUN.
