@@ -16,14 +16,13 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
 3. Yalnız STATE-də icazəli bir part üzərində işlə. Fayldakı icazə insanın
    qeyd olunmuş açıq mesajına söykənməlidir; agent özü icazə yarada bilməz.
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
-4. Hazırda yalnız P02.4 icazəlidir: drag-and-drop, uyğun sürətli toxunma və təsdiqdən əvvəl undo.
-   Rules/Match/TapSelection, zər mənbəyi və əvvəlki C# testlərini qoru. Undo yalnız öz açıq növbəsindədir;
-   son hüququn istifadəsi avtomatik commit edir, həmin növbə daha geri alınmır.
-   D031-də son insan göstərişi ilə yalnız referans üslublu taxta/daş görünüşü indi icazəlidir.
-   Bot, online, başqa final art və P02.5 responsive layout yoxdur.
-   Altı PROVISIONAL_RULE, fiziki Android və yerli oyunçu NOT_RUN qalır.
-   Native Editor qəzası həll sübutu olmadan açıq riskdir. Real input/render/test sübutu saxla.
-   İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.5-ə icazə yoxdur.
+4. Hazırda yalnız P02.5 icazəlidir: iki responsive matç yerləşimi, safe area və çevrilmədə state-in qorunması.
+   D033 insanın P02.4 funksional qəbulunu və P02.5 icazəsini saxlayır. D032 üzrə board-focus HUD qurulur;
+   premium referans material üslubudur, bütöv hazır səhnə deyil. Final polish və P02.6/save yoxdur.
+   Rules/Match/Interaction, zər mənbəyi və əvvəlki C# testlərini qoru. Undo/avtomatik commit qaydasını dəyişmə.
+   Bot, online, başqa ekran və final art yoxdur. Fiziki Android və yerli oyunçu NOT_RUN qalır.
+   Altı PROVISIONAL_RULE saxlanır. Native Editor qəzası həll sübutu olmadan açıq riskdir.
+   İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.6-ya icazə yoxdur.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.
    R01–R20-ni yeni açıq məhsul qərarı olmadan həyata keçirmə.
 6. Gələcək final taxtanın əsas insan-seçilmiş [vizual referansını](docs/DECISIONS.md) D024-də oxu.

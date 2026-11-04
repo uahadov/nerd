@@ -11,10 +11,35 @@ namespace Nard.Presentation
     public sealed class BoardView : MonoBehaviour
     {
         [SerializeField] private bool referenceStyle;
+        [SerializeField] private bool responsiveLayout;
+        private MatchHudView matchHud;
+        private MatchBoardLayout matchLayout;
+        private Vector2Int previewSize;
+        private Rect previewSafe;
+        public MatchBoardLayout CurrentLayout=>matchLayout;
+        public bool IsResponsive=>responsiveLayout;
+        public void SetLayoutViewport(int width,int height,Rect safe)
+        {
+            if(!responsiveLayout)throw new InvalidOperationException("Responsive scene required");
+            if(width<=0||height<=0)throw new ArgumentOutOfRangeException(nameof(width));
+            previewSize=new Vector2Int(width,height);previewSafe=safe;RefreshLayout();
+            var input=GetComponent<BoardTurnInput>();if(input?.Loop!=null){input.CancelForLayout();input.Render();}
+        }
+        public void ClearLayoutViewport(){previewSize=Vector2Int.zero;RefreshLayout();var input=GetComponent<BoardTurnInput>();if(input?.Loop!=null){input.CancelForLayout();input.Render();}}
+        public bool RefreshLayout()
+        {
+            if(!responsiveLayout)return false;
+            int width=previewSize.x>0?previewSize.x:Mathf.Max(1,Screen.width),height=previewSize.y>0?previewSize.y:Mathf.Max(1,Screen.height);
+            var safe=previewSize.x>0?previewSafe:Screen.safeArea;if(safe.width<=0||safe.height<=0)safe=new Rect(0,0,width,height);
+            bool changed=matchLayout==null||matchLayout.Width!=width||matchLayout.Height!=height||matchLayout.Safe!=safe;
+            if(changed)matchLayout=new MatchBoardLayout(width,height,safe);
+            var camera=Camera.main;if(camera!=null){camera.orthographic=true;camera.orthographicSize=height/200f;camera.aspect=width/(float)height;}
+            return changed;
+        }
         private ReferenceBoardSkin skin;
         public bool IsReferenceStyle=>referenceStyle;
-        public Vector2 BoardToLocal(Vector2 p)=>referenceStyle?ReferenceBoardSkin.ToLocal(p):p;
-        public Vector2 LocalToBoard(Vector2 p)=>referenceStyle?ReferenceBoardSkin.ToBoard(p):p;
+        public Vector2 BoardToLocal(Vector2 p)=>responsiveLayout&&matchLayout!=null?matchLayout.CanonicalToWorld(p):referenceStyle?ReferenceBoardSkin.ToLocal(p):p;
+        public Vector2 LocalToBoard(Vector2 p)=>responsiveLayout&&matchLayout!=null?matchLayout.WorldToCanonical(p):referenceStyle?ReferenceBoardSkin.ToBoard(p):p;
         [SerializeField] private GameMode initialMode = GameMode.Long;
         private GameObject content;
         private GameObject tapOverlay;
@@ -38,11 +63,17 @@ namespace Nard.Presentation
         }
         private void Awake()
         {
+            if(responsiveLayout){Screen.autorotateToPortrait=true;Screen.autorotateToLandscapeLeft=true;Screen.autorotateToLandscapeRight=true;Screen.orientation=ScreenOrientation.AutoRotation;RefreshLayout();}
             CreateSprites();
             Display(BoardSnapshot.From(MatchSession.Create("technical-board", initialMode, RuleContract.VersionFor(initialMode))));
         }
         private void LateUpdate()
         {
+            if(responsiveLayout)
+            {
+                if(RefreshLayout()){var input=GetComponent<BoardTurnInput>();if(input?.Loop!=null){input.CancelForLayout();input.Render();}}
+                return;
+            }
             var camera = Camera.main;
             if (camera != null && camera.orthographic)
                 camera.orthographicSize = referenceStyle?Mathf.Max(8.4f,9.2f/camera.aspect):Mathf.Max(9.8f, 5.3f / camera.aspect);
@@ -166,7 +197,12 @@ namespace Nard.Presentation
             var button=Shape("RollButton",square,new Vector2(0,-9.35f),new Vector2(4.2f,.53f),loop.CanRoll?Walnut:new Color32(172,155,131,255),2);button.transform.SetParent(tapOverlay.transform,false);
             string buttonText=loop.CanRoll?(loop.Session.Player<0?"İlk atışı et":"Zər at · P"+loop.Session.Player):loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Gedişi tamamlayın";
             Label("RollButtonLabel",buttonText,new Vector2(0,-9.35f),.25f,Cream);content.transform.Find("RollButtonLabel").SetParent(tapOverlay.transform,false);
-            if(referenceStyle){if(skin==null)skin=new ReferenceBoardSkin();skin.Apply(this,content,loop.Selected,loop.Session.Player,loop.Targets);}
+            if(referenceStyle)
+            {
+                if(skin==null)skin=new ReferenceBoardSkin();
+                if(responsiveLayout){RefreshLayout();if(matchHud==null)matchHud=new MatchHudView(skin);matchHud.Apply(this,content,loop,matchLayout);}
+                else skin.Apply(this,content,loop.Selected,loop.Session.Player,loop.Targets);
+            }
         }
         private void DrawPips(int die,int value,Color color)
         {
@@ -234,6 +270,6 @@ namespace Nard.Presentation
         }
         private static void Release(UnityEngine.Object value)
         { if(Application.isPlaying)Destroy(value);else DestroyImmediate(value); }
-        private void OnDestroy() { skin?.Dispose(); foreach(var value in generated)if(value!=null)Release(value); }
+        private void OnDestroy() { matchHud?.Dispose(); skin?.Dispose(); foreach(var value in generated)if(value!=null)Release(value); }
     }
 }

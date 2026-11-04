@@ -319,3 +319,13 @@ Son mesaj həm “növbəti uyğun mərhələ”, həm “cari mərhələnin ica
 Buna görə cari P02.4 səhnəsinin dar düzəlişi ilə P02.5-ə açıq keçid arasında əhatə dəqiqləşdirilməsi istənilib.
 Heç bir variant agent tərəfindən özbaşına seçilmir. Hazırda Unity kodu/asset/build dəyişmir;
 P02.4 və AWAITING_HUMAN_APPROVAL saxlanır, P02.5 icazəsi false qalır. Skill/MCP/push yoxdur.
+
+## D033 — 2026-11-04, P02.4 funksional qəbul və yalnız P02.5 icazəsi
+
+İstifadəçi: “P02.4 funksiyalarını qəbul edirəm; P02.5-də layout işinə başla.”
+Bu qəbul əvvəl rədd edilmiş layout-u təsdiqləmir; D032 səhnə/HUD brifi P02.5-in qəbul meyarıdır.
+İki responsive yerləşim, safe area və state-i saxlayan orientation icazəlidir. P02.6/save və final polish açılmır.
+Taxta landşaft asseti kimi qalır; portretdə onun render yerləşimi 90° çevrilir, yazı/daş/HUD dik və oxunaqlı saxlanır.
+Beləliklə portret ekranın ortasına balaca horizontal şəkil yapışdırılmır; board mobil ekranın əsas hissəsini tutur.
+Bu təqdimat seçimi qaydaları, istiqamət indekslərini və eyni matç snapshot-unu dəyişmir.
+“Gedişi tamamla” saxta düyməsi çıxarılır; avtomatik commit qalır. Zər atışı yalnız real CanRoll zamanı aktivdir.

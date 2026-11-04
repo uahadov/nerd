@@ -120,3 +120,13 @@
 - Səhnə/HUD görünüşünün rədd edilməsi və konkret yerləşim brifi D032-də saxlanıldı.
 - P02.4 qəbul edilmiş sayılmır; aktiv part/status və növbəti part qapısı dəyişmir.
 - Cari səhnə düzəlişi ilə P02.5 başlanğıcı arasında əhatə cavabı istənilib. Unity kodu/asset/APK dəyişmir.
+
+## 2026-11-04 — P02.5, insan təsdiqi gözlənilir
+
+- İnsanın P02.4 funksional qəbulu və yalnız P02.5 icazəsi D033-də qeyd edildi; əvvəl rədd edilmiş layout qəbul sayılmadı.
+- İki responsive yerləşim, safe-area həndəsəsi, board-focus HUD, board üzərində zərlər və kiçik off yuvaları hazırlandı.
+- Böyük krem HUD panelləri, debug mətnləri və saxta “Gedişi tamamla” düyməsi çıxarıldı.
+- Çevrilmə eyni loop/matç/Undo tarixçəsini saxlayır; həmin kadrın yarımçıq dragı ləğv edilir. P02.6 save yoxdur.
+- Əvvəlki mühərriklər, Interaction və C# testləri qorunur. 777 EditMode, 22 PlayMode, 118 Python, 15/15 struktur və 67/67 canonical nümunə PASS.
+- Real render/input sübutları, Android ARM64 APK və imza yoxlaması [cari hesabatda](docs/reports/P02.5.md).
+- Fiziki Android/iOS/yerli oyunçu NOT_RUN; native Editor qəzası həll edilmiş sayılmır. Final polish, P02.6 və GitHub push yoxdur.

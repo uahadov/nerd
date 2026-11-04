@@ -1,0 +1,14 @@
+{
+  "name": "Nard.Tests.LayoutPlay",
+  "references": [
+    "Nard.Presentation",
+    "Nard.Interaction",
+    "Nard.Match",
+    "Nard.Rules.Long",
+    "Nard.Rules.Short",
+    "Unity.InputSystem"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

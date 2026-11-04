@@ -7,6 +7,7 @@ A53 texniki görünüş olaraq IN_PROGRESS-dır; son art və mobil qəbul tamam 
 A50 P02.2 texniki marker olaraq IN_PROGRESS-dır; final oynanış hələ tamam deyil.
 A49 P02.3 lokal atış/istehlak görünüşü olaraq IN_PROGRESS-dır; final motion/online deyil.
 A47/A51/A54 P02.4 lokal drag/undo/sürətli tap kimi IN_PROGRESS-dır; mobil insan qəbulu gözlənir.
+A44/A48 P02.5 yerləşimləri olaraq IN_PROGRESS-dır; fiziki mobil qəbul tamam deyil.
 Digər maddələr NOT_STARTED-dır. İlkin part əlaqəsi işin ilk aidiyyəti yerini
 izləmək üçündür, tam əhatə və ya həmin partı indi icra etmək vədi deyil.
 Mənbə ardıcıllığı üstün qalır. A38 yalnız ilk reklamsız buraxılışdan sonrakı yeniləmə üçündür.
@@ -57,11 +58,11 @@ Qalan 7 buraxılış qərarı və GDD §15–16 ayrıca mənbədə qalır; A say
 | A41 | Bir toxunuşla oyuna başlamaq | NOT_STARTED | P04.5 |
 | A42 | İlk oyunda ağıllı kömək | NOT_STARTED | P04.7 |
 | A43 | Qısa interaktiv açılış | NOT_STARTED | P04.6 |
-| A44 | Matç zamanı üfüqi ekran | NOT_STARTED | P02.5 |
+| A44 | Matç zamanı üfüqi ekran | IN_PROGRESS | P02.5 |
 | A45 | Yarımçıq matça qayıtmaq | NOT_STARTED | P02.6 |
 | A46 | Rahatlıq parametrləri | NOT_STARTED | P04.3 |
 | A47 | Daşları sürüşdürərək oynamaq | IN_PROGRESS | P02.4 |
-| A48 | Şaquli matç rejimi də olsun | NOT_STARTED | P02.5 |
+| A48 | Şaquli matç rejimi də olsun | IN_PROGRESS | P02.5 |
 | A49 | İnteraktiv zər atışı | IN_PROGRESS | P02.3 |
 | A50 | Mümkün gedişlərin göstərilməsi | IN_PROGRESS | P02.2 |
 | A51 | Gedişi geri almaq (növbə yekunlaşmazdan əvvəl) | IN_PROGRESS | P02.4 |

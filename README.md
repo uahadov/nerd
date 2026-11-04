@@ -2,7 +2,7 @@
 
 Android və iOS üçün Unity 6 / C# əsasında tam 2D nərd oyunu.
 Online istiqamət: Nakama authoritative TypeScript və istehsal üçün CockroachDB.
-P02.3 qəbul edilib. P02.4 drag, uyğun sürətli toxunma və lokal Undo insan təsdiqini gözləyir.
+P02.4 funksiyaları qəbul edilib. Yalnız P02.5 responsive matç/HUD yerləşimi işlənir; final polish deyil.
 Qəbul edilmiş uzun/qısa mühərriklər, matç sistemi və testləri qorunur.
 P00.3 Unity təməli qəbul edilib; fiziki Android testi açıqdır. Lokal iki insan prototipi var; bot və online hələ yoxdur.
 
@@ -36,6 +36,7 @@ Söhbət tarixçəsi tələb olunmur. Skill və Antigravity/Codex Gravity MCP is
 | [P02.2 hesabatı](docs/reports/P02.2.md) | Cari seçim, marker, tap gedişi və real input/render yoxlamaları |
 | [P02.3 hesabatı](docs/reports/P02.3.md) | Qəbul edilmiş zər/tam növbə və interaktiv sübutlar |
 | [P02.4 hesabatı](docs/reports/P02.4.md) | Cari drag, sürətli tap və Undo sübutları |
+| [P02.5 hesabatı](docs/reports/P02.5.md) | Cari responsive səhnə/HUD və real test sübutları |
 | [Qayda müqaviləsi](docs/RULESET_VARIANTS.md) | Ortaq koordinatlar, qayda ID-ləri və provisional variantlar |
 | [Uzun qaydalar](docs/RULES_LONG.md), [qısa qaydalar](docs/RULES_SHORT.md) | Rejimlər üzrə sənəd tələbləri |
 | [Qayda matrisi](docs/RULE_MATRIX.md) | JSON nümunələrinin insan üçün oxunaqlı görünüşü |
@@ -78,18 +79,18 @@ Android build üçün uyğun rəsmi Android Build Support/SDK/NDK/OpenJDK lazım
 Raw loglar, NUnit XML və APK build/P00.3/ daxilində lokal saxlanır və Git-ə daxil edilmir.
 Eyni layihəni açıq Editor ilə batch prosesində paralel işlətməyin.
 
-## Cari qayda, matç, taxta, tap və növbə testləri — P02.4
+## Cari qayda, matç, taxta, tap və növbə testləri — P02.5
 
 ```bash
-python3 scripts/build/p012.py editmode --part P02.4
-python3 scripts/build/p012.py playmode --part P02.4
-python3 scripts/build/p012.py android --part P02.4
+python3 scripts/build/p012.py editmode --part P02.5
+python3 scripts/build/p012.py playmode --part P02.5
+python3 scripts/build/p012.py android --part P02.5
 ```
 
 Unity 6000.6.7f1 lazımdır; başqa yerdədirsə --editor parametrini verin.
-Runner build/P02.4/unity daxilində source-only lokal test surətini yaradır və onun
+Runner build/P02.5/unity daxilində source-only lokal test surətini yaradır və onun
 cache-indən istifadə edir. Açıq əsas Editor bağlanmır, əsas səhnə/UI dəyişdirilmir.
-NUnit XML/log və APK build/P02.4 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
+NUnit XML/log və APK build/P02.5 daxilindədir; insan üçün saxlanan nəticələr docs/reports-dadır.
 Fixture-lər docs/rules/fixtures.json-dan oxunur. Uzun test faylı dəyişdirilmədiyi üçün onda 41 tarixi skip görünür; onların 30-u ShortFixture, 7-si MatchFixture adı ilə ayrıca icra olunur.
 67 unikal nümunə ayrı adlarla PASS-dır: 26 uzun, 30 qısa, 7 matç, 4 Undo. Tarixi 41 skip saxlanır; hamısı başqa uyğun assembly-də ayrıca icra edilir. Skip özü PASS sayılmır.
 PROVISIONAL_RULE seçimi ilkin standart olaraq qəbul edilib, müstəqil yerli oyunçu yoxlaması açıqdır.
@@ -120,7 +121,7 @@ Markerə tap ilə gediş edin; qanuni hüquqlar bitəndə növbə avtomatik dəy
 İşlənmiş token xəttlənir, mümkün olmayan qalıq X olur. Final premium dizayn D024-də referans olaraq saxlanır.
 Əvvəlki P02.1/P02.2 scene və menyuları ayrıca qalır; onların məhdudiyyətləri cari canlı dövrə aid deyil.
 
-## Cari sürükləmə və geri alma — P02.4
+## Qəbul edilmiş sürükləmə və geri alma — P02.4
 
 Unity-də `NARD → P02.4 → Open undo long match` və ya `Open undo short match`, sonra Play seçin.
 İlk atışları edin. Daşı markerə sürükləyib buraxın; səhv hədəf və ekran xarici buraxma vəziyyəti dəyişmir.
@@ -130,3 +131,12 @@ Seçilmiş daşın yalnız bir hədəfi varsa ona ikinci qısa toxunuş həmin g
 İkinci barmaq və ləğv edilmiş toxunma dragı dayandırır. Son insan göstərişi D031 üzrə göndərilən qoz/krem/naxışlı taxta üslubu indi bu səhnəyə tətbiq olunub.
 Əvvəlki texniki səhnələr saxlanır; digər ekranların art mərhələsi və iki responsive yerləşim hələ açılmayıb.
 Fiziki Android, müstəqil yerli qayda və responsive orientation testləri tamamlanmış sayılmır.
+
+## Cari matç yerləşimi — P02.5
+
+Unity-də `NARD → P02.5 → Open responsive long match` və ya `Open responsive short match`, sonra Play seçin.
+Game görünüşünü Free Aspect ilə dar/uzun, sonra enli edin: eyni matç davam etməlidir.
+Portretdə landşaft taxta asseti 90° çevrilir; daşlar, zərlər və mətnlər dik qalır. Landşaftda taxta təbii üfüqidir.
+Status, Undo və atış idarəsi taxta səthi ilə vahid kompozisiyadır; zərlər taxtanın ortasında yerləşir.
+Son hüquq yenə avtomatik commit edir; ayrıca “Gedişi tamamla” düyməsi yoxdur. Böyük off zolağı kiçik yuvalarla əvəzlənib.
+Bu yerləşim prototipidir: fiziki telefon/iOS, yerli qayda yoxlaması və final polish tamamlanmış sayılmır.

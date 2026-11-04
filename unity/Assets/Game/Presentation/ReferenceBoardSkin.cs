@@ -8,6 +8,9 @@ namespace Nard.Presentation
     public sealed class ReferenceBoardSkin : IDisposable
     {
         private readonly Sprite board,ivory,walnut,offWood;
+        public Sprite BoardSprite=>board;
+        public Sprite IvorySprite=>ivory;
+        public Sprite WalnutSprite=>walnut;
         public ReferenceBoardSkin()
         {
             var table=Resources.Load<Texture2D>("NardBoard");var pieces=Resources.Load<Texture2D>("NardCheckers");

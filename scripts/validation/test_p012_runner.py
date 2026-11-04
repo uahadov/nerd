@@ -238,3 +238,39 @@ class RunnerTests(unittest.TestCase):
             for _ in range(2):
                 self.assertEqual(runner.run_exclusive('editmode', Path('/synthetic/editor'), 'P02.4'), 0)
             self.assertEqual(work.call_count, 2)
+
+    def include_undo_cases(self):
+        self.include_turn_cases()
+        for case in self.cases:
+            if case['action']['kind'] == 'undo':
+                ET.SubElement(self.xml, 'test-case', name='UndoFixture_' + case['id'], result='Passed')
+        for i in range(194):
+            ET.SubElement(self.xml, 'test-case', name=f'Undo{i}', fullname=f'Nard.Tests.Undo.UndoRegressionTests.Undo{i}', result='Passed')
+        for i in range(27):
+            ET.SubElement(self.xml, 'test-case', name=f'Skin{i}', fullname=f'Nard.Tests.Undo.ReferenceSkinTests.Skin{i}', result='Passed')
+
+    def test_layout_requires_complete_new_suite_and_accepted_suites(self):
+        self.include_undo_cases()
+        self.assertEqual(self.run_step(part='P02.5'), 1)
+        for i in range(28):
+            ET.SubElement(self.xml, 'test-case', name=f'Layout{i}', fullname=f'Nard.Tests.Layout.MatchLayoutTests.Layout{i}', result='Passed')
+        self.assertEqual(self.run_step(part='P02.5'), 0)
+        self.xml.remove(self.xml[-1])
+        self.assertEqual(self.run_step(part='P02.5'), 1)
+
+    def test_layout_cannot_omit_a_previous_undo_fixture(self):
+        self.include_undo_cases()
+        for i in range(28):
+            ET.SubElement(self.xml, 'test-case', name=f'Layout{i}', fullname=f'Nard.Tests.Layout.MatchLayoutTests.Layout{i}', result='Passed')
+        self.xml.remove(next(c for c in self.xml if c.get('name') == 'UndoFixture_S_UNDO_COMMITTED'))
+        self.assertEqual(self.run_step(part='P02.5'), 1)
+
+    def test_layout_play_requires_interactive_cases(self):
+        self.xml.clear()
+        self.xml.attrib.update(passed='22', failed='0', inconclusive='0', skipped='0')
+        for suite, count in [('BoardSceneTests', 1), ('TapSceneTests', 5), ('TurnSceneTests', 5), ('UndoSceneTests', 5), ('MatchLayoutSceneTests', 5)]:
+            for i in range(count):
+                ET.SubElement(self.xml, 'test-case', name=f'{suite}{i}', fullname=f'Nard.Tests.{suite}.{suite}{i}', result='Passed')
+        self.assertEqual(self.run_step('playmode', 'P02.5'), 0)
+        self.xml.remove(self.xml[-1])
+        self.assertEqual(self.run_step('playmode', 'P02.5'), 1)

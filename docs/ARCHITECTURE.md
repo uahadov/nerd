@@ -196,3 +196,18 @@ Daşların diametri sabitdir; uzun stack-lər görünən üst-üstə düşmə v�
 Zər pipləri state-dəndir. Atlasda yazı, zər qiyməti və ya sabit daş düzülüşü yoxdur.
 Bu bir statik üfüqi taxtadır; iki responsive yerləşim, orientation dövlətinin saxlanması və digər ekranlar P02.5/gələcək işdir.
 Asset hüquqları daxili preview kimi qeyd edilib; kommersiya hüququ təsdiqi iddia edilmir.
+
+## P02.5 responsive təqdimat sərhədi
+
+MatchBoardLayout yalnız viewport/safe-area piksel həndəsəsidir. Hər iki yerləşim üçün board, status,
+Undo, roll, dice və off yuvalarını verir; dünya/kanonik input koordinatlarının tərs çevrilməsi burada qalır.
+Heç bir qayda, RNG və növbə keçidi hesablamır. Referans taxta landşaft assetidir, portretdə render 90° çevrilir.
+MatchHudView eyni snapshot, LocalTurnLoop hüquqları və markerlərini çəkir; mətnlərdə P0/P1 debug işarələri yoxdur.
+Böyük krem HUD paneli yoxdur; zərlər board-un boş mərkəzində, digər idarələr ortaq taxta səthindədir.
+
+BoardView yalnız viewport/safe area dəyişəndə yerləşimi yeniləyir. BoardTurnInput əvvəlcə yeni həndəsəni alır,
+yarımçıq dragı ləğv edir və həmin kadrın köhnə koordinatlı input-unu qəbul etmir. Eyni LocalTurnLoop,
+immutable MatchSession və açıq növbənin Undo tarixçəsi qorunur; constructor, yeni atış və commit çağırılmır.
+Scene LayoutBoard ayrıca saxlanır; əvvəlki texniki/Undo səhnələri və testləri regresiya üçündür.
+SetLayoutViewport/ClearLayoutViewport yalnız açıq ölçülü avtomatik preview/test yoludur; real runtime Screen.safeArea/ölçünü izləyir.
+Bu RAM-dakı dönüşdür, P02.6 save/restart bərpası deyil. Fiziki sensor/dpi/cihaz rahatlığı ayrıca NOT_RUN-dır.

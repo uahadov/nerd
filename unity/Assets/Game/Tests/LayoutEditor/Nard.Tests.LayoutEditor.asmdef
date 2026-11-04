@@ -1,0 +1,12 @@
+{
+  "name": "Nard.Tests.LayoutEditor",
+  "references": [
+    "Nard.Presentation"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

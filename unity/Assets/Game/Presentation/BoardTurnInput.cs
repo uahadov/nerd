@@ -24,6 +24,7 @@ namespace Nard.Presentation
         private void Update()
         {
             if(Loop==null||Camera.main==null)return;
+            if(view.RefreshLayout()){CancelGesture();Render();return;}
             var touch=Touchscreen.current;
             int fingers=0;if(touch!=null)foreach(var finger in touch.touches)if(finger.press.isPressed)fingers++;
             if(advancedGestures&&fingers>1){CancelGesture();lastPress=Time.frameCount;Render("Bir barmaqla toxunun");return;}
@@ -75,6 +76,7 @@ namespace Nard.Presentation
         }
         private void ClearGhost(){if(draggedRenderer!=null)draggedRenderer.enabled=true;draggedRenderer=null;if(ghost!=null){ghost.SetActive(false);Destroy(ghost);ghost=null;}}
         private void CancelGesture(){tracking=false;quickTarget=-1;ClearGhost();}
+        public void CancelForLayout()=>CancelGesture();
         private void OnApplicationFocus(bool focused){if(!focused)CancelGesture();}
         private void OnDisable()=>CancelGesture();
         public bool ProcessPress(Vector2 screen,long pressId)

@@ -13,9 +13,9 @@ from urllib.parse import unquote, urlsplit
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
-AUTHORIZED_PART = 'P02.4'
+AUTHORIZED_PART = 'P02.5'
 # D024/D031: exact reviewed reference, generated runtime art and actual Unity render evidence.
-REVIEWED_REFERENCE_ASSETS = {'docs/references/nard-board-primary.png': 'ac2b6c31cd386a2c3b49a5b27cc6db6c66be5e7c1ce3d128fb93143efb2f40c3', 'docs/screenshots/P02.4-editor-gameview.png': 'f8faec3b95c71e7c514d303544068086d7a19ee50c8d7e03880bb99ea463640e', 'docs/screenshots/P02.4-undo-drag-long.png': '0ee87615fa6ecc4f43437c704483f464617750b192773d4b8c5d5f0aea16648f', 'docs/screenshots/P02.4-undo-drag-short.png': 'ec7f4361335328a02788554e011d2ab69f376601e3730242ada568854604acc5', 'docs/screenshots/P02.4-undo-moved-long.png': '73b046b42a852c2318ca32b68923c24610860b8009b6ab5999e2fc04c8d35343', 'docs/screenshots/P02.4-undo-moved-short.png': '6e9df17f367440a7accfd0bda6d2151ecf675e7e1f225f688b7c124fd30d2f28', 'docs/screenshots/P02.4-undo-restored-long.png': '379bb5170013c3e739661a7e7856aa234b6728e6ccd3c21ffde4e95484b61fa3', 'docs/screenshots/P02.4-undo-restored-short.png': '7e59acad01d9fa4d8986f77bfda9919602a76e572bc33dde264e2f099716657a', 'docs/screenshots/P02.4-undo-restored.png': '379bb5170013c3e739661a7e7856aa234b6728e6ccd3c21ffde4e95484b61fa3', 'unity/Assets/Game/Presentation/Resources/NardBoard.png': '4184aaf403d974bcf5d26f33f3ce676086e467684cdc8944590e2f05329e00fa', 'unity/Assets/Game/Presentation/Resources/NardCheckers.png': 'd236ef73b2ac0e5314caf9e15419ff3ee79877c2e189575cbe89a0229bf46e69'}
+REVIEWED_REFERENCE_ASSETS = {'docs/references/nard-board-primary.png': 'ac2b6c31cd386a2c3b49a5b27cc6db6c66be5e7c1ce3d128fb93143efb2f40c3', 'docs/screenshots/P02.4-editor-gameview.png': 'f8faec3b95c71e7c514d303544068086d7a19ee50c8d7e03880bb99ea463640e', 'docs/screenshots/P02.4-undo-drag-long.png': '0ee87615fa6ecc4f43437c704483f464617750b192773d4b8c5d5f0aea16648f', 'docs/screenshots/P02.4-undo-drag-short.png': 'ec7f4361335328a02788554e011d2ab69f376601e3730242ada568854604acc5', 'docs/screenshots/P02.4-undo-moved-long.png': '73b046b42a852c2318ca32b68923c24610860b8009b6ab5999e2fc04c8d35343', 'docs/screenshots/P02.4-undo-moved-short.png': '6e9df17f367440a7accfd0bda6d2151ecf675e7e1f225f688b7c124fd30d2f28', 'docs/screenshots/P02.4-undo-restored-long.png': '379bb5170013c3e739661a7e7856aa234b6728e6ccd3c21ffde4e95484b61fa3', 'docs/screenshots/P02.4-undo-restored-short.png': '7e59acad01d9fa4d8986f77bfda9919602a76e572bc33dde264e2f099716657a', 'docs/screenshots/P02.4-undo-restored.png': '379bb5170013c3e739661a7e7856aa234b6728e6ccd3c21ffde4e95484b61fa3', 'docs/screenshots/P02.5-editor-gameview.png': 'cb365ecb20389279a05dddd435ff7ed63ce5d2afdcce752777ed305aed4d264c', 'docs/screenshots/P02.5-layout-landscape.png': '70a70b5ffc0844f2bd913be1b4a1a7a8ca94d0b967c90524691721acbdc03f65', 'docs/screenshots/P02.5-layout-portrait-moving.png': '67285210ec8471a1ed761d87f576cd26684b6441ca74a2063b98a35505c16998', 'docs/screenshots/P02.5-layout-portrait.png': 'c53c8332a657325cd763f300cd71e717e2ab1b672ead88297a14db37130af92e', 'docs/screenshots/P02.5-layout-short-bar.png': 'df602461106d6e93286bceac39516dff703aae35ef20f4a467a34492fcb6e49a', 'docs/screenshots/P02.5-layout-short-off.png': '45b15589a37dcfa5ec994fd67adaef38bb3367c92ee376eeaad5d8c3f5f384b1', 'docs/screenshots/P02.5-layout-tablet.png': 'eb519eb4f2089cb854c7a4a9b35309f0a1236a49cf3cd7b622b6289c0306fb6f', 'docs/screenshots/P02.5-layout-tall-safe.png': 'f7f771597401ffcf73da00a4e0829a4101391d5139aea365037f13dbccd55f17', 'docs/screenshots/P02.5-layout-wide-safe.png': '1979041f0c17aaf1c6458197d97ba480cf003ac2686908844d30c47ae33eac7b', 'unity/Assets/Game/Presentation/Resources/NardBoard.png': '4184aaf403d974bcf5d26f33f3ce676086e467684cdc8944590e2f05329e00fa', 'unity/Assets/Game/Presentation/Resources/NardCheckers.png': 'd236ef73b2ac0e5314caf9e15419ff3ee79877c2e189575cbe89a0229bf46e69'}
 
 
 # Exact real Unity render evidence, reviewed after the D031 visual amendment.
@@ -108,6 +108,30 @@ ENGINE_BASELINE.update({'unity/Assets/Game/Interaction/LocalDiceSource.cs': '834
  'unity/Assets/Game/Tests/TurnPlayMode/Nard.Tests.TurnPlayMode.asmdef.meta': 'b4acedf2a78ac937630325e4404231fc407bd26b4092f62fa7aee7930d2b216a',
  'unity/Assets/Game/Tests/TurnPlayMode/TurnSceneTests.cs': 'd551217946586820b46dd5b8d4bbbaa96191df9d960a7533a80895c94bb0b392',
  'unity/Assets/Game/Tests/TurnPlayMode/TurnSceneTests.cs.meta': 'e2fad3591261c4305c2908d88547d7d952377be5afb91982978a0aac41e647ab'})
+ENGINE_BASELINE.update({'unity/Assets/Game/Interaction/LocalDiceSource.cs': '834163ea22ab06943f33fc25bf2072987eab400915871ad7bce8b18cb0a158c4',
+ 'unity/Assets/Game/Interaction/LocalDiceSource.cs.meta': '4bb142ea17011b864989b38d59477f9de0b5e9af79b7f53d53eacdcba13a74e7',
+ 'unity/Assets/Game/Interaction/LocalTurnLoop.cs': '3540aab428af2b71b380f15e9216c465d59577e3c60ff784cf43e719e5771034',
+ 'unity/Assets/Game/Interaction/LocalTurnLoop.cs.meta': '24ae666bff9880421777153ace346098a6c94ee113d4fc799993aa6d5e6b6dec',
+ 'unity/Assets/Game/Interaction/Nard.Interaction.asmdef': 'c1dd78dd748ab53b1fcee156b9c6811a519e69d0ad937f49fbdc28847532d7e9',
+ 'unity/Assets/Game/Interaction/Nard.Interaction.asmdef.meta': '0c787465f58f02092aff48b70819c89f4c2d565bb5c670042de6f4bee7b50e9b',
+ 'unity/Assets/Game/Interaction/TapSelection.cs': '069b440905d0240cc5ddc549cdab4b1c12d85b1cfd6c69020bb442e18d1fd9ba',
+ 'unity/Assets/Game/Interaction/TapSelection.cs.meta': 'ffaac493b3d24a5621e6c8ee9a9852e1b88fee5a4ee04ae794c5ac2b5cad7a0c',
+ 'unity/Assets/Game/Interaction/UndoPreview.cs': '8b06546e64ed738c1c880b92c1121aeeadfcc3fe08f0b6c1fcd1239b819a611f',
+ 'unity/Assets/Game/Interaction/UndoPreview.cs.meta': '29be8e3cdce3385f403193f5d1994b09aa86da20b2eeec18e7c07fe529e9031a',
+ 'unity/Assets/Game/Tests/UndoEditor.meta': '149fa23848b04192ad0d88f2893900cdc9aae65ba03e52ae1b5983d4f9292ba5',
+ 'unity/Assets/Game/Tests/UndoEditor/Nard.Tests.Undo.asmdef': '0ea95892240be544473ffa0bcac59bf6cb224b545a8affbbd22934d2499532a6',
+ 'unity/Assets/Game/Tests/UndoEditor/Nard.Tests.Undo.asmdef.meta': 'f94b4e08dd4bcdf39283c9533a23b635d638adf3957d0efaaaf7c5d6e282f207',
+ 'unity/Assets/Game/Tests/UndoEditor/ReferenceSkinTests.cs': 'a1fb0af982249dba037df8937f9c8de500f73b7bb77e8867d8d2f1fd307f7408',
+ 'unity/Assets/Game/Tests/UndoEditor/ReferenceSkinTests.cs.meta': '4540d82b2dcbf208cf6ea360b0a2873684c9ab4c22d1b4d0db8fc80bec907257',
+ 'unity/Assets/Game/Tests/UndoEditor/UndoRegressionTests.cs': 'd65401aeaa4f7ab3f1b9ac5277066fa1d25dc3b6998ee9631b47d4752a5a27e1',
+ 'unity/Assets/Game/Tests/UndoEditor/UndoRegressionTests.cs.meta': '3c197b21ab8a907f3cfcd0bfa12e3ffbf79a43fb0be14c1e0d8e5bc49be3de89',
+ 'unity/Assets/Game/Tests/UndoEditor/UndoTests.cs': '99cd550a05aadac023f8d566af0a3111e5551177d8021aeb9a456043b75ae33c',
+ 'unity/Assets/Game/Tests/UndoEditor/UndoTests.cs.meta': '0fc663a1683d38ed2e763d136963bba9e1707dc9c34da601583a49a9dc2a01c8',
+ 'unity/Assets/Game/Tests/UndoPlay.meta': '9ec9aeddf66dc66e9051f7fa28d32a0ac6856dd3941eae59a5ed12fec42a95b8',
+ 'unity/Assets/Game/Tests/UndoPlay/Nard.Tests.UndoPlay.asmdef': 'f8142bdb1be1446f8485bc33b1abb5e458b878e56532bd8c5346a14ef6549922',
+ 'unity/Assets/Game/Tests/UndoPlay/Nard.Tests.UndoPlay.asmdef.meta': '5bb33966eee8655a23a4b134995148b24fa6e9565f15b875c87e8ec7e0855603',
+ 'unity/Assets/Game/Tests/UndoPlay/UndoSceneTests.cs': '6f89095069fafc93042caba9f4318c6e1d4d7c6275785c899bd3dc82a8f158dd',
+ 'unity/Assets/Game/Tests/UndoPlay/UndoSceneTests.cs.meta': '8dc049fc1ba9fd4eaac68cc6d4889fdbb8d124f43c78021ae7e7dc83977467d7'})
 SOURCES = {
     'NARD_Final_GDD_v1.0.md': '2d2471282160bc10dc4eaec57ed90b8b2e6e7684cb4101c9bd5f2d76e90a8580',
     'NARD_Master_Icra_Plani_v2.md': '1e333827bf7c861c5fc2b279818c795c69ddeabbd1fa8c93e3b7daad2d6828bc',
@@ -174,6 +198,12 @@ REQUIRED += ['docs/reports/P02.4.md', 'docs/reports/P02.4.execution.json', 'docs
  'unity/Assets/Game/Editor/P024Build.cs', 'unity/Assets/Game/Editor/P024Preview.cs',
  'unity/Assets/Game/Tests/UndoEditor/UndoTests.cs', 'unity/Assets/Game/Tests/UndoEditor/UndoRegressionTests.cs',
  'unity/Assets/Game/Tests/UndoPlay/UndoSceneTests.cs']
+REQUIRED += ['docs/reports/P02.5.md', 'docs/reports/P02.5.execution.json', 'docs/reports/P02.5.validation.json',
+ 'docs/reports/P02.5.tests.txt', 'docs/reports/P02.5.editmode.xml', 'docs/reports/P02.5.playmode.xml',
+ 'unity/Assets/Game/Presentation/MatchBoardLayout.cs', 'unity/Assets/Game/Presentation/MatchHudView.cs',
+ 'unity/Assets/Game/Scenes/LayoutBoard.unity', 'unity/Assets/Game/Editor/P025Build.cs',
+ 'unity/Assets/Game/Editor/P025Preview.cs', 'unity/Assets/Game/Tests/LayoutEditor/MatchLayoutTests.cs',
+ 'unity/Assets/Game/Tests/LayoutPlay/MatchLayoutSceneTests.cs']
 ASSET_COLUMNS = ['asset_id', 'path', 'source', 'creator', 'license', 'license_evidence',
                  'modifications', 'approved_part', 'status']
 SECRET_PATTERNS = [
@@ -266,7 +296,7 @@ def validate(root):
                     if re.match(r'^\| ' + prefix + r'\d{2} \|', line)]
             require(len(rows) == count and all(len(row) == width for row in rows), f'{file} row count/shape')
             require([(r[0], r[1]) for r in rows] == expected, f'{file} differs from GDD wording/order')
-            require(all(r[2] == ('IN_PROGRESS' if prefix == 'A' and r[0] in ['A01', 'A02', 'A18', 'A47', 'A49', 'A50', 'A51', 'A53', 'A54'] else status) for r in rows), f'{file} implementation status invalid')
+            require(all(r[2] == ('IN_PROGRESS' if prefix == 'A' and r[0] in ['A01', 'A02', 'A18', 'A44', 'A48', 'A47', 'A49', 'A50', 'A51', 'A53', 'A54'] else status) for r in rows), f'{file} implementation status invalid')
             if prefix == 'A':
                 require(all(r[3] in parts(root) for r in rows), 'Unknown planned part in APPROVED')
             master = re.findall(r'^\d+\. \*\*(' + prefix + r'\d{2})\*\* (.+)$',
@@ -347,7 +377,7 @@ def validate(root):
                         require(path.is_relative_to(root) and hashlib.sha256(path.read_bytes()).hexdigest() == digest,
                                 'Engine evidence source mismatch: ' + name)
                 if step != 'android':
-                    document = ET.parse(root / ('docs/reports/P02.4.' + step + '.xml')).getroot()
+                    document = ET.parse(root / ('docs/reports/P02.5.' + step + '.xml')).getroot()
                     require(document.attrib['failed'] == '0' and int(document.attrib['passed']) > 0, 'Failed NUnit XML')
                     require(document.attrib['passed'] == report['tests']['passed'] and document.attrib['skipped'] == report['tests']['skipped'], 'NUnit summary mismatch')
             require(execution['coverage']['executed_long_fixtures'] == 26 and execution['coverage']['executed_short_fixtures'] == 30
@@ -361,16 +391,17 @@ def validate(root):
             require(execution['steps']['editmode']['executed_reference_skin_cases'] == 27, 'Reference skin input mapping not tested')
             require(execution['android_signature']['status'] == 'PASS' and execution['android_signature']['apk_sha256'] == execution['steps']['android']['apk_sha256'], 'APK signature evidence mismatch')
             require(s['build']['apk_sha256'] == execution['steps']['android']['apk_sha256'] and s['build']['apk_bytes'] == execution['steps']['android']['apk_bytes'], 'Build ledger mismatch')
+            require(execution['steps']['editmode']['executed_layout_cases'] == 28 and execution['steps']['playmode']['executed_layout_cases'] == 5, 'Responsive suites not executed')
             visual = execution['visual']
             require(visual['status'] == 'PASS' and visual['physical_device'] == 'NOT_RUN', 'Visual/device evidence mixed')
-            require({row['kind'] for row in visual['images']} == {'undo-drag-long', 'undo-moved-long', 'undo-restored-long', 'undo-drag-short', 'undo-moved-short', 'undo-restored-short', 'undo-restored', 'editor-gameview'}, 'Missing board screenshot')
+            require({row['kind'] for row in visual['images']} == {'layout-landscape', 'layout-portrait', 'layout-wide-safe', 'layout-tall-safe', 'layout-tablet', 'layout-portrait-moving', 'layout-short-bar', 'layout-short-off', 'editor-gameview'}, 'Missing board screenshot')
             for row in visual['images']:
                 path = (root / row['path']).resolve()
                 require(path.is_relative_to(root) and path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256'], 'Screenshot missing or changed')
             corpus = json.loads(read(root, 'docs/rules/fixtures.json'))['cases']
             ledger = execution['fixture_execution']
             require([r['id'] for r in ledger] == [c['id'] for c in corpus], 'Fixture ledger IDs/order mismatch')
-            xml = ET.parse(root / 'docs/reports/P02.4.editmode.xml').getroot()
+            xml = ET.parse(root / 'docs/reports/P02.5.editmode.xml').getroot()
             passed_names = {c.attrib['name'] for c in xml.iter('test-case') if c.attrib['result'] == 'Passed'}
             for case, row in zip(corpus, ledger):
                 if case['action']['kind'] == 'undo':
@@ -386,15 +417,15 @@ def validate(root):
 
     def scope():
         s = state(root)
-        # Updated only after the human's explicit P02.4 authorization (D029).
-        require(s['active_part'] == AUTHORIZED_PART, 'Only P02.4 is authorized')
-        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P02.4 must await human approval')
-        require(s['last_human_approved_part'] == 'P02.3', 'P02.3 acceptance missing')
+        # Updated only after the human's explicit P02.5 authorization (D033).
+        require(s['active_part'] == AUTHORIZED_PART, 'Only P02.5 is authorized')
+        require(s['status'] == 'AWAITING_HUMAN_APPROVAL', 'P02.5 must await human approval')
+        require(s['last_human_approved_part'] == 'P02.4', 'P02.4 acceptance missing')
         expected = {'unity_project_created', 'android_tools_installed', 'game_modules_implemented'}
         require(set(s['scope']) == expected, 'Scope fields missing or unexpected')
         require(all(type(value) is bool for value in s['scope'].values()), 'Scope flags must be booleans')
         require(s['scope']['unity_project_created'] is True and s['scope']['game_modules_implemented'] is True,
-                'P02.4 permits only drag/quick tap/undo on frozen engines')
+                'P02.5 permits only responsive match layouts on frozen engines')
         require(not any((root / p).exists() for p in ['nakama', 'art']), 'Premature game/backend directories')
         for module in ['Bots', 'Network', 'UI']:
             require(not (root / 'unity/Assets/Game' / module).exists(), 'Premature gameplay module: ' + module)
@@ -431,7 +462,7 @@ def validate(root):
             code = read(root, 'unity/Assets/Game/Rules/Match/' + file)
             require(not re.search(r'UnityEngine|UnityEditor|System\.Random|System\.IO|DateTime|Nakama', code), 'Match dependency violation')
         presentation = root / 'unity/Assets/Game/Presentation'
-        require({p.name for p in presentation.glob('*.cs')} == {'BoardSnapshot.cs', 'BoardGeometry.cs', 'BoardView.cs', 'BoardHitMap.cs', 'BoardTapInput.cs', 'BoardTurnInput.cs', 'ReferenceBoardSkin.cs'}, 'Unauthorized presentation sources')
+        require({p.name for p in presentation.glob('*.cs')} == {'BoardSnapshot.cs', 'BoardGeometry.cs', 'BoardView.cs', 'BoardHitMap.cs', 'BoardTapInput.cs', 'BoardTurnInput.cs', 'ReferenceBoardSkin.cs', 'MatchBoardLayout.cs', 'MatchHudView.cs'}, 'Unauthorized presentation sources')
         for file in presentation.glob('*.cs'):
             code = file.read_text()
             require(not re.search(r'TryApply|LegalTurns|SupplyRoll|AdvanceTurn|NextDie\(|RandomNumberGenerator|Random\.|OnMouse|IPointer|Nakama', code), 'Presentation duplicates rules or future interaction')
@@ -453,7 +484,7 @@ def validate(root):
         require(review['preliminary_standard'] == 'ACCEPTED_BY_HUMAN' and
                 review['independent_azerbaijani_players'] == 'NOT_RUN' and
                 review['provisional_rules_retained'] is True, 'Local review falsely completed')
-        return 'P02.4: local drag/quick tap/undo; accepted engines/match/tap/tests frozen; local review NOT_RUN'
+        return 'P02.5: responsive match layouts; accepted engines/match/tap/tests frozen; local review NOT_RUN'
     check('current_scope', scope)
 
     def policy():
@@ -463,7 +494,7 @@ def validate(root):
         require(p['standard_terminal_git_allowed'] is True, 'Standard tools must remain allowed')
         a = read(root, 'AGENTS.md')
         for term in ['Heç bir Skill', 'Antigravity MCP', 'Codex Gravity MCP', 'AWAITING_HUMAN_APPROVAL',
-                     'P02.4', 'R01–R20']:
+                     'P02.5', 'R01–R20']:
             require(term in a, f'Agent rule missing: {term}')
         return 'Agent-neutral rules and tool bans present'
     check('agent_policy', policy)
@@ -573,7 +604,7 @@ def validate(root):
         from validate_rule_fixtures import validate as validate_rules
         result = validate_rules(root)
         require(state(root)['build']['physical_device'] == 'NOT_RUN', 'Physical device test must remain open')
-        return f"{result['fixture_count']} authored examples; engine results separately in P02.4.execution.json, independent local review NOT_RUN"
+        return f"{result['fixture_count']} authored examples; engine results separately in P02.5.execution.json, independent local review NOT_RUN"
     check('rule_specification', rule_specification)
 
     return {'schema_version': 1, 'part': state(root)['active_part'],

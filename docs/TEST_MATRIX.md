@@ -1,16 +1,16 @@
 # Test matrisi və sübut qaydası
 
-P02.4-də drag/sürətli tap/undo və lokal zər/tam növbə və əvvəlki uzun/qısa/matç/taxta/tap sistemlərinin regressiyası yoxlanır.
-67 unikal fixture-in 26-sı uzun, 30-u qısa, 7-si matç modulunda PASS-dır; 4 undo P02.4-də ayrıca PASS-dır; 67 unikal nümunə tam icra edilir.
+P02.5-də drag/sürətli tap/undo və lokal zər/tam növbə və əvvəlki uzun/qısa/matç/taxta/tap sistemlərinin regressiyası yoxlanır.
+67 unikal fixture-in 26-sı uzun, 30-u qısa, 7-si matç modulunda PASS-dır; 4 undo P02.5-də ayrıca PASS-dır; 67 unikal nümunə tam icra edilir.
 Uzun test faylındakı 41 tarixi skip-dən 30-u ShortFixture, 7-si MatchFixture, 4-ü UndoFixture kimi ayrıca keçir.
 Əmrlər repo kökündən, Python 3.10+ standart kitabxanası və Git ilə işləyir.
 
 ```bash
-python3 scripts/validation/validate_project.py --output docs/reports/P02.4.validation.json
+python3 scripts/validation/validate_project.py --output docs/reports/P02.5.validation.json
 python3 scripts/validation/validate_rule_fixtures.py
-python3 scripts/build/p012.py editmode --part P02.4
-python3 scripts/build/p012.py playmode --part P02.4
-python3 scripts/build/p012.py android --part P02.4
+python3 scripts/build/p012.py editmode --part P02.5
+python3 scripts/build/p012.py playmode --part P02.5
+python3 scripts/build/p012.py android --part P02.5
 python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 ```
 
@@ -29,13 +29,13 @@ python3 -m unittest discover -s scripts/validation -p 'test_*.py' -v
 | Uzaq nüsxə | Privacy, push və SHA yoxlaması; yalnız real nəticə qeyd edilir |
 | Fixture strukturu və uyğunluğu | P01.1.rules.json: 24 xana, 15+15 daş, tokenlər, before/after arifmetikası, ID/variant/undo istinadları, matris uyğunluğu |
 | Qayda mətninin uyğunluğu | Qayda ID-lərinin mövcudluğu avtomatik; məna və yerli variant qərarı insan baxışında. Tam təbii dil sübutu iddia edilmir |
-| Unity compile/EditMode/PlayMode, Android APK | P02.4.execution.json və saxlanan NUnit XML; ayrı source copy-də real icra |
+| Unity compile/EditMode/PlayMode, Android APK | P02.5.execution.json və saxlanan NUnit XML; ayrı source copy-də real icra |
 | iOS və fiziki cihaz | Yalnız real icra varsa PASS; yoxdursa NOT_RUN və səbəb |
 
 Validator çıxış kodu: 0 = yoxlamalar keçib; 1 = uyğunsuzluq və ya oxuma xətası.
 Hər yoxlama adı və statusu JSON-da qalır. `--root` başqa checkout-un yoxlanmasına imkan verir.
 Validatorun özü heç bir statusu təsdiqləmir və növbəti partı açmır.
-P02.4 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
+P02.5 sərhəd yoxlaması gələcək part üçün dəyişdiriləcəksə insan icazəsini əvvəl STATE-də qeyd et;
 validatoru sadəcə yaşıl nəticə almaq üçün zəiflətmə.
 
 ## Gələcək partlar üçün məcburi yanaşma
@@ -154,3 +154,13 @@ Ekran görüntüsü vizual sübutdur; telefon rahatlığı/FPS və yerli qayda t
 D031 görünüş dəyişikliyi: 24 xana, iki oyunçu üçün bar/off və iki düymənin tərs koordinat xəritəsi üçün
 27 əlavə EditMode testi. Eyni 5 Undo PlayMode testi indi real referans üslublu taxtada təkrar icra edilir.
 Əvvəlki 12 PlayMode testi texniki səhnələrdə regressiya kimi saxlanır. Art görüntüləri oyun vəziyyətindən ayrıdır.
+
+## P02.5 yerləşim və state davamlılığı
+
+28 əlavə EditMode: 12 ölçü × full/notch safe area = 24 hal; yanlış ölçü üçün 3 exception və safe-area fallback/clipping.
+Hər ölçüdə bütün 24 xana, hər iki owner bar/off, ayrı idarələr, böyük board sahəsi, təbii aspect və tərs input yoxlanır.
+5 əlavə PlayMode: 5 real render nisbəti; tap→undo→resize→drag→commit; iki istiqamətdə touch/multitouch;
+ekran/control sərhədi; həqiqi çatılmış bar/off/bitmiş matçın çevrilməsi. Hər renderdə 30 daş,
+qorunan safe area, zərlə daşın toqquşmaması, köhnə zolağın/debug yazıların gizlənməsi yoxlanır.
+Bunlar sintetik Input System + real Editor renderidir, fiziki orientation/barmaq sınağı deyil.
+Əvvəlki 749 EditMode və 17 PlayMode adlarının saxlanması ayrıca müqayisə edilir; 67 canonical nümunə və 41 tarixi Ignore dəyişmir.

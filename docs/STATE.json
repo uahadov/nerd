@@ -3,19 +3,19 @@
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
   "updated_on": "2026-11-04",
-  "active_part": "P02.4",
+  "active_part": "P02.5",
   "status": "AWAITING_HUMAN_APPROVAL",
-  "last_human_approved_part": "P02.3",
+  "last_human_approved_part": "P02.4",
   "current_part_human_approved": false,
-  "next_part": "P02.5",
+  "next_part": "P02.6",
   "next_part_authorized": false,
   "approved_feature_count": 87,
   "rejected_feature_count": 20,
   "authorization": {
-    "part": "P02.4",
+    "part": "P02.5",
     "by": "human",
     "date": "2026-11-04",
-    "quote": "P02.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm. İndi yalnız P02.4 mərhələsinə keç."
+    "quote": "P02.4 funksiyalarını qəbul edirəm; P02.5-də layout işinə başla."
   },
   "human_approvals": [
     {
@@ -87,6 +87,14 @@
       "by": "human",
       "quote": "P02.3 mərhələsini hesabatdakı nəticələrə əsasən təsdiqləyirəm.",
       "report": "docs/reports/P02.3.md"
+    },
+    {
+      "part": "P02.4",
+      "by": "human",
+      "date": "2026-11-04",
+      "quote": "P02.4 funksiyalarını qəbul edirəm; P02.5-də layout işinə başla.",
+      "report": "docs/reports/P02.4.md",
+      "scope": "FUNCTIONAL_ONLY_LAYOUT_REJECTED_MOVED_TO_P02.5"
     }
   ],
   "sources": {
@@ -108,14 +116,14 @@
     "android_tools_installed": true,
     "game_modules_implemented": true
   },
-  "test_report": "docs/reports/P02.4.md",
+  "test_report": "docs/reports/P02.5.md",
   "checks": {
     "validation": "PASS",
     "validator_tests": "PASS",
     "unity_build": "PASS",
     "visual_device": "NOT_RUN",
-    "validation_evidence": "docs/reports/P02.4.validation.json",
-    "tests_evidence": "docs/reports/P02.4.tests.txt"
+    "validation_evidence": "docs/reports/P02.5.validation.json",
+    "tests_evidence": "docs/reports/P02.5.tests.txt"
   },
   "repository": {
     "kind": "local_git",
@@ -148,18 +156,18 @@
     },
     {
       "id": "UNITY-EDITOR-EXIT",
-      "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.4",
-      "impact": "Köhnə Analytics/WebRequest native SIGSEGV həll edilməyib. Cari üç batch və ayrıca GUI exit=0 ilə bitib; bu icralarda təkrarlanmayıb. Səbəb/həll təsdiqlənmir.",
+      "status": "UNRESOLVED_RISK_NOT_REPRODUCED_IN_P02.5",
+      "impact": "Köhnə Analytics/WebRequest native SIGSEGV həll edilməyib. Cari üç batch və ayrıca GUI exit=0; bu icralarda təkrarlanmayıb. Səbəb/həll təsdiqlənmir.",
       "next_action": "Təkrarlanarsa local build/P02.1/diagnostics log/dump ilə araşdır; native qəzanı gameplay xətası və ya həll edilmiş problem kimi təqdim etmə. Heç bir qlobal servis/Editor telemetri parametri dəyişdirilməyib."
     },
     {
       "id": "MATCH-HUD-REWORK",
-      "status": "WAITING_FOR_SCOPE_CLARIFICATION",
+      "status": "AWAITING_HUMAN_APPROVAL_P02.5",
       "impact": "Hazırkı səhnə/HUD insan tərəfindən qəbul edilməyib; avtomatik render PASS vizual qəbul deyil.",
-      "next_action": "D032 brifini saxla. Cari P02.4 səhnəsinin dar düzəlişi və ya P02.5 başlanğıcı üçün göndərilmiş əhatə sualının cavabını gözlə; özbaşına keçid etmə."
+      "next_action": "D032 brifi üzrə yeni iki yerləşimin screenshot/build nəticəsini insana göstər; vizual qəbulu agent özü vermir. P02.6 yoxdur."
     }
   ],
-  "resume_instruction": "P02.4 funksional sınaqları keçib, amma səhnə/HUD görünüşü insan tərəfindən rədd edilib (D032). Premium referans saxlanır. Cari P02.4 səhnəsinin dar düzəlişi yoxsa P02.5 layout başlanğıcı olduğunu dəqiqləşdirən insan cavabı gözlənir; P02.5 icazəsi yoxdur. AWAITING_HUMAN_APPROVAL, push qadağası, fiziki Android/yerli review NOT_RUN və native qəza riski saxlanır.",
+  "resume_instruction": "P02.5 iki responsive matç/HUD yerləşimi hazırlanıb, insan rəyini gözlə. P02.4 funksiyaları qəbul edilib, P02.5 görünüşü hələ qəbul edilməyib. AWAITING_HUMAN_APPROVAL; yalnız istənən cari düzəlişi et. P02.6/save, başqa part, final polish və push yoxdur. Fiziki Android/yerli review NOT_RUN; native qəza riski açıq.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -168,16 +176,16 @@
     "preserve_status": "AWAITING_HUMAN_APPROVAL"
   },
   "build": {
-    "id": "android-p024-local-001",
+    "id": "android-p025-local-001",
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
-    "apk": "build/P02.4/NARD-P02.4.apk",
-    "apk_bytes": 38786749,
-    "apk_sha256": "67a4c2d6c1ab9be746f053b41ab061b938507876f58d0674094250f1f423c739",
-    "execution_evidence": "docs/reports/P02.4.execution.json",
+    "apk": "build/P02.5/NARD-P02.5.apk",
+    "apk_bytes": 26570780,
+    "apk_sha256": "d18ce58fe50a9a0021d2705969fa69d210eb8c0afafec34b13fcaf4f7abce7b8",
+    "execution_evidence": "docs/reports/P02.5.execution.json",
     "editor_visual": "PASS",
     "physical_device": "NOT_RUN",
-    "produced_in_part": "P02.4"
+    "produced_in_part": "P02.5"
   },
   "human_editor_review": {
     "part": "P00.3",
@@ -193,10 +201,10 @@
     "ruleset_version": "long-az-gdd1-provisional.1"
   },
   "engine": {
-    "part": "P02.4",
-    "mode": "long_short_local_drag_undo",
+    "part": "P02.5",
+    "mode": "long_short_responsive_match_layout",
     "status": "PASS",
-    "execution_evidence": "docs/reports/P02.4.execution.json",
+    "execution_evidence": "docs/reports/P02.5.execution.json",
     "ruleset_versions": [
       "long-az-gdd1-provisional.1",
       "short-gdd1-draft.1"
@@ -287,6 +295,18 @@
       "editor_visual": "PASS",
       "physical_device": "NOT_RUN",
       "produced_in_part": "P02.3"
+    },
+    {
+      "id": "android-p024-local-001",
+      "editor_version": "6000.6.7f1",
+      "platform": "Android ARM64 IL2CPP development",
+      "apk": "build/P02.4/NARD-P02.4.apk",
+      "apk_bytes": 38786749,
+      "apk_sha256": "67a4c2d6c1ab9be746f053b41ab061b938507876f58d0674094250f1f423c739",
+      "execution_evidence": "docs/reports/P02.4.execution.json",
+      "editor_visual": "PASS",
+      "physical_device": "NOT_RUN",
+      "produced_in_part": "P02.4"
     }
   ],
   "historical_engines": [
@@ -352,6 +372,17 @@
         "short-gdd1-draft.1"
       ],
       "independent_local_review": "NOT_RUN"
+    },
+    {
+      "part": "P02.4",
+      "mode": "long_short_local_drag_undo",
+      "status": "PASS",
+      "execution_evidence": "docs/reports/P02.4.execution.json",
+      "ruleset_versions": [
+        "long-az-gdd1-provisional.1",
+        "short-gdd1-draft.1"
+      ],
+      "independent_local_review": "NOT_RUN"
     }
   ],
   "visual_reference": {
@@ -376,6 +407,6 @@
     "status": "REJECTED",
     "decision": "D032",
     "reason": "Taxtanın materialı deyil, səhnə/HUD kompozisiyası oyun hissi vermir.",
-    "scope_clarification": "PENDING_HUMAN_REPLY"
+    "scope_clarification": "P02.5_EXPLICITLY_AUTHORIZED"
   }
 }
