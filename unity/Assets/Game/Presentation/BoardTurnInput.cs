@@ -62,7 +62,7 @@ namespace Nard.Presentation
             else if(Mouse.current!=null&&Mouse.current.leftButton.wasPressedThisFrame)BeginDrag(Mouse.current.position.ReadValue());
         }
         private void BeginDrag(Vector2 p)
-        {pressPosition=p;tracking=true;pressUsed=Used();quickTarget=-1;
+        {GetComponent<BoardFeedback>()?.Finish();pressPosition=p;tracking=true;pressUsed=Used();quickTarget=-1;
          var world=Camera.main.ScreenToWorldPoint(new Vector3(p.x,p.y,-Camera.main.transform.position.z));int point=BoardHitMap.PointAt(view.LocalToBoard(view.transform.InverseTransformPoint(world)),Loop.Session.Player);
          if(advancedGestures&&point==Loop.Selected&&Loop.Targets.Count==1)quickTarget=Loop.Targets[0];else ProcessPress(p,Time.frameCount);}
         private void Drop(Vector2 screen)
@@ -76,7 +76,7 @@ namespace Nard.Presentation
         }
         private void ClearGhost(){if(draggedRenderer!=null)draggedRenderer.enabled=true;draggedRenderer=null;if(ghost!=null){ghost.SetActive(false);Destroy(ghost);ghost=null;}}
         private void CancelGesture(){tracking=false;quickTarget=-1;ClearGhost();}
-        public void CancelForLayout()=>CancelGesture();
+        public void CancelForLayout(){CancelGesture();GetComponent<BoardFeedback>()?.Finish();}
         private void OnApplicationFocus(bool focused){if(!focused)CancelGesture();}
         private void OnDisable()=>CancelGesture();
         public bool ProcessPress(Vector2 screen,long pressId)
@@ -84,7 +84,10 @@ namespace Nard.Presentation
             if(Loop==null||pressId<=lastPress)return false;
             lastPress=pressId;var camera=Camera.main;if(camera==null)return false;
             var world=camera.ScreenToWorldPoint(new Vector3(screen.x,screen.y,-camera.transform.position.z));
-            var local=view.LocalToBoard(view.transform.InverseTransformPoint(world));
+            var onView=(Vector2)view.transform.InverseTransformPoint(world);
+            if(view.IsResponsive&&view.CurrentLayout.Sound.Contains(view.CurrentLayout.WorldToPixel(onView)))
+            {CancelGesture();GetComponent<BoardFeedback>()?.ToggleSound();Render();return true;}
+            var local=view.LocalToBoard(onView);
             int point=BoardHitMap.PointAt(local,Loop.Session.Player);
             bool accepted=BoardHitMap.IsUndoButton(local)?Loop.TryUndo(Loop.Session.Player):BoardHitMap.IsRollButton(local)?Loop.TryRoll(Loop.Session.Player):
                 Loop.Tap(Loop.Session.Player,point)!=TapOutcome.Rejected;

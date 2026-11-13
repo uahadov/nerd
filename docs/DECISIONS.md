@@ -360,3 +360,25 @@ frame/qonşu xana/bar-off yoxlaması real Renderer.bounds ilə aparılır. 24 in
 Portrait HUD hündürlüyü azaldılır, oyun sıralarına daha çox yer ayrılır. Qoz/krem/terrakota/firuzə assetləri saxlanır;
 landscape, Rules/Match/Interaction və RNG mənbəyi dəyişmir. Fiziki Android/yerli review NOT_RUN, native qəza açıq riskdir.
 AWAITING_HUMAN_APPROVAL qalır; insan qəbulu və növbəti part icazəsi false. Final polish/P02.6/push yoxdur.
+
+## D037 — 2026-11-04, vahid matç görünüşü və hissi üçün açıq insan icazəsi
+
+İnsan hər iki orientasiyada bütöv oyun dizaynı, yaradıcı yenidən baxış, qısa animasiya/səs/reaksiya və real Unity nəticəsi istəyib.
+Bu, D036-nın yalnız portrait və motion/audio olmayan sərhədini cari P02.5 baxışı üçün açıq yeniləyir;
+P02.6/save və başqa plan partı başlanmır, P04 bütöv tamamlanmış sayılmır. Qayda/matç/Interaction/RNG qorunur.
+Son dəqiqləşdirmə: rəqib oyunlar yalnız input və qaydanın vizual təqdimatı üçün araşdırılır; rəng/düymə/layout/üslub kopyalanmır.
+Əsas və yeganə art istiqaməti D024 insanın premium qoz/krem/ornament referansıdır. Art PNG-lər qorunur.
+
+Dizayn qərarı: portrait-də bütöv fiziki taxta -90° çevrilmiş təbii case nisbətindədir; əvvəlki dörd dar dik sıra
+əvəzinə onun altı eninə uzanan xanası hər yarıda saxlanır. HUD ayrıca portrait kompozisiyasıdır, bütöv interfeys çevrilmir.
+Kanonik sol yarı yuxarıda, sağ yarı aşağıda qalır. Hər indeks və bar/off inverse xəritəsi yeni həndəsəyə uyğun test edilir.
+Bu, D034/D036 təqdimat seçimlərini yaradıcı sərbəstlik daxilində əvəzləyir; oyun qaydası dəyişmir.
+Material istiqaməti: sakit firuzə parça səth, referansın isti taxtası, ayrıca kart-panellər əvəzinə kiçik taxta/fil sümüyü idarələr.
+Landscape-in taxta fokuslu əsas proporsiyası qorunur. Qısa lokal motion/PCM səs yalnız təqdimat qatıdır;
+səs söndürülə bilir, animasiya yeni input və resize zamanı yekun mövqeyə oturur, modelin gedişini gecikdirmir.
+Fiziki Android/iOS və yerli oyunçu NOT_RUN, native Editor qəzası açıq qalır. AWAITING_HUMAN_APPROVAL; push/növbəti part yoxdur.
+
+UX mənbələri: NJ Software-nin rəsmi How to Play sənədində nöqtənin bütün sahəsindən seçim və zərə toxunaraq atış;
+Galaxy-nin rəsmi yenilik səhifəsində qısa hərəkət/oturma reaksiyası və orientation davamlılığı araşdırılıb.
+İstinadlar: https://www.njsoftware.com/ipbg_help.html və https://www.backgammongalaxy.com/whats-new/ .
+Doubling cube, AI hint, stakes, rənglər, düymələr və onların vizual kompozisiyası götürülmür.

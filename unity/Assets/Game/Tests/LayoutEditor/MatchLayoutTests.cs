@@ -17,10 +17,10 @@ namespace Nard.Tests.Layout
         [TestCaseSource(nameof(Viewports))] public void SafeAreaControlsBoardAndEveryHitTargetStayConsistent(int w,int h,bool notch)
         {
             var safe=notch?(h>w?new Rect(0,20,w,h-56):new Rect(36,12,w-66,h-24)):new Rect(0,0,w,h);
-            var l=new MatchBoardLayout(w,h,safe);Inside(safe,l.Board);Inside(safe,l.Rail);Inside(safe,l.Header);Inside(l.Rail,l.Undo);Inside(l.Rail,l.Roll);Inside(l.Portrait?l.Rail:l.Board,l.Dice);
+            var l=new MatchBoardLayout(w,h,safe);Inside(safe,l.Board);Inside(safe,l.Rail);Inside(safe,l.Header);Inside(l.Rail,l.Undo);Inside(l.Rail,l.Roll);Inside(l.Board,l.Dice);
             Assert.IsFalse(l.Undo.Overlaps(l.Roll));Assert.IsFalse(l.Undo.Overlaps(l.Dice));Assert.IsFalse(l.Roll.Overlaps(l.Dice));
             Assert.That(l.Undo.height/l.Unit,Is.GreaterThanOrEqualTo(43.99f));Assert.That(l.Roll.height/l.Unit,Is.GreaterThanOrEqualTo(43.99f));
-            Assert.AreEqual(h>w,l.Portrait);if(l.Portrait)Assert.That(l.Board.height/l.PortraitLaneWidth,Is.InRange(9.60f-.01f,11.60f+.01f));else Assert.That(l.Board.width/l.Board.height,Is.EqualTo(4f/3f).Within(.001));
+            Assert.AreEqual(h>w,l.Portrait);if(l.Portrait)Assert.That(l.Board.height/l.Board.width,Is.EqualTo(4f/3f).Within(.001));else Assert.That(l.Board.width/l.Board.height,Is.EqualTo(4f/3f).Within(.001));
             Assert.That(l.Board.width*l.Board.height/(safe.width*safe.height),Is.GreaterThan(.39f));
             for(int i=0;i<24;i++)
             {var p=BoardGeometry.PointBase(i);p.y=i<12?-4:4;var world=l.CanonicalToWorld(p);Assert.IsTrue(l.Board.Contains(l.WorldToPixel(world)));Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(world),0));}
@@ -42,8 +42,8 @@ namespace Nard.Tests.Layout
         {
             var l=new MatchBoardLayout(540,960,new Rect(0,0,540,960));
             for(int i=0;i<6;i++)
-            {Assert.AreEqual(l.PointTouchRect(12+i).center.x,l.PointTouchRect(11-i).center.x);Assert.Greater(l.PointTouchRect(12+i).center.y,l.PointTouchRect(11-i).center.y);Assert.Greater(l.PointTouchRect(11-i).center.y,l.PointTouchRect(18+i).center.y);}
-            Assert.Greater(l.CheckerDiameter,48);Assert.Greater(l.PointTouchRect(0).width,l.CheckerDiameter);
+            {Assert.AreEqual(l.PointTouchRect(12+i).center.y,l.PointTouchRect(11-i).center.y,.01f);Assert.Greater(l.PointTouchRect(12+i).center.x,l.PointTouchRect(11-i).center.x);if(i<5)Assert.Greater(l.PointTouchRect(12+i).center.y,l.PointTouchRect(13+i).center.y);}
+            Assert.Greater(l.CheckerDiameter,24);Assert.Greater(l.PointTouchRect(0).height,l.CheckerDiameter);
         }
         [Test] public void InvalidPointIdsAreRejectedAndFrameDoesNotSelectAPoint()
         {
@@ -56,9 +56,9 @@ namespace Nard.Tests.Layout
         {
             var l=new MatchBoardLayout(w,h,new Rect(0,20,w,h-56));
             Assert.That(l.Tray(0).yMin-l.Tray(1).yMax,Is.EqualTo(l.PortraitBar.height).Within(.01f));
-            Assert.That(l.Header.yMin,Is.EqualTo(l.Board.yMax).Within(.01f));Assert.That(l.Rail.yMax,Is.EqualTo(l.Board.yMin).Within(.01f));
+            Assert.That(l.Header.yMin,Is.GreaterThanOrEqualTo(l.Board.yMax-.01f));Assert.That(l.Board.yMin,Is.GreaterThanOrEqualTo(l.Rail.yMax-.01f));
             Assert.Greater(l.Dice.yMin,l.Undo.yMax);Assert.Greater(l.Dice.yMin,l.Roll.yMax);
-            Assert.GreaterOrEqual(l.Undo.width/l.Unit,160);Assert.That(l.Undo.height/l.Unit,Is.EqualTo(44).Within(.001f));
+            Assert.GreaterOrEqual(l.Undo.width/l.Unit,130);Assert.That(l.Undo.height/l.Unit,Is.GreaterThanOrEqualTo(44));
             for(int i=0;i<24;i++)
             {
                 var at=l.CheckerPixel(i,i<12?0:1,14,15);Assert.AreEqual(i,BoardHitMap.PointAt(l.WorldToCanonical(l.PixelToWorld(at)),0));
@@ -72,7 +72,7 @@ namespace Nard.Tests.Layout
             foreach(var size in new[]{new Vector2Int(320,568),new Vector2Int(390,844),new Vector2Int(540,960),new Vector2Int(720,1600)})
             {
                 var l=new MatchBoardLayout(size.x,size.y,new Rect(0,20,size.x,size.y-56));float lane=l.PortraitLaneWidth;
-                Assert.That(l.CheckerFootprint(0)/lane,Is.EqualTo(.80f).Within(.001));Assert.Greater(l.PointTouchRect(0).width,l.CheckerFootprint(0));
+                Assert.That(l.CheckerFootprint(0)/lane,Is.EqualTo(.84f).Within(.001));Assert.Greater(l.PointTouchRect(0).height,l.CheckerFootprint(0));
                 for(int point=-1;point<=24;point++)for(int player=0;player<2;player++)
                 {
                     var cell=point==-1?l.BarPocket(player):point==24?l.OffPocket(player):l.PointVisualRect(point);float d=l.CheckerFootprint(point);var positions=new HashSet<Vector2>();

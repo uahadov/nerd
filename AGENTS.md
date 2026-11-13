@@ -18,9 +18,11 @@ Layihəni davam etdirmək üçün söhbət tarixçəsinə, modelə, MCP-yə və 
    İcazə və status ziddirsə yeni işə başlama, əvvəl ziddiyyəti aydınlaşdır.
 4. Hazırda yalnız P02.5 icazəlidir: iki responsive matç yerləşimi, safe area və çevrilmədə state-in qorunması.
    D033 insanın P02.4 funksional qəbulunu və P02.5 icazəsini saxlayır. D032 üzrə board-focus HUD qurulur;
-   premium referans material üslubudur, bütöv hazır səhnə deyil. D036 yalnız portrait proporsiya/daş yerləşimi düzəlişidir: xana pitch-i bütün ölçülərin əsasıdır; bütün 1–15 daş ayrıca mərkəzlə göstərilir, toxunma renderdən ayrıdır. Landscape görünüşünü dəyişmə, regressiya ilə qoru. Final polish və P02.6/save yoxdur.
+   premium referans material üslubudur. D037 insanın hər iki orientasiyada vahid vizual səhnə, qısa motion və lokal PCM səs icazəsidir.
+   Portret təbii fiziki case nisbətində bütöv taxtadır; HUD ayrıca yerləşir. Referansdan başqa vizual üslub kopyalama.
+   Motion/audio yalnız presentation qatındadır; yeni input/resize onları təhlükəsiz yekunlaşdırır. P02.6/save və başqa part yoxdur.
    Rules/Match/Interaction, zər mənbəyi və əvvəlki C# testlərini qoru. Undo/avtomatik commit qaydasını dəyişmə.
-   Bot, online, başqa ekran və final art yoxdur. Fiziki Android və yerli oyunçu NOT_RUN qalır.
+   Bot, online və başqa ekran yoxdur; bu cari görünüş/hiss baxışıdır, bütün gələcək art/motion partlarının icrası deyil. Fiziki Android və yerli oyunçu NOT_RUN qalır.
    Altı PROVISIONAL_RULE saxlanır. Native Editor qəzası həll sübutu olmadan açıq riskdir.
    İş bitəndə AWAITING_HUMAN_APPROVAL ilə dayan; P02.6-ya icazə yoxdur.
 5. A01–A87 uzunmüddətli backlog-dur; hamısı ilk buraxılış deyil.

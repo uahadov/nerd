@@ -12,22 +12,15 @@ namespace Nard.Presentation
         private readonly ReferenceBoardSkin skin;
         private readonly Sprite rounded,circle,grain,diceFace;
         private readonly List<UnityEngine.Object> owned=new List<UnityEngine.Object>();
-        private readonly Sprite creamField,topFrame,bottomFrame,sideFrame,hinge;
-        private readonly Sprite[] topPoints=new Sprite[6],bottomPoints=new Sprite[6];
         private Transform root;private MatchBoardLayout layout;
         private static readonly Color Cream=new Color32(246,235,213,255),Wood=new Color32(103,64,40,255),Honey=new Color32(224,176,100,255),Ink=new Color32(78,48,31,255);
         public MatchHudView(ReferenceBoardSkin skin)
         {
             this.skin=skin;
-            var texture=skin.BoardSprite.texture;
-            creamField=Sprite(128,128,(x,y)=>{float v=.003f*Mathf.Sin(x*347+y*113);return new Color(.963f+v,.865f+v,.698f+v,1);});
-            topFrame=Slice(texture,new Rect(0,1008,720,78));bottomFrame=Slice(texture,new Rect(0,0,720,90));sideFrame=Slice(texture,new Rect(0,90,128,918));
-            hinge=Slice(texture,new Rect(701,843,49,96));
-            for(int i=0;i<6;i++){topPoints[i]=PointSprite(texture,new Rect(130+i*90,694,90,318),true);bottomPoints[i]=PointSprite(texture,new Rect(130+i*90,83,90,345),false);}
             rounded=Sprite(96,96,(x,y)=>{float a=Mathf.Max(Mathf.Abs(x-.5f)-.37f,0),b=Mathf.Max(Mathf.Abs(y-.5f)-.37f,0);return a*a+b*b<=.13f*.13f?Color.white:Color.clear;});
             diceFace=Sprite(96,96,(x,y)=>{float a=Mathf.Max(Mathf.Abs(x-.5f)-.46f,0),b=Mathf.Max(Mathf.Abs(y-.5f)-.46f,0);return a*a+b*b<=.04f*.04f?Color.white:Color.clear;});
             circle=Sprite(96,96,(x,y)=>(x-.5f)*(x-.5f)+(y-.5f)*(y-.5f)<.25f?Color.white:Color.clear);
-            grain=Sprite(128,64,(x,y)=>{float v=.006f*Mathf.Sin(y*190+x*6)+.004f*Mathf.Sin(y*57+x*11);return new Color(.48f+v,.31f+v,.20f+v);});
+            grain=Sprite(256,256,(x,y)=>{float thread=.004f*Mathf.Sin(x*1608)+.004f*Mathf.Sin(y*1608);float light=.018f*(1-y)-.012f*((x-.5f)*(x-.5f)+(y-.5f)*(y-.5f));return new Color(.19f+thread+light,.33f+thread+light,.29f+thread+light);});
         }
         public void Apply(BoardView view,GameObject content,LocalTurnLoop loop,MatchBoardLayout geometry)
         {
@@ -36,9 +29,18 @@ namespace Nard.Presentation
             var go=new GameObject("MatchHud");go.transform.SetParent(content.transform,false);root=go.transform;
             Rect full=new Rect(0,0,layout.Width,layout.Height);
             Draw("TableSurface",grain,full,Color.white,-3);
+            if(layout.Portrait)
+            {
+                Draw("HeaderPlank",rounded,layout.Header,new Color32(74,47,30,225),-2);
+                Draw("HeaderTrim",rounded,new Rect(layout.Header.xMin,layout.Header.yMin,layout.Header.width,2*layout.Unit),Honey,-1);
+                Draw("FooterPlank",rounded,layout.Rail,new Color32(74,47,30,225),-2);
+                Draw("FooterTrim",rounded,new Rect(layout.Rail.xMin,layout.Rail.yMax-2*layout.Unit,layout.Rail.width,2*layout.Unit),Honey,-1);
+            }
 
-            if(layout.Portrait)PortraitBoard();
-            else Draw("ResponsiveBoard",skin.BoardSprite,layout.Board,Color.white,0);
+            var shadow=layout.Board;shadow.position+=new Vector2(0,-3*layout.Unit);shadow.xMin-=2*layout.Unit;shadow.xMax+=2*layout.Unit;
+            Draw("BoardGroundShadow",rounded,shadow,new Color(0,0,0,.18f),-1);
+            var board=Draw("ResponsiveBoard",skin.BoardSprite,layout.Board,Color.white,0);
+            if(layout.Portrait){board.transform.localRotation=Quaternion.Euler(0,0,-90);board.transform.localScale=new Vector3(layout.Board.height/100/skin.BoardSprite.bounds.size.x,layout.Board.width/100/skin.BoardSprite.bounds.size.y,1);}
             var counts=new Dictionary<int,int>();
             foreach(var c in view.Checkers)
             {
@@ -72,101 +74,80 @@ namespace Nard.Presentation
             foreach(int target in loop.Targets)
             {
                 var p=layout.TargetPixel(target,loop.Session.Player);
-                float d=layout.Portrait?layout.PortraitLaneWidth*.24f:layout.CheckerDiameter*.44f;Draw("LegalTarget_"+target,circle,Centered(p,d,d),Ink,40);Draw("LegalTargetFace_"+target,circle,Centered(p,d*.65f,d*.65f),new Color32(77,153,149,255),41);
+                if(target<24)
+                {
+                    float ghostSize=layout.Portrait?layout.CheckerFootprint(target):layout.CheckerDiameter/.84f;
+                    var ghostSprite=loop.Session.Player==0?skin.IvorySprite:skin.WalnutSprite;
+                    Draw("LegalGhost_"+target,ghostSprite,Centered(p,ghostSize,ghostSize),new Color(1,1,1,.45f),38);
+                }
+                float d=layout.Portrait?layout.PortraitLaneWidth*.46f:layout.CheckerDiameter*.62f;
+                Draw("LegalTarget_"+target,circle,Centered(p,d,d),Honey,40);
+                Draw("LegalTargetFace_"+target,circle,Centered(p,d*.68f,d*.68f),new Color32(77,153,149,255),41);
             }
             Status(loop);
             Dice(loop);
             Button("Undo",layout.Undo,"↶  Geri al",loop.CanUndo);
             if(loop.CanRoll)Button("Roll",layout.Roll,"Zər at",true);
+            bool audible=view.GetComponent<BoardFeedback>()?.SoundEnabled??true;
+            Draw("SoundControl",circle,Centered(layout.Sound.center,28*layout.Unit,28*layout.Unit),Wood,49);
+            Label("SoundLabel",audible?"♪":"×",layout.Sound.center,16*layout.Unit,Cream,51);
 
         }
-        private void PortraitBoard()
+        private void Seat(LocalTurnLoop loop,int player,Rect rect)
         {
-            Rect board=layout.Board;float w=board.width;
-            Draw("PortraitBoardFrame",grain,board,Color.white,0);
-            // One continuous case: only its outside top/bottom edges carry a full ornamental rail.
-            Draw("PortraitOuterTop",topFrame,new Rect(board.xMin,board.yMax-w*.09f,w,w*.09f),Color.white,4);
-            Draw("PortraitOuterBottom",bottomFrame,new Rect(board.xMin,board.yMin,w,w*.09f),Color.white,4);
-            for(int half=0;half<2;half++)
-            {
-                Rect tray=layout.Tray(half);
-                Draw("TrayLeft_"+half,sideFrame,new Rect(tray.xMin,tray.yMin,w*.07f,tray.height),Color.white,3);
-                Draw("TrayRight_"+half,sideFrame,new Rect(tray.xMax-w*.07f,tray.yMin,w*.07f,tray.height),Color.white,3).flipX=true;
-                var field=layout.PortraitField(half);
-                Draw("CreamField_"+half,creamField,field,Color.white,1);
-                for(int col=0;col<6;col++)
-                {
-                    Rect top=layout.PointVisualRect((half==0?12:18)+col),bottom=layout.PointVisualRect((half==0?11:5)-col);
-                    Draw("TopPoint_"+half+"_"+col,topPoints[col],top,Color.white,2);
-                    Draw("BottomPoint_"+half+"_"+col,bottomPoints[col],bottom,Color.white,2);
-                }
-            }
-            Draw("PortraitCentralBar",grain,layout.PortraitBar,new Color(.85f,.81f,.76f,1),4);
-            foreach(int side in new[]{-1,1})
-            {
-                var r=Draw("PortraitHinge_"+side,hinge,Centered(board.center+Vector2.right*side*layout.PortraitLaneWidth*3.18f,layout.PortraitLaneWidth*.22f,layout.PortraitLaneWidth*.44f),Color.white,6);
-                r.transform.localRotation=Quaternion.Euler(0,0,90);
-            }
-            Draw("PortraitHudWood",grain,layout.Header,new Color(.86f,.83f,.78f,1),46);
-            Draw("PortraitControlWood",grain,layout.Rail,new Color(.86f,.83f,.78f,1),46);
-        }
-        private void PortraitStatus(LocalTurnLoop loop)
-        {
-            Rect r=layout.Status;float u=layout.Unit;
-            Label("ModeTitle",loop.Session.Mode==GameMode.Long?"UZUN NƏRD":"QISA NƏRD",new Vector2(r.center.x,r.yMax-9*u),12*u,Cream,50);
-            for(int player=0;player<2;player++)
-            {
-                bool active=loop.Session.Player==player;
-                var seat=Centered(new Vector2(r.xMin+(player==0?.25f:.75f)*r.width,r.yMin+17*u),r.width*.46f,32*u);
-                Draw("PlayerSeat_"+player,grain,seat,active?Color.white:new Color(.87f,.85f,.80f,1),48);
-                Draw("PlayerActiveEdge_"+player,rounded,new Rect(seat.xMin+8*u,seat.yMin,seat.width-16*u,3*u),active?new Color32(77,153,149,255):Wood,49);
-                Draw("PlayerChecker_"+player,player==0?skin.IvorySprite:skin.WalnutSprite,Centered(new Vector2(seat.xMin+22*u,seat.center.y),24*u,24*u),Color.white,50);
-                Label("PlayerName_"+player,player==0?"Açıq tərəf":"Qoz tərəf",seat.center+new Vector2(10*u,4*u),15*u,Cream,50);
-                string turn=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==player?"Qalib":"Partiya bitdi"):active?"Sizin növbəniz":"Gözləyir";
-                Label("PlayerTurn_"+player,turn,seat.center+new Vector2(10*u,-9*u),9*u,active?Cream:new Color32(207,185,156,255),50);
-            }
-            string feedback=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==0?"Açıq tərəf qalibdir":"Qoz tərəf qalibdir"):loop.Reason=="OPENING_TIE"?"Bərabərdir · yenidən atın":loop.Reason=="DICE_SOURCE_FAILED"||loop.Reason=="INVALID_DICE"?"Zər alınmadı · yenidən atın":loop.CanRoll?"Başlamaq üçün zər atın":loop.Reason=="UNDO_COMPLETE"?"Gediş geri alındı":loop.Selected==TapSelection.None?"Öz daşınızı seçin":"İşarəli xanaya oynayın";
-            Label("MoveFeedback",feedback,new Vector2(layout.Rail.xMin+260*u,layout.Rail.yMin+64*u),13*u,Cream,50);
+            float u=layout.Unit;bool active=loop.Session.Player==player;
+            Vector2 puck=new Vector2(rect.xMin+18*u,rect.center.y);
+            Draw("SeatRim_"+player,circle,Centered(puck,33*u,33*u),active?new Color32(77,153,149,255):Wood,48);
+            Draw("PlayerChecker_"+player,player==0?skin.IvorySprite:skin.WalnutSprite,Centered(puck,30*u,30*u),Color.white,50);
+            Label("PlayerName_"+player,player==0?"Açıq tərəf":"Qoz tərəf",new Vector2(rect.center.x+12*u,rect.center.y+6*u),13*u,Cream,50);
+            string text=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==player?"Qalib":"Partiya bitdi"):active?"Növbə sizdə":"Gözləyir";
+            Label("PlayerTurn_"+player,text,new Vector2(rect.center.x+12*u,rect.center.y-10*u),10*u,active?Honey:new Color32(187,201,185,255),50);
         }
         private void Status(LocalTurnLoop loop)
         {
-            if(layout.Portrait){PortraitStatus(loop);return;}
-            var r=layout.Status;float u=layout.Unit;
-            Label("ModeTitle",loop.Session.Mode==GameMode.Long?"UZUN NƏRD":"QISA NƏRD",new Vector2(r.center.x,r.yMax-10*u),13*u,Cream,50);
-            for(int player=0;player<2;player++)
+            float u=layout.Unit;string mode=loop.Session.Mode==GameMode.Long?"UZUN NƏRD":"QISA NƏRD";
+            if(layout.Portrait)
             {
-                bool current=loop.Session.Player==player;float x=layout.Portrait?r.xMin+(player==0?.25f:.75f)*r.width:r.center.x;
-                float y=layout.Portrait?r.yMin+22*u:r.yMax-(player==0?66:122)*u;
-                Rect plate=Centered(new Vector2(x,y),layout.Portrait?r.width*.46f:r.width,40*u);
-                Draw("PlayerSeat_"+player,rounded,plate,current?new Color32(61,104,98,255):new Color32(98,65,43,255),48);
-                Draw("PlayerChecker_"+player,player==0?skin.IvorySprite:skin.WalnutSprite,Centered(new Vector2(plate.xMin+22*u,y),30*u,30*u),Color.white,50);
-                Label("PlayerName_"+player,player==0?"Açıq tərəf":"Qoz tərəf",new Vector2(x+12*u,y+6*u),12*u,Cream,50);
-                Label("PlayerTurn_"+player,loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==player?"Qalib":"Partiya bitdi"):current?"Növbə sizdə":"Gözləyir",new Vector2(x+12*u,y-9*u),9*u,current?Cream:new Color32(198,173,141,255),50);
+                Label("ModeTitle",mode,new Vector2(layout.Header.xMin+54*u,layout.Header.center.y),13*u,Honey,50);
+                Seat(loop,1,new Rect(layout.Header.center.x-60*u,layout.Header.yMin+4*u,160*u,38*u));
+                Seat(loop,0,new Rect(layout.Rail.xMin+10*u,layout.Rail.yMax-40*u,165*u,34*u));
             }
-            if(!layout.Portrait)Label("MatchFormat","Lokal · Tək partiya",new Vector2(r.center.x,r.yMin+2*u),10*u,Cream,50);
-            string feedback=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==0?"Açıq tərəf qalibdir":"Qoz tərəf qalibdir"):loop.Reason=="OPENING_TIE"?"Bərabərdir · yenidən atın":loop.Reason=="DICE_SOURCE_FAILED"||loop.Reason=="INVALID_DICE"?"Zər alınmadı · yenidən atın":loop.Session.Player<0?"Başlamaq üçün zər atın":loop.CanRoll?"Yeni növbə":loop.Reason=="UNDO_COMPLETE"?"Gediş geri alındı":"İşarəli xanaya oynayın";
-            float fy=layout.Portrait?layout.Rail.yMin+3*u:layout.Rail.yMin+187*u;
-            Label("MoveFeedback",feedback,new Vector2(layout.Rail.center.x,fy),9*u,Cream,50);
+            else
+            {
+                Label("ModeTitle",mode,new Vector2(layout.Rail.center.x,layout.Rail.yMax-48*u),14*u,Honey,50);
+                Seat(loop,1,new Rect(layout.Rail.xMin+8*u,layout.Rail.yMax-110*u,layout.Rail.width-16*u,36*u));
+                Seat(loop,0,new Rect(layout.Rail.xMin+8*u,layout.Rail.yMax-168*u,layout.Rail.width-16*u,36*u));
+                Label("MatchFormat","Lokal · Tək partiya",new Vector2(layout.Rail.center.x,layout.Rail.yMax-190*u),10*u,Cream,50);
+            }
+            string feedback=loop.Session.Phase==MatchPhase.Finished?(loop.Session.Result.Winner==0?"Açıq tərəf qalibdir":"Qoz tərəf qalibdir"):loop.Reason=="OPENING_TIE"?"Bərabərdir · yenidən atın":loop.Reason=="DICE_SOURCE_FAILED"||loop.Reason=="INVALID_DICE"?"Zər alınmadı · yenidən atın":loop.CanRoll?"Zərə toxunun":loop.Reason=="UNDO_COMPLETE"?"Gediş geri alındı":loop.Selected==TapSelection.None?"Daşınızı seçin":"İşarəli xanaya oynayın";
+            Label("MoveFeedback",feedback,layout.Portrait?new Vector2(layout.Board.center.x,layout.Rail.yMax+10*u):new Vector2(layout.Rail.center.x,layout.Rail.yMin+187*u),13*u,Cream,50);
         }
         private void Dice(LocalTurnLoop loop)
         {
             float u=layout.Unit;var area=layout.Dice;var values=loop.CopyDisplayedRoll();
+            var tray=area;tray.xMin-=5*u;tray.xMax+=5*u;tray.yMin-=3*u;tray.yMax+=3*u;
+            var rim=tray;rim.xMin-=1.5f*u;rim.xMax+=1.5f*u;rim.yMin-=1.5f*u;rim.yMax+=1.5f*u;
+            Draw("DiceTrayShadow",rounded,tray,new Color(0,0,0,.20f),46);
+            Draw("DiceTrayRim",rounded,rim,Honey,47);
+            Draw("DiceTray",rounded,tray,new Color32(105,66,40,255),48);
             for(int die=0;die<2;die++)
             {
                 float side=area.height*.92f;Vector2 at=new Vector2(area.center.x+(die==0?-.28f:.28f)*area.width,area.center.y);
+                var group=new GameObject("DieGroup_"+die);group.transform.SetParent(root,false);group.transform.localPosition=Vector3.zero;var before=root;root=group.transform;
                 Draw("DieRim_"+die,diceFace,Centered(at,side,side),Wood,50);Draw("DieFace_"+die,diceFace,Centered(at,side*.90f,side*.90f),Cream,51);
-                if(values.Length==0){Label("DieEmpty_"+die,"·",at,side*.5f,Ink,52);continue;}
+                if(values.Length==0){Label("DieEmpty_"+die,"·",at,side*.5f,Ink,52);AnchorDie(group.transform,at);root=before;continue;}
                 int value=values[die];var spots=new List<Vector2>();if(value%2==1)spots.Add(Vector2.zero);
                 if(value>=2){spots.Add(new Vector2(-1,1));spots.Add(new Vector2(1,-1));}if(value>=4){spots.Add(new Vector2(1,1));spots.Add(new Vector2(-1,-1));}if(value==6){spots.Add(new Vector2(-1,0));spots.Add(new Vector2(1,0));}
                 for(int i=0;i<spots.Count;i++)Draw("MatchPip_"+die+"_"+i,circle,Centered(at+spots[i]*side*.23f,side*.10f,side*.10f),Ink,52);
+                AnchorDie(group.transform,at);root=before;
             }
             var tokens=loop.Tokens;int available=tokens.Count(t=>t.State==TokenState.Available);
-            Vector2 center=layout.Portrait?new Vector2(layout.Rail.xMin+135*u,layout.Rail.yMax-20*u):new Vector2(layout.Rail.center.x,layout.Rail.yMin+135*u);
+            Vector2 center=layout.Portrait?new Vector2(layout.Rail.xMax-92*u,layout.Rail.yMax-28*u):new Vector2(layout.Rail.center.x,layout.Rail.yMin+135*u);
             if(layout.Portrait&&(loop.CanRoll||loop.Session.Phase==MatchPhase.Finished))
-                Label("RightsRemaining",loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Atış gözlənilir",new Vector2(layout.Rail.xMin+260*u,layout.Rail.yMax-14*u),14*u,Cream,52);
+                Label("RightsRemaining",loop.Session.Phase==MatchPhase.Finished?"Partiya bitdi":"Atış gözlənilir",new Vector2(layout.Rail.xMax-92*u,layout.Rail.yMax-10*u),14*u,Cream,52);
             else if(tokens.Count>0)
             {
-                Label("RightsRemaining",available+" gediş qalıb",layout.Portrait?new Vector2(layout.Rail.xMin+260*u,layout.Rail.yMax-14*u):center+Vector2.up*15*u,(layout.Portrait?14:11)*u,Cream,52);
+                Label("RightsRemaining",available+" gediş qalıb",layout.Portrait?new Vector2(layout.Rail.xMax-92*u,layout.Rail.yMax-10*u):center+Vector2.up*15*u,(layout.Portrait?14:11)*u,Cream,52);
                 for(int i=0;i<tokens.Count;i++)
                 {
                     Vector2 at=center+Vector2.right*(i-(tokens.Count-1)*.5f)*(layout.Portrait?12:18)*u;
@@ -176,11 +157,17 @@ namespace Nard.Presentation
                 }
             }
         }
+        private void AnchorDie(Transform group,Vector2 pixel)
+        {Vector3 at=layout.PixelToWorld(pixel);foreach(Transform child in group)child.localPosition-=at;group.localPosition=at;}
         private void Button(string name,Rect rect,string label,bool active)
         {
-            Draw(name+"Frame",rounded,rect,active?new Color32(161,123,77,255):new Color32(99,76,55,255),49);
-            var inner=rect;inner.xMin+=2*layout.Unit;inner.xMax-=2*layout.Unit;inner.yMin+=2*layout.Unit;inner.yMax-=2*layout.Unit;
-            Draw(name+"Wood",grain,inner,active?Color.white:new Color(.80f,.77f,.70f,1),50);Label(name+"Label",label,rect.center,(layout.Portrait?15:13)*layout.Unit,active?Cream:new Color32(182,160,133,255),51);
+            float u=layout.Unit;var shadow=rect;shadow.y-=2*u;
+            Draw(name+"Shadow",rounded,shadow,new Color(0,0,0,.22f),48);
+            Draw(name+"Frame",rounded,rect,new Color32(104,65,39,255),49);
+            var inner=rect;inner.xMin+=1.5f*u;inner.xMax-=1.5f*u;inner.yMin+=1.5f*u;inner.yMax-=1.5f*u;
+            Color face=active?(name=="Roll"?new Color32(177,83,54,255):Cream):new Color32(75,93,75,255);
+            Draw(name+"Face",rounded,inner,face,50);
+            Label(name+"Label",label,rect.center,13*u,active&&name=="Undo"?Ink:active?Cream:new Color32(169,181,161,255),51);
         }
         private SpriteRenderer Draw(string name,Sprite sprite,Rect pixel,Color color,int order)
         {
@@ -194,15 +181,6 @@ namespace Nard.Presentation
             var renderer=go.GetComponent<MeshRenderer>();renderer.sharedMaterial=text.font.material;renderer.sortingOrder=order;
         }
         private static Rect Centered(Vector2 p,float w,float h)=>new Rect(p.x-w*.5f,p.y-h*.5f,w,h);
-        private Sprite PointSprite(Texture2D texture,Rect rect,bool top)
-        {
-            var sprite=Slice(texture,rect);
-            // OverrideGeometry takes sprite-rect pixels, unlike the world-unit vertices getter.
-            float w=rect.width,h=rect.height;
-            sprite.OverrideGeometry(new[]{new Vector2(0,top?h:0),new Vector2(w,top?h:0),new Vector2(w/2,top?0:h)},new ushort[]{0,1,2});return sprite;
-        }
-        private Sprite Slice(Texture2D texture,Rect rect,Vector4 border=default)
-        {var sprite=UnityEngine.Sprite.Create(texture,rect,new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,border);owned.Add(sprite);return sprite;}
         private Sprite Sprite(int width,int height,Func<float,float,Color> color)
         {
             var texture=new Texture2D(width,height,TextureFormat.RGBA32,false);texture.filterMode=FilterMode.Bilinear;var pixels=new Color[width*height];

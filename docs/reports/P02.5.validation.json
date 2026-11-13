@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "part": "P02.5",
-  "executed_at": "2026-11-04T15:38:35+04:00",
+  "executed_at": "2026-11-13T18:50:49+04:00",
   "passed": 15,
   "failed": 0,
   "checks": [
@@ -68,12 +68,12 @@
     {
       "name": "candidate_and_index_safety",
       "status": "PASS",
-      "detail": "372 candidate files and available index blobs checked; limited pattern scan"
+      "detail": "378 candidate files and available index blobs checked; limited pattern scan"
     },
     {
       "name": "remote_safety",
       "status": "PASS",
-      "detail": "Remote PUBLIC; sync DEFERRED_PUBLIC_REMOTE"
+      "detail": "Remote PUBLIC; sync PUSHED"
     },
     {
       "name": "rule_specification",

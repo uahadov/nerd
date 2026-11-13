@@ -63,7 +63,7 @@ namespace Nard.Presentation
         }
         private void Awake()
         {
-            if(responsiveLayout){Screen.autorotateToPortrait=true;Screen.autorotateToLandscapeLeft=true;Screen.autorotateToLandscapeRight=true;Screen.orientation=ScreenOrientation.AutoRotation;RefreshLayout();}
+            if(responsiveLayout){if(GetComponent<BoardFeedback>()==null)gameObject.AddComponent<BoardFeedback>();Screen.autorotateToPortrait=true;Screen.autorotateToLandscapeLeft=true;Screen.autorotateToLandscapeRight=true;Screen.orientation=ScreenOrientation.AutoRotation;RefreshLayout();}
             CreateSprites();
             Display(BoardSnapshot.From(MatchSession.Create("technical-board", initialMode, RuleContract.VersionFor(initialMode))));
         }
@@ -80,6 +80,7 @@ namespace Nard.Presentation
         }
         public void Display(BoardSnapshot snapshot)
         {
+            GetComponent<BoardFeedback>()?.Finish();
             if (snapshot == null) throw new ArgumentNullException(nameof(snapshot));
             if (square == null) CreateSprites();
             // Disable first so even two snapshots within one frame cannot render stale pieces.
@@ -200,7 +201,7 @@ namespace Nard.Presentation
             if(referenceStyle)
             {
                 if(skin==null)skin=new ReferenceBoardSkin();
-                if(responsiveLayout){RefreshLayout();if(matchHud==null)matchHud=new MatchHudView(skin);matchHud.Apply(this,content,loop,matchLayout);}
+                if(responsiveLayout){RefreshLayout();if(matchHud==null)matchHud=new MatchHudView(skin);matchHud.Apply(this,content,loop,matchLayout);GetComponent<BoardFeedback>()?.Observe(this,loop);}
                 else skin.Apply(this,content,loop.Selected,loop.Session.Player,loop.Targets);
             }
         }

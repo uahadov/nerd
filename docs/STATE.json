@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "NƏRD.",
   "timezone": "Asia/Baku",
-  "updated_on": "2026-11-04",
+  "updated_on": "2026-11-13",
   "active_part": "P02.5",
   "status": "AWAITING_HUMAN_APPROVAL",
   "last_human_approved_part": "P02.4",
@@ -130,10 +130,10 @@
     "branch": "main",
     "remote_url": "https://github.com/uahadov/nerd.git",
     "remote_visibility": "PUBLIC",
-    "sync_status": "DEFERRED_PUBLIC_REMOTE",
+    "sync_status": "PUSHED",
     "local_foundation_completed": true,
     "private_remote_backup_completed": false,
-    "push_authorized": false
+    "push_authorized": true
   },
   "open_items": [
     {
@@ -167,7 +167,7 @@
       "next_action": "D036 portrait ölçü düzəlişinin screenshot/build nəticəsini insana göstər; vizual qəbulu agent özü vermir. P02.6 yoxdur."
     }
   ],
-  "resume_instruction": "D036 yalnız P02.5 portrait ölçü/yığın düzəlişi hazırdır, insan rəyini gözlə. Xana eni vahid ölçüdür, 1–15 daş ayrıca mərkəzdədir, faktiki Renderer.bounds sərhədləri yoxlanıb, toxunma ayrıdır. Landscape/qaydalar qorunur. AWAITING_HUMAN_APPROVAL; P02.6/push yoxdur. Fiziki Android/yerli review NOT_RUN, native qəza açıq riskdir.",
+  "resume_instruction": "Yalnız D037 cari P02.5 vahid görünüş/hiss düzəlişini icra et. Əsas D024 premium taxtadır; rəqib oyunlar yalnız UX araşdırmasıdır. Qaydalar/Interaction qorunur. Sonda AWAITING_HUMAN_APPROVAL; P02.6/push yoxdur.",
   "historical_audit_authorization": {
     "part": "P00.2",
     "date": "2026-11-03",
@@ -180,8 +180,8 @@
     "editor_version": "6000.6.7f1",
     "platform": "Android ARM64 IL2CPP development",
     "apk": "build/P02.5/NARD-P02.5.apk",
-    "apk_bytes": 39859298,
-    "apk_sha256": "d14596aa3869866794e9468d83f4efabee6b7f6851dee0e8b498d028f0ba7737",
+    "apk_bytes": 38642966,
+    "apk_sha256": "49ecedbcd416d0ca2fe1c87c1678edac876bfa0ef3551f2720b977b4c0768412",
     "execution_evidence": "docs/reports/P02.5.execution.json",
     "editor_visual": "PASS",
     "physical_device": "NOT_RUN",
@@ -412,8 +412,8 @@
   "rework_authorization": {
     "part": "P02.5",
     "by": "human",
-    "decision": "D036",
-    "scope": "Yalnız portrait proporsiya və daş yerləşimi: real xana eni, sprite sərhədi, nizamlı 1/2/5/10/15 yığınları, azaldılmış HUD və ayrıca toxunma xəritəsi. Landscape/qaydalar dəyişmir."
+    "decision": "D037",
+    "scope": "Hər iki orientasiyanın vahid vizual dizaynı, portretin yenidən düşünülməsi, qısa presentation motion və söndürülə bilən lokal səs; rəqib üslubu kopyalanmır, əsas D024-dür."
   },
   "portrait_layout_review": {
     "part": "P02.5",

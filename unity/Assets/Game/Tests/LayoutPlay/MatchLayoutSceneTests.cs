@@ -42,6 +42,7 @@ namespace Nard.Tests.Layout
         private static TurnMove[] Path(LocalTurnLoop loop)=>loop.Session.Mode==GameMode.Long?LongNardeRules.LegalTurns(loop.LongPosition)[0].Select(m=>new TurnMove(m.Source,m.Target,m.Slot)).ToArray():ShortNardeRules.LegalTurns(loop.ShortPosition)[0].Select(m=>new TurnMove(m.Source,m.Target,m.Slot)).ToArray();
         private void CheckPieces()
         {
+            view.GetComponent<BoardFeedback>()?.Finish();
             Assert.AreEqual(30,view.Checkers.Count);var l=view.CurrentLayout;
             foreach(var c in view.Checkers){Assert.IsTrue(c.Renderer.enabled);var at=l.WorldToPixel(c.Renderer.transform.localPosition);Assert.IsTrue(l.Safe.Contains(at),c.Renderer.name);Assert.IsTrue(l.Board.Contains(at),c.Renderer.name);Assert.AreEqual(c.Point,BoardHitMap.PointAt(l.WorldToCanonical(c.Renderer.transform.localPosition),c.Player),"Checker/hit-map mismatch: "+c.Renderer.name);
                 var min=l.WorldToPixel(c.Renderer.bounds.min);var max=l.WorldToPixel(c.Renderer.bounds.max);var bounds=Rect.MinMaxRect(min.x,min.y,max.x,max.y);
@@ -86,7 +87,7 @@ namespace Nard.Tests.Layout
             yield return Load();var loop=Ready(GameMode.Long,new Dice());Viewport(540,960);yield return null;var original=loop.LongPosition;var mouse=InputSystem.AddDevice<Mouse>();
             try
             {
-                Assert.NotNull(GameObject.Find("PortraitCentralBar"));Assert.NotNull(GameObject.Find("PortraitHinge_-1"));Assert.IsNull(GameObject.Find("TrayTop_0"));
+                Assert.NotNull(GameObject.Find("ResponsiveBoard"));Assert.NotNull(GameObject.Find("DiceTray"));Assert.IsNull(GameObject.Find("TrayTop_0"));
                 foreach(int layer in Enumerable.Range(0,15))
                 {
                     if(loop.Selected!=TapSelection.None)loop.Tap(0,loop.Selected);input.Bind(loop);var l=view.CurrentLayout;var pixel=l.CheckerPixel(0,0,layer,15);yield return Click(mouse,Camera.main.WorldToScreenPoint(l.PixelToWorld(pixel)));
